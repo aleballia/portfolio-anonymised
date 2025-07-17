@@ -1,0 +1,59 @@
+.circle {
+  position: relative;
+  border: 1px dashed var(--primary-shade);
+  border-radius: 50%;
+  background: var(--primary-shade);
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.circleDouble::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  border: 1px dashed var(--primary-shade);
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circleQuad::after {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: calc(100% + 16px);
+  height: calc(100% + 16px);
+  border: 1px dashed var(--primary-shade);
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 0;
+}
+.circleQuad::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border: 1px dashed var(--primary-shade);
+  border-radius: 50%;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ctaCircle {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-shade);
+  margin-left: 1rem;
+  vertical-align: middle;
+} 

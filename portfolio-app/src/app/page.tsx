@@ -1,3 +1,6 @@
+import Experience from "./components/Experience";
+
+
 // pages/index.js
 export default function Home() {
   return (
@@ -45,10 +48,7 @@ export default function Home() {
       </section>
 
       {/* Experience */}
-      <section style={{ padding: "2rem 1rem" }}>
-        <h2>Experience</h2>
-        {/* Timeline and jobs here */}
-      </section>
+      <Experience />
 
       {/* Selected Work */}
       <section style={{ padding: "2rem 1rem" }}>
