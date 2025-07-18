@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Lexend_Deca } from "next/font/google";
 import "./globals.css";
 
-const montserrat = Montserrat({
+const lexend = Lexend_Deca({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-lexend-deca",
   display: "swap",
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} antialiased`}
+        className={`${lexend.variable} antialiased`}
       >
         {children}
       </body>

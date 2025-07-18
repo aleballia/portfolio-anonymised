@@ -7,8 +7,8 @@ import styles from "./Experience.module.css";
 
 const experiences = [
     {
-        title: "Head of Product Design, Innovation & Growth",
-        company: "Freedom2hear",
+        title: "Head of Product Design",
+        company: "Innovation & Growth @ Freedom2hear",
         period: "Jan 2024 – Present",
     },
     {
@@ -30,6 +30,11 @@ const experiences = [
         title: "Senior UX/UI Designer",
         company: "Tom&Co",
         period: "2019 – 22",
+    },
+    {
+        title: "button", // Special marker for button
+        company: "",
+        period: "",
     },
 ];
 
@@ -81,15 +86,15 @@ export default function Experience() {
     const ANIMATION_DURATION = 0.6;
     const BASE_DELAY = 0.15;
 
-    const circleSizes = [48, 36, 24, 16, 12]; // Progressive sizes for main circles
+    const circleSizes = [48, 36, 24, 16, 12, 12]; // Progressive sizes for main circles
 
     return (
         <section
             style={{
-                background: "var(--background, #000)",
-                color: "var(--primary-shade)",
+                background: "var(--background)",
+                color: "var(--foreground)",
                 padding: "4rem 0",
-                minHeight: "80vh"
+                minHeight: "80vh",
             }}
         >
             <div
@@ -101,24 +106,19 @@ export default function Experience() {
                 }}
             >
                 {/* Left: Title */}
-                <div style={{ flex: 1 }}>
-                    <h2
-                        style={{
-                            fontSize: "5rem",
-                            fontWeight: 400,
-                            margin: 0,
-                            color: "var(--primary-shade)",
-                            lineHeight: 1
-                        }}
+                <div style={{ flex: 2, marginTop: "-32px" }}>
+                    <h2 
+                      className="display"
+                      style={{ fontWeight: 300 }}
                     >
-                        Experience
+                      Experience
                     </h2>
                 </div>
 
                 {/* Right: Timeline */}
                 <div
                     style={{
-                        flex: 2,
+                        flex: 2.5, // This gives the timeline more space
                         position: "relative",
                         paddingLeft: 0,
                         width: "100%",
@@ -139,10 +139,11 @@ export default function Experience() {
                                 style={{
                                     display: "flex",
                                     alignItems: "flex-start",
-                                    marginBottom: idx === experiences.length - 1 ? 0 : "2.5rem",
+                                    marginBottom: idx === experiences.length - 1 ? 0 : "4rem",
                                     position: "relative",
                                     zIndex: 1,
                                     width: "100%",
+                                    marginLeft: "3.275rem"
                                 }}
                             >
                                 {/* Left: Circle */}
@@ -199,7 +200,7 @@ export default function Experience() {
                                                 left: "50%",
                                                 transform: "translateX(-50%)",
                                                 width: 1,
-                                                background: "var(--primary-shade)",
+                                                background: "var(--primary)",
                                                 zIndex: 0
                                             }}
                                         />
@@ -217,61 +218,59 @@ export default function Experience() {
                                         minWidth: 0
                                     }}
                                 >
-                                    <motion.h3
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.2 }}
-  style={{
-    margin: 0,
-    fontSize: idx === 0 ? "2rem" : "1.3rem",
-    color: "var(--primary-shade)"
-  }}
->
-  {exp.title}
-</motion.h3>
-<motion.div
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  viewport={{ once: true, amount: 0.3 }}
-  transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.25 }}
-  style={{
-    color: "var(--foreground, #fff)",
-    fontSize: "1.1rem",
-    marginBottom: 4
-  }}
->
-  {exp.company} | {exp.period}
-</motion.div>
+                                    {exp.title === "button" ? (
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            whileInView={{ opacity: 1 }}
+                                            viewport={{ once: true, amount: 0.3 }}
+                                            transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.2 }}
+                                            style={{ marginLeft: 10 }}
+                                        >
+                                            <a
+                                                href="#"
+                                                className="btn"
+                                            >
+                                                More about my experience
+                                            </a>
+                                        </motion.div>
+                                    ) : (
+                                        <>
+                                            <motion.h3
+                                                className={idx === 0 ? "h2" : "h3"}
+                                                initial={{ opacity: 0 }}
+                                                whileInView={{ opacity: 1 }}
+                                                viewport={{ once: true, amount: 0.3 }}
+                                                transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.2 }}
+                                                style={{ 
+                                                  margin: 0, 
+                                                  marginLeft: 10, 
+                                                  marginBottom: 8,
+                                                  fontWeight: 300
+                                                }}
+                                            >
+                                                {exp.title}
+                                            </motion.h3>
+                                            <motion.div
+                                                className="paragraph"
+                                                initial={{ opacity: 0 }}
+                                                whileInView={{ opacity: 1 }}
+                                                viewport={{ once: true, amount: 0.3 }}
+                                                transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.25 }}
+                                                style={{ 
+                                                  marginBottom: 4, 
+                                                  marginLeft: 12,
+                                                  fontWeight: 400
+                                                }}
+                                            >
+                                                {exp.company} | {exp.period}
+                                            </motion.div>
+                                        </>
+                                    )}
                                 </motion.div>
                             </motion.div>
                         );
                     })}
-                    {/* Button aligned with text */}
-                    <div
-                        style={{
-                            marginLeft: 72,
-                            marginTop: "2rem"
-                        }}
-                        className="resume-btn-wrapper"
-                    >
-                        <a
-                            href="#"
-                            style={{
-                                display: "inline-block",
-                                padding: "1rem 2rem",
-                                background: "var(--primary)",
-                                color: "var(--primary-foreground, #fff)",
-                                borderRadius: "8px",
-                                fontSize: "1rem",
-                                textDecoration: "none",
-                                fontWeight: 700,
-                                textAlign: "center"
-                            }}
-                        >
-                            Full resume
-                        </a>
-                    </div>
+
                 
                     <style jsx>{`
             @media (max-width: 700px) {
