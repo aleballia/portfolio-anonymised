@@ -5,38 +5,33 @@ import AuroraBackground from "./components/AuroraBackground";
 import SelectedWork, { WorkItem } from "./components/SelectedWork";
 import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
 
 // pages/index.js
 export default function Home() {
   const works: WorkItem[] = [
     {
       title: "Freedom2hear",
-      subtitle: "Product, Innovation & Growth for an Emotion AI Startup",
+      subtitle: "Product Design, Innovation & Growth for an Emotion AI Startup",
       tags: "AI, Product, Innovation",
-      image: "/vercel.svg",
-      href: "/work/brand-identity",
+      image: "work/freedom2hear.png",
+      href: "/work/freedom2hear",
     },
     {
       title: "Dragonfly",
-      subtitle: "White LabelDesign System for an Award Winning Ecommerce Agency",
+      subtitle: "White Label Design System for Award Winning Ecommerce Agency",
       tags: "Design System, Ecommerce",
-      image: "/window.svg",
-      href: "/work/ui-animation",
+      image: "/work/dragonfly.png",
+      href: "/work/dragonfly",
     },
     {
       title: "MyFujifilm",
       subtitle: "Ecommerce for a Leading Global Brand",
       tags: "Ecommerce, Brand",
-      image: "/globe.svg",
-      href: "/work/portfolio-website",
+      image: "/work/myfujifilm.png",
+      href: "/work/myfujifilm",
     },
-    {
-      title: "The Oak",
-      subtitle: "Design System for the Biggest Residential Architecture Firm in the UK",
-      tags: "Design System, Architecture",
-      image: "/file.svg",
-      href: "/work/web-illustration",
-    },
+
   ];
 
   return (
@@ -68,18 +63,11 @@ export default function Home() {
 
 
       {/* Selected Work */}
-      <SelectedWork works={works} />
-
+        <SelectedWork works={works} />
 
 
       {/* Footer */}
-      <footer className="px-section" style={{ background: "var(--primary)", color: "var(--primary-foreground)", textAlign: "center" }}>
-        <span style={{ fontWeight: 400 }}>© AlessandraBalliana</span>
-        <nav style={{ float: "right" }}>
-          <a href="mailto:your@email.com" style={{ marginRight: "1rem", fontWeight: 400 }}>Contact</a>
-          <a href="https://linkedin.com" style={{ fontWeight: 400 }}>LinkedIn</a>
-        </nav>
-      </footer>
+      <Footer />
     </div>
   );
 }

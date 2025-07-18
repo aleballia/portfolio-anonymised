@@ -1,9 +1,13 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #0f021b;
   --foreground: #ffffff;
-  --muted: #f4f4f5;
+  --muted: #28094C;
   --muted-foreground: #d9b8ff;
   --card: #0f021b70;
   --card-foreground: #ffffff;
@@ -86,6 +90,7 @@
   line-height: 1.25;
   letter-spacing: -0.02em;
   text-transform: uppercase;
+  font-weight: 400;
 }
 
 .h5 {
@@ -242,13 +247,13 @@ body {
 
 /* Responsive horizontal padding utility */
 .px-section {
-  padding-left: 6rem;
-  padding-right: 6rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (min-width: 640px) {
   .px-section {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 @media (min-width: 1024px) {
@@ -261,6 +266,8 @@ body {
   .px-section {
     padding-left: 8rem;
     padding-right: 8rem;
+    max-width: 1680px;
+    margin: 0 auto;
   }
 }
 
@@ -274,4 +281,10 @@ body {
   background-repeat: repeat;
   background-size: cover;
   background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='noiseFilter'><feTurbulence type='fractalNoise' baseFrequency='5' numOctaves='0.2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23noiseFilter)'/></svg>");
+}
+
+@media (max-width: 600px) {
+  .hideOnMobile {
+    display: none !important;
+  }
 }

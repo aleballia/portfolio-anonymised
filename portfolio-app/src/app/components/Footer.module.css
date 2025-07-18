@@ -1,0 +1,27 @@
+.footer {
+  background: var(--primary);
+  color: var(--muted-foreground);
+  padding-top: 24px;
+  padding-bottom: 24px;
+  text-align: left;
+  font-size: 0.875rem;
+}
+
+.footerNav {
+  float: right;
+  display: flex;
+  gap: 1rem;
+}
+
+.footerNav a {
+  font-weight: 400;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.footerNav a:hover,
+.footerNav a:focus {
+  color: var(--foreground);
+  text-decoration: underline;
+}

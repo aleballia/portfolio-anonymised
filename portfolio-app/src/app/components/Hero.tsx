@@ -23,18 +23,24 @@ export default function Hero() {
           className="display"
           style={{ 
             color: "var(--foreground)",
-            fontWeight: 200,
-            marginBottom: 32,
+            fontWeight: 400,
+            marginBottom: 0,
           }}
         >
-          Product Designer & Strategist leading with curiosity and purpose.
+          Product Designer & Strategist
+
         </h1>
-        
+        <h2 className="display" style={{ 
+            color: "var(--foreground)",
+            marginBottom: 48,
+            fontWeight: 200,
+          }}>leading with curiosity and purpose.</h2>
         <p 
           className="h3"
           style={{ 
             color: "var(--foreground)",
-            paddingBottom: 24
+            paddingBottom: 24,
+            fontWeight: 400,
           }}
         >
         I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.

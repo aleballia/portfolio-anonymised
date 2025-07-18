@@ -90,7 +90,7 @@ export default function Experience() {
 
     return (
         <section
-            className="px-section"
+            className="px-section hideOnMobile"
             style={{
                 color: "var(--foreground)",
                 minHeight: "80vh",
@@ -107,7 +107,7 @@ export default function Experience() {
                 <div style={{ flex: 2, marginTop: "-32px" }}>
                     <h2 
                       className="display"
-                      style={{ fontWeight: 200 }}
+                      style={{ fontWeight: 400 }}
                     >
                       Experience
                     </h2>
@@ -243,13 +243,13 @@ export default function Experience() {
                                                   margin: 0, 
                                                   marginLeft: 10, 
                                                   marginBottom: 8,
-                                                  fontWeight: 200,
+                                                  fontWeight: 400,
                                                 }}
                                             >
                                                 {exp.title}
                                             </motion.h3>
                                             <motion.div
-                                                className="paragraph"
+                                                className="p"
                                                 initial={{ opacity: 0 }}
                                                 whileInView={{ opacity: 1 }}
                                                 viewport={{ once: true, amount: 0.3 }}
@@ -257,7 +257,7 @@ export default function Experience() {
                                                 style={{ 
                                                   marginBottom: 4, 
                                                   marginLeft: 12,
-                                            
+                                                  fontWeight: 300,
                                                 }}
                                             >
                                                 {exp.company} | {exp.period}

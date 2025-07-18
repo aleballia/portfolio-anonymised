@@ -54,3 +54,15 @@
   object-fit: cover;
   border: 1px solid var(--muted-foreground);
 } 
+
+
+@media (max-width: 600px) {
+    .testimonialsGrid {
+      column-count: 1 !important;
+      display: block !important;
+    }
+    .testimonialCard {
+      width: 100% !important;
+      display: block !important;
+    }
+  }

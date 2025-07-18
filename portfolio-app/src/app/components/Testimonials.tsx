@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
 
 const Testimonials: React.FC = () => (
   <section className={`px-section ${styles.testimonialsSection}`}>
-    <h2 className="h4" style={{ fontWeight: 500, marginBottom: "2.5rem" }}>Kind words</h2>
+    <h2 className="h4" style={{ marginBottom: "2.5rem" }}>Kind words</h2>
     <div className={styles.testimonialsGrid}>
       {testimonials.map((t, idx) => (
         <div className={styles.testimonialCard} key={idx}>

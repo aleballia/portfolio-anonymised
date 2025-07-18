@@ -26,7 +26,7 @@ export default function Skills() {
 
   return (
     <section className="px-section" style={{ marginBottom: 200  }}>
-      <h2 className="h4" style={{ textAlign: "left", marginBottom: 32 , fontWeight: 300 }}>Core skills</h2>
+      <h2 className="h4" style={{ textAlign: "left", marginBottom: 32  }}>Core skills</h2>
       <div style={{
         borderTop: "2px solid var(--border)",
         display: "flex",
@@ -57,7 +57,7 @@ export default function Skills() {
             }}
             onClick={() => setOpen(open === i ? null : i)}
           >
-            <div className="h3" style={{ display: "flex", alignItems: "center" }}>
+            <div className="h3" style={{ display: "flex", alignItems: "center" , fontWeight: 400 }}>
   {open === i ? (
     // Minus icon
     <svg width="32" height="32" viewBox="0 0 20 20" fill="none" style={{ marginRight: 12, verticalAlign: "middle" }}>
@@ -80,6 +80,7 @@ export default function Skills() {
                 overflow: "hidden",
                 transition: "max-height 0.3s",
                 marginTop: open === i ? 8 : 0,
+                fontWeight: 300,
               }}
             >
               {open === i && skill.description}

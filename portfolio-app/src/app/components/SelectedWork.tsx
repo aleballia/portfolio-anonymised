@@ -21,7 +21,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>, idx: number) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
     setCursor({ x: e.clientX + OFFSET_X, y: e.clientY + OFFSET_Y });
     setHoveredIdx(idx);
   };
@@ -39,30 +39,49 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
   };
 
   return (
-    <section className="px-section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
-    <h2 className="h4" style={{ fontWeight: 300 }}>Selected work</h2>
+    <section id="selected-work" className="px-section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
+    <h2 className="h4" style={{  }}>Selected work
+        <span style={{
+            fontSize: '0.875rem',
+            background: 'var(--accent)',
+            color: 'var(--accent-foreground)',
+            borderRadius: '2px',
+            padding: '0.5em 1em',
+            fontWeight: 500,
+            letterSpacing: '0.01em',
+            lineHeight: 1.2,
+            marginLeft: '1rem',
+          }}>
+            Details coming soon
+          </span></h2>
+    
+    
+
     <div className={styles.workList}>
       {works.map((work, idx) => (
         <div
-          href={work.href}
-          key={work.title}
           className={styles.workTitle}
+          key={work.title}
           onMouseMove={e => handleMouseMove(e, idx)}
           onMouseLeave={handleMouseLeave}
           onFocus={() => handleFocus(idx)}
           onBlur={handleBlur}
           tabIndex={0}
         >
-        <div>
-          <a>{work.title}</a>  <div style={{display: "flex", flexDirection: "row", gap: "2rem"}}>  
-            {work.subtitle && (
-              <div className={styles.subtitle}>{work.subtitle}</div>
-            )}
-          </div></div>
+          {/* Inline image for mobile only */}
+          <img
+            src={work.image}
+            alt={work.title}
+            className={styles.mobileImage}
+            aria-hidden="true"
+          />
+          <div>
+            <a>{work.title}</a>
+            <div className={styles.subtitle}>{work.subtitle}</div>
+          </div>
         </div>
-        
-                   
       ))}
+      {/* Floating preview image for desktop hover */}
       {hoveredIdx !== null && (
         <img
           src={works[hoveredIdx].image}
