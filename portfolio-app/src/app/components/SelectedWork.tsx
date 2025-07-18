@@ -5,7 +5,8 @@ import styles from "./SelectedWork.module.css";
 
 export type WorkItem = {
     title: string;
-    subtitle: string; // <-- Add this line
+    subtitle: string;
+    tags: string;
     image: string;
     href: string;
 };
