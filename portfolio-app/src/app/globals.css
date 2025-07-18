@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #07010d;
+  --background: #0f021b;
   --foreground: #ffffff;
   --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --card: #ffffff;
-  --card-foreground: #09090b;
+  --muted-foreground: #d9b8ff;
+  --card: #0f021b70;
+  --card-foreground: #ffffff;
   --popover: #ffffff;
   --popover-foreground: #09090b;
-  --border: #e4e4e7;
+  --border: #8a44da;
   --input: #e4e4e7;
   --primary: #7e27e0;
   --primary-foreground: #fafafa;
@@ -25,6 +25,8 @@
   --radius: 12px;
   --radius-md: 10px;
   --radius-sm: 8px;
+  --plus-cursor: url("data:image/svg+xml;utf8,<svg width='32' height='32' viewBox='0 0 20 20' fill='none'><path d='M10 4v12M4 10h12' stroke='white' stroke-width='2' stroke-linecap='round'/></svg>");
+
 }
 
 .light {
@@ -58,6 +60,7 @@
 .display {
   font-size: clamp(2.5rem, 8vw, 4.8rem);
   letter-spacing: -0.05em;
+  line-height: 1;
 }
 
 .h1 {
@@ -79,9 +82,10 @@
 }
 
 .h4 {
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.25;
   letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .h5 {
@@ -163,11 +167,14 @@
   text-decoration: none;
   text-align: center;
   border: none;
-  cursor: pointer;
   transition: all 0.2s ease;
   line-height: 1;
   letter-spacing: -0.02em;
   border: 1px solid var(--primary);
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .btn:hover {
@@ -201,6 +208,10 @@
   font-size: 1.125rem;
 }
 
+button, .btn, a {
+  cursor: var(--plus-cursor), pointer !important;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -227,4 +238,40 @@ body {
 .font-test {
   font-family: var(--font-lexend-deca), Arial, Helvetica, sans-serif;
   font-weight: 400;
+}
+
+/* Responsive horizontal padding utility */
+.px-section {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+@media (min-width: 640px) {
+  .px-section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  .px-section {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+@media (min-width: 1280px) {
+  .px-section {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+}
+
+.grain-overlay {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.2;
+  mix-blend-mode: overlay;
+  background-repeat: repeat;
+  background-size: cover;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='noiseFilter'><feTurbulence type='fractalNoise' baseFrequency='5' numOctaves='0.2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23noiseFilter)'/></svg>");
 }

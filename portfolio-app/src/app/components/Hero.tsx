@@ -4,38 +4,44 @@ import React from "react";
 
 export default function Hero() {
   return (
+   
     <section 
-      style={{ 
-        background: "var(--primary-shade)", 
-        color: "var(--primary-shade-foreground)", 
-        padding: "6rem 2rem",
+    className="px-section"
+    style={{
+        // background: "var(--background)", // REMOVE this line
+        color: "var(--foreground)",
         minHeight: "100vh",
         display: "flex",
         alignItems: "center",
-        justifyContent: "left"
+        justifyContent: "left",
+        background: "transparent", // Optional: ensure transparency
       }}
     >
 
-      <div style={{ maxWidth: "1200px", width: "100%", textAlign: "left", position: "relative", zIndex: 1 }}>
+      <div  style={{ width: "100%", textAlign: "left", position: "relative", zIndex: 1 }}>
         <h1 
           className="display"
           style={{ 
-            color: "var(--primary-shade-foreground)",
-            fontWeight: 300
+            color: "var(--foreground)",
+            fontWeight: 200,
+            marginBottom: 32,
           }}
         >
-          Alessandra Balliana
+          Product Designer & Strategist leading with curiosity and purpose.
         </h1>
         
         <p 
           className="h3"
           style={{ 
-            color: "var(--primary-shade-foreground)",
-            fontWeight: 300
+            color: "var(--foreground)",
+            paddingBottom: 24
           }}
         >
-         Product Design Lead
-        </p>
+        I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.
+        I’ll always be the person in the room asking challenging questions. Not to be difficult, but to get to what matters, reconsider assumptions, and 
+        <span style={{color: "var(--accent-secondary)", marginLeft: 8 }}>
+        unlock what’s possible. </span>
+    </p> 
         
       </div>
     </section>

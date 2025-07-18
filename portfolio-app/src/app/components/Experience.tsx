@@ -90,17 +90,15 @@ export default function Experience() {
 
     return (
         <section
+            className="px-section"
             style={{
-                background: "var(--background)",
                 color: "var(--foreground)",
-                padding: "4rem 0",
                 minHeight: "80vh",
             }}
         >
             <div
                 style={{
                     display: "flex",
-                    maxWidth: 1200,
                     margin: "0 auto",
                     alignItems: "flex-start"
                 }}
@@ -109,7 +107,7 @@ export default function Experience() {
                 <div style={{ flex: 2, marginTop: "-32px" }}>
                     <h2 
                       className="display"
-                      style={{ fontWeight: 300 }}
+                      style={{ fontWeight: 200 }}
                     >
                       Experience
                     </h2>
@@ -245,7 +243,7 @@ export default function Experience() {
                                                   margin: 0, 
                                                   marginLeft: 10, 
                                                   marginBottom: 8,
-                                                  fontWeight: 300
+                                                  fontWeight: 200,
                                                 }}
                                             >
                                                 {exp.title}
@@ -259,7 +257,7 @@ export default function Experience() {
                                                 style={{ 
                                                   marginBottom: 4, 
                                                   marginLeft: 12,
-                                                  fontWeight: 400
+                                            
                                                 }}
                                             >
                                                 {exp.company} | {exp.period}
