@@ -145,8 +145,6 @@ export default function AuroraBackground(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = "transparent";
 
-    let program: Program | undefined;
-
     function resize() {
       if (!ctn) return;
       const width = ctn.offsetWidth;
@@ -168,7 +166,7 @@ export default function AuroraBackground(props: AuroraProps) {
       return [c.r, c.g, c.b];
     });
 
-    program = new Program(gl, {
+    const program = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
       uniforms: {
@@ -211,7 +209,7 @@ export default function AuroraBackground(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-  }, [amplitude]);
+  }, [amplitude, blend, colorStops]);
 
   return (
     <div ref={ctnDom} style={{ position: "fixed", width: "100%", zIndex: -99, opacity: 0.5, height: "100vh" }}>

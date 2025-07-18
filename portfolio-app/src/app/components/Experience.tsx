@@ -125,7 +125,6 @@ export default function Experience() {
                 >
                     {experiences.map((exp, idx) => {
                         const size = circleSizes[idx] || 24;
-                        const dashedSize = size + 8;
                         const circleClass = idx === 0 ? styles.circleQuad : styles.circleDouble;
                         return (
                             <motion.div
