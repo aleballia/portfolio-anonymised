@@ -32,10 +32,10 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
     <article className="min-h-screen">
 
       {/* Hero Section: 50-50 split */}
-      <div className="flex flex-col md:flex-row w-full aspect-[3/1] overflow-hidden">
+      <div className="flex flex-col md:flex-row w-full md:aspect-[3/1] overflow-hidden">
         {/* Left: Title & Subtitle */}
-        <div className=" px-section flex flex-col justify-center items-start px-8 py-8 md:w-1/2">
-          <h1 className="display mb-2" style={{ color: "var(--foreground)" , fontWeight: "400" }}>{title}</h1>
+        <div className="px-section flex flex-col justify-center items-start px-8 py-8 md:w-1/2">
+          <h1 className="display mb-4" style={{ color: "var(--foreground)" , fontWeight: "400" }}>{title}</h1>
           <p className="h3" style={{ color: "var(--muted-foreground)" , fontWeight: "300" }}>{subtitle}</p>
         </div>
         {/* Right: Image */}
@@ -46,82 +46,91 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
             fill
             className="object-cover"
             priority
+            style={{
+            objectFit: "cover",
+              objectPosition: "top",
+            }}
           />
         </div>
       </div>
 
       {/* Main content, pushed down by image height */}
-      <section className="px-section pt-16 md:pt-24 pb-24" style={{ background: "var(--primary-shade)" }}>
+      <section className="px-section pt-16 pt-12 pb-12">
         <div className="">
-
-          {/* Summary and Details Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-24">
-
+            
+          {/* Summary and Details Grid - stack on mobile, side-by-side on desktop, with background and padding */}
+          <div
+            className="mb-8 p-8 md:p-16"
+            style={{
+              background: "var(--primary-shade-o-75)",
+              borderRadius: "32px",
+            }}
+          >
             {/* Project Summary */}
             {summary && (
-              <div className="md:col-span-2">
-                <div className="p" style={{ color: "var(--foreground)" , fontWeight: "500" , fontSize: "1.5rem" , letterSpacing: "-0.04em" }}>{summary}</div>
+              <div className="">
+                <div className="h3 text-base md:text-lg pb-24" style={{ color: "var(--foreground)" }}>{summary}</div>
               </div>
             )}
-            
-            {/* Details: Role, Company, Tools */}
-            <div className="md:col-span-2 flex flex-col gap-2">
-              {(role || company || tools || date) && (
-                <div className="flex flex-col gap-4">
+            {/* Details: Role, Company, Tools, Date */}
+            <div className="flex flex-col gap-2">
+              {(role || company) && (
+                <div className="flex flex-col gap-2 mb-2">
                   {role && (
-                    <p className="p mb-2" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
                       <span style={{ color: "var(--muted-foreground)" }}>Role: </span>
                       {role}
                     </p>
                   )}
                   {company && (
-                    <p className="p mb-2" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
                       <span style={{ color: "var(--muted-foreground)" }}>Company: </span>
                       {company}
                     </p>
                   )}
-                  {date && (
-                    <p className="p mb-2" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                      <span style={{ color: "var(--muted-foreground)" }}>Date: </span>
-                      {date}
-                    </p>
-                  )}
-                  {tools && tools.length > 0 && (
-                    <p className="p mb-2" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                      <span style={{ color: "var(--muted-foreground)" }}>Tools: </span>
-                      {tools.join(', ')}
-                    </p>
-                  )}
                 </div>
               )}
-              
+              {date && (
+                <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                  <span style={{ color: "var(--muted-foreground)" }}>Date: </span>
+                  {date}
+                </p>
+              )}
+              {/* Tools Ecosystem */}
+              {tools && tools.length > 0 && (
+                <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                  <span style={{ color: "var(--muted-foreground)" }}>Tools: </span>
+                  {tools.join(', ')}
+                </p>
+              )}
               {/* Project Tags */}
-          <div className="flex flex-wrap gap-2 mt-12">
-            {tags.map((tag, index) => (
-              <span 
-                key={tag + index}
-                className="caption px-3 py-1 rounded-full" 
-                style={{ 
-                  background: "var(--primary)", 
-                  color: "var(--primary-foreground)" 
-                }}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
+              <div className="flex flex-wrap gap-2 mb-8 mt-6 md:mt-12">
+                {tags.map((tag, index) => (
+                  <span 
+                    key={index}
+                    className="caption px-3 py-1 rounded-full text-xs md:text-sm" 
+                    style={{ 
+                      background: "var(--primary)", 
+                      color: "var(--primary-foreground)" 
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-section pb-24 pt-24" style={{ background: "var(--background)" }}>
+      <section className="px-section pb-24" style={{  }}>
         <div className="max-w-4xl mx-auto">
             
           {/* Rich Text Content with interleaved images */}
-          <div className="mt-24 prose prose-invert" style={{ color: "var(--foreground)" , fontWeight: "inherit" }}>
+          <div className="prose prose-invert" style={{ color: "var(--foreground)" , fontWeight: "inherit" }}>
             {children}
           </div>
+
           {/* Additional images interleaved after content */}
           {images && images.length > 0 && (
             <div className="flex flex-col gap-8 mt-12">

@@ -1,6 +1,12 @@
 import CaseStudy from "../../components/CaseStudy";
 import NotionContent from "../../components/NotionContent";
 import { getNotionPage } from "../../../lib/notion";
+import { title } from "process";
+
+export const metadata = {
+  title: "Dragonfly | White Label Design System for Award Winning Ecommerce Agency",
+  // ...other metadata fields
+};
 
 export default async function DragonflyCaseStudy() {
   // Replace with your actual Notion page ID

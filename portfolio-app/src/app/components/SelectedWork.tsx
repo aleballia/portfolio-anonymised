@@ -42,19 +42,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
   return (
     <section id="selected-work" className="px-section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
     <h2 className="h4" style={{  }}>Selected projects
-        <span style={{
-            fontSize: '0.875rem',
-            background: 'var(--accent)',
-            color: 'var(--accent-foreground)',
-            borderRadius: '2px',
-            padding: '0.5em 1em',
-            fontWeight: 500,
-            letterSpacing: '0.01em',
-            lineHeight: 1.2,
-            marginLeft: '1rem',
-          }}>
-            Details coming soon
-          </span></h2>
+    </h2>
     
     
 

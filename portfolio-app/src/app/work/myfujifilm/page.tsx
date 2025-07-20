@@ -1,9 +1,14 @@
 import CaseStudy from "../../components/CaseStudy";
 import NotionContent from "../../components/NotionContent";
 import { getNotionPage } from "../../../lib/notion";
+import { title } from "process";
+
+export const metadata = {
+  title: "MyFujifilm| Ecommerce Product Design & Development for a Global Brand",
+  // ...other metadata fields
+};
 
 export default async function MyFujifilmCaseStudy() {
-  // Replace with your actual Notion page ID
   const notionData = await getNotionPage('12ceac4e7ae980fd9d45fc49c9a47d19');
   
   return (
@@ -16,7 +21,7 @@ export default async function MyFujifilmCaseStudy() {
       company={notionData?.properties?.company || ""}
       tools={notionData?.properties?.tools || [""]}
       date={notionData?.properties?.date || ""}
-      summary={notionData?.properties?.Summary || ""}
+      summary={notionData?.properties?.summary || ""}
     >
       {notionData?.blocks ? (
         <NotionContent blocks={notionData.blocks} />

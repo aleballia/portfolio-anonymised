@@ -25,6 +25,11 @@
   text-decoration: none;
 }
 
+
+a.workTitle :hover {
+  text-decoration: none !important;
+}
+
 .previewImg {
   position: fixed;
   z-index: 1000;

@@ -1,6 +1,12 @@
 import CaseStudy from "../../components/CaseStudy";
 import NotionContent from "../../components/NotionContent";
 import { getNotionPage } from "../../../lib/notion";
+import { title } from "process";
+
+export const metadata = {
+  title: "Freedom2hear | Product Design, Innovation & Growth for an Emotion AI Startup",
+  // ...other metadata fields
+};
 
 export default async function Freedom2hearCaseStudy() {
   // Replace with your actual Notion page ID

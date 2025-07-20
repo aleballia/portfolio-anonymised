@@ -212,7 +212,7 @@ export default function AuroraBackground(props: AuroraProps) {
   }, [amplitude, blend, colorStops]);
 
   return (
-    <div ref={ctnDom} style={{ position: "fixed", width: "100%", zIndex: -99, opacity: 0.2, height: "100vh" }}>
+    <div ref={ctnDom} style={{ position: "fixed", width: "100%", zIndex: -99, opacity: 0.5, height: "100vh" }}>
       {/* Aurora canvas will be rendered here by OGL */}
       <div className="grain-overlay" />
       <div style={{ position: "absolute", zIndex: 3 }}>

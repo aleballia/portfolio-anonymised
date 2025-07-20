@@ -5,10 +5,10 @@ import Footer from "../components/Footer";
 
 export default function WorkLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="">
       <AuroraBackground />
       <Header />
-      <main className="flex-1 w-full flex flex-col items-center justify-start relative z-10">
+      <main className="">
         {children}
       </main>
       <Footer />

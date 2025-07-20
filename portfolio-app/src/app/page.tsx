@@ -7,6 +7,11 @@ import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 
+export const metadata = {
+  title: "Alessandra Balliana | Product Design Lead & Strategist",
+  // ...other metadata fields
+};
+
 // pages/index.js
 export default function Home() {
   const works: WorkItem[] = [
@@ -43,7 +48,7 @@ export default function Home() {
         amplitude={1.0}
         speed={0.8}
       >
-              </AuroraBackground>
+       </AuroraBackground>
       {/* Header */}
       <Header />
 

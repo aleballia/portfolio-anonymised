@@ -7,6 +7,7 @@ html {
 :root {
   --background: #0c0115;
   --foreground: #efe8f6;
+  --primary-shade-o-75: rgba(40, 9, 76, 0.25);
   --muted: #28094C;
   --muted-foreground: #d9b8ff;
   --card: #0f021b70;
@@ -178,9 +179,7 @@ html {
   border: 1px solid var(--primary);
 }
 
-a:hover {
-  text-decoration: underline;
-}
+
 
 .btn:hover {
   transform: translateY(-1px);
