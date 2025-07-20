@@ -1,5 +1,5 @@
 .footer {
-  background: var(--primary);
+  background: var(--primary-shade);
   color: var(--muted-foreground);
   padding-top: 24px;
   padding-bottom: 24px;
