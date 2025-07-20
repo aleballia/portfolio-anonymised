@@ -5,8 +5,8 @@ html {
 }
 
 :root {
-  --background: #0f021b;
-  --foreground: #ffffff;
+  --background: #0c0115;
+  --foreground: #efe8f6;
   --muted: #28094C;
   --muted-foreground: #d9b8ff;
   --card: #0f021b70;
@@ -237,6 +237,7 @@ body {
   font-family: var(--font-lexend-deca), Arial, Helvetica, sans-serif;
   /* Debug: Check if font variable is working */
   font-feature-settings: "liga" 1, "kern" 1;
+  font-weight: 300;
 }
 
 /* Test font loading */

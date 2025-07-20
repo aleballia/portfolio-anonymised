@@ -39,9 +39,9 @@ export default function Home() {
       {/* Aurora only behind header and hero */}
       <AuroraBackground
         colorStops={["#AD00A2", "#7E27E0", "#1efb7d",]}
-        blend={0.5}
+        blend={0.8}
         amplitude={1.0}
-        speed={0.5}
+        speed={0.8}
       >
               </AuroraBackground>
       {/* Header */}

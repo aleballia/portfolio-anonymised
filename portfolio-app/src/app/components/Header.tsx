@@ -2,11 +2,11 @@
 import React from "react";
 
 const Header: React.FC = () => (
-  <header className="px-section" style={{ background: "transparent", color: "var(--foreground)", paddingTop: "24px" }}>
+  <header className="px-section" style={{ width: "100%", background: "transparent", color: "var(--foreground)", paddingTop: "24px" , paddingBottom: "24px" }}>
     <div style={{ display: "flex", justifyContent: "space-between" }}>
-      <span className="h4" style={{ letterSpacing: "-0.02em", color: "var(--foreground)" }}>
+      <a href="/"><span className="h4" style={{ letterSpacing: "-0.02em", color: "var(--foreground)" }}>
         Alessandra Balliana
-      </span>
+      </span></a>
     {/* Testimonials   <nav style={{display: "flex", gap: "2rem", alignItems: "center"}}>
         <a className="p" href="#selected-work" style={{ fontWeight: 400, color: "var(foreground)" }}>
           Selected work

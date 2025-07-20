@@ -77,7 +77,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
             aria-hidden="true"
           />
           <div>
-            <a>{work.title}</a>
+            <a href={work.href}>{work.title}</a>
             <div className={styles.subtitle}>{work.subtitle}</div>
           </div>
         </div>
