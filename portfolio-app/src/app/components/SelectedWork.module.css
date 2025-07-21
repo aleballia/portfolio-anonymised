@@ -9,7 +9,6 @@
 }
 
 .workTitle {
-  font-size: 6rem;
   font-weight: 200;
   color: var(--foreground);
   position: relative;
@@ -17,6 +16,9 @@
   cursor: pointer;
   outline: none;
   text-decoration: none;
+  font-size: clamp(3rem, 8vw, 6rem);
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
 
 .workTitle:hover,
@@ -33,7 +35,7 @@ a.workTitle :hover {
 .previewImg {
   position: fixed;
   z-index: 1000;
-  width: 35%;
+  width: 25%;
   max-width: 520px;
   height: auto;
   object-fit: cover;
@@ -43,15 +45,9 @@ a.workTitle :hover {
   background: var(--card);
   border-radius: var(--radius-md);
   border: 1px solid var(--primary);
+  display: none;
 }
 
-.subtitle {
-  font-size: 1.2rem;
-  font-weight: 300;
-  letter-spacing: -0.04em;
-  margin-bottom: 2rem;
-  margin-left: 8px;
-} 
 
 .tags {
     font-size: 1.5rem;
@@ -66,7 +62,12 @@ a.workTitle :hover {
   display: none;
 }
 
-@media (max-width: 600px) {
+.mobileSubtitle {
+  display: none;
+}
+
+@media (max-width: 920px) {
+
   .workList {
     gap: 1.2rem;
   }
@@ -78,7 +79,8 @@ a.workTitle :hover {
     font-size: 2rem;
     font-weight: 400;
   }
-  .subtitle {
+  .mobileSubtitle {
+    display: block;
     opacity: 1 !important;
     transform: none !important;
     position: static !important;

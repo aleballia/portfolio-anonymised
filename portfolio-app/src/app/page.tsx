@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Experience from "./components/Experience";
 import Hero from "./components/Hero";
 import Skills from "./components/Skills";
@@ -6,14 +10,14 @@ import SelectedWork, { WorkItem } from "./components/SelectedWork";
 import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
+import SmoothCaseStudyTransition from "./components/SmoothCaseStudyTransition";
 
-export const metadata = {
-  title: "Alessandra Balliana | Product Design Lead & Strategist",
-  // ...other metadata fields
-};
+
 
 // pages/index.js
 export default function Home() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const works: WorkItem[] = [
     {
       title: "Freedom2hear",
@@ -23,11 +27,11 @@ export default function Home() {
       href: "/work/freedom2hear",
     },
     {
-      title: "Dragonfly",
+      title: "Tom&Co.",
       subtitle: "White Label Design System for Award Winning Ecommerce Agency",
       tags: "Design System, Ecommerce",
-      image: "/work/dragonfly.png",
-      href: "/work/dragonfly",
+      image: "/work/tomandco.png",
+      href: "/work/tomandco",
     },
     {
       title: "MyFujifilm",
@@ -39,40 +43,65 @@ export default function Home() {
 
   ];
 
+  // Listen for modal state changes
+  useEffect(() => {
+    const handleModalStateChange = (event: CustomEvent) => {
+      setIsModalOpen(event.detail.isOpen);
+    };
+
+    window.addEventListener('modalStateChange', handleModalStateChange as EventListener);
+    
+    return () => {
+      window.removeEventListener('modalStateChange', handleModalStateChange as EventListener);
+    };
+  }, []);
+
   return (
-    <div>
-      {/* Aurora only behind header and hero */}
-      <AuroraBackground
-        colorStops={["#AD00A2", "#7E27E0", "#1efb7d",]}
-        blend={0.8}
-        amplitude={1.0}
-        speed={0.8}
-      >
-       </AuroraBackground>
-      {/* Header */}
-      <Header />
-
-      {/* Hero Section */}
-      <Hero />
-
-     {/* Skills */}
-      <Skills />
-
-      {/* Experience */}
-      <Experience />
-
-
-
-      {/* Testimonials */}
-      <Testimonials />
+    <motion.div
+      initial={{ opacity: 1 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut"
+      }}
+    >
+      <div>
+        {/* Aurora only behind header and hero */}
+        <AuroraBackground
+          colorStops={["#AD00A2", "#7E27E0", "#1efb7d",]}
+          blend={0.8}
+          amplitude={1.0}
+          speed={0.8}
+          modalOpen={isModalOpen}
+        >
+         </AuroraBackground>
+        {/* Header */}
+        <Header />
 
 
-      {/* Selected Work */}
-        <SelectedWork works={works} />
+        {/* Hero Section */}
+        <Hero />
 
 
-      {/* Footer */}
-      <Footer />
-    </div>
+       {/* Skills */}
+        <Skills />
+
+
+        {/* Experience */}
+        <Experience />
+
+
+        {/* Testimonials */}
+        <Testimonials />
+
+
+        {/* Selected Work */}
+          <SelectedWork works={works} />
+
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </motion.div>
   );
 }

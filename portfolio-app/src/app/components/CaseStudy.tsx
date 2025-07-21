@@ -29,95 +29,104 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
 
 }) => {
   return (
-    <article className="min-h-screen">
+    <article className="min-h-screen m-12">
 
-      {/* Hero Section: 50-50 split */}
-      <div className="flex flex-col md:flex-row w-full md:aspect-[3/1] overflow-hidden">
-        {/* Left: Title & Subtitle */}
-        <div className="px-section flex flex-col justify-center items-start px-8 py-8 md:w-1/2">
-          <h1 className="display mb-4" style={{ color: "var(--foreground)" , fontWeight: "400" }}>{title}</h1>
-          <p className="h3" style={{ color: "var(--muted-foreground)" , fontWeight: "300" }}>{subtitle}</p>
-        </div>
-        {/* Right: Image */}
-        <div className="relative w-full h-64 md:h-auto md:w-1/2">
-          <Image
-            src={image}
-            alt={`${title} Project`}
-            fill
-            className="object-cover"
-            priority
-            style={{
+      {/* Hero Section: Title & Subtitle */}
+      <div className="px-section py-12" style={{ textAlign: "left" }}>
+        <h1 className="display mb-4" style={{ color: "var(--foreground)", fontWeight: 200 }}>
+          {title}
+        </h1>
+        <p className="h3" style={{ color: "var(--foreground)", fontWeight: 400 }}>
+          {subtitle}
+        </p>
+      </div>
+
+      {/* Full-width Image */}
+      <div style={{ width: "100%", position: "relative", aspectRatio: "3/1", overflow: "hidden" }}>
+        <Image
+          src={image}
+          alt={`${title} Project`}
+          fill
+          className="object-cover"
+          priority
+          style={{
             objectFit: "cover",
-              objectPosition: "top",
-            }}
-          />
-        </div>
+            objectPosition: "top",
+          }}
+        />
       </div>
 
       {/* Main content, pushed down by image height */}
-      <section className="px-section pt-16 pt-12 pb-12">
+      <section className="pt-16 pt-12 pb-12">
         <div className="">
             
           {/* Summary and Details Grid - stack on mobile, side-by-side on desktop, with background and padding */}
-          <div
-            className="mb-8 p-8 md:p-16"
-            style={{
-              background: "var(--primary-shade-o-75)",
-              borderRadius: "32px",
-            }}
-          >
+          <div className="max-w-4xl mb-8 m-auto">
             {/* Project Summary */}
             {summary && (
-              <div className="">
-                <div className="h3 text-base md:text-lg pb-24" style={{ color: "var(--foreground)" }}>{summary}</div>
+              <div>
+                <div className="h3 text-base md:text-lg pb-24" style={{ color: "var(--muted-foreground)" }}>{summary}</div>
               </div>
             )}
             {/* Details: Role, Company, Tools, Date */}
-            <div className="flex flex-col gap-2">
-              {(role || company) && (
-                <div className="flex flex-col gap-2 mb-2">
-                  {role && (
-                    <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                      <span style={{ color: "var(--muted-foreground)" }}>Role: </span>
-                      {role}
-                    </p>
-                  )}
-                  {company && (
-                    <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                      <span style={{ color: "var(--muted-foreground)" }}>Company: </span>
-                      {company}
-                    </p>
-                  )}
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "1rem",
+                marginBottom: "2rem",
+                maxWidth: 600,
+                width: "100%",
+              }}
+            >
+              {role && (
+                <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+                  <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>Role: </span>
+                    {role}
+                  </p>
+                </div>
+              )}
+              {company && (
+                <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+                  <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>Company: </span>
+                    {company}
+                  </p>
                 </div>
               )}
               {date && (
-                <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                  <span style={{ color: "var(--muted-foreground)" }}>Date: </span>
-                  {date}
-                </p>
+                <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+                  <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>Date: </span>
+                    {date}
+                  </p>
+                </div>
               )}
-              {/* Tools Ecosystem */}
               {tools && tools.length > 0 && (
-                <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
-                  <span style={{ color: "var(--muted-foreground)" }}>Tools: </span>
-                  {tools.join(', ')}
-                </p>
+                <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+                  <p className="p mb-0 text-sm md:text-base" style={{ color: "var(--foreground)", fontWeight: 300 }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>Tools: </span>
+                    {tools.join(', ')}
+                  </p>
+                </div>
               )}
-              {/* Project Tags */}
-              <div className="flex flex-wrap gap-2 mb-8 mt-6 md:mt-12">
-                {tags.map((tag, index) => (
-                  <span 
-                    key={index}
-                    className="caption px-3 py-1 rounded-full text-xs md:text-sm" 
-                    style={{ 
-                      background: "var(--primary)", 
-                      color: "var(--primary-foreground)" 
-                    }}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            </div>
+
+            {/* Project Tags */}
+            <div className="flex flex-wrap gap-2 mb-8 mt-6 md:mt-12">
+              {tags.map((tag, index) => (
+                <span 
+                  key={index}
+                  className="caption px-3 py-1 rounded-full text-xs md:text-sm" 
+                  style={{ 
+                    background: "var(--primary)", 
+                    color: "var(--primary-foreground)" 
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
             </div>
           </div>
         </div>

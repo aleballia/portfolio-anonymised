@@ -7,20 +7,23 @@ import SmoothCaseStudyTransition from "../../components/SmoothCaseStudyTransitio
 
 
 export const metadata = {
-  title: "MyFujifilm| Ecommerce Product Design & Development for a Global Brand",
+  title: "Dragonfly | White Label Design System for Award Winning Ecommerce Agency",
   // ...other metadata fields
 };
 
-export default async function MyFujifilmCaseStudy() {
-  const notionData = await getNotionPage('12ceac4e7ae980fd9d45fc49c9a47d19');
+export default async function TomAndCoCaseStudy() {
+  // Replace with your actual Notion page ID
+  const notionData = await getNotionPage('7a52ff3c3e2b464d8e923b7d37ac35fb');
   
+  console.log("Notion properties:", notionData?.properties);
+
   return (
     <SmoothCaseStudyTransition>
       <CaseStudy
-        title="MyFujifilm"
-        subtitle="Ecommerce Product Design & Development for a Global Brand"
+        title="Tom&Co."
+        subtitle="White Label Design System for Award Winning Ecommerce Agency"
         tags={notionData?.properties?.tags || [""]}
-        image={notionData?.coverImage || "/work/myfujifilm.png"}
+        image={notionData?.coverImage || "/work/tomandco.png"}
         role={notionData?.properties?.role || ""}
         company={notionData?.properties?.company || ""}
         tools={notionData?.properties?.tools || [""]}

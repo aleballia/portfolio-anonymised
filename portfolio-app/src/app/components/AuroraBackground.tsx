@@ -1,7 +1,8 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef } from "react";
-import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
+import { useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Renderer, Triangle, Program, Mesh, Color } from "ogl";
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -115,7 +116,8 @@ interface AuroraProps {
   blend?: number;
   time?: number;
   speed?: number;
-  children?: React.ReactNode; // <-- add this
+  children?: React.ReactNode;
+  modalOpen?: boolean;
 }
 
 export default function AuroraBackground(props: AuroraProps) {
@@ -123,7 +125,8 @@ export default function AuroraBackground(props: AuroraProps) {
     colorStops = ["#5227FF", "#7cff67", "#FF3232"],
     amplitude = 1.0,
     blend = 0.5,
-    children, // <-- add this
+    children,
+    modalOpen = false,
   } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
@@ -212,12 +215,56 @@ export default function AuroraBackground(props: AuroraProps) {
   }, [amplitude, blend, colorStops]);
 
   return (
-    <div ref={ctnDom} style={{ position: "fixed", width: "100%", zIndex: -99, opacity: 0.5, height: "100vh" }}>
+    <>
+      {/* Solid background layer - slides up from bottom when modal opens */}
+      {modalOpen && (
+        <motion.div 
+          initial={{ y: "100%", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ 
+            duration: 0.6, 
+            ease: [0.25, 0.46, 0.45, 0.94], // Custom easing curve
+            delay: 0.1
+          }}
+          style={{ 
+            position: "fixed", 
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            background: "var(--background)",
+            zIndex: 998,
+            height: "100vh"
+          }}
+        />
+      )}
+      
+      {/* Aurora background with enhanced animation */}
+      <motion.div 
+        ref={ctnDom} 
+        style={{ 
+          position: "fixed", 
+          width: "100%", 
+          zIndex: modalOpen ? 999 : -99, 
+          opacity: 0.5, 
+          height: "100vh" 
+        }}
+        animate={{
+          scale: modalOpen ? 1.05 : 1,
+          opacity: modalOpen ? 0.7 : 0.5,
+        }}
+        transition={{ 
+          duration: 0.8,
+          ease: [0.25, 0.46, 0.45, 0.94],
+          delay: modalOpen ? 0.2 : 0
+        }}
+      >
       {/* Aurora canvas will be rendered here by OGL */}
       <div className="grain-overlay" />
       <div style={{ position: "absolute", zIndex: 3 }}>
         {children}
       </div>
-    </div>
+      </motion.div>
+    </>
   );
 }
