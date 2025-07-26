@@ -8,7 +8,19 @@ const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  const { theme, toggleTheme } = useTheme();
+  
+  // Add fallback for SSR
+  let theme = 'light';
+  let toggleTheme = () => {};
+  
+  try {
+    const themeContext = useTheme();
+    theme = themeContext.theme;
+    toggleTheme = themeContext.toggleTheme;
+  } catch (error) {
+    // Fallback for SSR - use default values
+    console.warn('Theme context not available during SSR');
+  }
 
   const isHome = pathname === "/";
 
