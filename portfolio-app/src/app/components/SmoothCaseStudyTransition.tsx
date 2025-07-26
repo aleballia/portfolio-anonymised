@@ -10,15 +10,10 @@ interface SmoothCaseStudyTransitionProps {
   subtitle?: string;
 }
 
-const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({ 
-  children, 
-  title, 
-  subtitle 
-}) => {
+const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({ children }) => {
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [showTitle, setShowTitle] = useState(false);
-  const [transitionTitle, setTransitionTitle] = useState(title);
-  const [transitionSubtitle, setTransitionSubtitle] = useState(subtitle);
+  const [transitionTitle, setTransitionTitle] = useState("");
+  const [transitionSubtitle, setTransitionSubtitle] = useState("");
   const [isReturningToHome, setIsReturningToHome] = useState(false);
   const [showCaseStudyModal, setShowCaseStudyModal] = useState(false);
   const [caseStudyContent, setCaseStudyContent] = useState<ReactNode>(null);
@@ -31,7 +26,6 @@ const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({
       setShowCaseStudyModal(true);
       setCaseStudyContent(children);
       setIsTransitioning(false);
-      setShowTitle(false);
       setIsReturningToHome(false);
     } else {
       // Homepage - check if we're in a transition
@@ -44,7 +38,6 @@ const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({
         // Normal homepage state
         setShowCaseStudyModal(false);
       }
-      setShowTitle(false);
       setIsReturningToHome(false);
     }
   }, [pathname, isCaseStudy, children]);
@@ -59,7 +52,8 @@ const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({
     <>
       {/* Animated Title and Subtitle - only show on homepage when returning */}
       <AnimatePresence>
-        {showTitle && transitionTitle && isReturningToHome && (
+        {/* Removed showTitle and transitionTitle/Subtitle from here */}
+        {isReturningToHome && (
           <motion.div
             initial={{ 
               opacity: 0,

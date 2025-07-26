@@ -17,7 +17,6 @@ interface CaseStudyProps {
 
 const CaseStudy: React.FC<CaseStudyProps> = ({ 
   title, 
-  subtitle, 
   tags, 
   image = "https://placehold.co/1200x400?text=Project+Image", 
   role,

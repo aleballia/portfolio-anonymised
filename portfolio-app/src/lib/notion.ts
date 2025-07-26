@@ -114,12 +114,13 @@ export async function getNotionPage(pageId: string): Promise<NotionPageData | nu
     
     // Extract cover image
     let coverImage: string | null = null;
-    if ((response as any).cover) {
-      const cover = (response as any).cover;
+    const responseWithCover = response as { cover?: { type: string; external?: { url: string }; file?: { url: string } } };
+    if (responseWithCover.cover) {
+      const cover = responseWithCover.cover;
       if (cover.type === 'external') {
-        coverImage = cover.external.url;
+        coverImage = cover.external?.url || null;
       } else if (cover.type === 'file') {
-        coverImage = cover.file.url;
+        coverImage = cover.file?.url || null;
       }
     }
     

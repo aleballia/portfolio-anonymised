@@ -35,9 +35,7 @@ const caseStudyData = {
 };
 
 const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose }) => {
-  const [content, setContent] = useState<React.ReactNode>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [notionData, setNotionData] = useState<any>(null);
+  const [notionData, setNotionData] = useState<{ properties?: any; blocks?: any; coverImage?: string } | null>(null);
   const [showContent, setShowContent] = useState(false);
 
   // Make studyData available everywhere in the component
@@ -60,8 +58,6 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
 
   useEffect(() => {
     if (isOpen && !showContent) {
-      setIsLoading(true);
-      setShowContent(false);
       setNotionData(null);
       if (studyData) {
         const fetchNotionData = async () => {
@@ -72,14 +68,12 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
             }
             const notionData = await response.json();
             setNotionData(notionData);
-            setIsLoading(false);
             setTimeout(() => {
               console.log('Setting showContent to true (success)');
               setShowContent(true);
             }, 800);
           } catch (error) {
             console.error('Error fetching Notion data:', error);
-            setIsLoading(false);
             setTimeout(() => {
               console.log('Setting showContent to true (error)');
               setShowContent(true);
@@ -88,7 +82,6 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
         };
         fetchNotionData();
       } else {
-        setIsLoading(false);
         setTimeout(() => {
           console.log('Setting showContent to true (no studyData)');
           setShowContent(true);
@@ -100,10 +93,8 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
   // Reset content when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setContent(null);
-      setShowContent(false);
       setNotionData(null);
-      setIsLoading(false);
+      setShowContent(false);
     }
   }, [isOpen]);
 

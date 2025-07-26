@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import styles from "./SelectedWork.module.css";
 import Link from "next/link";
 import { caseStudies, type CaseStudy } from "../../lib/caseStudies";
@@ -12,7 +12,6 @@ const OFFSET_Y = 0;
 const SelectedWork: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [hoveredTitle, setHoveredTitle] = useState<number | null>(null);
   const [isDesktop, setIsDesktop] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth >= 920 : true);
 
   useEffect(() => {
@@ -23,24 +22,6 @@ const SelectedWork: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Simple text swap component
-  const AnimatedText = ({ text, isVisible }: { text: string; isVisible: boolean }) => {
-    return (
-      <motion.span 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 10 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        style={{ 
-          fontFamily: 'monospace', 
-          color: 'var(--accent-secondary)',
-          display: 'block'
-        }}
-      >
-        {text}
-      </motion.span>
-    );
-  };
-
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
     setCursor({ x: e.clientX + OFFSET_X, y: e.clientY + OFFSET_Y });
     setHoveredIdx(idx);
@@ -48,12 +29,10 @@ const SelectedWork: React.FC = () => {
 
   const handleFocus = (idx: number) => {
     setHoveredIdx(idx);
-    setHoveredTitle(idx);
   };
 
   const handleBlur = () => {
     setHoveredIdx(null);
-    setHoveredTitle(null);
   };
 
   return (

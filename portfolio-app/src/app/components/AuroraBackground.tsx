@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 import { Renderer, Triangle, Program, Mesh, Color } from "ogl";
 
 const VERT = `#version 300 es
