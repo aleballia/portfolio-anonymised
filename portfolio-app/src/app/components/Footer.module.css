@@ -1,6 +1,6 @@
 .footer {
   background: var(--primary-shade);
-  color: var(--muted-foreground);
+  color: var(--primary-foreground);
   padding-top: 24px;
   padding-bottom: 24px;
   text-align: left;
@@ -16,13 +16,12 @@
 
 .footerNav a {
   font-weight: 400;
-  color: var(--muted-foreground);
+  color: var(--primary-foreground);
   text-decoration: none;
   transition: color 0.18s;
 }
 
 .footerNav a:hover,
 .footerNav a:focus {
-  color: var(--foreground);
   text-decoration: underline;
 }

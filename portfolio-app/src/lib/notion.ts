@@ -17,19 +17,69 @@ export interface NotionBlock {
     }>;
   };
   heading_1?: {
-    rich_text: Array<{ plain_text: string }>;
+    rich_text: Array<{
+      plain_text: string;
+      annotations?: {
+        bold?: boolean;
+        italic?: boolean;
+        code?: boolean;
+      };
+    }>;
   };
   heading_2?: {
-    rich_text: Array<{ plain_text: string }>;
+    rich_text: Array<{
+      plain_text: string;
+      annotations?: {
+        bold?: boolean;
+        italic?: boolean;
+        code?: boolean;
+      };
+    }>;
   };
   heading_3?: {
-    rich_text: Array<{ plain_text: string }>;
+    rich_text: Array<{
+      plain_text: string;
+      annotations?: {
+        bold?: boolean;
+        italic?: boolean;
+        code?: boolean;
+      };
+    }>;
   };
   bulleted_list_item?: {
-    rich_text: Array<{ plain_text: string }>;
+    rich_text: Array<{
+      plain_text: string;
+      annotations?: {
+        bold?: boolean;
+        italic?: boolean;
+        code?: boolean;
+      };
+    }>;
   };
   numbered_list_item?: {
-    rich_text: Array<{ plain_text: string }>;
+    rich_text: Array<{
+      plain_text: string;
+      annotations?: {
+        bold?: boolean;
+        italic?: boolean;
+        code?: boolean;
+      };
+    }>;
+  };
+  divider?: {
+    type: string;
+  };
+  image?: {
+    type: string;
+    file?: {
+      url: string;
+    };
+    external?: {
+      url: string;
+    };
+    caption?: Array<{
+      plain_text: string;
+    }>;
   };
 }
 

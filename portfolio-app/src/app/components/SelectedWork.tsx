@@ -4,23 +4,12 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./SelectedWork.module.css";
 import Link from "next/link";
-
-export type WorkItem = {
-    title: string;
-    subtitle: string;
-    tags: string;
-    image: string;
-    href: string;
-};
-
-interface SelectedWorkProps {
-  works: WorkItem[];
-}
+import { caseStudies, type CaseStudy } from "../../lib/caseStudies";
 
 const OFFSET_X = 32;
 const OFFSET_Y = 0;
 
-const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
+const SelectedWork: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [hoveredTitle, setHoveredTitle] = useState<number | null>(null);
@@ -76,26 +65,17 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
         
 
         <div className={styles.workList}>
-          {works.map((work, idx) => {
-            const hoverMessage =
-              work.title === 'Tom&Co.'
-                ? 'Design System'
-                : work.title === 'Freedom2hear'
-                ? 'AI Innovation'
-                : work.title === 'MyFujifilm'
-                ? 'Ecommerce'
-                : '';
-            return (
+          {caseStudies.map((work, idx) => (
             <div
               className={styles.workTitle}
-              key={work.title}
+              key={work.id}
               onMouseMove={e => handleMouseMove(e, idx)}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
               >
                 {/* Inline image for mobile only */}
                 <img
-                  src={work.image}
+                  src={work.mainImage}
                   alt={work.title}
                   className={styles.mobileImage}
                   aria-hidden="true"
@@ -108,19 +88,18 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
                   onBlur={handleBlur}
                 >
                   <span className={styles.workTitleText}>{work.title}</span>
-                  {hoverMessage && <span className={styles.hoverMessage}>{hoverMessage}</span>}
+                  {work.hoverMessage && <span className={styles.hoverMessage}>{work.hoverMessage}</span>}
                 </Link>
                 <div className={styles.mobileSubtitle}>
                   {work.subtitle}
                 </div>
               </div>
-            );
-          })}
+            ))}
           {/* Floating preview image for desktop hover */}
           {hoveredIdx !== null && (
             <img
-              src={works[hoveredIdx].image}
-              alt={works[hoveredIdx].title}
+              src={caseStudies[hoveredIdx].mainImage}
+              alt={caseStudies[hoveredIdx].title}
               className={styles.previewImg}
               style={{
                 left: cursor.x,
@@ -150,13 +129,7 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
                 letterSpacing: "-0.04em",
               }}
             >
-              {works[hoveredIdx].title === 'Tom&Co.'
-                ? 'Design System'
-                : works[hoveredIdx].title === 'Freedom2hear'
-                ? 'AI Innovation'
-                : works[hoveredIdx].title === 'MyFujifilm'
-                ? 'Ecommerce'
-                : ''}
+              {caseStudies[hoveredIdx].hoverMessage}
             </div>
           )}
         </div>

@@ -2,11 +2,13 @@
 import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "./ThemeProvider";
 
 const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   const isHome = pathname === "/";
 
@@ -25,7 +27,7 @@ const Header: React.FC = () => {
 
   return (
     <header className="px-section" style={{ width: "100%", background: "transparent", color: "var(--foreground)", paddingTop: "24px", paddingBottom: "24px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -68,7 +70,7 @@ const Header: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
-                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0, color: 'var(--accent-secondary)' }}
+                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
                   >
                     {isHome ? (
                       <>Hi 👋</>
@@ -86,6 +88,40 @@ const Header: React.FC = () => {
               </span>
           </span>
         </div>
+        {/* Theme Toggle Button */}
+        <button
+          onClick={toggleTheme}
+          style={{
+            background: 'none',
+            border: 'none',
+            color: 'var(--foreground)',
+            cursor: 'default',
+            fontSize: '1rem',
+            marginLeft: 'auto',
+            padding: '0.5rem 1rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.5rem',
+            borderRadius: '0.5rem',
+            transition: 'background-color 0.2s ease',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--muted)';
+            e.currentTarget.style.cursor = 'pointer';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = 'transparent';
+            e.currentTarget.style.cursor = 'default';
+          }}
+          aria-label="Toggle theme"
+        >
+          <span style={{ fontSize: '1.2rem' }}>
+            {theme === 'dark' ? '🌙' : '☀️'}
+          </span>
+          <span className="caption">
+            {theme === 'dark' ? 'Light' : 'Dark'}
+          </span>
+        </button>
       </div>
     </header>
   );

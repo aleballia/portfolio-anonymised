@@ -1,37 +1,40 @@
 import CaseStudy from "../../components/CaseStudy";
 import NotionContent from "../../components/NotionContent";
 import { getNotionPage } from "../../../lib/notion";
-import { title } from "process";
-import SmoothCaseStudyTransition from "../../components/SmoothCaseStudyTransition";
-
-
+import { getCaseStudyById } from "../../../lib/caseStudies";
 
 export const metadata = {
-  title: "MyFujifilm| Ecommerce Product Design & Development for a Global Brand",
+  title: "MyFujifilm | Ecommerce Product Design & Development for a Global Brand",
   // ...other metadata fields
 };
 
 export default async function MyFujifilmCaseStudy() {
-  const notionData = await getNotionPage('12ceac4e7ae980fd9d45fc49c9a47d19');
+  const caseStudy = getCaseStudyById('myfujifilm');
+  
+  if (!caseStudy) {
+    throw new Error('Case study not found');
+  }
+
+  const notionData = await getNotionPage(caseStudy.notionId);
   
   return (
-      <CaseStudy
-        title="MyFujifilm"
-        subtitle="Ecommerce Product Design & Development for a Global Brand"
-        tags={notionData?.properties?.tags || [""]}
-        image={notionData?.coverImage || "/work/myfujifilm.png"}
-        role={notionData?.properties?.role || ""}
-        company={notionData?.properties?.company || ""}
-        tools={notionData?.properties?.tools || [""]}
-        date={notionData?.properties?.date || ""}
-        summary={notionData?.properties?.summary || ""}
-      >
-        {notionData?.blocks ? (
-          <NotionContent blocks={notionData.blocks} />
-        ) : (
-          <>
-          </>
-        )}
-      </CaseStudy>
+    <CaseStudy
+      title={caseStudy.title}
+      subtitle={caseStudy.subtitle}
+      tags={notionData?.properties?.tags || caseStudy.tags}
+      image={notionData?.coverImage || caseStudy.mainImage}
+      role={notionData?.properties?.role || ""}
+      company={notionData?.properties?.company || ""}
+      tools={notionData?.properties?.tools || [""]}
+      date={notionData?.properties?.date || ""}
+      summary={notionData?.properties?.summary || ""}
+    >
+      {notionData?.blocks ? (
+        <NotionContent blocks={notionData.blocks} />
+      ) : (
+        <>
+        </>
+      )}
+    </CaseStudy>
   );
 }

@@ -30,11 +30,11 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
 
 }) => {
   return (
-    <div className={'px-section'}>
+    <div>
       <article className={styles.caseStudy}>
 
         {/* Hero Section: Title & Subtitle */}
-        <div className={styles.heroSection}>
+        <div className={`px-section ${styles.heroSectionTitle}`}>
           <h1 className={`h1 ${styles.title}`}>
             {title}
           </h1>
@@ -49,8 +49,8 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
             className="object-cover"
             priority
             style={{
-              objectFit: "cover",
-              objectPosition: "top",
+            objectFit: "cover",
+            objectPosition: "top",
             }}
           />
         </div>

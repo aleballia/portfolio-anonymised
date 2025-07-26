@@ -1,84 +1,170 @@
 import React from 'react';
 import { NotionBlock } from '../../lib/notion';
+import Image from 'next/image';
 
 interface NotionContentProps {
   blocks: NotionBlock[];
 }
 
 const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
-  const renderBlock = (block: NotionBlock, index: number) => {
-    switch (block.type) {
-      case 'paragraph':
-        return (
-          <p key={index} className="p mb-6">
-            {block.paragraph?.rich_text.map((text, i) => (
-              <span
-                key={i}
-                style={{
-                  fontWeight: text.annotations?.bold ? 600 : 400,
-                  fontStyle: text.annotations?.italic ? 'italic' : 'normal',
-                  fontFamily: text.annotations?.code ? 'monospace' : 'inherit',
-                }}
-              >
-                {text.plain_text}
-              </span>
-            ))}
-          </p>
-        );
+  const renderBlocks = () => {
+    const elements: React.ReactElement[] = [];
+    let currentList: React.ReactElement[] = [];
+    let currentListType: 'bulleted' | 'numbered' | null = null;
 
-      case 'heading_1':
-        return (
-          <h2 key={index} className="h2 mb-8">
-            {block.heading_1?.rich_text.map((text, i) => (
-              <span key={i}>{text.plain_text}</span>
-            ))}
-          </h2>
+    const flushCurrentList = () => {
+      if (currentList.length > 0) {
+        const listElement = currentListType === 'bulleted' ? (
+          <ul key={`list-${elements.length}`} className="mb-6 space-y-2 list-disc list-outside pl-6">
+            {currentList}
+          </ul>
+        ) : (
+          <ol key={`list-${elements.length}`} className="mb-6 space-y-2 list-decimal list-outside pl-6">
+            {currentList}
+          </ol>
         );
+        elements.push(listElement);
+        currentList = [];
+        currentListType = null;
+      }
+    };
 
-      case 'heading_2':
-        return (
-          <h3 key={index} className="h3 mb-6 mt-12">
-            {block.heading_2?.rich_text.map((text, i) => (
-              <span key={i}>{text.plain_text}</span>
-            ))}
-          </h3>
-        );
+    const renderRichText = (richText: Array<{ plain_text: string; annotations?: { bold?: boolean; italic?: boolean; code?: boolean } }>) => {
+      return richText.map((text, i) => (
+        <span
+          key={i}
+          style={{
+            fontWeight: text.annotations?.bold ? 600 : 400,
+            fontStyle: text.annotations?.italic ? 'italic' : 'normal',
+            fontFamily: text.annotations?.code ? 'monospace' : 'inherit',
+          }}
+        >
+          {text.plain_text}
+        </span>
+      ));
+    };
 
-      case 'heading_3':
-        return (
-          <h4 key={index} className="h4 mb-4 mt-8">
-            {block.heading_3?.rich_text.map((text, i) => (
-              <span key={i}>{text.plain_text}</span>
-            ))}
-          </h4>
-        );
+    blocks.forEach((block, index) => {
+      switch (block.type) {
+        case 'paragraph':
+          flushCurrentList();
+          elements.push(
+            <p key={index} className="p mb-6 leading-relaxed">
+              {renderRichText(block.paragraph?.rich_text || [])}
+            </p>
+          );
+          break;
 
-      case 'bulleted_list_item':
-        return (
-          <li key={index} className="p mb-2 list-disc list-inside">
-            {block.bulleted_list_item?.rich_text.map((text, i) => (
-              <span key={i}>{text.plain_text}</span>
-            ))}
-          </li>
-        );
+        case 'heading_1':
+          flushCurrentList();
+          elements.push(
+            <h2 key={index} className="h2 mb-8 mt-12">
+              {renderRichText(block.heading_1?.rich_text || [])}
+            </h2>
+          );
+          break;
 
-      case 'numbered_list_item':
-        return (
-          <li key={index} className="p mb-2 list-decimal list-inside">
-            {block.numbered_list_item?.rich_text.map((text, i) => (
-              <span key={i}>{text.plain_text}</span>
-            ))}
-          </li>
-        );
+        case 'heading_2':
+          flushCurrentList();
+          elements.push(
+            <h3 key={index} className="h3 mb-4 mt-12">
+              {renderRichText(block.heading_2?.rich_text || [])}
+            </h3>
+          );
+          break;
 
-      default:
-        return null;
-    }
+        case 'heading_3':
+          flushCurrentList();
+          elements.push(
+            <h3 key={index} className="h4 font-semibold mb-4 mt-12">
+              {block.heading_3?.rich_text.map((text, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontWeight: 500, // Always semibold for heading_3
+                    fontStyle: text.annotations?.italic ? 'italic' : 'normal',
+                    fontFamily: text.annotations?.code ? 'monospace' : 'inherit',
+                  }}
+                >
+                  {text.plain_text}
+                </span>
+              ))}
+            </h3>
+          );
+          break;
+
+        case 'bulleted_list_item':
+          if (currentListType !== 'bulleted') {
+            flushCurrentList();
+            currentListType = 'bulleted';
+          }
+          currentList.push(
+            <li key={index} className="leading-relaxed">
+              {renderRichText(block.bulleted_list_item?.rich_text || [])}
+            </li>
+          );
+          break;
+
+        case 'numbered_list_item':
+          if (currentListType !== 'numbered') {
+            flushCurrentList();
+            currentListType = 'numbered';
+          }
+          currentList.push(
+            <li key={index} className="leading-relaxed">
+              {renderRichText(block.numbered_list_item?.rich_text || [])}
+            </li>
+          );
+          break;
+
+        case 'divider':
+          flushCurrentList();
+          elements.push(
+            <hr key={index} className="mt-12 mb-4 border-t border-border" />
+          );
+          break;
+
+        case 'image':
+          flushCurrentList();
+          const imageUrl = block.image?.file?.url || block.image?.external?.url;
+          const caption = block.image?.caption?.[0]?.plain_text;
+          
+          if (imageUrl) {
+            elements.push(
+              <figure key={index} className="my-8">
+                <div className="relative w-full aspect-video overflow-hidden">
+                  <Image
+                    src={imageUrl}
+                    alt={caption || 'Notion image'}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                {caption && (
+                  <figcaption className="mt-2 text-sm text-muted-foreground text-center">
+                    {caption}
+                  </figcaption>
+                )}
+              </figure>
+            );
+          }
+          break;
+
+        default:
+          flushCurrentList();
+          break;
+      }
+    });
+
+    // Flush any remaining list
+    flushCurrentList();
+
+    return elements;
   };
 
   return (
-    <div className="notion-content">
-      {blocks.map((block, index) => renderBlock(block, index))}
+    <div className="notion-content prose prose-lg max-w-none">
+      {renderBlocks()}
     </div>
   );
 };

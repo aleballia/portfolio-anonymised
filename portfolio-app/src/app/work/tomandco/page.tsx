@@ -4,12 +4,12 @@ import { getNotionPage } from "../../../lib/notion";
 import { getCaseStudyById } from "../../../lib/caseStudies";
 
 export const metadata = {
-  title: "Freedom2hear | Product Design, Innovation & Growth for an Emotion AI Startup",
+  title: "Tom&Co. | White Label Design System for Award Winning Ecommerce Agency",
   // ...other metadata fields
 };
 
-export default async function Freedom2hearCaseStudy() {
-  const caseStudy = getCaseStudyById('freedom2hear');
+export default async function TomAndCoCaseStudy() {
+  const caseStudy = getCaseStudyById('tomandco');
   
   if (!caseStudy) {
     throw new Error('Case study not found');
@@ -18,6 +18,8 @@ export default async function Freedom2hearCaseStudy() {
   // Replace with your actual Notion page ID
   const notionData = await getNotionPage(caseStudy.notionId);
   
+  console.log("Notion properties:", notionData?.properties);
+
   return (
     <CaseStudy
       title={caseStudy.title}

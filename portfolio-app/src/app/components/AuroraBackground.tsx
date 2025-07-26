@@ -118,6 +118,7 @@ interface AuroraProps {
   speed?: number;
   children?: React.ReactNode;
   modalOpen?: boolean;
+  opacity?: number;
 }
 
 export default function AuroraBackground(props: AuroraProps) {
@@ -127,6 +128,7 @@ export default function AuroraBackground(props: AuroraProps) {
     blend = 0.5,
     children,
     modalOpen = false,
+    opacity = 0.5,
   } = props;
   const propsRef = useRef<AuroraProps>(props);
   propsRef.current = props;
@@ -220,7 +222,7 @@ export default function AuroraBackground(props: AuroraProps) {
       {modalOpen && (
         <motion.div 
           initial={{ y: "100%", opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+          animate={{ y: 0, opacity: 0.5}}
           transition={{ 
             duration: 0.6, 
             ease: [0.25, 0.46, 0.45, 0.94], // Custom easing curve
@@ -246,12 +248,12 @@ export default function AuroraBackground(props: AuroraProps) {
           position: "fixed", 
           width: "100%", 
           zIndex: modalOpen ? 999 : -99, 
-          opacity: 0.5, 
+          opacity: opacity, 
           height: "100vh" 
         }}
         animate={{
           scale: modalOpen ? 1.05 : 1,
-          opacity: modalOpen ? 0.7 : 0.5,
+          opacity: modalOpen ? opacity * 1.4 : opacity,
         }}
         transition={{ 
           duration: 0.8,
