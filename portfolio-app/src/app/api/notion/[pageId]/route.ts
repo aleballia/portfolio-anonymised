@@ -1,12 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getNotionPage } from '../../../../lib/notion';
 
+type Params = { pageId: string };
+
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ pageId: string }> }
+  { params }: { params: Params | Promise<Params> }
 ) {
   try {
-    const { pageId } = await params;
+    const resolvedParams = await Promise.resolve(params);
+    const pageId = resolvedParams.pageId;
     const notionData = await getNotionPage(pageId);
     
     return NextResponse.json(notionData);
