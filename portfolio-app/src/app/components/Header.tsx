@@ -44,7 +44,8 @@ const Header: React.FC = () => {
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           style={{
-            display: "inline-block",
+            display: "flex",
+            alignItems: "center",
             position: "relative",
             minWidth: "240px",
             height: "40px",
@@ -58,7 +59,6 @@ const Header: React.FC = () => {
             style={{
               display: "inline-block",
               width: "100%",
-              height: "40px",
               position: "relative",
             }}
           >
@@ -138,7 +138,7 @@ const Header: React.FC = () => {
           <span style={{ fontSize: '1.2rem' }}>
             {theme === 'dark' ? '🌙' : '☀️'}
           </span>
-          <span className="caption" style={{ display: 'none' }}>
+          <span className="caption" style={{ display: 'inline' }}>
             {theme === 'dark' ? 'Light' : 'Dark'}
           </span>
         </button>
