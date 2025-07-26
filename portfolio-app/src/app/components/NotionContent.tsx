@@ -132,12 +132,13 @@ const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
           if (imageUrl) {
             elements.push(
               <figure key={index} className="my-8">
-                <div className="relative w-full aspect-video overflow-hidden">
+                <div className="relative w-full overflow-hidden">
                   <Image
                     src={imageUrl}
                     alt={caption || 'Notion image'}
-                    fill
-                    className="object-cover"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto object-cover rounded-lg"
                   />
                 </div>
                 {caption && (
