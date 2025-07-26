@@ -3,10 +3,10 @@ import { getNotionPage } from '../../../../lib/notion';
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { pageId: string } }
+  { params }: { params: Promise<{ pageId: string }> }
 ) {
   try {
-    const pageId = params.pageId;
+    const { pageId } = await params;
     const notionData = await getNotionPage(pageId);
     
     return NextResponse.json(notionData);
