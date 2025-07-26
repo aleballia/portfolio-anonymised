@@ -224,8 +224,10 @@ export default function Experience() {
                                             style={{ marginLeft: 10 }}
                                         >
                                             <a
-                                                href="#"
+                                                href="/ab-resume.pdf"
                                                 className="btn"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
                                             >
                                                 More about my experience
                                             </a>
