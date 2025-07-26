@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const skills = [
   {
     title: "Product Design",
-    description: "From rebuilding real-time moderation tools at Freedom2hear to optimising conversion flows at Resi, I’ve designed SaaS and eCommerce products used by thousands. My approach combines sharp UX thinking with commercial awareness—shaping features that are both intuitive and outcome-driven.",
+    description: "With 8+ years of experience across B2B, B2C, SaaS, and eCommerce, I’ve built products in fast-paced in-house and agency teams. I combine strategic thinking, technical fluency, and commercial awareness to design thoughtful, user-centred solutions that drive business impact.",
   },
   {
     title: "Innovation",
