@@ -95,30 +95,38 @@ const Header: React.FC = () => {
             background: 'none',
             border: 'none',
             color: 'var(--foreground)',
-            cursor: 'default',
+            cursor: 'pointer',
             fontSize: '1rem',
             marginLeft: 'auto',
-            padding: '0.5rem 1rem',
+            padding: '0.75rem 1rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
             borderRadius: '0.5rem',
-            transition: 'background-color 0.2s ease',
+            transition: 'all 0.2s ease',
+            minHeight: '44px', // Better touch target for mobile
+            minWidth: '44px',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = 'var(--muted)';
-            e.currentTarget.style.cursor = 'pointer';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = 'transparent';
-            e.currentTarget.style.cursor = 'default';
+          }}
+          onTouchStart={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--muted)';
+          }}
+          onTouchEnd={(e) => {
+            setTimeout(() => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }, 150);
           }}
           aria-label="Toggle theme"
         >
           <span style={{ fontSize: '1.2rem' }}>
             {theme === 'dark' ? '🌙' : '☀️'}
           </span>
-          <span className="caption">
+          <span className="caption" style={{ display: 'none' }}>
             {theme === 'dark' ? 'Light' : 'Dark'}
           </span>
         </button>

@@ -76,7 +76,6 @@ export default function Skills() {
               style={{
                 fontSize: "1rem",
                 color: "var(--foreground)",
-                maxHeight: open === i ? 200 : 0,
                 overflow: "hidden",
                 transition: "max-height 0.3s",
                 marginTop: open === i ? 8 : 0,
