@@ -109,13 +109,15 @@ a.workTitle :hover {
     transform: none !important;
     position: static !important;
     pointer-events: auto !important;
-    font-size: 1rem;
-    margin-top: 0.2em;
+    font-size: 1.25rem;
+    letter-spacing: -0.05em;
     margin-left: 0;
+    margin-bottom: 2.5rem;
   }
   .previewImg {
     display: none !important;
   }
+
   .mobileImage {
     display: block;
     width: 100%;

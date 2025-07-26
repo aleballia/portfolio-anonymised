@@ -23,8 +23,11 @@ const SelectedWork: React.FC = () => {
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
-    setCursor({ x: e.clientX + OFFSET_X, y: e.clientY + OFFSET_Y });
-    setHoveredIdx(idx);
+    // Only trigger hover on non-touch devices
+    if (!('ontouchstart' in window)) {
+      setCursor({ x: e.clientX + OFFSET_X, y: e.clientY + OFFSET_Y });
+      setHoveredIdx(idx);
+    }
   };
 
   const handleFocus = (idx: number) => {
@@ -33,6 +36,20 @@ const SelectedWork: React.FC = () => {
 
   const handleBlur = () => {
     setHoveredIdx(null);
+  };
+
+  const handleMouseEnter = (idx: number) => {
+    // Only trigger hover on non-touch devices
+    if (!('ontouchstart' in window)) {
+      setHoveredIdx(idx);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    // Only trigger hover on non-touch devices
+    if (!('ontouchstart' in window)) {
+      setHoveredIdx(null);
+    }
   };
 
   return (
@@ -49,8 +66,8 @@ const SelectedWork: React.FC = () => {
               className={styles.workTitle}
               key={work.id}
               onMouseMove={e => handleMouseMove(e, idx)}
-                onMouseEnter={() => setHoveredIdx(idx)}
-                onMouseLeave={() => setHoveredIdx(null)}
+                onMouseEnter={() => handleMouseEnter(idx)}
+                onMouseLeave={() => handleMouseLeave()}
               >
                 {/* Inline image for mobile only */}
                 <Image
@@ -77,7 +94,7 @@ const SelectedWork: React.FC = () => {
               </div>
             ))}
           {/* Floating preview image for desktop hover */}
-          {hoveredIdx !== null && (
+          {hoveredIdx !== null && !('ontouchstart' in window) && (
             <Image
               src={caseStudies[hoveredIdx].mainImage}
               alt={caseStudies[hoveredIdx].title}
@@ -92,7 +109,7 @@ const SelectedWork: React.FC = () => {
             />
           )}
           {/* Floating tag for desktop hover */}
-          {hoveredIdx !== null && isDesktop && (
+          {hoveredIdx !== null && isDesktop && !('ontouchstart' in window) && (
             <div
               className={styles.floatingTag}
               style={{

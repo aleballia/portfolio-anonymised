@@ -41,8 +41,18 @@ const Header: React.FC = () => {
     <header className="px-section" style={{ width: "100%", background: "transparent", color: "var(--foreground)", paddingTop: "24px", paddingBottom: "24px", display: "flex", alignItems: "center", minHeight: "80px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
         <div
-          onMouseEnter={() => setHovered(true)}
-          onMouseLeave={() => setHovered(false)}
+          onMouseEnter={() => {
+            // Only trigger hover on non-touch devices
+            if (!('ontouchstart' in window)) {
+              setHovered(true);
+            }
+          }}
+          onMouseLeave={() => {
+            // Only trigger hover on non-touch devices
+            if (!('ontouchstart' in window)) {
+              setHovered(false);
+            }
+          }}
           style={{
             display: "flex",
             alignItems: "center",
@@ -120,18 +130,16 @@ const Header: React.FC = () => {
             minWidth: '44px',
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--muted)';
+            // Only trigger hover on non-touch devices
+            if (!('ontouchstart' in window)) {
+              e.currentTarget.style.backgroundColor = 'var(--muted)';
+            }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'transparent';
-          }}
-          onTouchStart={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--muted)';
-          }}
-          onTouchEnd={(e) => {
-            setTimeout(() => {
+            // Only trigger hover on non-touch devices
+            if (!('ontouchstart' in window)) {
               e.currentTarget.style.backgroundColor = 'transparent';
-            }, 150);
+            }
           }}
           aria-label="Toggle theme"
         >
