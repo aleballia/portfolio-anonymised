@@ -25,3 +25,18 @@
 .footerNav a:focus {
   text-decoration: underline;
 }
+
+
+@media (max-width: 920px) {
+   .footer {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: left;
+    justify-content: center;
+    gap: 1rem;
+    text-align: left;
+    font-size: 0.875rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
