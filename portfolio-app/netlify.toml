@@ -5,7 +5,20 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
+# Serve static assets properly
+[[headers]]
+  for = "/work/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/avatars/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# Handle client-side routing
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200 
+  status = 200
+  conditions = {role = "client"} 

@@ -18,7 +18,7 @@ const caseStudyData = {
   tomandco: {
     title: "Tom&Co.",
     subtitle: "White Label Design System for Award Winning Ecommerce Agency",
-    image: "/work/dragonfly.png",
+    image: "/work/tomandco.png",
     notionPageId: '7a52ff3c3e2b464d8e923b7d37ac35fb'
   },
   freedom2hear: {
@@ -32,6 +32,18 @@ const caseStudyData = {
     subtitle: "Ecommerce Product Design & Development for a Global Brand",
     image: "/work/myfujifilm.png",
     notionPageId: '12ceac4e7ae980fd9d45fc49c9a47d19'
+  },
+  'frictionless-futures': {
+    title: "Frictionless Futures",
+    subtitle: "Strategic design for future-focused innovation",
+    image: "/work/frictionless-futures.png",
+    notionPageId: '23ceac4e7ae980d5be60c55fff75a92e'
+  },
+  oliverbonas: {
+    title: "Oliver Bonas",
+    subtitle: "Ecommerce design for an independent British brand",
+    image: "/work/oliver-bonas.png",
+    notionPageId: '12ceac4e7ae9801b9cc0f59f4c03386e'
   }
 };
 
