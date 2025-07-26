@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./SelectedWork.module.css";
-import LazyCaseStudy from "./LazyCaseStudy";
+import Link from "next/link";
 
 export type WorkItem = {
     title: string;
@@ -23,12 +23,10 @@ const OFFSET_Y = 0;
 const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [isNavigating, setIsNavigating] = useState(false);
-  const [openCaseStudy, setOpenCaseStudy] = useState<string | null>(null);
   const [hoveredTitle, setHoveredTitle] = useState<number | null>(null);
   const [isDesktop, setIsDesktop] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth >= 920 : true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 920);
     };
@@ -59,8 +57,6 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
     setHoveredIdx(idx);
   };
 
-
-
   const handleFocus = (idx: number) => {
     setHoveredIdx(idx);
     setHoveredTitle(idx);
@@ -69,24 +65,6 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
   const handleBlur = () => {
     setHoveredIdx(null);
     setHoveredTitle(null);
-  };
-
-  const handleWorkClick = (work: WorkItem) => {
-    if (isNavigating) return;
-    
-    setIsNavigating(true);
-    
-    // Extract the work slug from the href (e.g., "/work/dragonfly" -> "dragonfly")
-    const workSlug = work.href.split('/').pop();
-    if (workSlug) {
-      setOpenCaseStudy(workSlug);
-    }
-    
-    setIsNavigating(false);
-  };
-
-  const handleCloseModal = () => {
-    setOpenCaseStudy(null);
   };
 
   return (
@@ -99,42 +77,21 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
 
         <div className={styles.workList}>
           {works.map((work, idx) => {
-            const arrowSvg = (
-              <svg
-                width="1.2em"
-                height="1.2em"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginLeft: 8, verticalAlign: 'middle' }}
-              >
-                <path
-                  d="M5 12h14M13 6l6 6-6 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            );
             const hoverMessage =
               work.title === 'Tom&Co.'
-                ? <><span>Design System</span>{arrowSvg}</>
+                ? 'Design System'
                 : work.title === 'Freedom2hear'
-                ? <><span>AI Innovation</span>{arrowSvg}</>
+                ? 'AI Innovation'
                 : work.title === 'MyFujifilm'
-                ? <><span>Ecommerce</span>{arrowSvg}</>
+                ? 'Ecommerce'
                 : '';
             return (
-              <div
-                className={styles.workTitle}
-                key={work.title}
-                onMouseMove={e => handleMouseMove(e, idx)}
+            <div
+              className={styles.workTitle}
+              key={work.title}
+              onMouseMove={e => handleMouseMove(e, idx)}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
-                onFocus={() => handleFocus(idx)}
-                onBlur={handleBlur}
-                tabIndex={0}
               >
                 {/* Inline image for mobile only */}
                 <img
@@ -143,58 +100,16 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
                   className={styles.mobileImage}
                   aria-hidden="true"
                 />
-                <button
-                  onClick={() => handleWorkClick(work)}
-                  disabled={isNavigating}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 0,
-                    cursor: isNavigating ? 'default' : 'pointer',
-                    color: 'inherit',
-                    textDecoration: 'none',
-                    opacity: isNavigating ? 0.7 : 1,
-                    fontSize: 'inherit',
-                    fontFamily: 'inherit',
-                    fontWeight: 'inherit',
-                    outline: 'none',
-                    minHeight: '1.2em',
-                  }}
+                <Link
+                  href={work.href}
+                  className={styles.workButton}
+                  tabIndex={0}
+                  onFocus={() => handleFocus(idx)}
+                  onBlur={handleBlur}
                 >
-                  <span style={{ display: 'inline-flex', alignItems: 'center', minHeight: '1.2em', perspective: '400px' }}>
-                    <AnimatePresence mode="wait">
-                      {isDesktop && hoveredIdx === idx ? (
-                        <motion.span
-                          key={`hovered-${idx}`}
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                          transition={{ duration: 0.3, ease: 'easeOut' }}
-                          style={{ color: 'var(--accent-secondary)', display: 'inline-flex', alignItems: 'center' }}
-                        >
-                          {hoverMessage}
-                        </motion.span>
-                      ) : !isDesktop && hoveredIdx === idx ? (
-                        <span style={{ color: 'var(--accent-secondary)', display: 'inline-flex', alignItems: 'center' }}>{hoverMessage}</span>
-                      ) : (
-                        isDesktop ? (
-                          <motion.span
-                            key={`default-${idx}`}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.3, ease: 'easeOut' }}
-                            style={{ display: 'inline-block' }}
-                          >
-                            {work.title}
-                          </motion.span>
-                        ) : (
-                          <span>{work.title}</span>
-                        )
-                      )}
-                    </AnimatePresence>
-                  </span>
-                </button>
+                  <span className={styles.workTitleText}>{work.title}</span>
+                  {hoverMessage && <span className={styles.hoverMessage}>{hoverMessage}</span>}
+                </Link>
                 <div className={styles.mobileSubtitle}>
                   {work.subtitle}
                 </div>
@@ -214,17 +129,38 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({ works }) => {
               }}
             />
           )}
+          {/* Floating tag for desktop hover */}
+          {hoveredIdx !== null && isDesktop && (
+            <div
+              className={styles.floatingTag}
+              style={{
+                position: "fixed",
+                left: cursor.x + 20,
+                top: cursor.y - 10,
+                pointerEvents: "none",
+                zIndex: 1000,
+                background: "var(--accent)",
+                color: "var(--accent-foreground)",
+                padding: "0.25rem 1rem",
+                borderRadius: "9999px",
+                fontSize: "1.25rem",
+                fontWeight: "600",
+                whiteSpace: "nowrap",
+                opacity: 1,
+                letterSpacing: "-0.04em",
+              }}
+            >
+              {works[hoveredIdx].title === 'Tom&Co.'
+                ? 'Design System'
+                : works[hoveredIdx].title === 'Freedom2hear'
+                ? 'AI Innovation'
+                : works[hoveredIdx].title === 'MyFujifilm'
+                ? 'Ecommerce'
+                : ''}
+            </div>
+          )}
         </div>
       </section>
-
-      {/* Lazy Case Study Modal */}
-      {openCaseStudy && (
-        <LazyCaseStudy
-          workSlug={openCaseStudy}
-          isOpen={!!openCaseStudy}
-          onClose={handleCloseModal}
-        />
-      )}
     </>
   );
 };

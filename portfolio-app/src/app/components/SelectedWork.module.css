@@ -25,6 +25,7 @@
 .workTitle:focus {
   color: var(--accent-secondary);
   text-decoration: none;
+  font-weight: 200;
 }
 
 
@@ -64,6 +65,29 @@ a.workTitle :hover {
 
 .mobileSubtitle {
   display: none;
+}
+
+.hoverMessage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  pointer-events: none;
+  color: var(--accent);
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.workButton:hover .hoverMessage,
+.workButton:focus .hoverMessage {
+  opacity: 1;
+}
+
+/* Hide hover message on desktop/laptop */
+@media (min-width: 920px) {
+  .hoverMessage {
+    display: none;
+  }
 }
 
 @media (max-width: 920px) {

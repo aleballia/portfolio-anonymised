@@ -18,7 +18,7 @@ export default async function TomAndCoCaseStudy() {
   console.log("Notion properties:", notionData?.properties);
 
   return (
-    <SmoothCaseStudyTransition>
+
       <CaseStudy
         title="Tom&Co."
         subtitle="White Label Design System for Award Winning Ecommerce Agency"
@@ -37,6 +37,5 @@ export default async function TomAndCoCaseStudy() {
           </>
         )}
       </CaseStudy>
-    </SmoothCaseStudyTransition>
   );
 }

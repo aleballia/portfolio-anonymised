@@ -16,7 +16,6 @@ export default async function Freedom2hearCaseStudy() {
   const notionData = await getNotionPage('142eac4e7ae980d3b74ef291a22af62d');
   
   return (
-    <SmoothCaseStudyTransition>
       <CaseStudy
         title="Freedom2hear"
         subtitle="Product Design, Innovation & Growth for an Emotion AI Startup"
@@ -35,6 +34,5 @@ export default async function Freedom2hearCaseStudy() {
           </>
           )}
         </CaseStudy>
-    </SmoothCaseStudyTransition>
   );
 }

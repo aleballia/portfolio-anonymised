@@ -58,8 +58,8 @@ const Header: React.FC = () => {
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.3, ease: 'easeOut' }}
                     style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
-                  >
-                    Alessandra Balliana
+            >
+              Alessandra Balliana
                   </motion.span>
                 ) : (
                   <motion.span
@@ -73,17 +73,17 @@ const Header: React.FC = () => {
                     {isHome ? (
                       <>Hi 👋</>
                     ) : (
-                      <>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ marginRight: "8px" }}>
+                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M20 11H7.8L13.4 5.4L12 4L4 12L12 20L13.4 18.6L7.8 13H20V11V11Z" fill="currentColor"/>
                         </svg>
                         Back
-                      </>
+                      </span>
                     )}
                   </motion.span>
                 )}
               </AnimatePresence>
-            </span>
+              </span>
           </span>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CaseStudy from "./CaseStudy";
 import NotionContent from "./NotionContent";
+import CaseStudySkeleton from "./CaseStudySkeleton";
 
 interface LazyCaseStudyProps {
   workSlug: string;
@@ -39,19 +40,18 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
   const [notionData, setNotionData] = useState<any>(null);
   const [showContent, setShowContent] = useState(false);
 
+  // Make studyData available everywhere in the component
+  const studyData = caseStudyData[workSlug as keyof typeof caseStudyData];
+
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      // Dispatch event to notify homepage about modal state
       window.dispatchEvent(new CustomEvent('modalStateChange', { detail: { isOpen: true } }));
     } else {
       document.body.style.overflow = 'unset';
-      // Dispatch event to notify homepage about modal state
       window.dispatchEvent(new CustomEvent('modalStateChange', { detail: { isOpen: false } }));
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset';
       window.dispatchEvent(new CustomEvent('modalStateChange', { detail: { isOpen: false } }));
@@ -59,15 +59,11 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen && !content) {
+    if (isOpen && !showContent) {
       setIsLoading(true);
       setShowContent(false);
-      
-      // Get case study data
-      const studyData = caseStudyData[workSlug as keyof typeof caseStudyData];
-      
+      setNotionData(null);
       if (studyData) {
-        // Fetch data from Notion via API route
         const fetchNotionData = async () => {
           try {
             const response = await fetch(`/api/notion/${studyData.notionPageId}`);
@@ -76,88 +72,30 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
             }
             const notionData = await response.json();
             setNotionData(notionData);
-            
-            // Create case study content with Notion data
-            const caseStudyContent = (
-              <CaseStudy
-                title={studyData.title}
-                subtitle={studyData.subtitle}
-                tags={notionData?.properties?.tags || [""]}
-                image={notionData?.coverImage || studyData.image}
-                role={notionData?.properties?.role || ""}
-                company={notionData?.properties?.company || ""}
-                tools={notionData?.properties?.tools || [""]}
-                date={notionData?.properties?.date || ""}
-                summary={notionData?.properties?.summary || ""}
-              >
-                {notionData?.blocks ? (
-                  <NotionContent blocks={notionData.blocks} />
-                ) : (
-                  <div className="prose prose-invert">
-                    <h2>Project Overview</h2>
-                    <p>{studyData.subtitle}</p>
-                    
-                    <h2>Key Achievements</h2>
-                    <ul>
-                      <li>Designed comprehensive design system</li>
-                      <li>Improved user experience metrics</li>
-                      <li>Collaborated with cross-functional teams</li>
-                    </ul>
-                    
-                    <h2>Process</h2>
-                    <p>This project involved extensive research, prototyping, and user testing to create a solution that meets both business and user needs.</p>
-                  </div>
-                )}
-              </CaseStudy>
-            );
-            
-            setContent(caseStudyContent);
             setIsLoading(false);
-            
-            // Delay showing content to allow for smooth transition
             setTimeout(() => {
+              console.log('Setting showContent to true (success)');
               setShowContent(true);
-            }, 400);
+            }, 800);
           } catch (error) {
             console.error('Error fetching Notion data:', error);
             setIsLoading(false);
-            setContent(
-              <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "200px",
-                color: "var(--foreground)"
-              }}>
-                Error loading case study
-              </div>
-            );
             setTimeout(() => {
+              console.log('Setting showContent to true (error)');
               setShowContent(true);
-            }, 400);
+            }, 800);
           }
         };
-        
         fetchNotionData();
       } else {
         setIsLoading(false);
-        setContent(
-          <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "200px",
-            color: "var(--foreground)"
-          }}>
-            Case study not found
-          </div>
-        );
         setTimeout(() => {
+          console.log('Setting showContent to true (no studyData)');
           setShowContent(true);
-        }, 400);
+        }, 800);
       }
     }
-  }, [isOpen, workSlug, content]);
+  }, [isOpen, workSlug, showContent, studyData]);
 
   // Reset content when modal closes
   useEffect(() => {
@@ -165,8 +103,60 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
       setContent(null);
       setShowContent(false);
       setNotionData(null);
+      setIsLoading(false);
     }
   }, [isOpen]);
+
+  // Prepare CaseStudy props when ready
+  let caseStudyContent = null;
+  if (showContent && studyData) {
+    caseStudyContent = (
+      <CaseStudy
+        title={studyData.title}
+        subtitle={studyData.subtitle}
+        tags={notionData?.properties?.tags || [""]}
+        image={notionData?.coverImage || studyData.image}
+        role={notionData?.properties?.role || ""}
+        company={notionData?.properties?.company || ""}
+        tools={notionData?.properties?.tools || [""]}
+        date={notionData?.properties?.date || ""}
+        summary={notionData?.properties?.summary || ""}
+      >
+        {notionData?.blocks ? (
+          <NotionContent blocks={notionData.blocks} />
+        ) : (
+          <div className="prose prose-invert">
+            <h2>Project Overview</h2>
+            <p>{studyData.subtitle}</p>
+            <h2>Key Achievements</h2>
+            <ul>
+              <li>Content</li>
+              <li>Content</li>
+              <li>Collaborated with cross-functional teams</li>
+            </ul>
+            <h2>Process</h2>
+            <p>This project involved extensive research, prototyping, and user testing to create a solution that meets both business and user needs.</p>
+          </div>
+        )}
+      </CaseStudy>
+    );
+  } else if (showContent && !studyData) {
+    caseStudyContent = (
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "200px",
+        color: "var(--foreground)",
+        fontSize: "1.3rem",
+        fontWeight: 500,
+        textAlign: "center"
+      }}>
+        Content not found
+      </div>
+    );
+  }
+  console.log('showContent:', showContent, 'caseStudyContent:', caseStudyContent);
 
   return (
     <AnimatePresence>
@@ -178,8 +168,8 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
             animate={{ opacity: 1, backdropFilter: "blur(8px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
             transition={{ 
-              duration: 0.5,
-              ease: [0.25, 0.46, 0.45, 0.94]
+              duration: 0.1,
+              ease: [0.25, 0.46, 0.35, 0.4]
             }}
             style={{
               position: "fixed",
@@ -192,7 +182,6 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
             }}
             onClick={onClose}
           />
-          
           {/* Modal Content with enhanced animation */}
           <motion.div
             initial={{ 
@@ -251,36 +240,22 @@ const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "48px"
+                fontSize: "32px"
               }}
             >
-              ×
+              BACK
             </motion.button>
-            
             {/* Content Container */}
             <motion.div
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 1 }}
               animate={{ opacity: showContent ? 1 : 0 }}
               transition={{ 
-                duration: 0.4,
-                delay: showContent ? 0 : 0.3
+                duration: 0.2,
+                delay: showContent ? 0 : 0.2
               }}
             >
-              {/* Loading State */}
-              {isLoading && (
-                <div style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  height: "200px",
-                  color: "var(--foreground)"
-                }}>
-                  Loading...
-                </div>
-              )}
-              
-              {/* Case Study Content */}
-              {!isLoading && content}
+              {!showContent && <CaseStudySkeleton />}
+              {showContent && caseStudyContent}
             </motion.div>
           </motion.div>
         </>
