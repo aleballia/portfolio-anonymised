@@ -11,9 +11,6 @@ interface SmoothCaseStudyTransitionProps {
 }
 
 const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({ children }) => {
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [transitionTitle, setTransitionTitle] = useState("");
-  const [transitionSubtitle, setTransitionSubtitle] = useState("");
   const [isReturningToHome, setIsReturningToHome] = useState(false);
   const [showCaseStudyModal, setShowCaseStudyModal] = useState(false);
   const [caseStudyContent, setCaseStudyContent] = useState<ReactNode>(null);
@@ -25,7 +22,6 @@ const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({ c
       // Case study page - show as modal
       setShowCaseStudyModal(true);
       setCaseStudyContent(children);
-      setIsTransitioning(false);
       setIsReturningToHome(false);
     } else {
       // Homepage - check if we're in a transition
@@ -101,26 +97,9 @@ const SmoothCaseStudyTransition: React.FC<SmoothCaseStudyTransitionProps> = ({ c
                 ease: "easeInOut"
               }}
             >
-              {transitionTitle}
+              {/* Removed transitionTitle */}
             </motion.h1>
-            {transitionSubtitle && (
-              <motion.p
-                className="h3"
-                style={{ 
-                  color: "var(--muted-foreground)",
-                  fontWeight: 300
-                }}
-                animate={{
-                  opacity: 1
-                }}
-                transition={{
-                  duration: 1.2,
-                  ease: "easeInOut"
-                }}
-              >
-                {transitionSubtitle}
-              </motion.p>
-            )}
+            {/* Removed transitionSubtitle */}
           </motion.div>
         )}
       </AnimatePresence>

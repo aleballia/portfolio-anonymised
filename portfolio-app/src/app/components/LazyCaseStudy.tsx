@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import CaseStudy from "./CaseStudy";
 import NotionContent from "./NotionContent";
 import CaseStudySkeleton from "./CaseStudySkeleton";
+import { NotionBlock } from "../../lib/notion";
 
 interface LazyCaseStudyProps {
   workSlug: string;
@@ -34,8 +35,23 @@ const caseStudyData = {
   }
 };
 
+interface NotionProperties {
+  tags?: string[];
+  role?: string;
+  company?: string;
+  tools?: string[];
+  date?: string;
+  summary?: string;
+}
+
+interface NotionData {
+  properties?: NotionProperties;
+  blocks?: NotionBlock[];
+  coverImage?: string;
+}
+
 const LazyCaseStudy: React.FC<LazyCaseStudyProps> = ({ workSlug, isOpen, onClose }) => {
-  const [notionData, setNotionData] = useState<{ properties?: any; blocks?: any; coverImage?: string } | null>(null);
+  const [notionData, setNotionData] = useState<NotionData | null>(null);
   const [showContent, setShowContent] = useState(false);
 
   // Make studyData available everywhere in the component

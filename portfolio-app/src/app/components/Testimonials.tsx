@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import styles from "./Testimonials.module.css";
 
 export type Testimonial = {
@@ -43,14 +44,20 @@ const Testimonials: React.FC = () => (
       {testimonials.map((t, idx) => (
         <div className={styles.testimonialCard} key={idx}>
           <div className={styles.avatarRow}>
-            <img src={t.avatar} alt={t.author} className={styles.avatar} />
+            <Image 
+              src={t.avatar} 
+              alt={t.author} 
+              width={48}
+              height={48}
+              className={styles.avatar} 
+            />
             <div>
               <div className={styles.author}>{t.author}</div>
               <div className={styles.role}>{t.role}</div>
             </div>
           </div>
           <blockquote className={styles.quote}>
-            “{t.quote}”
+            &ldquo;{t.quote}&rdquo;
           </blockquote>
         </div>
       ))}

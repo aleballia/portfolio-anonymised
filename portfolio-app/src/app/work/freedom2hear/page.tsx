@@ -22,7 +22,7 @@ export default async function Freedom2hearCaseStudy() {
     <CaseStudy
       title={caseStudy.title}
       subtitle={caseStudy.subtitle}
-      tags={notionData?.properties?.tags || caseStudy.tags}
+      tags={notionData?.properties?.tags || []}
       image={notionData?.coverImage || caseStudy.mainImage}
       role={notionData?.properties?.role || ""}
       company={notionData?.properties?.company || ""}

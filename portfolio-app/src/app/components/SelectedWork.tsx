@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import styles from "./SelectedWork.module.css";
 import Link from "next/link";
-import { caseStudies, type CaseStudy } from "../../lib/caseStudies";
+import Image from "next/image";
+import { caseStudies } from "../../lib/caseStudies";
 
 const OFFSET_X = 32;
 const OFFSET_Y = 0;
@@ -53,9 +53,11 @@ const SelectedWork: React.FC = () => {
                 onMouseLeave={() => setHoveredIdx(null)}
               >
                 {/* Inline image for mobile only */}
-                <img
+                <Image
                   src={work.mainImage}
                   alt={work.title}
+                  width={400}
+                  height={300}
                   className={styles.mobileImage}
                   aria-hidden="true"
                 />
@@ -76,9 +78,11 @@ const SelectedWork: React.FC = () => {
             ))}
           {/* Floating preview image for desktop hover */}
           {hoveredIdx !== null && (
-            <img
+            <Image
               src={caseStudies[hoveredIdx].mainImage}
               alt={caseStudies[hoveredIdx].title}
+              width={400}
+              height={300}
               className={styles.previewImg}
               style={{
                 left: cursor.x,

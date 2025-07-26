@@ -5,10 +5,10 @@ type Params = { pageId: string };
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: Params | Promise<Params> }
+  { params }: { params: Promise<Params> }
 ) {
   try {
-    const resolvedParams = await Promise.resolve(params);
+    const resolvedParams = await params;
     const pageId = resolvedParams.pageId;
     const notionData = await getNotionPage(pageId);
     
