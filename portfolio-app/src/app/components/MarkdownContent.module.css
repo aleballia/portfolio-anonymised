@@ -15,19 +15,26 @@
 }
 
 .markdownContent table td {
-  padding: 0 1rem; /* 0 top/bottom, 1rem left/right */
   border: none;
   vertical-align: top;
   width: 50%; /* Force equal width columns */
 }
 
 .markdownContent table td:first-child {
-  padding-left: 0; /* No padding on left of first image */
-}
+    padding: 0 0.5rem 0 0; /* Larger gap on desktop */
+  }
 
-.markdownContent table td:last-child {
-  padding-right: 0; /* No padding on right of last image */
-}
+  .markdownContent table td:last-child {
+    padding: 0 0 0 0.5rem; /* Larger gap on desktop */
+  }
+
+.markdownContent table th:first-child {
+    padding: 0 0.5rem 0 0; /* Larger gap on desktop */
+  }
+
+  .markdownContent table th:last-child {
+    padding: 0 0 0 0.5rem; /* Larger gap on desktop */
+  }
 
 .markdownContent table img {
   width: 100%;
@@ -36,16 +43,36 @@
   display: block; /* Ensures proper rendering */
 }
 
+.markdownContent table th {
+    border: none;
+    vertical-align: top;
+    width: 50%; /* Force equal width columns */
+    font-size: 1.2rem;
+  }
+
 /* Responsive table spacing */
 @media (max-width: 768px) {
   .markdownContent table td {
-    padding: 0 0.5rem; /* Smaller gap on mobile */
+    padding: 0 1rem 0 0; /* Smaller gap on mobile */
+
   }
 }
 
 @media (min-width: 1024px) {
-  .markdownContent table td {
-    padding: 0 1rem; /* Larger gap on desktop */
+  .markdownContent table td:first-child {
+    padding: 0 1rem 0 0; /* Larger gap on desktop */
+  }
+
+  .markdownContent table td:last-child {
+    padding: 0 0 0 1rem; /* Larger gap on desktop */
+  }
+
+  .markdownContent table th:first-child {
+    padding: 0 1rem 0 0; /* Larger gap on desktop */
+  }
+
+  .markdownContent table th:last-child {
+    padding: 0 0 0 1rem; /* Larger gap on desktop */
   }
 
   .markdownContent table img {
