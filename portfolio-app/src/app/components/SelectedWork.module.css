@@ -25,7 +25,6 @@
 .workTitle:focus {
   color: var(--accent-secondary);
   text-decoration: none;
-  font-weight: 200;
 }
 
 
@@ -45,7 +44,7 @@ a.workTitle :hover {
   transition: opacity 0.18s, transform 0.3s;
   background: var(--card);
   border-radius: var(--radius-md);
-  border: 1px solid var(--primary);
+  border: 1px solid var(--border);
   display: none;
 }
 
@@ -93,7 +92,7 @@ a.workTitle :hover {
 @media (max-width: 920px) {
 
   .workList {
-    gap: 1.2rem;
+    gap: 3.5rem;
   }
   .workTitle {
     display: flex;
@@ -104,7 +103,7 @@ a.workTitle :hover {
     font-weight: 400;
   }
   .mobileSubtitle {
-    display: block;
+    display: none !important;
     opacity: 1 !important;
     transform: none !important;
     position: static !important;
@@ -112,7 +111,6 @@ a.workTitle :hover {
     font-size: 1.25rem;
     letter-spacing: -0.05em;
     margin-left: 0;
-    margin-bottom: 2.5rem;
   }
   .previewImg {
     display: none !important;
@@ -124,7 +122,7 @@ a.workTitle :hover {
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-sm);
     margin-bottom: 0.5rem;
     border: 1px solid var(--primary);
   }
