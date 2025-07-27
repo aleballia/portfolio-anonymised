@@ -3,7 +3,8 @@ export interface CaseStudy {
   title: string;
   subtitle: string;
   href: string;
-  notionId: string;
+  notionId?: string; // Optional - for Notion-based case studies
+  contentFile?: string; // Optional - for Markdown-based case studies
   mainImage: string;
   hoverMessage: string;
 }
@@ -14,7 +15,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Freedom2hear',
     subtitle: 'Product Design, Innovation & Growth for an Emotion AI Startup',
     href: '/work/freedom2hear',
-    notionId: '142eac4e7ae980d3b74ef291a22af62d',
+    contentFile: 'freedom2hear.md',
     mainImage: '/work/freedom2hear.png',
     hoverMessage: 'AI Product Strategy & Design'
   },
@@ -23,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Tom&Co.',
     subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
     href: '/work/tomandco',
-    notionId: '7a52ff3c3e2b464d8e923b7d37ac35fb',
+    contentFile: 'tomandco.md',
     mainImage: '/work/tomandco.png',
     hoverMessage: 'Design System'
   },
@@ -32,16 +33,16 @@ export const caseStudies: CaseStudy[] = [
     title: 'MyFujifilm',
     subtitle: 'Ecommerce Product Design & Development for a Global Brand',
     href: '/work/myfujifilm',
-    notionId: '12ceac4e7ae980fd9d45fc49c9a47d19',
+    contentFile: 'myfujifilm.md',
     mainImage: '/work/myfujifilm.png',
     hoverMessage: 'Ecommerce'
   },
   {
     id: 'frictionless-futures',
     title: 'Frictionless Futures',
-    subtitle: 'Strategic design for future-focused innovation',
+    subtitle: 'Design for the future of retail & hospitality',
     href: '/work/frictionless-futures',
-    notionId: '23ceac4e7ae980d5be60c55fff75a92e',
+    contentFile: 'frictionless-futures.md',
     mainImage: '/work/frictionless-futures.png',
     hoverMessage: 'Design for Innovation'
   },
@@ -50,7 +51,7 @@ export const caseStudies: CaseStudy[] = [
     title: 'Oliver Bonas',
     subtitle: 'Ecommerce design for an independent British brand',
     href: '/work/oliverbonas',
-    notionId: '12ceac4e7ae9801b9cc0f59f4c03386e',
+    contentFile: 'oliverbonas.md',
     mainImage: '/work/oliver-bonas.png',
     hoverMessage: 'Ecommerce'
   }

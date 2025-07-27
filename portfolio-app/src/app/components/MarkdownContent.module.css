@@ -1,0 +1,54 @@
+/* Markdown content table styling */
+
+.markdownContent {
+  /* Base markdown content styles */
+}
+
+.markdownContent img {
+}
+
+.markdownContent table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  table-layout: fixed; /* Ensures equal column widths */
+}
+
+.markdownContent table td {
+  padding: 0 1rem; /* 0 top/bottom, 1rem left/right */
+  border: none;
+  vertical-align: top;
+  width: 50%; /* Force equal width columns */
+}
+
+.markdownContent table td:first-child {
+  padding-left: 0; /* No padding on left of first image */
+}
+
+.markdownContent table td:last-child {
+  padding-right: 0; /* No padding on right of last image */
+}
+
+.markdownContent table img {
+  width: 100%;
+  height: auto;
+  object-fit: fill; /* Changed to 'contain' to prevent black boxes */
+  display: block; /* Ensures proper rendering */
+}
+
+/* Responsive table spacing */
+@media (max-width: 768px) {
+  .markdownContent table td {
+    padding: 0 0.5rem; /* Smaller gap on mobile */
+  }
+}
+
+@media (min-width: 1024px) {
+  .markdownContent table td {
+    padding: 0 1rem; /* Larger gap on desktop */
+  }
+
+  .markdownContent table img {
+    border-radius: 0;
+  }
+} 
