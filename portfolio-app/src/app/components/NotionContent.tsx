@@ -138,7 +138,11 @@ const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
                     alt={caption || 'Notion image'}
                     width={800}
                     height={600}
-                    className="w-full h-auto object-cover rounded-lg"
+                    className="w-full h-auto object-cover"
+                    style={{
+                      borderRadius: '0',
+                      backgroundColor: 'var(--muted)',
+                    }}
                   />
                 </div>
                 {caption && (
