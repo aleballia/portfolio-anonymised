@@ -56,7 +56,7 @@ Working closed with the client we redefined the information architecture and pro
 
 ### Brand & Design System
 
-We worked with branding agency Zag to define key visual elements of the design system, including rule and guidelines around the use of the bold colour palette, and typography. The visual direction was bold and bright reflecting the emotional value of printed memories, while the off-white page canvas recalling the idea of paper gave it a warm look & feel.
+We worked with branding agency Zag to define key visual elements of the design system, including rule and guidelines around the use of the bold colour palette, and typography. The visual direction was bold and bright reflecting the emotional value of printed memories, while the off-white page canvas recalling the idea of paper gives the new website a warm look & feel.
 
 ![Design System](/case-studies/myfujifilm/design-system.png)
 
