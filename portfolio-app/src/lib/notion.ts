@@ -6,6 +6,7 @@ const notion = new Client({
 
 export interface NotionBlock {
   type: string;
+  id?: string;
   paragraph?: {
     rich_text: Array<{
       plain_text: string;
@@ -81,6 +82,13 @@ export interface NotionBlock {
       plain_text: string;
     }>;
   };
+  column_list?: {
+    type: string;
+  };
+  column?: {
+    type: string;
+  };
+  children?: NotionBlock[];
 }
 
 export interface NotionPageData {
@@ -184,10 +192,13 @@ export async function getNotionPage(pageId: string): Promise<NotionPageData | nu
         }
       }
     }
+
+    // Process blocks to handle column layouts
+    const processedBlocks = await processBlocksWithColumns(blocks.results as NotionBlock[]);
     
     return {
       page: response,
-      blocks: blocks.results as NotionBlock[],
+      blocks: processedBlocks,
       properties,
       coverImage,
     };
@@ -195,4 +206,59 @@ export async function getNotionPage(pageId: string): Promise<NotionPageData | nu
     console.error('Error fetching Notion page:', error);
     return null;
   }
+}
+
+// Helper function to process blocks and fetch children for column layouts
+async function processBlocksWithColumns(blocks: NotionBlock[]): Promise<NotionBlock[]> {
+  const processedBlocks: NotionBlock[] = [];
+
+  for (const block of blocks) {
+    if (block.type === 'column_list') {
+      // Fetch children of the column_list to get the columns
+      const columnListChildren = await notion.blocks.children.list({ block_id: block.id! });
+      const columns = columnListChildren.results as NotionBlock[];
+      
+      // For each column, fetch its children
+      const processedColumns: NotionBlock[] = [];
+      for (const column of columns) {
+        const columnChildren = await notion.blocks.children.list({ block_id: column.id! });
+        const processedColumnChildren = await processBlocksWithColumns(columnChildren.results as NotionBlock[]);
+        
+        // Add the column with its children
+        processedColumns.push({
+          ...column,
+          children: processedColumnChildren
+        });
+      }
+      
+      // Add the column_list with its processed columns
+      processedBlocks.push({
+        ...block,
+        children: processedColumns
+      });
+    } else {
+      // For other block types, check if they have children and process them recursively
+      if (block.id) {
+        try {
+          const children = await notion.blocks.children.list({ block_id: block.id });
+          if (children.results.length > 0) {
+            const processedChildren = await processBlocksWithColumns(children.results as NotionBlock[]);
+            processedBlocks.push({
+              ...block,
+              children: processedChildren
+            });
+          } else {
+            processedBlocks.push(block);
+          }
+        } catch (error) {
+          // If there's an error fetching children, just add the block as is
+          processedBlocks.push(block);
+        }
+      } else {
+        processedBlocks.push(block);
+      }
+    }
+  }
+
+  return processedBlocks;
 }

@@ -7,7 +7,7 @@ interface NotionContentProps {
 }
 
 const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
-  const renderBlocks = () => {
+  const renderBlocks = (blocksToRender: NotionBlock[] = blocks) => {
     const elements: React.ReactElement[] = [];
     let currentList: React.ReactElement[] = [];
     let currentListType: 'bulleted' | 'numbered' | null = null;
@@ -44,7 +44,20 @@ const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
       ));
     };
 
-    blocks.forEach((block, index) => {
+    const renderColumnContent = (columnBlocks: NotionBlock[]) => {
+      return columnBlocks.map((columnBlock, columnIndex) => {
+        if (columnBlock.type === 'column' && columnBlock.children) {
+          return (
+            <div key={`column-${columnIndex}`} className="flex-1">
+              {renderBlocks(columnBlock.children)}
+            </div>
+          );
+        }
+        return null;
+      });
+    };
+
+    blocksToRender.forEach((block, index) => {
       switch (block.type) {
         case 'paragraph':
           flushCurrentList();
@@ -124,6 +137,22 @@ const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
           );
           break;
 
+        case 'column_list':
+          flushCurrentList();
+          if (block.children) {
+            elements.push(
+              <div key={index} className="flex gap-6 mb-6">
+                {renderColumnContent(block.children)}
+              </div>
+            );
+          }
+          break;
+
+        case 'column':
+          // Individual column blocks - these are children of column_list
+          // For now, we'll skip them as they should be handled by column_list
+          break;
+
         case 'image':
           flushCurrentList();
           const imageUrl = block.image?.file?.url || block.image?.external?.url;
@@ -157,6 +186,8 @@ const NotionContent: React.FC<NotionContentProps> = ({ blocks }) => {
 
         default:
           flushCurrentList();
+          // Log unknown block types for debugging
+          console.log('Unknown block type:', block.type, block);
           break;
       }
     });
