@@ -42,7 +42,7 @@ export default function HomeClient() {
           amplitude={0.5}
           speed={0.8}
           modalOpen={isModalOpen}
-          opacity={0.1}
+          opacity={0.2}
         >
         </AuroraBackground>
         {/* Header */}

@@ -8,28 +8,28 @@ import styles from "./Experience.module.css";
 const experiences = [
     {
         title: "Head of Product Design",
-        company: "Innovation & Growth @ Freedom2hear",
-        period: "Jan 2024 – Present",
+        company: "Freedom2hear, Innovation & Growth",
+        period: "Jan 2024 to Present",
     },
     {
         title: "Lead Product Designer (Manager)",
-        company: "PwC",
-        period: "2022 — 23",
+        company: "PwC, Experience Design",
+        period: "Nov 2022 to Nov 2023",
     },
     {
         title: "Lead UX/UI Designer",
-        company: "Resi",
-        period: "2022",
+        company: "Resi, Challenger Scale Up",
+        period: "Jun 2022 to Nov 2023",
     },
     {
         title: "Design Systems Manager",
-        company: "Tom&Co",
-        period: "2019 – 22",
+        company: "Tom&Co, Ecommerce Agency",
+        period: "Jul 2019 to Jun 2022",
     },
     {
         title: "Senior UX/UI Designer",
-        company: "Tom&Co",
-        period: "2019 – 22",
+        company: "Tom&Co, Ecommerce Agency",
+        period: "Jul 2019 to Jun 2022",
     },
     {
         title: "button", // Special marker for button
@@ -244,7 +244,7 @@ export default function Experience() {
                                                   margin: 0, 
                                                   marginLeft: 10, 
                                                   marginBottom: 8,
-                                                  fontWeight: 400,
+                                                  fontWeight: 200,
                                                 }}
                                             >
                                                 {exp.title}
@@ -258,10 +258,9 @@ export default function Experience() {
                                                 style={{ 
                                                   marginBottom: 4, 
                                                   marginLeft: 12,
-                                                  fontWeight: 300,
                                                 }}
                                             >
-                                                {exp.company} | {exp.period}
+                                               <span style={{ fontWeight: 400 }}>{exp.company}</span> <span style={{ fontWeight: 200 }}> – {exp.period}</span>
                                             </motion.div>
                                         </>
                                     )}

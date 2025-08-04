@@ -13,6 +13,7 @@ interface CaseStudyProps {
   images?: string[]; // Additional images to display in content
   summary?: string; // Project summary text
   date?: string;    // Project date
+  liveLink?: string; // Live project URL
 }
 
 const CaseStudy: React.FC<CaseStudyProps> = ({ 
@@ -26,7 +27,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   images = [],
   summary,
   date,
-
+  liveLink,
 }) => {
   return (
     <div>
@@ -97,6 +98,16 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                     <p className={`p ${styles.detailText}`}>
                       <span className={styles.detailLabel}>Tools: </span>
                       {tools.join(', ')}
+                    </p>
+                  </div>
+                )}
+                {liveLink && (
+                  <div className={styles.detailItem}>
+                    <p className={`p ${styles.detailText}`}>
+                      <span className={styles.detailLabel}>Live Link: </span>
+                      <a href={liveLink} target="_blank" rel="noopener noreferrer">
+                        {liveLink}
+                      </a>
                     </p>
                   </div>
                 )}

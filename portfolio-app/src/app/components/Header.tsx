@@ -25,15 +25,10 @@ const Header: React.FC = () => {
   const isHome = pathname === "/";
 
   const handleClick = (e: React.MouseEvent) => {
-    if (!isHome && hovered) {
-      e.preventDefault();
+    if (!isHome) {
       // Set sessionStorage to indicate we're returning from a case study
       sessionStorage.setItem('returningFromCaseStudy', 'true');
-      router.back();
-    } else if (!isHome && !hovered) {
-      // Set sessionStorage to indicate we're returning from a case study
-      sessionStorage.setItem('returningFromCaseStudy', 'true');
-      window.location.href = "/";
+      router.push("/");
     }
   };
 
@@ -101,7 +96,7 @@ const Header: React.FC = () => {
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M20 11H7.8L13.4 5.4L12 4L4 12L12 20L13.4 18.6L7.8 13H20V11V11Z" fill="currentColor"/>
                         </svg>
-                        Back
+                        Homepage
                       </span>
                     )}
                   </motion.span>

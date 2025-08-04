@@ -13,35 +13,37 @@ Summary: In 2020, I joined the Oliver Bonas website redesign as UX/UI Designer. 
 ## Impact
 
 - UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**
-- **58% increase in mobile traffic** within a year of launch
-- **+70% product revenue** from gifting experience
 - **Improved development handover** through new design system and CMS
 
----
-
-## Challenge
-
-**Oliver Bonas** wanted their online experience to match the warmth and charm of their physical stores. The site needed to feel effortless, with bags of personality, whilst delivering real commercial value. With mobile users dominating traffic (68%) but underperforming in conversion (2.09%), it was clear we had to rethink not just the look and feel, but also the core functionality and flow.
+## In numbers
+- **58% increase in mobile traffic** within a year of launch
+- **+70% product revenue** from gifting experience
 
 ---
 
-## Design Process
+## The Backstory
+
+**Oliver Bonas** wanted their online experience to match the warmth and charm of their physical stores. The site needed to feel effortless, with bags of personality, whilst delivering real commercial value. With mobile users dominating traffic (68%) but underperforming in conversion (2.09%), it was clear we had to rethink not just the look and feel, but also the core functionality and UX.
+
+---
+
+## The Design Process
 
 ### **Customer insight & behaviour analysis**
 
 I analysed two years of Google Analytics data to understand shifting device usage, age-based conversion trends, and returning customer habits. This highlighted the need for:
 
-- Klarna and flexible payment method integration
-- Enhanced functionality for account holders and repeat users
-- Mobile-first design tuned for newer, larger screen sizes
+- More visible Klarna and flexible payment method integration.
+- Improved loyalty experience with enhanced functionality for account holders and repeat users.
+- Effortless mbile-first designs for newer, larger screen sizes.
 
 ### **Creative direction & UI design**
 
-Working closely with another UI designer, we overhauled the visual design—refining typography, input interactions, and transitions. We introduced animations and a cleaner layout to evoke Oliver Bonas’ personality digitally.
+Working closely with another UI designer, we overhauled the visual design — refining typography, interactions, and page transitions. We introduced animations, product videos and a cleaner layouts to evoke Oliver Bonas’ personality digitally, and allow their vibrant and bold product photography to stand out. 
 
 ### **Client workshops & collaboration**
 
-Despite pandemic constraints, I ran interactive remote workshops with the Oliver Bonas in-house design team and senior stakeholders. Using Miro, Figma and Mural, I presented competitive research, UX insights, and prototypes that shaped decision-making and fostered alignment.
+Despite pandemic constraints, I ran interactive remote workshops with the Oliver Bonas in-house design team and senior stakeholders. Using Figma and Mural, I presented competitive research, UX insights, and prototypes that ensured alignment and a collaborative approach with the client's digital team.
 
 ---
 
@@ -51,17 +53,16 @@ Despite pandemic constraints, I ran interactive remote workshops with the Oliver
 
 I created and documented a scalable design system in Sketch and Abstract, enabling four designers to work concurrently with consistency. This also helped the client’s internal team manage updates post-launch.
 
-This was the first project where we had the opportunity to integrate the new iCMS platform Tom&Co developed entirely in house.
+This was the first project where we had the opportunity to integrate the new CMS proprietary platform that Tom&Co developed entirely in house.
 
 ### **Checkout & gifting experience**
 
 I led the redesign of the checkout, running A/B tests on fast checkout options and resolving pain points. I also spearheaded the revamp of the gifting journey:
 
-- New gift box builder in the basket, with mobile-first UX
-- Refreshed e-gift card flow and interface
+- New gift box builder in the basket, with mobile-first UX.
+- Refreshed e-gift card flow and interface.
 
-The result? A seamless gifting experience that directly contributed to a +70% uplift in product revenue.
-
+The result? A seamless gifting experience that directly contributed to a **+70% uplift in product revenue**.
 ---
 
 ## Reflection

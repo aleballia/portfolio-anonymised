@@ -7,25 +7,28 @@ export interface CaseStudy {
   contentFile?: string; // Optional - for Markdown-based case studies
   mainImage: string;
   hoverMessage: string;
+  liveLink?: string; // Optional - live project URL
 }
 
 export const caseStudies: CaseStudy[] = [
   {
     id: 'freedom2hear',
     title: 'Freedom2hear',
-    subtitle: 'Product Design, Innovation & Growth for an Emotion AI Startup',
+    subtitle: 'Product Design & Strategy for an Emotion AI Startup',
     href: '/work/freedom2hear',
     contentFile: 'freedom2hear.md',
     mainImage: '/work/freedom2hear.png',
-    hoverMessage: 'AI Product Strategy & Design'
+    liveLink: 'https://freedom2hear.com',
+    hoverMessage: 'Product Design & Strategy for AI'
   },
   {
     id: 'tomandco',
-    title: 'Tom&Co.',
+    title: 'Dragonfly DS',
     subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
     href: '/work/tomandco',
     contentFile: 'tomandco.md',
     mainImage: '/work/tomandco.png',
+    liveLink: '',
     hoverMessage: 'Design System'
   },
   {
@@ -35,6 +38,7 @@ export const caseStudies: CaseStudy[] = [
     href: '/work/myfujifilm',
     contentFile: 'myfujifilm.md',
     mainImage: '/work/myfujifilm.png',
+    liveLink: 'https://my.fujifilm.com',
     hoverMessage: 'Ecommerce'
   },
   {
@@ -44,6 +48,7 @@ export const caseStudies: CaseStudy[] = [
     href: '/work/frictionless-futures',
     contentFile: 'frictionless-futures.md',
     mainImage: '/work/frictionless-futures.png',
+    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
     hoverMessage: 'Design for Innovation'
   },
   {
@@ -53,6 +58,7 @@ export const caseStudies: CaseStudy[] = [
     href: '/work/oliverbonas',
     contentFile: 'oliverbonas.md',
     mainImage: '/work/oliver-bonas.png',
+    liveLink: 'https://oliverbonas.com',
     hoverMessage: 'Ecommerce'
   }
 ];
@@ -63,4 +69,8 @@ export const getCaseStudyById = (id: string): CaseStudy | undefined => {
 
 export const getCaseStudyByHref = (href: string): CaseStudy | undefined => {
   return caseStudies.find(study => study.href === href);
+};
+
+export const getAllCaseStudies = (): CaseStudy[] => {
+  return caseStudies;
 }; 

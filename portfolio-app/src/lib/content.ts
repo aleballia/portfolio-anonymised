@@ -11,6 +11,7 @@ export interface CaseStudyContent {
   summary: string;
   content: string;
   tags: string[];
+  liveLink: string;
 }
 
 export function getCaseStudyContent(id: string): CaseStudyContent | null {
@@ -73,6 +74,7 @@ export function getCaseStudyContent(id: string): CaseStudyContent | null {
       summary: metadata.summary || '',
       content: content,
       tags: tags,
+      liveLink: metadata.liveLink || '',
     };
   } catch (error) {
     console.error(`Error loading case study content for ${id}:`, error);

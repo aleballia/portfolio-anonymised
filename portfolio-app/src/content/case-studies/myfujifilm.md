@@ -3,27 +3,27 @@
 Selected work: Yes
 Role: Lead Product Designer
 Company: Tom&Co
-Tags: Design System, Strategy
+Tags: Ecommerce, Design System, UX Design
 Date: 2022
 Tools: Figma
 Status: Published
 Created: October 27, 2024 10:42 AM
-Summary: I worked with MyFujifilm to reimagine their global print ecommerce experience. We delivered a vibrant platform that married the new brand identity with refreshed UX to empower users tell their stories through print.
+Summary: I worked with MyFujifilm to reimagine their global print ecommerce experience. We delivered a vibrant platform that married the new brand identity with refreshed UX.
 
 ## Impact
 
-- +48% increase in conversion rate (2022 vs 2023)
-- +5.9% increase in AOV (2022 vs 2023)
+- Designed a flexible **design system** to represent their new personality.
+- **Enhanced storytelling** that inspires and elevates the brand promise.
+- Developed UX improvements for a seamless and coherent user experience **across regions**.
 
-## Key deliverables
+## In numbers
 
-- A global platform ready to scale across regions
-- A flexible design system to represent the new brand personality
-- Enhanced storytelling that inspires and elevates the brand promise
+- **+48%** increase in conversion rate (2022 vs 2023).
+- **+5.9%** increase in AOV (2022 vs 2023).
 
 ---
 
-## Challenge
+## The Backstory
 
 **MyFujifilm** wanted to reinvent how people engaged with their printing services while enabling consistent brand identity and experience across their global market. The goal was to create a seamless platform that would inspire users to print memories with ease and confidence.
 

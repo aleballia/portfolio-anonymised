@@ -42,7 +42,7 @@ html {
   --card-foreground: #ffffff;
   --popover: #ffffff;
   --popover-foreground: #09090b;
-  --border: #8a44da;
+  --border: #150528;
   --input: #e4e4e7;
   --primary: #7e27e0;
   --primary-foreground: #fafafa;
@@ -119,6 +119,10 @@ html {
   font-size: 0.75rem;
   line-height: 1.5;
   letter-spacing: 0;
+}
+
+a:hover {
+  cursor: pointer !important;
 }
 
 /* Font weight classes */

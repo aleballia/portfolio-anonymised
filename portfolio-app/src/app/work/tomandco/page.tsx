@@ -1,17 +1,20 @@
 import CaseStudy from "../../components/CaseStudy";
 import NotionContent from "../../components/NotionContent";
 import MarkdownContent from "../../components/MarkdownContent";
+import ProjectNavigation from "../../components/ProjectNavigation";
+import FloatingLiveButton from "../../components/FloatingLiveButton";
 import { getNotionPage } from "../../../lib/notion";
 import { getCaseStudyContent } from "../../../lib/content";
-import { getCaseStudyById } from "../../../lib/caseStudies";
+import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
 
 export const metadata = {
-  title: "Tom&Co. | White Label Design System for Award Winning Ecommerce Agency",
+  title: "Drafonfly DS | White Label Design System for Award Winning Ecommerce Agency",
   // ...other metadata fields
 };
 
 export default async function TomAndCoCaseStudy() {
   const caseStudy = getCaseStudyById('tomandco');
+  const allCaseStudies = getAllCaseStudies();
   
   if (!caseStudy) {
     throw new Error('Case study not found');
@@ -24,26 +27,35 @@ export default async function TomAndCoCaseStudy() {
   const notionData = localContent ? null : (caseStudy.notionId ? await getNotionPage(caseStudy.notionId) : null);
   
   return (
-    <CaseStudy
-      title={localContent?.title || caseStudy.title}
-      subtitle={localContent?.subtitle || caseStudy.subtitle}
-      tags={localContent?.tags || notionData?.properties?.tags || []}
-      image={notionData?.coverImage || caseStudy.mainImage}
-      role={localContent?.role || notionData?.properties?.role || ""}
-      company={localContent?.company || notionData?.properties?.company || ""}
-      tools={localContent?.tools || notionData?.properties?.tools || [""]}
-      date={localContent?.date || notionData?.properties?.date || ""}
-      summary={localContent?.summary || notionData?.properties?.summary || ""}
-    >
-      {localContent ? (
-        <MarkdownContent content={localContent.content} />
-      ) : notionData?.blocks ? (
-        <NotionContent blocks={notionData.blocks} />
-      ) : (
-        <div className="text-center py-12">
-          <p className="text-muted-foreground">Content not available</p>
-        </div>
-      )}
-    </CaseStudy>
+    <>
+      <CaseStudy
+        title={localContent?.title || caseStudy.title}
+        subtitle={localContent?.subtitle || caseStudy.subtitle}
+        tags={localContent?.tags || notionData?.properties?.tags || []}
+        image={notionData?.coverImage || caseStudy.mainImage}
+        role={localContent?.role || notionData?.properties?.role || ""}
+        company={localContent?.company || notionData?.properties?.company || ""}
+        tools={localContent?.tools || notionData?.properties?.tools || [""]}
+        date={localContent?.date || notionData?.properties?.date || ""}
+        summary={localContent?.summary || notionData?.properties?.summary || ""}
+      >
+        {localContent ? (
+          <MarkdownContent content={localContent.content} />
+        ) : notionData?.blocks ? (
+          <NotionContent blocks={notionData.blocks} />
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground">Content not available</p>
+          </div>
+        )}
+      </CaseStudy>
+      
+      <ProjectNavigation 
+        currentProject={caseStudy} 
+        allProjects={allCaseStudies} 
+      />
+      
+      <FloatingLiveButton liveLink={localContent?.liveLink || caseStudy.liveLink || ''} />
+    </>
   );
 }
