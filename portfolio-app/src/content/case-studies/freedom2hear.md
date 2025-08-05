@@ -5,7 +5,7 @@ Role: Head of Product Design
 Company: Freedom2hear
 Tags: AI Innovation, Start up
 Date: 2025
-Tools: Cursor, Figma, Webflow
+Tools: Figma, Webflow, Cursor
 Status: Published
 Created: November 18, 2024 8:52 PM
 Summary: Freedom2hear is an emotion-based, contex-aware AI that helps organisations protect their communities from toxicity and online abuse. I’ve been leading 0-1 product design to support Innovation & Growth initiatives for their content moderation product, as well as identifying and validating innovative product opportunities.
