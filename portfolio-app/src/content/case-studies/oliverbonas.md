@@ -55,7 +55,7 @@ I created and documented a scalable design system in Sketch and Abstract, enabli
 
 This was the first project where we had the opportunity to integrate the new CMS proprietary platform that Tom&Co developed entirely in house.
 
-### **Checkout & gifting experience**
+### Checkout & gifting experience
 
 I led the redesign of the checkout, running A/B tests on fast checkout options and resolving pain points. I also spearheaded the revamp of the gifting journey:
 
@@ -63,6 +63,7 @@ I led the redesign of the checkout, running A/B tests on fast checkout options a
 - Refreshed e-gift card flow and interface.
 
 The result? A seamless gifting experience that directly contributed to a **+70% uplift in product revenue**.
+
 ---
 
 ## Reflection

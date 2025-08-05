@@ -13,12 +13,13 @@ html {
   --card-foreground: #1c1c1c;
   --popover: #ffffff;
   --popover-foreground: #1c1c1c;
-  --border: #cccccc;
+  --border: #1c1c1c;
   --input: #e2e8f0;
   --primary: #7e27e0;
   --primary-foreground: #ffffff;
   --primary-shade: #28094C;
   --primary-shade-foreground: #ffffff;
+  --accent-hover:#85fbb8;
   --accent-secondary: #d701c9;
   --accent-secondary-foreground: #1c1c1c;
   --accent: #1efb7d;
@@ -42,16 +43,17 @@ html {
   --card-foreground: #ffffff;
   --popover: #ffffff;
   --popover-foreground: #09090b;
-  --border: #150528;
+  --border: #f0ebf5;
   --input: #e4e4e7;
   --primary: #7e27e0;
   --primary-foreground: #fafafa;
   --primary-shade: #28094C;
   --primary-shade-foreground: #ffffff;
+  --accent-hover:#ba02ae;
   --accent-secondary: #1efb7d;
   --accent-secondary-foreground: #1c1c1c;
   --accent: #f200e2;
-  --accent-foreground: #ffffff;
+  --accent-foreground: #f8e0f7;
   --destructive: #ef4444;
   --destructive-foreground: #fafafa;
   --ring: #71717a;
@@ -165,7 +167,7 @@ a:hover {
 /* Button styles */
 .btn {
   display: inline-block;
-  padding: 1rem 2rem;
+  padding: 0.75rem 2rem;
   background: var(--primary);
   color: var(--primary-foreground, #fff);
   font-size: 1rem;

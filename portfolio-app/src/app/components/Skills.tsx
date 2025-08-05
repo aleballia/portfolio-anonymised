@@ -28,7 +28,7 @@ export default function Skills() {
     <section className="px-section" style={{ marginBottom: 200  }}>
       <h2 className="h4" style={{ textAlign: "left", marginBottom: 32  }}>Core skills</h2>
       <div style={{
-        borderTop: "2px solid var(--border)",
+        borderTop: "0.5px solid var(--border)",
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
@@ -42,7 +42,7 @@ export default function Skills() {
             style={{
 
               
-              borderBottom: "2px solid var(--border)",
+              borderBottom: "0.5px solid var(--border)",
 
               padding: "1.5rem 1.5rem",
               cursor: "pointer",
