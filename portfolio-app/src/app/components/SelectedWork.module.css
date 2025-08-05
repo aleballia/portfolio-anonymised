@@ -103,7 +103,7 @@ a.workTitle :hover {
     font-weight: 400;
   }
   .mobileSubtitle {
-    display: none !important;
+    display: block !important;
     opacity: 1 !important;
     transform: none !important;
     position: static !important;
@@ -115,6 +115,10 @@ a.workTitle :hover {
   .previewImg {
     display: none !important;
   }
+
+  .tags {
+    display: none;
+  } 
 
   .mobileImage {
     display: block;

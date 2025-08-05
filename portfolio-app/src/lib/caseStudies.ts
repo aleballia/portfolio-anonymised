@@ -24,7 +24,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'frictionless-futures',
     title: 'Frictionless Futures',
-    subtitle: 'Design for the future of retail & hospitality',
+    subtitle: 'Design for the Future of Retail & Hospitality',
     href: '/work/frictionless-futures',
     contentFile: 'frictionless-futures.md',
     mainImage: '/work/frictionless-futures.png',
@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'oliverbonas',
     title: 'Oliver Bonas',
-    subtitle: 'Ecommerce design for an independent British brand',
+    subtitle: 'Ecommerce Design for an Independent British Brand',
     href: '/work/oliverbonas',
     contentFile: 'oliverbonas.md',
     mainImage: '/work/oliver-bonas.png',

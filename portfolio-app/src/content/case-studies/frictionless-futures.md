@@ -8,7 +8,7 @@ Date: 2023
 Tools: Figma
 Status: Published
 Created: July 26, 2025 4:44 PM
-Summary: In my position as Design Lead within a multidisciplinary team at PwC, I played a key role in shaping the Frictionless Futures experience: an innovation space designed to bring emerging retail technologies to life.
+Summary: In my position as Design Lead within a multidisciplinary team at PwC, I played a key role in shaping the Frictionless Futures experience – an innovation space designed to bring emerging retail technologies to life.
 
 ## Impact
 
@@ -19,16 +19,16 @@ Summary: In my position as Design Lead within a multidisciplinary team at PwC, I
 
 ---
 
-## Challenge
+## The Backstory
 
 PwC set out to create an immersive innovation centre to showcase the future of **frictionless retail**. Housed in the Manchester office, the space needed to translate advanced technologies, like computer vision and real-time AI analytics, into something that clients could physically walk through and experience.
 
 Working in partnership with leading tech providers such as **Microsoft** and **AiFi**, the goal was to demonstrate how emerging technologies could unlock real commercial value in retail and beyond. We had just **two months** to:
 
-- Create a memorable name and a unique brand identity that could live alongside the main PwC brand.
-- Develop interactive demos that would bring the technology to life and demonstrate its commercial value.
-- Deliver an experience that would engage senior stakeholders across a variety of sectors.
-- Liaise with multiple stakeholders from different departments to ensure alignment and a cohesive experience.
+- Create a **memorable name** and a **unique brand identity** that could live alongside the main PwC brand.
+- Develop **interactive demos** that would bring the technology to life and demonstrate **its commercial value**.
+- Deliver an experience that would engage **senior stakeholders** across a variety of sectors.
+- Liaise with multiple stakeholders from different departments to **ensure alignment and a cohesive experience**.
 
 ---
 
