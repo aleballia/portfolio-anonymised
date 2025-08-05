@@ -22,14 +22,14 @@ export const caseStudies: CaseStudy[] = [
     hoverMessage: 'Product Design & Strategy for AI'
   },
   {
-    id: 'tomandco',
-    title: 'Dragonfly DS',
-    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
-    href: '/work/tomandco',
-    contentFile: 'tomandco.md',
-    mainImage: '/work/tomandco.png',
-    liveLink: '',
-    hoverMessage: 'Design System'
+    id: 'frictionless-futures',
+    title: 'Frictionless Futures',
+    subtitle: 'Design for the future of retail & hospitality',
+    href: '/work/frictionless-futures',
+    contentFile: 'frictionless-futures.md',
+    mainImage: '/work/frictionless-futures.png',
+    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
+    hoverMessage: 'Design for Innovation'
   },
   {
     id: 'myfujifilm',
@@ -42,16 +42,6 @@ export const caseStudies: CaseStudy[] = [
     hoverMessage: 'Ecommerce'
   },
   {
-    id: 'frictionless-futures',
-    title: 'Frictionless Futures',
-    subtitle: 'Design for the future of retail & hospitality',
-    href: '/work/frictionless-futures',
-    contentFile: 'frictionless-futures.md',
-    mainImage: '/work/frictionless-futures.png',
-    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
-    hoverMessage: 'Design for Innovation'
-  },
-  {
     id: 'oliverbonas',
     title: 'Oliver Bonas',
     subtitle: 'Ecommerce design for an independent British brand',
@@ -60,7 +50,17 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/oliver-bonas.png',
     liveLink: 'https://oliverbonas.com',
     hoverMessage: 'Ecommerce'
-  }
+  },
+  {
+    id: 'tomandco',
+    title: 'Dragonfly DS',
+    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
+    href: '/work/tomandco',
+    contentFile: 'tomandco.md',
+    mainImage: '/work/tomandco.png',
+    liveLink: '',
+    hoverMessage: 'Design System'
+  },
 ];
 
 export const getCaseStudyById = (id: string): CaseStudy | undefined => {

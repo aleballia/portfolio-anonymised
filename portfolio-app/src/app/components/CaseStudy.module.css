@@ -121,6 +121,10 @@
   overflow: hidden;
 }
 
+.summary :global(p) {
+  line-height: 1.2; /* or your preferred line height */
+}
+
 @media (min-width: 768px) {
   .summary {
   }

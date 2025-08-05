@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./CaseStudy.module.css";
+import MarkdownContent from "./MarkdownContent";
 
 interface CaseStudyProps {
   title: string;
@@ -64,7 +65,9 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               {/* Project Summary */}
               {summary && (
                 <div>
-                  <p className={`h3 ${styles.summary}`}>{summary}</p>
+                  <div className={`h3 ${styles.summary}`}>
+                    <MarkdownContent content={summary} />
+                  </div>
                 </div>
               )}
               {/* Details: Role, Company, Tools, Date */}

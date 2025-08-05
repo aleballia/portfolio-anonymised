@@ -12,9 +12,9 @@ Summary: I led the creation of an internal white-label design system and develop
 
 ## Impact
 
-- Increased design team efficiency by **30%**
-- Enabled better scalability across **multi-brand client projects**
-- Helped shift the **business culture** towards systems thinking
+- Increased design team efficiency by **30%**.
+- Enabled better scalability across **multi-brand client projects**.
+- Helped shift the **business culture** towards systems thinking.
 
 ---
 
@@ -30,13 +30,9 @@ Tom&Co's design and frontend teams were stretched thin across multiple client pr
 
 In 2021, I pitched a business case for a **white-label design system** to the Head of Design and the Managing Director (also company founder). The result: time allocation and a strategic trip to the Polish office to collaborate with the Lead Frontend Engineer and QA Lead on system architecture and delivery.
 
-[Graphic from pitch deck]
-
 ### Establishing Dragonfly
 
 Over time, my role evolved into a full-time focus on the design system. I built out **Dragonfly**, a scalable, modular design system that supported the in-house CMS. One of our cross-disciplinary squads was eventually dedicated to Dragonfly-related delivery.
-
-[Graphic of Design System]
 
 ### Leading training and adoption
 
