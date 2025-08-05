@@ -1,6 +1,6 @@
 .floatingButton {
   position: fixed;
-  bottom: 2rem;
+  bottom: 0rem;
   right: 2rem;
   z-index: 50;
   transition: all 0.3s ease;
@@ -48,40 +48,50 @@
   box-shadow: 0 2px 8px rgba(126, 39, 224, 0.2);
 }
 
+.atTop .icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: rotate(0deg);
+}
+
 .icon {
   flex-shrink: 0;
+  transition: transform 0.3s ease;
+  transform: rotate(-45deg);
+}
+
+.button:hover .icon {
+  transform: rotate(0deg);
 }
 
 .text {
-  font-weight: 500;
+  display: none;
+}
+
+/* Show text when at top of page on mobile */
+.atTop .text {
+  display: inline;
+}
+
+.atTop .button {
+  padding: 1rem 2rem;
+  width: auto;
+  border-radius: 0;
+}
+
+.floatingButton {
+  bottom: 0rem;
+  right: 1.5rem;
+}
+
+.button {
+  padding: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  justify-content: center;
 }
 
 /* Mobile responsive */
 @media (max-width: 768px) {
-  .floatingButton {
-    bottom: 1.5rem;
-    right: 1.5rem;
-  }
-  
-  .button {
-    padding: 1rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    justify-content: center;
-  }
-  
-  .text {
-    display: none;
-  }
-  
-  /* Show text when at top of page on mobile */
-  .atTop .text {
-    display: inline;
-  }
-  
-  .atTop .button {
-    padding: 1rem 2rem;
-    width: auto;
-    border-radius: 0;
-  }
+
 }
