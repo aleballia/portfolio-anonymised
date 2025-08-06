@@ -53,12 +53,12 @@ export default function HomeClient() {
         <Hero />
         
         {/* Selected Work */}
-        <Section id="selected-work">
+        <Section className="section-tight" id="selected-work">
           <SelectedWork />
         </Section>
         
         {/* Testimonials */}
-        <Section>
+        <Section className="section-loose">
           <Testimonials />
         </Section>
         

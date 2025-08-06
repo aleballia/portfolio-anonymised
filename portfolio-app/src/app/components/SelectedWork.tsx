@@ -54,7 +54,7 @@ const SelectedWork: React.FC = () => {
 
   return (
     <>
-      <h2 className="h4">Selected projects</h2>
+      <h2 className="heading-section h4">Selected projects</h2>
         
         
 

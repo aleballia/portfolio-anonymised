@@ -8,7 +8,7 @@ Date: 2025
 Tools: Figma, Webflow, Cursor
 Status: Published
 Created: November 18, 2024 8:52 PM
-Summary: Freedom2hear is an emotion-based, contex-aware AI that helps organisations protect their communities from toxicity and online abuse. I’ve been leading 0-1 product design to support Innovation & Growth initiatives for their content moderation product, as well as identifying and validating innovative product opportunities.
+Summary: Freedom2hear is a B2B enterprise platform using emotion-based, context-aware AI to protect online communities from toxicity and abuse. I led 0–1 product design for its new self-serve moderation platform. Alongside delivery, I helped reposition the brand, co-led two funding rounds, and embedded design into leadership-level decisions and direction.
 
 ## Impact
 
@@ -23,7 +23,7 @@ Summary: Freedom2hear is an emotion-based, contex-aware AI that helps organisati
 
 **Freedom2hear** (formerly GoBubble) is an AI-powered platform that detects and hides harmful content across text and media by analysing emotion and intent in real time.
 
-I joined at a pivotal moment. The company was in the midst of a complete reset: launching a self-serve moderation platform, repositioning the brand, and scaling its technology. What it lacked was a unified vision, cross-functional alignment, and a clear product–market fit story.
+I joined at a pivotal moment. The company was undergoing a complete reset: launching a self-serve moderation platform, repositioning the brand, and scaling its technology. What it lacked was a unified vision, cross-functional alignment, and a clear product–market fit story.
 
 ---
 
@@ -35,7 +35,7 @@ By embedding design at the senior leadership level, I helped connect business pr
 
 I facilitated workshops across Tech, Ops, Marketing, and Client Success to align on a shared product direction and vision.
 
-I was tasked with leading the Innovation Workstream with the objective of identifying and validating new product opportunities by the end of 2025, and developed a long-term innovation roadmap that balanced ambition and experimentation with commercial focus.
+I was tasked with leading the Innovation Workstream, focused on identifying and validating new product opportunities. I developed a long-term innovation roadmap that balanced ambition and experimentation with commercial viability.
 
 ![Innovation Process](/case-studies/freedom2hear/process.png)
 
@@ -51,7 +51,7 @@ With a small team and limited budget, I **led user research, competitor analysis
 
 ![Research Affinity Mapping](/case-studies/freedom2hear/research-notes.png)
 
-The improvements included an improved client management experience, increased productivity in manual moderation tasks, and a more intuitive information architecture and UI for social media managers.
+The updates led to a better client management experience, increased productivity in manual moderation tasks, and a more intuitive information architecture and UI for social media managers.
 
 ---
 
@@ -71,12 +71,12 @@ I led the design and build of a **new product demo experience in Webflow**.
 
 The new approach has significantly improved the **demo quality** and is set to increase **operational efficiency**, ensuring a more agile, client-centric way to showcase our platform.
 
-It **removed friction** from the update process, reducing reliance on development and production time by 75%. It also enabled content personalisation for prospective clients in sports, media, and gaming.
+This approach removed friction from the update process, cutting development and **production time by 75%**. It also enabled **content personalisation** for prospective clients in sports, media, and gaming.
 
 ---
 
 ## Reflection
 
-This role challenged me to lead beyond design, working across AI, product, marketing, and operations. I learned to translate complex technical concepts for stakeholders, guide teams through ambiguity, and balance creative vision with business outcomes.
+This role challenged me to operate at the heart of strategic decision-making — helping shape the direction of an AI product while embedding user-centred design principles in a fast-moving, lean environment. I learned how to translate complex AI concepts into real user value, guide teams through ambiguity, and balance experimentation with execution.
 
-What I’m most proud of: **bridging the gap between strategy and execution**, and helping reposition a company for its next stage of growth.
+What I’m most proud of: **bringing product design to the core of an AI startup’s strategy** — and helping reposition the company for its next stage of growth.

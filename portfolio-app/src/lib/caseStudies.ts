@@ -31,6 +31,26 @@ export const caseStudies: CaseStudy[] = [
     liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
     hoverMessage: 'Design for Innovation'
   },
+    {
+    id: 'tomandco',
+    title: 'Dragonfly DS',
+    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
+    href: '/work/tomandco',
+    contentFile: 'tomandco.md',
+    mainImage: '/work/tomandco.png',
+    liveLink: '',
+    hoverMessage: 'Design System'
+  },  
+  /**{
+    id: 'oliverbonas',
+    title: 'Oliver Bonas',
+    subtitle: 'Ecommerce Design for an Independent British Brand',
+    href: '/work/oliverbonas',
+    contentFile: 'oliverbonas.md',
+    mainImage: '/work/oliver-bonas.png',
+    liveLink: 'https://oliverbonas.com',
+    hoverMessage: 'Ecommerce'
+  },*/
   {
     id: 'myfujifilm',
     title: 'MyFujifilm',
@@ -40,26 +60,6 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/myfujifilm.png',
     liveLink: 'https://my.fujifilm.com',
     hoverMessage: 'Ecommerce'
-  },
-  {
-    id: 'oliverbonas',
-    title: 'Oliver Bonas',
-    subtitle: 'Ecommerce Design for an Independent British Brand',
-    href: '/work/oliverbonas',
-    contentFile: 'oliverbonas.md',
-    mainImage: '/work/oliver-bonas.png',
-    liveLink: 'https://oliverbonas.com',
-    hoverMessage: 'Ecommerce'
-  },
-  {
-    id: 'tomandco',
-    title: 'Dragonfly DS',
-    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
-    href: '/work/tomandco',
-    contentFile: 'tomandco.md',
-    mainImage: '/work/tomandco.png',
-    liveLink: '',
-    hoverMessage: 'Design System'
   },
 ];
 
