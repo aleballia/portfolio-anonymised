@@ -8,6 +8,7 @@ export interface CaseStudy {
   mainImage: string;
   hoverMessage: string;
   liveLink?: string; // Optional - live project URL
+  hidden?: boolean; // Add this property
 }
 
 export const caseStudies: CaseStudy[] = [
@@ -40,8 +41,8 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/tomandco.png',
     liveLink: '',
     hoverMessage: 'Design System'
-  },  
-  /**{
+  },
+  {
     id: 'oliverbonas',
     title: 'Oliver Bonas',
     subtitle: 'Ecommerce Design for an Independent British Brand',
@@ -49,8 +50,9 @@ export const caseStudies: CaseStudy[] = [
     contentFile: 'oliverbonas.md',
     mainImage: '/work/oliver-bonas.png',
     liveLink: 'https://oliverbonas.com',
-    hoverMessage: 'Ecommerce'
-  },*/
+    hoverMessage: 'Ecommerce',
+    hidden: true // This will hide it from the selected work list
+  },
   {
     id: 'myfujifilm',
     title: 'MyFujifilm',
@@ -71,6 +73,7 @@ export const getCaseStudyByHref = (href: string): CaseStudy | undefined => {
   return caseStudies.find(study => study.href === href);
 };
 
+// Update the getAllCaseStudies function to filter out hidden ones
 export const getAllCaseStudies = (): CaseStudy[] => {
-  return caseStudies;
+  return caseStudies.filter(study => !study.hidden);
 }; 

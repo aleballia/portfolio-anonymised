@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Experience from "./components/Experience";
 import Hero from "./components/Hero";
-import Skills from "./components/Skills";
 import AuroraBackground from "./components/AuroraBackground";
 import SelectedWork from "./components/SelectedWork";
 import Header from "./components/Header";
