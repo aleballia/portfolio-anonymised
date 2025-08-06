@@ -1,57 +1,69 @@
 .floatingButton {
   position: fixed;
-  bottom: 0rem;
+  bottom: 0;
   right: 2rem;
   z-index: 50;
   transition: all 0.3s ease;
 }
 
 .visible {
-  opacity: 1;
   transform: translateY(0);
 }
 
 .hidden {
-  opacity: 0;
   pointer-events: none;
-  transform: translateY(20px);
+  transform: translateY(3.5rem);
 }
 
-.button {
+.floatingLiveBtn {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 2rem;
-  background: var(--accent);
-  color: var(--accent-foreground, #fff);
+  background: var(--accent) !important;
+  color: var(--accent-foreground, #fff) !important;
+  border: 1px solid var(--accent);
   border-radius: 0;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-  border: 1px solid var(--accent);
-  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: var(--font-size-p);
+  border: none;
+  cursor: pointer;
+  transition: width 0.3s, padding 0.3s, background 0.2s, color 0.2s, box-shadow 0.2s;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.05em;
   white-space: nowrap;
+  overflow: hidden;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 1rem;
+  justify-content: center;
+  transition: width 0.3s, padding 0.3s, background 0.2s, color 0.2s, box-shadow 0.2s;
+  overflow: hidden;
+  position: relative;
 }
 
-.button:hover {
-  background: var(--accent);
-  color: var(--accent-foreground, #fff);
-  transform: translateY(-1px);
-  cursor: pointer !important;
-  box-shadow: 0 4px 12px #3711634d;
+.atTop .floatingLiveBtn {
+  width: auto;
+  padding: 1rem 2rem;
+  border-radius: 0;
 }
 
-.button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(126, 39, 224, 0.2);
+.floatingLiveBtn:hover,
+.floatingLiveBtn:focus {
+  background: var(--accent-hover, var(--accent));
+  color: var(--foreground);
+  width: auto;
+  padding: 1rem 2rem;
+  border-radius: 0;
+}
+
+.floatingLiveBtn:active {
 }
 
 .atTop .icon {
   flex-shrink: 0;
   transition: transform 0.3s ease;
-  transform: rotate(0deg);
+  transform: rotate(-45deg);
 }
 
 .icon {
@@ -60,38 +72,73 @@
   transform: rotate(-45deg);
 }
 
-.button:hover .icon {
+.floatingLiveBtn:hover .icon {
   transform: rotate(0deg);
 }
 
 .text {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  transition: opacity 0.3s, max-width 0.3s, margin-left 0.3s;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
   display: none;
 }
 
-/* Show text when at top of page on mobile */
-.atTop .text {
-  display: inline;
+/* Show label at top */
+.atTop .floatingLiveBtn .text {
+  opacity: 1;
+  max-width: 200px;
+  margin-left: 0.5rem;
+  pointer-events: auto;
+  display: block;
 }
 
-.atTop .button {
-  padding: 1rem 2rem;
-  width: auto;
-  border-radius: 0;
+/* Show label on hover/focus, even if not at top */
+.floatingLiveBtn:hover .text,
+.floatingLiveBtn:focus .text {
+  opacity: 1;
+  max-width: 200px;
+  margin-left: 0.5rem;
+  pointer-events: auto;
+  display: block;
 }
 
-.floatingButton {
-  bottom: 0rem;
-  right: 1.5rem;
+@media (max-width: 600px) {
+  .floatingButton {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    transition: all 0.3s;
+  }
+
+  /* At top: full width, centered */
+  .atTop .floatingLiveBtn {
+    width: 100vw !important;
+    border-radius: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  /* After scroll: shrink and move to bottom right */
+  .floatingButton:not(.atTop) {
+    left: auto;
+    right: 1.5rem;
+    width: auto;
+    justify-content: flex-end;
+    padding: 0;
+    transition: all 0.3s;
+  }
+
 }
 
-.button {
-  padding: 1rem;
-  width: 3.5rem;
-  height: 3.5rem;
-  justify-content: center;
-}
-
-/* Mobile responsive */
-@media (max-width: 768px) {
-
-}

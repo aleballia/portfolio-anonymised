@@ -38,8 +38,8 @@ const testimonials: Testimonial[] = [
 ];
 
 const Testimonials: React.FC = () => (
-  <section className={`px-section ${styles.testimonialsSection}`}>
-    <h2 className="h4" style={{ marginBottom: "2.5rem" }}>Kind words</h2>
+  <section className={` ${styles.testimonialsSection}`}>
+    <h2 className="h4" style={{marginBottom:"var(--space-md)"  }}>Kind words</h2>
     <div className={styles.testimonialsGrid}>
       {testimonials.map((t, idx) => (
         <div className={styles.testimonialCard} key={idx}>
@@ -52,11 +52,11 @@ const Testimonials: React.FC = () => (
               className={styles.avatar} 
             />
             <div>
-              <div className={styles.author}>{t.author}</div>
-              <div className={styles.role}>{t.role}</div>
+              <div className="author p font-medium">{t.author}</div>
+              <div className="role caption">{t.role}</div>
             </div>
           </div>
-          <blockquote className={styles.quote}>
+          <blockquote className="quote p">
             &ldquo;{t.quote}&rdquo;
           </blockquote>
         </div>

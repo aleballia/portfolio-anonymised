@@ -9,6 +9,7 @@ import SelectedWork from "./components/SelectedWork";
 import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
+import Section from "./components/Section";
 
 export default function HomeClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,20 +44,24 @@ export default function HomeClient() {
           speed={0.8}
           modalOpen={isModalOpen}
           opacity={0.2}
-        >
-        </AuroraBackground>
+        />
+        
         {/* Header */}
         <Header />
-        {/* Hero Section */}
+        
+        {/* Hero Section - no spacing needed as it's full height */}
         <Hero />
-        {/* Skills */}
-        <Skills />
-        {/* Experience */}
-        <Experience />
-        {/* Testimonials */}
-        <Testimonials />
+        
         {/* Selected Work */}
-        <SelectedWork />
+        <Section id="selected-work">
+          <SelectedWork />
+        </Section>
+        
+        {/* Testimonials */}
+        <Section>
+          <Testimonials />
+        </Section>
+        
         {/* Footer */}
         <Footer />
       </div>

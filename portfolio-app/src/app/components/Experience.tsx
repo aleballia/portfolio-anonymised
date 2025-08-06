@@ -89,8 +89,7 @@ export default function Experience() {
     const circleSizes = [48, 36, 24, 16, 12, 12]; // Progressive sizes for main circles
 
     return (
-        <section
-            className="px-section hideOnMobile"
+        <div
             style={{
                 color: "var(--foreground)",
                 minHeight: "80vh",
@@ -156,8 +155,6 @@ export default function Experience() {
                                         position: "relative"
                                     }}
                                 >
- 
-                                    
                                     <motion.div
                                         className={`${styles.circle} ${circleClass}`}
                                         initial={{ scale: 0.7 }}
@@ -269,7 +266,6 @@ export default function Experience() {
                         );
                     })}
 
-                
                     <style jsx>{`
             @media (max-width: 700px) {
               .resume-btn-wrapper {
@@ -287,6 +283,6 @@ export default function Experience() {
           `}</style>
                 </div>
             </div>
-        </section>
+        </div>
     );
 }

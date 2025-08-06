@@ -40,45 +40,12 @@ const FloatingLiveButton: React.FC<FloatingLiveButtonProps> = ({ liveLink }) => 
 
   return (
     <div className={`${styles.floatingButton} ${isVisible ? styles.visible : styles.hidden} ${isAtTop ? styles.atTop : ''}`}>
-      <a 
-        href={liveLink} 
-        target="_blank" 
+      <a
+        href={liveLink}
+        target="_blank"
         rel="noopener noreferrer"
-        className={styles.button}
+        className={`btn ${styles.floatingLiveBtn}`}
       >
-     {/*   <svg 
-          width="20" 
-          height="20" 
-          viewBox="0 0 24 24" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className={styles.icon}
-        >
-          <path 
-            d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          />
-          <polyline 
-            points="15,3 21,3 21,9" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          />
-          <line 
-            x1="10" 
-            y1="14" 
-            x2="21" 
-            y2="3" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-          />
-        </svg> */}
         <span className={styles.text}>Live Site</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.icon}>
           <path d="M4 13H16.2L10.6 18.6L12 20L20 12L12 4L10.6 5.4L16.2 11H4V13V13Z" fill="currentColor"/>

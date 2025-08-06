@@ -54,9 +54,7 @@ const SelectedWork: React.FC = () => {
 
   return (
     <>
-      <section id="selected-work" className="px-section" style={{ paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <h2 className="h4" style={{  }}>Selected projects
-        </h2>
+      <h2 className="h4">Selected projects</h2>
         
         
 
@@ -133,7 +131,6 @@ const SelectedWork: React.FC = () => {
             </div>
           )}
         </div>
-      </section>
     </>
   );
 };
