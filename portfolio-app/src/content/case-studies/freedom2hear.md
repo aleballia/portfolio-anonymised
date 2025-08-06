@@ -27,20 +27,6 @@ I joined at a pivotal moment. The company was undergoing a complete reset: launc
 
 ---
 
-## Strategy & Innovation
-
-### Design Thinking: A Catalyst for Strategic Alignment
-
-By embedding design at the senior leadership level, I helped connect business priorities with user needs, driving alignment across teams. I also co-authored board and investor materials that supported two successful funding renewals.
-
-I facilitated workshops across Tech, Ops, Marketing, and Client Success to align on a shared product direction and vision.
-
-I was tasked with leading the Innovation Workstream, focused on identifying and validating new product opportunities. I developed a long-term innovation roadmap that balanced ambition and experimentation with commercial viability.
-
-![Innovation Process](/case-studies/freedom2hear/process.png)
-
----
-
 ## A Self-Serve Content Moderation Platform
 
 I led the redesign of a new **B2B self-serve content moderation platform for enterprise-level clients.** This included onboarding flows, the moderation hub, reporting tools, and improved client admin experience.
@@ -75,8 +61,22 @@ This approach removed friction from the update process, cutting development and 
 
 ---
 
+## Strategy & Innovation
+
+### Design Thinking: A Catalyst for Strategic Alignment
+
+By embedding design at the senior leadership level, I helped connect business priorities with user needs, driving alignment across teams. I also co-authored board and investor materials that supported two successful funding renewals.
+
+I facilitated workshops across Tech, Ops, Marketing, and Client Success to align on a shared product direction and vision.
+
+I was tasked with leading the Innovation Workstream, focused on identifying and validating new product opportunities. I developed a long-term innovation roadmap that balanced ambition and experimentation with commercial viability.
+
+![Innovation Process](/case-studies/freedom2hear/process.png)
+
+---
+
 ## Reflection
 
 This role challenged me to operate at the heart of strategic decision-making — helping shape the direction of an AI product while embedding user-centred design principles in a fast-moving, lean environment. I learned how to translate complex AI concepts into real user value, guide teams through ambiguity, and balance experimentation with execution.
 
-What I’m most proud of: **bringing product design to the core of an AI startup’s strategy** — and helping reposition the company for its next stage of growth.
+What I’m most proud of is **bringing a design-lens to the core of an AI startup’s strategy** while helping reposition the company for its next stage of growth.

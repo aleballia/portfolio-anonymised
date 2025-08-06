@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 
 const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
+  const [showName, setShowName] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   
@@ -23,6 +24,20 @@ const Header: React.FC = () => {
   }
 
   const isHome = pathname === "/";
+
+  // Enhanced animation sequence - only on homepage
+  useEffect(() => {
+    if (isHome) {
+      const timer = setTimeout(() => {
+        setShowName(true);
+      }, 800); // Show name after 800ms
+
+      return () => clearTimeout(timer);
+    } else {
+      // On other pages, show name immediately
+      setShowName(true);
+    }
+  }, [isHome]);
 
   const handleClick = (e: React.MouseEvent) => {
     if (!isHome) {
@@ -69,24 +84,13 @@ const Header: React.FC = () => {
           >
             <span style={{ display: 'block', minHeight: '1.2em', position: 'relative' }}>
               <AnimatePresence mode="wait">
-                {!hovered ? (
+                {hovered ? (
                   <motion.span
-                    key="logo-default"
+                    key="logo-hovered"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
-            >
-              Alessandra Balliana
-                  </motion.span>
-                ) : (
-                  <motion.span
-                    key="logo-hovered"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
                     style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
                   >
                     {isHome ? (
@@ -100,11 +104,52 @@ const Header: React.FC = () => {
                       </span>
                     )}
                   </motion.span>
+                ) : (
+                  <motion.span
+                    key="logo-default"
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 1, y:10 }}
+                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                  >
+                    {isHome ? (
+                      <AnimatePresence mode="wait">
+                        {!showName ? (
+                          <motion.span
+                            key="hi"
+                            initial={{ opacity: 1, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 1, y: 10 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                          >
+                            Hi 👋
+                          </motion.span>
+                        ) : (
+                          <motion.span
+                            key="name"
+                            initial={{ opacity: 1, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.2, ease: 'easeOut' }}
+                            style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                          >
+                            Alessandra Balliana
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    ) : (
+                      <span style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}>
+                        Alessandra Balliana
+                      </span>
+                    )}
+                  </motion.span>
                 )}
               </AnimatePresence>
-              </span>
+            </span>
           </span>
         </div>
+        
         {/* Theme Toggle Button */}
         <button
           onClick={toggleTheme}
@@ -114,34 +159,31 @@ const Header: React.FC = () => {
             color: 'var(--foreground)',
             cursor: 'pointer',
             fontSize: '1rem',
+            fontWeight: 'medium',
             marginLeft: 'auto',
             padding: '0.75rem 1rem',
             display: 'flex',
             alignItems: 'center',
             gap: '0.5rem',
-            borderRadius: '0.5rem',
             transition: 'all 0.2s ease',
-            minHeight: '44px', // Better touch target for mobile
-            minWidth: '44px',
+            pointerEvents: 'auto',
           }}
           onMouseEnter={(e) => {
-            // Only trigger hover on non-touch devices
             if (!('ontouchstart' in window)) {
-              e.currentTarget.style.backgroundColor = 'var(--muted)';
+              e.currentTarget.style.backgroundColor = 'var(--background)';
             }
           }}
           onMouseLeave={(e) => {
-            // Only trigger hover on non-touch devices
             if (!('ontouchstart' in window)) {
               e.currentTarget.style.backgroundColor = 'transparent';
             }
           }}
           aria-label="Toggle theme"
         >
-          <span style={{ fontSize: '1.2rem' }}>
+          <span style={{ fontSize: '1rem' }}>
             {theme === 'dark' ? '🌙' : '☀️'}
           </span>
-          <span className="caption" style={{ display: 'inline' }}>
+          <span className="caption" style={{ display: 'inline', cursor: 'pointer' }}>
             {theme === 'dark' ? 'Light' : 'Dark'}
           </span>
         </button>

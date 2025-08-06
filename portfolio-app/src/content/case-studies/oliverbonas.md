@@ -15,7 +15,7 @@ Summary: In 2020, I joined the Oliver Bonas website redesign as UX/UI Designer. 
 - UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
 - **Improved development handover** through new design system and CMS.
 
-## In numbers
+## In Numbers
 - **58% increase in mobile traffic** within a year of launch.
 - **+70% product revenue** from gifting experience.
 
@@ -55,7 +55,7 @@ Despite the pandemic constraints, I ran interactive remote workshops with the Ol
 
 ---
 
-## Key features
+## Key Features
 
 ### **Design System**
 

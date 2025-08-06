@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./SelectedWork.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { caseStudies } from "../../lib/caseStudies";
+import { getAllCaseStudies } from "../../lib/caseStudies";
 
 const OFFSET_X = 32;
 const OFFSET_Y = 0;
@@ -13,6 +13,9 @@ const SelectedWork: React.FC = () => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [isDesktop, setIsDesktop] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth >= 920 : true);
+
+  // Get filtered case studies (excluding hidden ones)
+  const visibleCaseStudies = getAllCaseStudies();
 
   useEffect(() => {
     const handleResize = () => {
@@ -56,10 +59,8 @@ const SelectedWork: React.FC = () => {
     <>
       <h2 className="heading-section h4">Selected projects</h2>
         
-        
-
         <div className={styles.workList}>
-          {caseStudies.map((work, idx) => (
+          {visibleCaseStudies.map((work, idx) => (
             <div
               className={styles.workTitle}
               key={work.id}
@@ -94,8 +95,8 @@ const SelectedWork: React.FC = () => {
           {/* Floating preview image for desktop hover */}
           {hoveredIdx !== null && !('ontouchstart' in window) && (
             <Image
-              src={caseStudies[hoveredIdx].mainImage}
-              alt={caseStudies[hoveredIdx].title}
+              src={visibleCaseStudies[hoveredIdx].mainImage}
+              alt={visibleCaseStudies[hoveredIdx].title}
               width={400}
               height={300}
               className={styles.previewImg}
@@ -127,7 +128,7 @@ const SelectedWork: React.FC = () => {
                 letterSpacing: "-0.04em",
               }}
             >
-              {caseStudies[hoveredIdx].hoverMessage}
+              {visibleCaseStudies[hoveredIdx].hoverMessage}
             </div>
           )}
         </div>

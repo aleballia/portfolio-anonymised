@@ -16,7 +16,7 @@ Summary: I worked with MyFujifilm to reimagine their global print ecommerce expe
 - **Enhanced storytelling** that inspires and elevates the brand promise.
 - Developed UX improvements for a seamless and coherent user experience **across regions**.
 
-## In numbers
+## In Numbers
 
 - **+48%** increase in conversion rate (2022 vs 2023).
 - **+5.9%** increase in AOV (2022 vs 2023).
@@ -29,7 +29,7 @@ Summary: I worked with MyFujifilm to reimagine their global print ecommerce expe
 
 ---
 
-## My contribution
+## My Contribution
 
 ### Discovery
 
@@ -37,16 +37,16 @@ I ran a comprehensive discovery phase, mapping out user journeys, pain points an
 
 From sentimental gift-givers to time-poor parents, I worked closely with the team to segment audiences, build personas, and establishing design pillars.
 
-| 01. Emotional value | 02. Confidence |
+| 01. Emotional Value | 02. Confidence |
 |:--|:--|
 | Photos carry deep emotional value – they capture treasured people, places, and moments. Everything we do must honour that emotional connection. | Although photos matter emotionally, most people don’t print them. Nearly 90% say they’d *love* to improve their photography skills. |
 
-| 03. Quality & expertise | 04. Easy & quick |
+| 03. Quality & Expertise | 04. Easy & Quick |
 |:--|:--|
 | MyFujifilm brings 80+ years of photography and production experience to deliver the high-quality prints customers expect. | Over 90% of our audience *wish* they had more time to print photos. |
 
 
-### UX/UI design
+### UX/UI Design
 
 I led the end-to-end design, including the creation of wireframes for core journeys and mobile-first components for the CMS, which were optimised for global markets and localisation.
 

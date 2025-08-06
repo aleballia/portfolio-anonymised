@@ -51,7 +51,6 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/oliver-bonas.png',
     liveLink: 'https://oliverbonas.com',
     hoverMessage: 'Ecommerce',
-    hidden: true // This will hide it from the selected work list
   },
   {
     id: 'myfujifilm',
@@ -61,7 +60,8 @@ export const caseStudies: CaseStudy[] = [
     contentFile: 'myfujifilm.md',
     mainImage: '/work/myfujifilm.png',
     liveLink: 'https://my.fujifilm.com',
-    hoverMessage: 'Ecommerce'
+    hoverMessage: 'Ecommerce',
+    hidden: true // This will hide it from the selected work list
   },
 ];
 
