@@ -53,6 +53,12 @@ This work wasn't just about building a system. It was about changing how the bus
 
 **Dragonfly powers the e-commerce sites for MyFujifilm, Le Chameau, Artilect, Le Mieux, and more.**
 
+![MyFujifilm – Design System](/case-studies/myfujifilm/design-system.png)
+
+![MyFujifilm – Blog & Social Media](/case-studies/myfujifilm/designs-02.png)
+
+![Oliver Bonas – Design System](/case-studies/oliverbonas/ds.png)
+
 ![Artilect – Homepage](/case-studies/tomandco/image.png)
 
 | | |
