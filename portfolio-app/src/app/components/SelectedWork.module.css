@@ -14,7 +14,7 @@
   cursor: pointer;
   outline: none;
   text-decoration: none;
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2.5rem, 8vw, 6rem);
   letter-spacing: -0.05em;
   line-height: 1;
 }
@@ -88,7 +88,7 @@ a.workTitle :hover {
   display: none !important;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 768px) {
 
   .hoverMessage {
     display: none !important;
@@ -103,7 +103,7 @@ a.workTitle :hover {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    font-size: 2rem;
+    font-size: var(--font-size-h2-mobile);
     font-weight: 400;
   }
 
@@ -114,11 +114,12 @@ a.workTitle :hover {
     position: static !important;
     pointer-events: auto !important;
     font-size: var(--font-size-h5);
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: -0.06em;
     line-height: 1.2;
     margin-left: 0;
   }
+
   .previewImg {
     display: none !important;
   }

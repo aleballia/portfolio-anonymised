@@ -39,8 +39,7 @@ export default function Hero() {
           className="h3"
           style={{ 
             color: "var(--foreground)",
-            paddingBottom: 24,
-            fontWeight: 400,
+            fontWeight: 300,
           }}
         >
         I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.
