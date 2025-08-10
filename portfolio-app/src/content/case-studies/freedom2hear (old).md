@@ -6,8 +6,6 @@ Company: Freedom2hear
 Tags: AI Innovation, Start up
 Date: 2025
 Tools: Figma, Webflow, Cursor
-Status: Published
-Created: November 18, 2024 8:52 PM
 Summary: Freedom2hear is a B2B enterprise platform using emotion-based, context-aware AI to protect online communities from toxicity and abuse. I led 0–1 product design for its new self-serve moderation platform. Alongside delivery, I helped reposition the brand, co-led two funding rounds, and embedded design into leadership-level decisions and direction.
 
 ## Impact

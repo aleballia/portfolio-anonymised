@@ -14,9 +14,10 @@ export interface CaseStudyContent {
   liveLink: string;
 }
 
-export function getCaseStudyContent(id: string): CaseStudyContent | null {
+export function getCaseStudyContent(id: string, contentFile?: string, caseStudyData?: { title: string; subtitle: string; liveLink?: string }): CaseStudyContent | null {
   try {
-    const filePath = path.join(process.cwd(), 'src', 'content', 'case-studies', `${id}.md`);
+    const fileName = contentFile || `${id}.md`;
+    const filePath = path.join(process.cwd(), 'src', 'content', 'case-studies', fileName);
     
     if (!fs.existsSync(filePath)) {
       return null;
@@ -65,8 +66,8 @@ export function getCaseStudyContent(id: string): CaseStudyContent | null {
     const tags = metadata.tags ? metadata.tags.split(', ').map(tag => tag.trim()) : [];
     
     return {
-      title: title || metadata.title || id,
-      subtitle: metadata.subtitle || '',
+      title: caseStudyData?.title || title || metadata.title || id,
+      subtitle: caseStudyData?.subtitle || metadata.subtitle || '',
       role: metadata.role || '',
       company: metadata.company || '',
       date: metadata.date || '',
@@ -74,7 +75,7 @@ export function getCaseStudyContent(id: string): CaseStudyContent | null {
       summary: metadata.summary || '',
       content: content,
       tags: tags,
-      liveLink: metadata.liveLink || '',
+      liveLink: caseStudyData?.liveLink || metadata.liveLink || '',
     };
   } catch (error) {
     console.error(`Error loading case study content for ${id}:`, error);

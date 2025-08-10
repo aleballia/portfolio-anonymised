@@ -21,7 +21,11 @@ export default async function OliverBonasCaseStudy() {
   }
 
   // Try to load local content first
-  const localContent = caseStudy.contentFile ? getCaseStudyContent(caseStudy.id) : null;
+  const localContent = caseStudy.contentFile ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
+    title: caseStudy.title,
+    subtitle: caseStudy.subtitle,
+    liveLink: caseStudy.liveLink
+  }) : null;
   
   // Fallback to Notion if no local content and notionId exists
   const notionData = localContent ? null : (caseStudy.notionId ? await getNotionPage(caseStudy.notionId) : null);

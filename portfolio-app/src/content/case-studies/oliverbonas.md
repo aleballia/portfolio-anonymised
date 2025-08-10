@@ -1,13 +1,12 @@
 # Oliver Bonas
 
-Selected work: Yes
+Subtitle: Ecommerce Design for an Independent British Brand
+Selected work: No
 Role: UX Designer 
 Company: Tom&Co
 Tags: Design System, Ecommerce, UX Design
 Date: 2020
 Tools: Sketch, Mural, Abstract, Zeplin
-Status: Content done
-Created: October 27, 2024 10:40 AM
 Summary: In 2020, I joined the Oliver Bonas website redesign as UX/UI Designer. The goal? Bring the brand’s in-store magic online, while boosting performance and reducing friction in the customer journey. Through mobile-first thinking, strategic UX research and collaborative workshops, we launched a fresh, immersive site that led to a **58% increase in mobile traffic** and **+70% revenue** from gift-related products.
 
 ## Impact

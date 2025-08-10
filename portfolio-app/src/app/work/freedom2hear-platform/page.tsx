@@ -8,12 +8,12 @@ import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
 
 export const metadata = {
-  title: "MyFujifilm | Ecommerce Product Design & Development for a Global Brand",
+  title: "Freedom2hear | Product Design, Innovation & Growth for an Emotion AI Startup",
   // ...other metadata fields
 };
 
-export default async function MyFujifilmCaseStudy() {
-  const caseStudy = getCaseStudyById('myfujifilm');
+export default async function Freedom2hearCaseStudy() {
+  const caseStudy = getCaseStudyById('freedom2hear-platform');
   const allCaseStudies = getAllCaseStudies();
   
   if (!caseStudy) {
@@ -29,6 +29,9 @@ export default async function MyFujifilmCaseStudy() {
   
   // Fallback to Notion if no local content and notionId exists
   const notionData = localContent ? null : (caseStudy.notionId ? await getNotionPage(caseStudy.notionId) : null);
+  
+  // Use local content if available, otherwise use Notion data
+  // const content = localContent || notionData; // Removed unused variable
   
   return (
     <>

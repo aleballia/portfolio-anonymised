@@ -85,7 +85,6 @@ const SelectedWork: React.FC = () => {
                   onBlur={handleBlur}
                 >
                   <span className={styles.workTitleText}>{work.title}</span>
-                  {work.hoverMessage && <span className={styles.hoverMessage}>{work.hoverMessage}</span>}
                 </Link>
                 <div className={styles.mobileSubtitle}>
                   {work.subtitle}

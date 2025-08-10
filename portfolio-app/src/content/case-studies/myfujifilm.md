@@ -1,13 +1,12 @@
 # MyFujifilm
 
+Subtitle: Ecommerce Product Design & Development for a Global Brand
 Selected work: Yes
 Role: Lead Product Designer
 Company: Tom&Co
 Tags: Ecommerce, Design System, UX Design
 Date: 2022
 Tools: Figma
-Status: Published
-Created: October 27, 2024 10:42 AM
 Summary: I worked with MyFujifilm to reimagine their global print ecommerce experience. We delivered a vibrant platform that married the new brand identity with refreshed UX.
 
 ## Impact

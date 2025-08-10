@@ -1,25 +1,15 @@
 # Frictionless Futures
 
-Selected work: No
+Subtitle: Design for the Future of Retail & Hospitality
+Selected work: Yes
 Role: Design Lead
 Company: PwC
 Tags: Innovation, Brand
 Date: 2023
 Tools: Figma
-Status: Published
-Created: July 26, 2025 4:44 PM
 Summary: In my position as Design Lead within a multidisciplinary team at PwC, I played a key role in shaping the Frictionless Futures experience – an innovation space designed to bring emerging retail technologies to life.
 
-## Impact
-
-- Built and launched the space in **under two months**.
-- Welcomed over **175 visitors from 70+ client organisations**  .
-- Enabled PwC to communicate how frictionless experiences can **increase basket size by 20% and reduce waste**.
-- **Shortlisted for the MCA Awards 2024** for innovation and strategic client impact.
-
----
-
-## The Backstory
+## Backstory
 
 PwC set out to create an immersive innovation centre to showcase the future of **frictionless retail**. Housed in the Manchester office, the space needed to translate advanced technologies, like computer vision and real-time AI analytics, into something that clients could physically walk through and experience.
 
@@ -32,7 +22,7 @@ Working in partnership with leading tech providers such as **Microsoft** and **A
 
 ---
 
-## My Contributions
+## Contributions
 
 ### Design Leadership and Brand Development
 
@@ -61,6 +51,15 @@ I partnered with technical teams to design demo assets that:
 - Visualised how AI and computer vision enable seamless customer experiences.
 - Illustrated secure data architecture in action.
 - Created a strong narrative link between frictionless technology and commercial outcomes.
+
+---
+
+## Impact
+
+- Built and launched the space in **under two months**.
+- Welcomed over **175 visitors from 70+ client organisations**  .
+- Enabled PwC to communicate how frictionless experiences can **increase basket size by 20% and reduce waste**.
+- **Shortlisted for the MCA Awards 2024** for innovation and strategic client impact.
 
 ---
 

@@ -13,24 +13,24 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: 'freedom2hear',
-    title: 'Freedom2hear',
-    subtitle: 'Product Design & Strategy for an Emotion AI Startup',
-    href: '/work/freedom2hear',
-    contentFile: 'freedom2hear.md',
+    id: 'freedom2hear-platform',
+    title: 'Freedom2hear I',
+    subtitle: '0-1 Product Design for an AI Content Moderation Platform',
+    href: '/work/freedom2hear-platform',
+    contentFile: 'freedom2hear-platform.md',
     mainImage: '/work/freedom2hear.png',
     liveLink: 'https://freedom2hear.com',
-    hoverMessage: 'Product Design & Strategy for AI'
+    hoverMessage: '0-1 Product Design'
   },
   {
-    id: 'frictionless-futures',
-    title: 'Frictionless Futures',
-    subtitle: 'Design for the Future of Retail & Hospitality',
-    href: '/work/frictionless-futures',
-    contentFile: 'frictionless-futures.md',
-    mainImage: '/work/frictionless-futures.png',
-    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
-    hoverMessage: 'Design for Innovation'
+    id: 'freedom2hear-strategy',
+    title: 'Freedom2hear II',
+    subtitle: 'Innovation & Growth for an Emotion AI start-up',
+    href: '/work/freedom2hear-strategy',
+    contentFile: 'freedom2hear-strategy.md',
+    mainImage: '/work/freedom2hear.png',
+    liveLink: 'https://freedom2hear.com',
+    hoverMessage: 'Innovation & Growth'
   },
     {
     id: 'tomandco',
@@ -41,6 +41,16 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/tomandco.png',
     liveLink: '',
     hoverMessage: 'Design System'
+  },
+  {
+    id: 'frictionless-futures',
+    title: 'Frictionless Futures',
+    subtitle: 'Design for the Future of Retail & Hospitality',
+    href: '/work/frictionless-futures',
+    contentFile: 'frictionless-futures.md',
+    mainImage: '/work/frictionless-futures.png',
+    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
+    hoverMessage: 'Innovation'
   },
   {
     id: 'oliverbonas',

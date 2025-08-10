@@ -20,8 +20,8 @@ export default function Hero() {
 
       <div  style={{ width: "100%", textAlign: "left", position: "relative", zIndex: 1 }}>
         <h1 
-          className="display"
-          style={{ 
+            className="display"
+            style={{ 
             color: "var(--foreground)",
             fontWeight: 400,
             marginBottom: 0,

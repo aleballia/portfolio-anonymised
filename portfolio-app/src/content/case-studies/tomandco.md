@@ -1,13 +1,12 @@
 # Dragonfly DS
 
+Subtitle: White Label Design System for Award Winning Ecommerce Agency
 Selected work: Yes
 Role: Design System Manager
 Company: Tom&Co
 Tags: Design System, Ecommerce, Leadership
 Date: 2022
 Tools: Confluence, Figma, Loom
-Status: Published
-Created: October 22, 2024 10:23 PM
 Summary: I led the creation of Dragonfly, Tom&Co’s internal design system, to bring consistency, speed, and creative freedom in a fast-growing agency. What started as a fix for duplicated work became the foundation of scalable delivery that boosted team productivity, supported diverse ways of working, and helped shift the company towards a systems-first mindset.
 
 ## Impact

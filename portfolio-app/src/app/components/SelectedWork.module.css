@@ -82,16 +82,22 @@ a.workTitle :hover {
 
 /* Hide hover message on desktop/laptop */
 @media (min-width: 920px) {
-  .hoverMessage {
-    display: none;
-  }
+}
+
+.hoverMessage {
+  display: none !important;
 }
 
 @media (max-width: 920px) {
 
+  .hoverMessage {
+    display: none !important;
+  }
+
   .workList {
     gap: 3.5rem;
   }
+
   .workTitle {
     display: flex;
     flex-direction: column;
@@ -100,6 +106,7 @@ a.workTitle :hover {
     font-size: 2rem;
     font-weight: 400;
   }
+
   .mobileSubtitle {
     display: block !important;
     opacity: 1 !important;
