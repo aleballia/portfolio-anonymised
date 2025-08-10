@@ -9,15 +9,7 @@ Date: 2022
 Tools: Confluence, Figma, Loom
 Summary: I led the creation of Dragonfly, Tom&Co’s internal design system, to bring consistency, speed, and creative freedom in a fast-growing agency. What started as a fix for duplicated work became the foundation of scalable delivery that boosted team productivity, supported diverse ways of working, and helped shift the company towards a systems-first mindset.
 
-## Impact
-
-- Increased design team productivity by **30%**.
-- Enabled better scalability across **multi-brand client projects**.
-- Helped shift the **business culture** towards systems-thinking.
-
----
-
-## The Backstory
+## Backstory
 
 Tom&Co. is a London-based **e-commerce agency** handling high-profile clients including Oliver Bonas and Fujifilm. Brought in as one of their first design hires, I helped establish the product design function during a key period of early growth.
 
@@ -27,7 +19,7 @@ I recognised the opportunity to establish an **internal design system** to strea
 
 ---
 
-## My Contributions
+## Contributions
 
 ### Driving strategic buy-in
 
@@ -44,6 +36,14 @@ I facilitated workshops and training sessions to roll out design system principl
 ### Supporting creative diversity
 
 Design systems can feel restrictive, so I built Dragonfly to empower creativity, not limit it. I designed alternative workflows, improved component discoverability, and introduced multi-format guidance (text, visuals, video) to support different working styles and neurodiverse needs.
+
+---
+
+## Impact
+
+- Increased design team productivity by **30%**.
+- Enabled better scalability across **multi-brand client projects**.
+- Helped shift the **business culture** towards systems-thinking.
 
 ---
 
