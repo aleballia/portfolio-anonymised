@@ -26,7 +26,7 @@ export default function AboutPage() {
           
           <div className={styles.aboutText}>
             <h1 className="h1" style={{ marginBottom: "1.5rem" }}>About Me</h1>
-            <p className="p" style={{ maxWidth: 700 }}>
+            <p className="p" style={{ maxWidth: 700, fontWeight: 300 }}>
 Product Design Lead with a track record of shipping fast while solving complex problems.
 I bring strategic thinking and attention to detail, equally comfortable aligning stakeholders
 or getting hands-on to push pixels. I thrive in fast-paced environments, turning ambiguity
