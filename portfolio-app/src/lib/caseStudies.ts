@@ -61,6 +61,7 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/oliver-bonas.png',
     liveLink: 'https://oliverbonas.com',
     hoverMessage: 'Ecommerce',
+    hidden: true // This will hide it from the selected work list
   },
   {
     id: 'myfujifilm',
