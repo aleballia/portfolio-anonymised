@@ -23,29 +23,27 @@ export default function Hero() {
             className="display"
             style={{ 
             color: "var(--foreground)",
-            fontWeight: 400,
-            marginBottom: 0,
+            fontWeight: 200,
+            marginBottom: "var(--space-xl)",
           }}
         >
-          Product Designer & Strategist
-
-        </h1>
-        <h2 className="display" style={{ 
+          Product Designer & Strategist —
+        
+         <b className="display" style={{ 
             color: "var(--foreground)",
-            marginBottom: 48,
-            fontWeight: 200,
-          }}>leading with curiosity and purpose.</h2>
+            fontWeight: 400,
+          }}> Leading with curiosity and purpose.</b></h1>
+
         <p 
           className="h3"
           style={{ 
-            color: "var(--foreground)",
-            fontWeight: 300,
+          color: "var(--foreground)",
+          fontWeight: 300,
           }}
         >
         I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.
         I’ll always be the person in the room asking challenging questions. Not to be difficult, but to get to what matters, reconsider assumptions, and 
-        <span style={{color: "var(--accent-secondary)", marginLeft: 8 }}>
-        unlock what’s possible. </span>
+        <b style={{color: "var(--accent-secondary)", fontWeight: 400}}> unlock what’s possible. </b>
     </p> 
         
       </div>

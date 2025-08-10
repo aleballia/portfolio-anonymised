@@ -1,0 +1,11 @@
+# Root ignores
+node_modules/
+package-lock.json
+.DS_Store
+
+# Editor/OS
+.idea/
+.vscode/
+*.log
+
+

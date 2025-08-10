@@ -3,7 +3,7 @@
 Selected work: Yes
 Role: Head of Product Design
 Company: Freedom2hear
-Tags: Product Design, AI, Startup, B2B
+Tags: AI, B2B, Startup
 Date: 2025
 Tools: Figma, Webflow, Cursor
 Summary: Freedom2hear is a B2B SaaS platform using emotion-based, context-aware AI to protect online communities from toxicity and abuse. I led 0–1 product design for its new self-serve content moderation platform, shaping the foundation for a scalable, enterprise experience.

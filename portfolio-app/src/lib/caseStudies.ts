@@ -3,7 +3,6 @@ export interface CaseStudy {
   title: string;
   subtitle: string;
   href: string;
-  notionId?: string; // Optional - for Notion-based case studies
   contentFile?: string; // Optional - for Markdown-based case studies
   mainImage: string;
   hoverMessage: string;
