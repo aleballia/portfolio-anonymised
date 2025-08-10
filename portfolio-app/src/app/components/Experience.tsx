@@ -96,6 +96,7 @@ export default function Experience() {
             }}
         >
             <div
+                className={styles.experienceContainer}
                 style={{
                     display: "flex",
                     margin: "0 auto",
@@ -103,7 +104,7 @@ export default function Experience() {
                 }}
             >
                 {/* Left: Title */}
-                <div style={{ flex: 2, marginTop: "-32px" }}>
+                <div className={styles.experienceTitle} style={{ flex: 2, marginTop: "-32px" }}>
                     <h2 
                       className="display"
                       style={{ fontWeight: 400 }}
@@ -114,6 +115,7 @@ export default function Experience() {
 
                 {/* Right: Timeline */}
                 <div
+                    className={styles.timelineContainer}
                     style={{
                         flex: 2.5, // This gives the timeline more space
                         position: "relative",
@@ -128,6 +130,7 @@ export default function Experience() {
                         return (
                             <motion.div
                                 key={exp.title}
+                                className={styles.timelineItem}
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -145,6 +148,7 @@ export default function Experience() {
                                 {/* Left: Circle */}
                                 <div
                                     ref={el => { circleRefs.current[idx] = el; }}
+                                    className={styles.circleContainer}
                                     style={{
                                         width: 48,
                                         minWidth: 48,
@@ -202,6 +206,7 @@ export default function Experience() {
                                 </div>
                                 {/* Right: Content */}
                                 <motion.div
+                                    className={styles.contentContainer}
                                     initial={{ opacity: 0 }}
                                     whileInView={{ opacity: 1 }}
                                     viewport={{ once: true, amount: 0.3 }}
@@ -214,6 +219,7 @@ export default function Experience() {
                                 >
                                     {exp.title === "button" ? (
                                         <motion.div
+                                            className={styles.downloadButton}
                                             initial={{ opacity: 0 }}
                                             whileInView={{ opacity: 1 }}
                                             viewport={{ once: true, amount: 0.3 }}
@@ -226,13 +232,13 @@ export default function Experience() {
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                             >
-                                                More about my experience
+                                                Download CV
                                             </a>
                                         </motion.div>
                                     ) : (
                                         <>
                                             <motion.h3
-                                                className={idx === 0 ? "h2" : "h3"}
+                                                className={`${idx === 0 ? "h2" : "h3"} ${styles.jobTitle}`}
                                                 initial={{ opacity: 0 }}
                                                 whileInView={{ opacity: 1 }}
                                                 viewport={{ once: true, amount: 0.3 }}
@@ -247,7 +253,7 @@ export default function Experience() {
                                                 {exp.title}
                                             </motion.h3>
                                             <motion.div
-                                                className="p"
+                                                className={`p ${styles.jobDetails}`}
                                                 initial={{ opacity: 0 }}
                                                 whileInView={{ opacity: 1 }}
                                                 viewport={{ once: true, amount: 0.3 }}
@@ -265,22 +271,6 @@ export default function Experience() {
                             </motion.div>
                         );
                     })}
-
-                    <style jsx>{`
-            @media (max-width: 700px) {
-              .resume-btn-wrapper {
-                margin-left: 0 !important;
-                text-align: left;
-              }
-              div[style*='display: flex'][style*='align-items: flex-start'] {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-              }
-              div[style*='width: 48px'][style*='display: flex'] {
-                margin-bottom: 1rem;
-              }
-            }
-          `}</style>
                 </div>
             </div>
         </div>

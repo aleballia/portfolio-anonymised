@@ -56,4 +56,50 @@
   background: var(--primary);
   margin-left: 1rem;
   vertical-align: middle;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .experienceContainer {
+    flex-direction: column !important;
+    gap: var(--space-xl);
+    padding-right: 1rem !important;
+  }
+
+  
+  .timelineContainer {
+    flex: 1 !important;
+    padding-left: 0 !important;
+    width: 100% !important;
+    padding-left: 1rem !important;
+
+  }
+  
+  .timelineItem {
+    margin-left: 1rem !important;
+    margin-bottom: 2rem !important;
+  }
+  
+  .circleContainer {
+    width: 24px !important;
+    min-width: 24px !important;
+  }
+  
+  .contentContainer {
+    margin-left: 2.5rem !important;
+  }
+  
+  .jobTitle {
+    margin-left: 0 !important;
+    font-size: var(--font-size-h3) !important;
+    font-weight: 300 !important;
+  }
+  
+  .jobDetails {
+    margin-left: 0 !important;
+  }
+  
+  .downloadButton {
+    margin-left: 0 !important;
+  }
 } 

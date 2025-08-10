@@ -69,7 +69,7 @@ I facilitated workshops across Tech, Ops, Marketing, and Client Success to align
 
 I was tasked with leading the Innovation Workstream, focused on identifying and validating new product opportunities. I developed a long-term innovation roadmap that balanced ambition and experimentation with commercial viability.
 
-![Innovation Process](/case-studies/freedom2hear/process.png)
+
 
 ---
 
