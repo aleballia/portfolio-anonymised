@@ -43,7 +43,7 @@ export default function Hero() {
         >
         I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.
         I’ll always be the person in the room asking challenging questions. Not to be difficult, but to get to what matters, reconsider assumptions, and 
-        <b style={{color: "var(--accent-secondary)", fontWeight: 500}}> unlock what’s possible. </b>
+        <b style={{color: "var(--accent-secondary)", fontWeight: 400}}> unlock what’s possible. </b>
     </p> 
         
       </div>
