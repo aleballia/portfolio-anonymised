@@ -1,6 +1,5 @@
 # Freedom2hear I
 
-Subtitle: 0-1 Product Design for an AI Content Moderation Platform
 Selected work: Yes
 Role: Head of Product Design
 Company: Freedom2hear

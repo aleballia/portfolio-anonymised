@@ -18,7 +18,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: '0-1 Product Design for an AI Content Moderation Platform',
     href: '/work/freedom2hear-platform',
     contentFile: 'freedom2hear-platform.md',
-    mainImage: '/work/freedom2hear.png',
+    mainImage: '/work/freedom2hear-1.png',
     liveLink: 'https://freedom2hear.com',
     hoverMessage: '0-1 Product Design'
   },
@@ -28,7 +28,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'Innovation & Growth for an Emotion AI start-up',
     href: '/work/freedom2hear-strategy',
     contentFile: 'freedom2hear-strategy.md',
-    mainImage: '/work/freedom2hear.png',
+    mainImage: '/work/freedom2hear-2.png',
     liveLink: 'https://freedom2hear.com',
     hoverMessage: 'Innovation & Growth'
   },

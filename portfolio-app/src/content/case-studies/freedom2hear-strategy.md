@@ -1,6 +1,5 @@
 # Freedom2hear II
 
-Subtitle: Innovation & Growth for an Emotion AI start-up
 Selected work: Yes
 Role: Head of Product Design
 Company: Freedom2hear
