@@ -32,7 +32,7 @@ export default function Hero() {
          <b className="display" style={{ 
             color: "var(--foreground)",
             fontWeight: 400,
-          }}> Leading with curiosity and purpose.</b></h1>
+          }}> leading with curiosity and purpose.</b></h1>
 
         <p 
           className="h3"
