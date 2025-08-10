@@ -3,11 +3,11 @@
 Selected work: Yes
 Role: Head of Product Design
 Company: Freedom2hear
-Tags: Innovation, Growth, AI, Start-up 
+Tags: Innovation, Growth, AI, Startup 
 Date: 2025
 Tools: Figma, Webflow, Cursor
 
-Summary: Freedom2hear is a privately owned start-up developing emotion-based, context-aware AI to understand human interaction across digital environments. I embedded design at the leadership level, driving strategy and innovation to position the company for growth.
+Summary: Freedom2hear is a privately owned startup developing emotion-based, context-aware AI to understand human interaction across digital environments. I embedded design at the leadership level, driving strategy and innovation to position the company for growth.
 
 ## Backstory
 
