@@ -3,7 +3,7 @@
 Selected work: Yes
 Role: Head of Product Design
 Company: Freedom2hear
-Tags: Innovation, Growth, AI, Startup 
+Tags: AI, Innovation, Growth, Startup 
 Date: 2025
 Tools: Figma, Webflow, Cursor
 
