@@ -25,7 +25,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'freedom2hear-strategy',
     title: 'Freedom2hear II',
-    subtitle: 'Innovation and Growth Strategy for an Emotion AI start-up',
+    subtitle: 'Innovation and Growth Strategy for an Emotion AI Start-up',
     href: '/work/freedom2hear-strategy',
     contentFile: 'freedom2hear-strategy.md',
     mainImage: '/work/freedom2hear-2.png',
