@@ -23,12 +23,12 @@ const experiences = [
     },
     {
         title: "Design Systems Manager",
-        company: "Tom&Co, Ecommerce Agency",
+        company: "Tom&Co, E-commerce Agency",
         period: "Jul 2019 to Jun 2022",
     },
     {
         title: "Senior UX/UI Designer",
-        company: "Tom&Co, Ecommerce Agency",
+        company: "Tom&Co, E-commerce Agency",
         period: "Jul 2019 to Jun 2022",
     },
     {
