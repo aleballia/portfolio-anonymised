@@ -4,11 +4,23 @@ import ProjectNavigation from "../../components/ProjectNavigation";
 import FloatingLiveButton from "../../components/FloatingLiveButton";
 import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Drafonfly DS | White Label Design System for Award Winning Ecommerce Agency",
-  // ...other metadata fields
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const caseStudy = getCaseStudyById('tomandco');
+  const localContent = caseStudy?.contentFile
+    ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
+        title: caseStudy.title,
+        subtitle: caseStudy.subtitle,
+        liveLink: caseStudy.liveLink,
+      })
+    : null;
+
+  return {
+    title: "Drafonfly DS | White Label Design System for Award Winning Ecommerce Agency",
+    description: localContent?.summary || caseStudy?.subtitle || undefined,
+  };
+}
 
 export default async function TomAndCoCaseStudy() {
   const caseStudy = getCaseStudyById('tomandco');

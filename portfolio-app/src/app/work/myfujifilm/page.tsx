@@ -4,11 +4,23 @@ import ProjectNavigation from "../../components/ProjectNavigation";
 import FloatingLiveButton from "../../components/FloatingLiveButton";
 import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "MyFujifilm | Ecommerce Product Design & Development for a Global Brand",
-  // ...other metadata fields
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const caseStudy = getCaseStudyById('myfujifilm');
+  const localContent = caseStudy?.contentFile
+    ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
+        title: caseStudy.title,
+        subtitle: caseStudy.subtitle,
+        liveLink: caseStudy.liveLink,
+      })
+    : null;
+
+  return {
+    title: "MyFujifilm | Ecommerce Product Design & Development for a Global Brand",
+    description: localContent?.summary || caseStudy?.subtitle || undefined,
+  };
+}
 
 export default async function MyFujifilmCaseStudy() {
   const caseStudy = getCaseStudyById('myfujifilm');

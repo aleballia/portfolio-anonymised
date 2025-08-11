@@ -4,11 +4,24 @@ import ProjectNavigation from "../../components/ProjectNavigation";
 import FloatingLiveButton from "../../components/FloatingLiveButton";
 import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Freedom2hear | Product Design, Innovation & Growth for an Emotion AI Startup",
-  // ...other metadata fields
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const caseStudy = getCaseStudyById('freedom2hear-platform');
+  const localContent = caseStudy?.contentFile
+    ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
+        title: caseStudy.title,
+        subtitle: caseStudy.subtitle,
+        liveLink: caseStudy.liveLink,
+      })
+    : null;
+
+  return {
+    title:
+      "Freedom2hear | Product Design, Innovation & Growth for an Emotion AI Startup",
+    description: localContent?.summary || caseStudy?.subtitle || undefined,
+  };
+}
 
 export default async function Freedom2hearCaseStudy() {
   const caseStudy = getCaseStudyById('freedom2hear-platform');

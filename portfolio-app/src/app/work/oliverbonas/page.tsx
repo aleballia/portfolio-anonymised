@@ -4,11 +4,23 @@ import ProjectNavigation from "../../components/ProjectNavigation";
 import FloatingLiveButton from "../../components/FloatingLiveButton";
 import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Oliver Bonas | Ecommerce design for an independent British brand",
-  // ...other metadata fields
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const caseStudy = getCaseStudyById('oliverbonas');
+  const localContent = caseStudy?.contentFile
+    ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
+        title: caseStudy.title,
+        subtitle: caseStudy.subtitle,
+        liveLink: caseStudy.liveLink,
+      })
+    : null;
+
+  return {
+    title: "Oliver Bonas | Ecommerce design for an independent British brand",
+    description: localContent?.summary || caseStudy?.subtitle || undefined,
+  };
+}
 
 export default async function OliverBonasCaseStudy() {
   const caseStudy = getCaseStudyById('oliverbonas');

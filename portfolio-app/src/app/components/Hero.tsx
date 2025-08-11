@@ -27,7 +27,7 @@ export default function Hero() {
             marginBottom: "var(--space-xl)",
           }}
         >
-          Product Designer & Strategist —
+          Product Design Leader & Strategist —
         
          <b className="display" style={{ 
             color: "var(--foreground)",
