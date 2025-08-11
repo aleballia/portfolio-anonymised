@@ -26,10 +26,10 @@ export default function HomeClient() {
 
   return (
     <motion.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 1}}
+      animate={{ opacity: 1}}
       transition={{
-        duration: 0.3,
+        duration: 0.5,
         ease: "easeInOut"
       }}
     >
@@ -41,7 +41,7 @@ export default function HomeClient() {
           amplitude={0.5}
           speed={0.8}
           modalOpen={isModalOpen}
-          opacity={0.2}
+          opacity={0}
         />
         
         {/* Header */}
