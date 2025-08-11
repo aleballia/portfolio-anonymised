@@ -121,8 +121,16 @@
   overflow: hidden;
 }
 
+.proseContent :global(p) {
+  font-weight: 300; /* light for main markdown */
+  line-height: 1.8;
+  letter-spacing: -0.03rem;
+}
+
 .summary :global(p) {
-  line-height: 1.2; /* or your preferred line height */
+  font-weight: 400; /* keep summary normal */
+  line-height: 1.5;
+  letter-spacing: -0.03rem;
 }
 
 @media (min-width: 768px) {

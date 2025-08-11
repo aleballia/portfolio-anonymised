@@ -258,8 +258,12 @@ a:hover {
   font-size: 1.125rem;
 }
 
-button, .btn, a {
-  cursor: var(--plus-cursor), pointer !important;
+button,
+.btn,
+input[type="button"],
+input[type="submit"],
+[role="button"] {
+  cursor: pointer !important;
 }
 
 @theme inline {

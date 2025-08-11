@@ -69,7 +69,6 @@ const Header: React.FC = () => {
             position: "relative",
             minWidth: "240px",
             height: "40px",
-            cursor: "pointer",
             zIndex: 1001,
           }}
           onClick={handleClick}
@@ -183,7 +182,7 @@ const Header: React.FC = () => {
           <span style={{ fontSize: '1rem' }}>
             {theme === 'dark' ? '🌙' : '☀️'}
           </span>
-          <span className="caption" style={{ display: 'inline', cursor: 'pointer' }}>
+          <span className="caption" style={{ display: 'inline' }}>
             {theme === 'dark' ? 'Light' : 'Dark'}
           </span>
         </button>
