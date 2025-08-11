@@ -16,8 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
       })
     : null;
 
+  const title = (localContent?.title || caseStudy?.title || '').trim();
+  const subtitle = (localContent?.subtitle || caseStudy?.subtitle || '').trim();
+
   return {
-    title: "Oliver Bonas | Ecommerce design for an independent British brand",
+    title: [title, subtitle].filter(Boolean).join(' | '),
     description: localContent?.summary || caseStudy?.subtitle || undefined,
   };
 }

@@ -16,8 +16,11 @@ export async function generateMetadata(): Promise<Metadata> {
       })
     : null;
 
+  const title = (localContent?.title || caseStudy?.title || '').trim();
+  const subtitle = (localContent?.subtitle || caseStudy?.subtitle || '').trim();
+
   return {
-    title: "Frictionless Futures | Strategic design for future-focused innovation",
+    title: [title, subtitle].filter(Boolean).join(' | '),
     description: localContent?.summary || caseStudy?.subtitle || undefined,
   };
 }
