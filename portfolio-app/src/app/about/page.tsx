@@ -4,6 +4,13 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import styles from "./About.module.css";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Alessandra Balliana",
+  description:
+    "About Alessandra Balliana – Product Design Lead focused on shipping fast, aligning stakeholders, and building AI-driven products.",
+};
 
 export default function AboutPage() {
   return (
