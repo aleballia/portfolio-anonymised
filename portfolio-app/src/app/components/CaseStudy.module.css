@@ -127,6 +127,14 @@
   letter-spacing: -0.03rem;
 }
 
+/* Add this */
+.proseContent :global(ul li),
+.proseContent :global(ol li) {
+  font-weight: 300;
+  line-height: 1.8;
+  letter-spacing: -0.03rem;
+}
+
 .summary :global(p) {
   font-weight: 400; /* keep summary normal */
   line-height: 1.2;
