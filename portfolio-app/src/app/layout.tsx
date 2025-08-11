@@ -27,18 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-B4HB7EX0E8"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-B4HB7EX0E8');
-          `}
-        </Script>
+        {/* 100% privacy-first analytics */}
+        <Script src="https://scripts.simpleanalyticscdn.com/latest.js" strategy="afterInteractive" />
       </head>
       <body
         className={`${inter.variable} antialiased`}
