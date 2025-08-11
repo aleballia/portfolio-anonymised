@@ -129,7 +129,7 @@
 
 .summary :global(p) {
   font-weight: 400; /* keep summary normal */
-  line-height: 1.5;
+  line-height: 1.2;
   letter-spacing: -0.03rem;
 }
 
