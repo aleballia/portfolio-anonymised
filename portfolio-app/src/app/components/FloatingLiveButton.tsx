@@ -46,7 +46,7 @@ const FloatingLiveButton: React.FC<FloatingLiveButtonProps> = ({ liveLink }) => 
         rel="noopener noreferrer"
         className={`btn ${styles.floatingLiveBtn}`}
       >
-        <span className={styles.text}>Live Site</span>
+        <span className={styles.text}>Website</span>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.icon}>
           <path d="M4 13H16.2L10.6 18.6L12 20L20 12L12 4L10.6 5.4L16.2 11H4V13V13Z" fill="currentColor"/>
         </svg>
