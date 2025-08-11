@@ -49,9 +49,9 @@ To ensure consistency, I extended the design system into marketing and sales mat
 
 ## Impact
 
-- **Played a key role in raising two funding rounds** through stronger investor storytelling and alignment.
-- **Elevated design** from an operational function to a **core strategic capability**.
-- Secured an **initial strategic partnership** with a major music label, creating a foundation for potential long-term collaboration.
+- **Secured two successful funding rounds** by co-authoring compelling investor materials and facilitating strategic alignment across leadership.
+- **Elevated design** from an operational function to a **core strategic capability** within the company.
+- **Established an initial strategic partnership** with a major music label for R&D, delivering proof-of-concepts that demonstrated product potential and opened the door to future collaboration.
 - Contributed to **winning the company’s largest international client to date** through growth initiatives spanning product design, marketing, and client success — delivering work that directly supported the sales process and strengthened the client relationship.
 
 ---
