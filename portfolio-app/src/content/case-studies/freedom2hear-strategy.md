@@ -20,9 +20,9 @@ When I joined, design was not yet recognised as a strategic driver. My role evol
 ## Key Contributions
 
 - Facilitated **cross-functional workshops** to align leadership on priorities and product direction.
-- Led a **team of AI engineers** to develop proof-of-concepts that **unlocked new product opportunities and strategic R&D partnerships**.
+- Led a **team of AI engineers** to develop proof-of-concepts that **unlocked new product opportunities and initial strategic R&D partnerships**.
 - Established an **innovation framework** that balanced experimentation with commercial viability.
-- Co-authored **board and investor materials** that supported two **successful funding rounds**.
+- Co-authored **board and investor materials** that supported two **successful funding rounds** around a shared product vision and producing compelling board and investor materials.
 - Directed creative execution for **brand, marketing, demo, and sales enablement materials**.
 
 ---
@@ -49,10 +49,10 @@ To ensure consistency, I extended the design system into marketing and sales mat
 
 ## Impact
 
-- **Raised two funding rounds** through stronger investor storytelling and alignment.
+- **Played a key role in raising two funding rounds** through stronger investor storytelling and alignment.
 - **Elevated design** from an operational function to a **core strategic capability**.
-- Secured a strategic **R&D partnership** with a major music label.
-- Won the **largest international client to date** through improved demos and sales enablement.
+- Secured an **initial strategic partnership** with a major music label, creating a foundation for potential long-term collaboration.
+- Contributed to **winning the company’s largest international client to date** through growth initiatives spanning product design, marketing, and client success — delivering work that directly supported the sales process and strengthened the client relationship.
 
 ---
 
