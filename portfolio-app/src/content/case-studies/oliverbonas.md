@@ -9,18 +9,7 @@ Date: 2020
 Tools: Sketch, Mural, Abstract, Zeplin
 Summary: In 2020, I joined the Oliver Bonas website redesign as UX/UI Designer. The goal? Bring the brand’s in-store magic online, while boosting performance and reducing friction in the customer journey. Through mobile-first thinking, strategic UX research and collaborative workshops, we launched a fresh, immersive site that led to a **58% increase in mobile traffic** and **+70% revenue** from gift-related products.
 
-## Impact
-
-- UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
-- **Improved development handover** through new design system and CMS.
-
-## In Numbers
-- **58% increase in mobile traffic** within a year of launch.
-- **+70% product revenue** from gifting experience.
-
----
-
-## The Backstory
+## Backstory
 
 **Oliver Bonas** wanted their online experience to match the warmth and charm of their physical stores. The site needed to feel effortless, with bags of personality, whilst delivering real commercial value.
 
@@ -28,7 +17,7 @@ With mobile users dominating traffic (68%) but underperforming in conversion (2.
 
 ---
 
-## The Design Process
+## Design Process
 
 ### **Customer Insight & Behaviour Analysis**
 
@@ -76,6 +65,17 @@ The result? A seamless gifting experience that directly contributed to a **+70% 
 ![Checkout](/case-studies/oliverbonas/checkout.png)
 
 ![Gift Box Builder](/case-studies/oliverbonas/gifting.png)
+
+---
+
+## Impact
+
+- UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
+- **Improved development handover** through new design system and CMS.
+
+## In Numbers
+- **58% increase in mobile traffic** within a year of launch.
+- **+70% product revenue** from gifting experience.
 
 ---
 
