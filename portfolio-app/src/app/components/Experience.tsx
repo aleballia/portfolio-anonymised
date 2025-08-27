@@ -9,7 +9,12 @@ const experiences = [
     {
         title: "Head of Product Design",
         company: "Freedom2hear, Innovation & Growth",
-        period: "Jan 2024 to Present",
+        period: "Dec 2024 to Present",
+    },
+    {
+        title: "Creative Lead",
+        company: "Freedom2hear",
+        period: "Jan 2024 to Dec 2024",
     },
     {
         title: "Lead Product Designer (Manager)",
@@ -31,6 +36,16 @@ const experiences = [
         company: "Tom&Co, E-commerce Agency",
         period: "Jul 2019 to Jun 2022",
     },
+    {
+        title: "UX/UI Designer",
+        company: "Jack Wills",
+        period: "Dec 2017 to Jun 2019",
+    },
+    {
+        title: "Junior Print & Digital Designer",
+        company: "Sofa.com",
+        period: "Apr 2017 to Sep 2019",
+    },
 ];
 
 export default function Experience() {
@@ -51,7 +66,7 @@ export default function Experience() {
                     const nextRect = next.getBoundingClientRect();
                     const currentCenter = currentRect.top + currentRect.height / 2;
                     const nextCenter = nextRect.top + nextRect.height / 2;
-                    heights.push(nextCenter - currentCenter);
+                    heights.push(nextCenter - currentCenter - 2);
                 }
             }
             setLineHeights(heights);
@@ -81,7 +96,32 @@ export default function Experience() {
     const ANIMATION_DURATION = 0.6;
     const BASE_DELAY = 0.15;
 
-    const circleSizes = [48, 36, 24, 16, 12, 12]; // Progressive sizes for main circles
+    // Generate progressively smaller circle sizes for any number of experiences
+    const generateCircleSizes = (count: number) => {
+        const sizes = [];
+        for (let i = 0; i < count; i++) {
+            if (i === 0) {
+                sizes.push(48); // First circle (largest)
+            } else if (i === 1) {
+                sizes.push(36); // Second circle
+            } else if (i === 2) {
+                sizes.push(24); // Third circle
+            } else if (i === 3) {
+                sizes.push(16); // Fourth circle
+            } else if (i === 4) {
+                sizes.push(12); // Fifth circle
+            } else {
+                // For additional circles, continue the progression with smaller sizes
+                const minSize = 8;
+                const decrement = 2;
+                const calculatedSize = Math.max(minSize, 12 - (i - 4) * decrement);
+                sizes.push(calculatedSize);
+            }
+        }
+        return sizes;
+    };
+
+    const circleSizes = generateCircleSizes(experiences.length);
 
     return (
         <div
@@ -189,7 +229,7 @@ export default function Experience() {
                                             transition={{ duration: 0.5, delay: idx * BASE_DELAY + 0.2 }}
                                             style={{
                                                 position: "absolute",
-                                                top: (idx === 0 ? 48 : 32) / 2,
+                                                top: size / 2,
                                                 left: "50%",
                                                 transform: "translateX(-50%)",
                                                 width: 1,
