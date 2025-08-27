@@ -9,7 +9,7 @@ const experiences = [
     {
         title: "Head of Product Design",
         company: "Freedom2hear, Innovation & Growth",
-        period: "Dec 2024 to Present",
+        period: "Jan 2025 to Present",
     },
     {
         title: "Creative Lead",
