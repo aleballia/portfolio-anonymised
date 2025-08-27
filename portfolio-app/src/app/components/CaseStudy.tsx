@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import styles from "./CaseStudy.module.css";
 import MarkdownContent from "./MarkdownContent";
+import { useEffect, useState } from "react";
 
 interface CaseStudyProps {
   title: string;
@@ -30,19 +33,46 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   date,
   liveLink,
 }) => {
+  const [isTitleLoaded, setIsTitleLoaded] = useState(false);
+  const [isImageLoaded, setIsImageLoaded] = useState(false);
+  const [isContentLoaded, setIsContentLoaded] = useState(false);
+
+  useEffect(() => {
+    // Trigger title animation first
+    const titleTimer = setTimeout(() => {
+      setIsTitleLoaded(true);
+    }, 200);
+
+    // Trigger image animation after title
+    const imageTimer = setTimeout(() => {
+      setIsImageLoaded(true);
+    }, 600);
+
+    // Trigger content animation last
+    const contentTimer = setTimeout(() => {
+      setIsContentLoaded(true);
+    }, 1000);
+
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(imageTimer);
+      clearTimeout(contentTimer);
+    };
+  }, []);
+
   return (
     <div>
       <article className={styles.caseStudy}>
 
         {/* Hero Section: Title & Subtitle */}
-        <div className={`px-section ${styles.heroSectionTitle}`}>
+        <div className={`px-section ${styles.heroSectionTitle} ${isTitleLoaded ? styles.titleAnimated : ''}`}>
           <h1 className={`h1 ${styles.title}`}>
             {title}
           </h1>
         </div>
 
         {/* Full-width Image */}
-        <div className={styles.heroImage}>
+        <div className={`${styles.heroImage} ${isImageLoaded ? styles.imageAnimated : ''}`}>
           <Image
             src={image}
             alt={`${title} Project`}
@@ -57,7 +87,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
         </div>
 
         {/* Main content, pushed down by image height */}
-        <section className={styles.mainContent}>
+        <section className={`${styles.mainContent} ${isContentLoaded ? styles.contentAnimated : ''}`}>
           <div className={styles.contentContainer}>
               
             {/* Summary and Details Grid - stack on mobile, side-by-side on desktop, with background and padding */}

@@ -29,11 +29,38 @@
   overflow: hidden;
   margin-top: 4rem;
   background-color: var(--muted);
+  transform: translateY(60px);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.imageAnimated {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.heroSectionTitle {
+  transform: translateY(-40px);
+  opacity: 0;
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.titleAnimated {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 .mainContent {
   padding-top: 4rem;
   padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.contentAnimated {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contentContainer {
