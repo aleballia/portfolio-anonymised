@@ -70,6 +70,7 @@ const Header: React.FC = () => {
             minWidth: "240px",
             height: "40px",
             zIndex: 1001,
+            cursor: "pointer",
           }}
           onClick={handleClick}
         >

@@ -31,11 +31,6 @@ const experiences = [
         company: "Tom&Co, E-commerce Agency",
         period: "Jul 2019 to Jun 2022",
     },
-    {
-        title: "button", // Special marker for button
-        company: "",
-        period: "",
-    },
 ];
 
 export default function Experience() {
