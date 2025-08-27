@@ -24,6 +24,9 @@
   color: var(--primary-foreground);
   text-decoration: none;
   transition: color 0.18s;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .footerNav a:hover,

@@ -24,7 +24,7 @@ const experiences = [
     {
         title: "Lead UX/UI Designer",
         company: "Resi, Challenger Scaleup",
-        period: "Jun 2022 to Nov 2023",
+        period: "Jun 2022 to Oct 2022",
     },
     {
         title: "Design Systems Manager",

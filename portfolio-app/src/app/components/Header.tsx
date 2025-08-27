@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
+import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
@@ -91,16 +92,16 @@ const Header: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
                     transition={{ duration: 0.2, ease: 'easeOut' }}
-                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                    className={styles.logoSpan}
                   >
                     {isHome ? (
-                      <>Hi 👋</>
+                      <span className={styles.logoGreeting}>Hi 👋</span>
                     ) : (
-                      <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                      <span className={styles.logoHoverContent}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M20 11H7.8L13.4 5.4L12 4L4 12L12 20L13.4 18.6L7.8 13H20V11V11Z" fill="currentColor"/>
                         </svg>
-                        Homepage
+                        <span className={styles.logoHomepage}>Homepage</span>
                       </span>
                     )}
                   </motion.span>
@@ -122,7 +123,7 @@ const Header: React.FC = () => {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 1, y: 10 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
-                            style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                            className={styles.logoGreeting}
                           >
                             Hi 👋
                           </motion.span>
@@ -132,14 +133,14 @@ const Header: React.FC = () => {
                             initial={{ opacity: 1, y: -10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
-                            style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                            className={styles.logoText}
                           >
                             Alessandra Balliana
                           </motion.span>
                         )}
                       </AnimatePresence>
                     ) : (
-                      <span style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}>
+                      <span className={styles.logoText}>
                         Alessandra Balliana
                       </span>
                     )}
