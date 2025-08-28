@@ -68,9 +68,6 @@
 
 .logoHomepage {
   display: inline-block;
-  position: absolute;
-  left: 24;
-  right: 0;
   text-transform: none;
   font-size: 1rem;
   font-weight: 500;
@@ -82,7 +79,7 @@
 .logoHoverContent {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
 .themeToggle {
