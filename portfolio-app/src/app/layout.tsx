@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Rock_Salt } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -8,6 +8,13 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+});
+
+const rockSalt = Rock_Salt({
+  subsets: ["latin"],
+  variable: "--font-rock-salt",
+  display: "swap",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -35,7 +42,7 @@ export default function RootLayout({
         <Script src="https://scripts.simpleanalyticscdn.com/latest.js" strategy="afterInteractive" />
       </head>
       <body
-        className={`${inter.variable} antialiased`}
+        className={`${inter.variable} ${rockSalt.variable} antialiased`}
       >
         <ThemeProvider>
           {children}

@@ -2,13 +2,13 @@
 
 .testimonialsGrid {
   column-count: 2;
-  column-gap: 0.5rem;
+  column-gap: 0.25rem;
 }
 
 .testimonialCard {
   display: inline-block;
   width: 100%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   background: var(--card);
   box-shadow: 0 2px 16px 0 rgba(30, 251, 125, 0.08);
   padding: 1.5rem;

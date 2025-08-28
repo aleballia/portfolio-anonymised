@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./LetsConnect.module.css";
+import ScrollingTicker from "./ScrollingTicker";
 
 const LetsConnect: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -35,13 +36,17 @@ const LetsConnect: React.FC = () => {
   return (
     <section className={styles.letsConnectSection}>
       <div className={styles.container}>
-        <h2 className={`display ${styles.heading}`}>Let's connect</h2>
+      <ScrollingTicker 
+            text="Let's connect" 
+            speed={40}
+            className="display"
+          />
        <div className={styles.buttonContainer}> <button 
           onClick={handleCopyEmail}
           className={styles.copyButton}
-          aria-label="Email me"
+          aria-label="Copy my email address"
         >
-          {copied ? "Email Copied!" : "Email me"}
+          {copied ? "Email Copied!" : "Copy my email address"}
         </button>
         <a 
         href="https://www.linkedin.com/in/alessandraballiana/"

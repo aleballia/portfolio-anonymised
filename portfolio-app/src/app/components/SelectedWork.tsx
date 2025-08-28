@@ -68,26 +68,32 @@ const SelectedWork: React.FC = () => {
                 onMouseEnter={() => handleMouseEnter(idx)}
                 onMouseLeave={() => handleMouseLeave()}
               >
-                {/* Inline image for mobile only */}
-                <Image
-                  src={work.mainImage}
-                  alt={work.title}
-                  width={400}
-                  height={300}
-                  className={styles.mobileImage}
-                  aria-hidden="true"
-                />
-                <Link
-                  href={work.href}
-                  className={styles.workButton}
-                  tabIndex={0}
-                  onFocus={() => handleFocus(idx)}
-                  onBlur={handleBlur}
-                >
-                  <span className={styles.workTitleText}>{work.title}</span>
-                </Link>
-                <div className={styles.mobileSubtitle}>
-                  {work.subtitle}
+                
+                {/* Work content */}
+                <div className={styles.workContent}>
+                  <Link
+                    href={work.href}
+                    className={styles.workButton}
+                    tabIndex={0}
+                    onFocus={() => handleFocus(idx)}
+                    onBlur={handleBlur}
+                  >
+                    <span className={'$(styles.workTitleText)'}>{work.title}</span>
+                  </Link>
+                  <div className={styles.workSubtitle}>
+                    {work.subtitle}
+                  </div>
+                </div>
+                                {/* Work image with hover animation */}
+                                <div className={styles.imageContainer}>
+                  <Image
+                    src={work.mainImage}
+                    alt={work.title}
+                    width={400}
+                    height={300}
+                    className={styles.workImage}
+                    aria-hidden="true"
+                  />
                 </div>
               </div>
             ))}
@@ -111,23 +117,11 @@ const SelectedWork: React.FC = () => {
             <div
               className={styles.floatingTag}
               style={{
-                position: "fixed",
                 left: cursor.x + 20,
                 top: cursor.y - 10,
-                pointerEvents: "none",
-                zIndex: 1000,
-                background: "var(--accent)",
-                color: "var(--accent-foreground)",
-                padding: "0.25rem 1rem",
-
-                fontSize: "1.25rem",
-                fontWeight: "600",
-                whiteSpace: "nowrap",
-                opacity: 1,
-                letterSpacing: "-0.04em",
               }}
             >
-              {visibleCaseStudies[hoveredIdx].hoverMessage}
+              View Project
             </div>
           )}
         </div>

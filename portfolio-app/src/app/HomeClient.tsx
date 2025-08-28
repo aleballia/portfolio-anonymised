@@ -12,6 +12,7 @@ import About from "./components/About";
 import Experience from "./components/Experience";
 import LetsConnect from "./components/LetsConnect";
 import ClientLogos from "./components/ClientLogos";
+import styles from "./HomeClient.module.css";
 
 export default function HomeClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -45,14 +46,18 @@ export default function HomeClient() {
           amplitude={0.5}
           speed={0.8}
           modalOpen={isModalOpen}
-          opacity={0.1}
+          opacity={0.2}
         />
-        
-        {/* Header */}
-        <Header />
-        
-        {/* Hero Section - no spacing needed as it's full height */}
-        <Hero />
+
+       <div className={styles.heroBackground}>
+        <div className={styles.contentWrapper}>
+          {/* Header */}
+          <Header />
+          
+          {/* Hero Section - no spacing needed as it's full height */}
+          <Hero />
+        </div>
+        </div>
 
         {/* About */}
         <Section className="section-loose">

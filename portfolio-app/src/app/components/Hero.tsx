@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import ScrollingTicker from "./ScrollingTicker";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
@@ -13,26 +15,23 @@ export default function Hero() {
         display: "flex",
         alignItems: "center",
         justifyContent: "left",
-        background: "transparent", // Optional: ensure transparency
+        background: "transparent",
       }}
     >
 
       <div  style={{ width: "100%", textAlign: "left", position: "relative", zIndex: 1 }}>
-     <h1 
+        <div style={{ 
+          marginBottom: "var(--space-xl)",
+        }}>
+          <ScrollingTicker 
+            text="Leading with curiosity & purpose" 
+            speed={40}
             className="display"
-            style={{ 
-            color: "var(--foreground)",
-            fontWeight: 200,
-            marginBottom: "var(--space-xl)",
-          }}
-        >
-        
-         <b className="display" style={{ 
-            fontWeight: 300,
-          }}>Leading with curiosity & purpose</b></h1>
+          />
+        </div>
 
         <p 
-          className="h3"
+          className={`${styles.heroParagraph} p`}
           style={{ 
           color: "var(--foreground)",
           fontWeight: 300,
