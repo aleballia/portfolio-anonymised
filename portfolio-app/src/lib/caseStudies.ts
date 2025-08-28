@@ -34,7 +34,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'frictionless-futures',
     title: 'Frictionless Futures',
-    subtitle: 'Design for the Future of Retail & Hospitality',
+    subtitle: 'Design for the Future of Retail & Hospitality at PwC',
     href: '/work/frictionless-futures',
     contentFile: 'frictionless-futures.md',
     mainImage: '/work/frictionless-futures.png',
@@ -44,7 +44,7 @@ export const caseStudies: CaseStudy[] = [
     {
     id: 'tomandco',
     title: 'Dragonfly DS',
-    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
+    subtitle: 'White Label Design System for Award Winning Ecommerce Agency Tom&Co',
     href: '/work/tomandco',
     contentFile: 'tomandco.md',
     mainImage: '/work/tomandco.png',
@@ -54,7 +54,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'oliverbonas',
     title: 'Oliver Bonas',
-    subtitle: 'Ecommerce Design for an Independent British Brand',
+    subtitle: 'Ecommerce Design for an Independent British Brand with Tom&Co',
     href: '/work/oliverbonas',
     contentFile: 'oliverbonas.md',
     mainImage: '/work/oliver-bonas.png',
@@ -64,7 +64,7 @@ export const caseStudies: CaseStudy[] = [
   {
     id: 'myfujifilm',
     title: 'MyFujifilm',
-    subtitle: 'Ecommerce Product Design & Development for a Global Brand',
+    subtitle: 'Ecommerce Product Design & Development for a Global Brand – Tom&Co',
     href: '/work/myfujifilm',
     contentFile: 'myfujifilm.md',
     mainImage: '/work/myfujifilm.png',

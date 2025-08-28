@@ -7,7 +7,6 @@ import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
-  const [showName, setShowName] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -21,15 +20,6 @@ const Header: React.FC = () => {
   } catch {}
 
   const isHome = pathname === "/";
-
-  useEffect(() => {
-    if (isHome) {
-      const timer = setTimeout(() => setShowName(true), 800);
-      return () => clearTimeout(timer);
-    } else {
-      setShowName(true);
-    }
-  }, [isHome]);
 
   const handleClick = () => {
     if (!isHome) {
@@ -112,38 +102,12 @@ const Header: React.FC = () => {
                     transition={{ duration: 0.2, ease: 'easeOut' }}
                     style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
                   >
-                    {isHome ? (
-                      <AnimatePresence mode="wait">
-                        {!showName ? (
-                          <motion.span
-                            key="hi"
-                            initial={{ opacity: 1, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 1, y: 10 }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
-                            className={styles.logoGreeting}
-                            onClick={handleHiClick}
-                          >
-                            Hello 👋
-                          </motion.span>
-                        ) : (
-                          <motion.span
-                            key="name"
-                            initial={{ opacity: 1, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.2, ease: 'easeOut' }}
-                            className={styles.logoText}
-                          >
-                            Alessandra Balliana
-                            <div style={{fontWeight: 300, fontSize: '0.92rem', color: 'var(--foreground)', marginTop: '0.5rem'}}><b>Product Design Leader</b> – London, UK</div>
-                          </motion.span>
-                        )}
-                      </AnimatePresence>
-                    ) : (
-                      <span className={styles.logoText}>
-                        Alessandra Balliana
-                      </span>
-                    )}
+                    <span className={styles.logoText}>
+                      Alessandra Balliana
+                      {isHome && (
+                        <div style={{fontWeight: 300, fontSize: '0.92rem', color: 'var(--foreground)', marginTop: '0.5rem'}}><b>Product Design Leader</b> – London, UK</div>
+                      )}
+                    </span>
                   </motion.span>
                 )}
               </AnimatePresence>

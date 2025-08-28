@@ -11,7 +11,7 @@ const About: React.FC = () => {
             <div className={styles.aboutText}>
               {/*<h1 className="h4" style={{ marginBottom: "2rem" }}>About Me</h1>*/}
                 <p className="h3" style={{ fontWeight: 300, marginBottom: "1rem" }}>
-                <HoverImage imageSrc="/about/speaker.png" imageAlt="Product Design Lead - Speaking at Conference">Product Design Lead & Strategist</HoverImage> with a growing focus on AI products and innovation. Equally comfortable aligning stakeholders or getting hands-on to push pixels, I bring strategic thinking and attention to detail to fast-paced environments where every day is different from the last.
+                <HoverImage imageSrc="/about/speaker.png" imageAlt="Product Design Leader - Speaking at Conference">Product Design Leader & Strategist</HoverImage> with a growing focus on AI products and innovation. Equally comfortable aligning stakeholders or getting hands-on to push pixels, I bring strategic thinking and attention to detail to fast-paced environments where every day is different from the last.
                 </p>
 
                 <p className="p" style={{ fontWeight: 300 }}>
