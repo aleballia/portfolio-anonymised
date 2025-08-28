@@ -35,7 +35,7 @@ const LetsConnect: React.FC = () => {
   return (
     <section className={styles.letsConnectSection}>
       <div className={styles.container}>
-        <h2 className={`display ${styles.heading}`}>Get in touch</h2>
+        <h2 className={`display ${styles.heading}`}>Let's connect</h2>
        <div className={styles.buttonContainer}> <button 
           onClick={handleCopyEmail}
           className={styles.copyButton}
