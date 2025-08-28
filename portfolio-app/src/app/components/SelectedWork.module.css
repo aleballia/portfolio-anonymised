@@ -50,10 +50,12 @@
   object-fit: cover;
   filter: grayscale(100%);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.5;
 }
 
 .workTitle:hover .workImage {
   filter: grayscale(0%);
+  opacity: 1;
 }
 
 .workContent {
