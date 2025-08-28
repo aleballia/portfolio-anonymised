@@ -8,6 +8,10 @@ import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import Section from "./components/Section";
+import About from "./components/About";
+import Experience from "./components/Experience";
+import LetsConnect from "./components/LetsConnect";
+import ClientLogos from "./components/ClientLogos";
 
 export default function HomeClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,7 +45,7 @@ export default function HomeClient() {
           amplitude={0.5}
           speed={0.8}
           modalOpen={isModalOpen}
-          opacity={0}
+          opacity={0.1}
         />
         
         {/* Header */}
@@ -49,9 +53,14 @@ export default function HomeClient() {
         
         {/* Hero Section - no spacing needed as it's full height */}
         <Hero />
-        
+
+        {/* About */}
+        <Section className="section-loose">
+          <About />
+        </Section>
+
         {/* Selected Work */}
-        <Section className="section-tight" id="selected-work">
+        <Section className="section-loose" id="selected-work">
           <SelectedWork />
         </Section>
         
@@ -59,7 +68,16 @@ export default function HomeClient() {
         <Section className="section-loose">
           <Testimonials />
         </Section>
+
         
+      {/* Selected Work */}
+         <Section className="section-loose" id="client-logos">
+          <ClientLogos />
+        </Section>
+        
+        {/* Let's Connect */}
+          <LetsConnect />
+
         {/* Footer */}
         <Footer />
       </div>

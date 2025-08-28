@@ -142,7 +142,7 @@ export default function Experience() {
                 <div className={styles.experienceTitle} style={{ flex: 2, marginTop: "-32px" }}>
                     <h2 
                       className="display"
-                      style={{ fontWeight: 400 }}
+                      style={{ fontWeight: 300 }}
                     >
                       Experience
                     </h2>
@@ -282,7 +282,8 @@ export default function Experience() {
                                                   margin: 0, 
                                                   marginLeft: 10, 
                                                   marginBottom: 8,
-                                                  fontWeight: 200,
+                                                  fontWeight: 300,
+                                                  letterSpacing: "-0.02em",
                                                 }}
                                             >
                                                 {exp.title}

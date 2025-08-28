@@ -1,0 +1,108 @@
+.clientLogosSection {
+
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+}
+
+.logosGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+}
+
+.logoContainer {
+    display: flex;
+    width: 100%;
+    height: 160px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    padding: 2rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.logo {
+  max-width: 250px;
+  max-height: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+/* SVG logos now use currentColor, so we just need grayscale and color */
+.logo {
+  filter: grayscale(100%);
+  color: var(--foreground);
+  transition: all 0.3s ease;
+}
+
+.logo svg {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+  max-height: 100%;
+}
+
+.logoContainer:hover .logo,
+.logoLink:hover .logo {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.logoContainer:hover {
+}
+
+@media (max-width: 768px) {
+  .clientLogosSection {
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .logosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .logo {
+
+  }
+  
+  .logoContainer {
+    min-height: 60px;
+    padding: 0rem;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logosGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .logo {
+
+  }
+}

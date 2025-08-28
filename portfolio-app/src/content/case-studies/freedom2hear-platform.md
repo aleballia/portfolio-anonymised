@@ -1,10 +1,10 @@
 # Freedom2hear I
 
 Selected work: Yes
-Role: Head of Product Design
+Role: Founding Designer / Creative Lead
 Company: Freedom2hear
-Tags: AI, B2B, Startup
-Date: 2025
+Tags: 0-1, AI, B2B, Enterprise, Startup
+Date: 2024
 Tools: Figma, Webflow, Cursor
 Summary: Freedom2hear is a B2B SaaS platform using emotion-based, context-aware AI to protect online communities from toxicity and abuse. I led 0–1 product design for its new self-serve content moderation platform, shaping the foundation for a scalable, enterprise experience.
 
@@ -33,7 +33,7 @@ Working closely with Client Success and Engineering, I led the design of the pla
 
 ![Content Moderation Platform](/case-studies/freedom2hear/platform.png)
 
-With no direct access to end users, I adopted a **lean, insight-driven approach** — analysing competitor solutions, synthesising feedback from client-facing teams, and drawing on audiences in adjacent industries. This allowed me to identify pain points, discover real-world needs and behaviours, and design workflows that balanced flexibility with **enterprise-grade structures**.
+With no direct access to end users, I adopted a **lean, insight-driven approach** — analysing competitor solutions, partnering with client-facing teams to synthesise customer insights, and drawing on audiences in adjacent industries. This allowed me to identify pain points, discover real-world needs and behaviours, and design workflows that balanced flexibility with **enterprise-grade structures**.
 
 ![Research Affinity Mapping](/case-studies/freedom2hear/research-notes.png)
 
@@ -66,6 +66,6 @@ To support consistency and speed across both product and marketing assets, I dev
 
 ## Reflection
 
-This was a hands-on, high-impact product design challenge. I learned how to ship quickly using a lean, iterative approach, bring clarity to ambiguity, and foster alignment across a fully remote, globally distributed team.
+This was a hands-on, high-impact product design challenge. I learned how to ship quickly using a lean, iterative approach, bring clarity to ambiguity, and **foster alignment across a fully remote, globally distributed team**.
 
-Creating a user-centred experience without direct access to primary users was a key challenge. I had to rely on indirect signals — including insights from Client Success and Sales teams — and shape the product designed through the lens of secondary audiences such as marketing managers in adjacent industries. This approach ensured we built a product grounded in real-world user needs, even in the absence of formal research processes.
+Creating a user-centred experience without direct access to primary users was a key challenge. I had to rely on indirect signals — including insights from Client Success and Sales teams — and shape the product designed through the lens of secondary audiences such as marketing managers in adjacent industries. This approach ensured we built a product grounded in **real-world user needs**, even in the absence of formal research processes.

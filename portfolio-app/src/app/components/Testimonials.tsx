@@ -20,7 +20,7 @@ const testimonials: Testimonial[] = [
   {
     quote: "Ale is a rare find. Not often do you come across a designer who is so excellent at their craft, but also but also so attuned to linking that craft to building opportunities. Whilst working with Ale I had the pleasure of witnessing her link client challenges to design solutions, in a way that always advocated for design and client value in equal measure. Her knowledge of Design Systems is next to none. Optimistic, strategic and creative, Ale is a multi-talented designer that I would always choose to work with!",
     author: "Mikey Dilworth",
-    role: "Design & Creative Director, PwC",
+    role: "Design & Creative Director, ex-PwC",
     avatar: "/avatars/mikey.jpeg",
   },
   {
@@ -56,7 +56,7 @@ const Testimonials: React.FC = () => (
               <div className="role caption">{t.role}</div>
             </div>
           </div>
-          <blockquote className="quote p">
+          <blockquote className={`p ${styles.quote}`}>
             &ldquo;{t.quote}&rdquo;
           </blockquote>
         </div>

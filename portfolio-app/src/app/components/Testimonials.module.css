@@ -2,26 +2,23 @@
 
 .testimonialsGrid {
   column-count: 2;
-  column-gap: 1rem;
+  column-gap: 0.5rem;
 }
 
 .testimonialCard {
   display: inline-block;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   background: var(--card);
-  border-radius: var(--radius-md);
   box-shadow: 0 2px 16px 0 rgba(30, 251, 125, 0.08);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  padding: 1.5rem;
   transition: transform 0.18s, box-shadow 0.18s;
 }
 
 .quote {
   color: var(--foreground);
   margin-bottom: 1.2rem;
-  line-height: 1.6;
-  font-weight: 400;
-  letter-spacing: 0.01em;
+  font-weight: 300;
 }
 
 .author {
@@ -46,7 +43,7 @@
   height: 42px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid var(--muted-foreground);
+  border: 1px solid var(--muted);
 } 
 
 

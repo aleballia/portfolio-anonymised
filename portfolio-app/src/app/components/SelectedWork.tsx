@@ -119,7 +119,7 @@ const SelectedWork: React.FC = () => {
                 background: "var(--accent)",
                 color: "var(--accent-foreground)",
                 padding: "0.25rem 1rem",
-                borderRadius: "9999px",
+
                 fontSize: "1.25rem",
                 fontWeight: "600",
                 whiteSpace: "nowrap",

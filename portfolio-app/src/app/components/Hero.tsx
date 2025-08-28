@@ -5,12 +5,11 @@ import React from "react";
 export default function Hero() {
   return (
    
-    <section 
-    className="px-section"
+    <section className="px-section"
     style={{
         // background: "var(--background)", // REMOVE this line
         color: "var(--foreground)",
-        minHeight: "100vh",
+        minHeight: "calc(100vh - 100px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "left",
@@ -19,7 +18,7 @@ export default function Hero() {
     >
 
       <div  style={{ width: "100%", textAlign: "left", position: "relative", zIndex: 1 }}>
-        <h1 
+     <h1 
             className="display"
             style={{ 
             color: "var(--foreground)",
@@ -27,23 +26,20 @@ export default function Hero() {
             marginBottom: "var(--space-xl)",
           }}
         >
-          Product Design Leader & Strategist —
         
          <b className="display" style={{ 
-            color: "var(--foreground)",
-            fontWeight: 400,
-          }}> leading with curiosity and purpose.</b></h1>
+            fontWeight: 300,
+          }}>Leading with curiosity & purpose</b></h1>
 
         <p 
           className="h3"
           style={{ 
           color: "var(--foreground)",
-          fontWeight: 400,
+          fontWeight: 300,
           }}
         >
-        I believe the best ideas come from collaboration: working together to explore, align, and build towards shared goals.
-        I’ll always be the person in the room asking challenging questions. Not to be difficult, but to get to what matters, reconsider assumptions, and 
-        <b style={{color: "var(--accent-secondary)", fontWeight: 400}}> unlock what’s possible. </b>
+        I’m the person in the room who asks inquisitive questions. Not to be difficult, but to get to what matters, rethink assumptions, and 
+        <b style={{color: "var(--accent-secondary)", fontWeight: 500}}> unlock what’s possible</b>. I believe that the best ideas come from collaboration: working together to explore, align, and build towards <b style={{color: "var(--accent-secondary)", fontWeight: 500}}> shared goals</b>.
     </p> 
         
       </div>

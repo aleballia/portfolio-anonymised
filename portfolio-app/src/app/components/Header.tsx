@@ -10,39 +10,37 @@ const Header: React.FC = () => {
   const [showName, setShowName] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-  
-  // Add fallback for SSR
+
+  // SSR fallback for theme
   let theme = 'light';
   let toggleTheme = () => {};
-  
   try {
     const themeContext = useTheme();
     theme = themeContext.theme;
     toggleTheme = themeContext.toggleTheme;
-  } catch (error) {
-    // Fallback for SSR - use default values
-    console.warn('Theme context not available during SSR');
-  }
+  } catch {}
 
   const isHome = pathname === "/";
 
-  // Enhanced animation sequence - only on homepage
   useEffect(() => {
     if (isHome) {
-      const timer = setTimeout(() => {
-        setShowName(true);
-      }, 800); // Show name after 800ms
-
+      const timer = setTimeout(() => setShowName(true), 800);
       return () => clearTimeout(timer);
     } else {
-      // On other pages, show name immediately
       setShowName(true);
     }
   }, [isHome]);
 
-  const handleClick = (e: React.MouseEvent) => {
+  const handleClick = () => {
     if (!isHome) {
-      // Set sessionStorage to indicate we're returning from a case study
+      sessionStorage.setItem('returningFromCaseStudy', 'true');
+      router.push("/");
+    }
+  };
+
+  const handleHiClick = (e: React.MouseEvent) => {
+    // Chat functionality removed from homepage
+    if (!isHome) {
       sessionStorage.setItem('returningFromCaseStudy', 'true');
       router.push("/");
     }
@@ -95,7 +93,7 @@ const Header: React.FC = () => {
                     className={styles.logoSpan}
                   >
                     {isHome ? (
-                      <span className={styles.logoGreeting}>Hi 👋</span>
+                      <span className={styles.logoGreeting} onClick={handleHiClick}>Hi 👋</span>
                     ) : (
                       <span className={styles.logoHoverContent}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,8 +122,9 @@ const Header: React.FC = () => {
                             exit={{ opacity: 1, y: 10 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
                             className={styles.logoGreeting}
+                            onClick={handleHiClick}
                           >
-                            Hi 👋
+                            Hello 👋
                           </motion.span>
                         ) : (
                           <motion.span
@@ -136,6 +135,7 @@ const Header: React.FC = () => {
                             className={styles.logoText}
                           >
                             Alessandra Balliana
+                            <div style={{fontWeight: 300, fontSize: '0.92rem', color: 'var(--foreground)', marginTop: '0.5rem'}}><b>Product Design Leader</b> – London, UK</div>
                           </motion.span>
                         )}
                       </AnimatePresence>
@@ -150,7 +150,6 @@ const Header: React.FC = () => {
             </span>
           </span>
         </div>
-        
         {/* Theme Toggle Button */}
         <button
           onClick={toggleTheme}
@@ -185,7 +184,9 @@ const Header: React.FC = () => {
             {theme === 'dark' ? '🌙' : '☀️'}
           </span>
           <span className="caption" style={{ display: 'inline' }}>
-            {theme === 'dark' ? 'Light' : 'Dark'}
+            <span className={styles.themeLabelDesktop}>
+              {theme === 'dark' ? 'Light off' : 'Light on'}
+            </span>
           </span>
         </button>
       </div>

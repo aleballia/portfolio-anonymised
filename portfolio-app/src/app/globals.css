@@ -66,7 +66,7 @@ html {
   --background: #0c0115;
   --foreground: #efe8f6;
   --primary-shade-o-75: rgba(40, 9, 76, 0.25);
-  --muted: #28094C;
+  --muted: #0e041a;
   --muted-foreground: #d9b8ff;
   --card: #0f021b70;
   --card-foreground: #ffffff;
@@ -155,7 +155,7 @@ html {
   font-size: var(--font-size-caption);
   color: var(--muted-foreground);
   line-height: 1.4;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.04em;
 }
 
 .small {
@@ -314,7 +314,7 @@ body {
   .px-section {
     padding-left: 8rem;
     padding-right: 8rem;
-    max-width: 1680px;
+    max-width: 1920px;
     margin: 0 auto;
   }
 }

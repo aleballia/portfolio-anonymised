@@ -1,17 +1,17 @@
 .footer {
   background: var(--primary-shade);
   color: var(--primary-foreground);
-  padding-top: 24px;
-  padding-bottom: 24px;
-  text-align: left;
-  font-size: 0.875rem;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
 }
 
 .footerContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
+  height: 32px;
+  justify-content: center;
 }
 
 .footerNav {
@@ -40,6 +40,7 @@
     font-size: var(--font-size-caption);
     padding-top: 1rem;
     padding-bottom: 1rem;
+    height: auto;
   }
 
   .footerContainer {

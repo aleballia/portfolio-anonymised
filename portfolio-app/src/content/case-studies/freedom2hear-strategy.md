@@ -1,9 +1,9 @@
 # Freedom2hear II
 
 Selected work: Yes
-Role: Head of Product Design
+Role: Innovation & Design Lead
 Company: Freedom2hear
-Tags: AI, Innovation, Growth, Startup 
+Tags: Innovation, AI, Growth, Leadership, Startup 
 Date: 2025
 Tools: Figma, Webflow, Cursor
 
@@ -49,7 +49,7 @@ To ensure consistency, I extended the design system into marketing and sales mat
 
 ## Impact
 
-- **Secured two successful funding rounds** by co-authoring compelling investor materials and facilitating strategic alignment across leadership.
+- **Helped secure two successful funding rounds,** by co-authoring compelling investor materials and facilitating strategic alignment across leadership.
 - **Elevated design** from an operational function to a **core strategic capability** within the company.
 - **Established an initial strategic partnership** with a major music label for R&D, delivering proof-of-concepts that demonstrated product potential and opened the door to future collaboration.
 - Contributed to **winning the company’s largest international client to date** through growth initiatives spanning product design, marketing, and client success — delivering work that directly supported the sales process.

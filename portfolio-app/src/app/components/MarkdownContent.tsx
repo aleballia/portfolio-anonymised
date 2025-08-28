@@ -78,7 +78,6 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                     style={{
                       borderRadius: '0',
                       backgroundColor: 'var(--muted)',
-                      border: '0.5px solid var(--border)',
                     }}
                   />
                   {/* Zoom indicator */}

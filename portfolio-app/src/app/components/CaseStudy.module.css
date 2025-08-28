@@ -14,6 +14,8 @@
   text-align: left;
   height: 100%;
   padding-right: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
 }
 
 .subtitle {
@@ -27,7 +29,6 @@
   position: relative;
   aspect-ratio: 4/1.5;
   overflow: hidden;
-  margin-top: 4rem;
   background-color: var(--muted);
   transform: translateY(60px);
   opacity: 0;
@@ -82,12 +83,12 @@
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 2rem;
-  max-width: 600px;
+  max-width: 720px;
   width: 100%;
 }
 
 .detailItem {
-  flex: 1 1 220px;
+  flex: 1 1 300px;
   min-width: 0;
 }
 

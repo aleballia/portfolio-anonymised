@@ -50,6 +50,10 @@
     font-size: 1.2rem;
   }
 
+.markdownContent hr {
+  border-top: 0.5px solid var(--muted-foreground);
+}
+
 /* Responsive table spacing */
 @media (max-width: 768px) {
   .markdownContent table td {

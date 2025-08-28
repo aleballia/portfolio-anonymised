@@ -1,19 +1,20 @@
 .aboutContainer {
   display: flex;
-  gap: 3rem;
+  gap: 4.2rem;
   align-items: flex-start;
   flex-direction: column;
+  align-items: center;
 }
 
 .aboutText {
   flex: 1;
+  align-items: center;
 }
 
 .portraitContainer {
   flex-shrink: 0;
   width: 200px;
-  height: 200px;
-  border-radius: 50%;
+  height: 300px;
   overflow: hidden;
   background-color: var(--primary-shade);
   display: flex;
@@ -22,16 +23,55 @@
   color: var(--primary-foreground);
   font-size: 1.5rem;
   font-weight: bold;
+  margin-top: 2.5rem;
 }
 
 .portraitImage {
-  width: 100%;
-  height: 100%;
+  width: 20%;
   object-fit: cover;
+  max-width: 200px;
 }
 
 @media (min-width: 768px) {
   .aboutContainer {
     flex-direction: row;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .aboutText {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+  }
+
+  .portraitContainer {
+    width: 200px;
+    height: auto;
+    align-self: flex-start;
+    margin-top: 1rem;
+  }
+
+  .portraitImage {
+    width: 80%;
+    object-fit: cover;
+  }
+
+  /* Mobile hover image improvements */
+  .hover-image-trigger {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure images don't overflow on mobile */
+  .hover-image-trigger img {
+    max-width: 100%;
+    height: auto;
   }
 }

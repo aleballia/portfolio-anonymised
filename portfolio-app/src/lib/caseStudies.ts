@@ -31,16 +31,6 @@ export const caseStudies: CaseStudy[] = [
     liveLink: 'https://freedom2hear.com',
     hoverMessage: 'Innovation & Growth'
   },
-    {
-    id: 'tomandco',
-    title: 'Dragonfly DS',
-    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
-    href: '/work/tomandco',
-    contentFile: 'tomandco.md',
-    mainImage: '/work/tomandco.png',
-    liveLink: '',
-    hoverMessage: 'Design System'
-  },
   {
     id: 'frictionless-futures',
     title: 'Frictionless Futures',
@@ -49,7 +39,17 @@ export const caseStudies: CaseStudy[] = [
     contentFile: 'frictionless-futures.md',
     mainImage: '/work/frictionless-futures.png',
     liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
-    hoverMessage: 'Innovation'
+    hoverMessage: 'Design for Innovation'
+  },
+    {
+    id: 'tomandco',
+    title: 'Dragonfly DS',
+    subtitle: 'White Label Design System for Award Winning Ecommerce Agency',
+    href: '/work/tomandco',
+    contentFile: 'tomandco.md',
+    mainImage: '/work/tomandco.png',
+    liveLink: '',
+    hoverMessage: 'Design System & DesignOps'
   },
   {
     id: 'oliverbonas',
