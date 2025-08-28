@@ -4,7 +4,7 @@ Subtitle: Design for the Future of Retail & Hospitality
 Selected work: Yes
 Role: Design Lead
 Company: PwC
-Tags: Innovation, Brand
+Tags: Innovation, Brand, Digital Design
 Date: 2023
 Tools: Figma
 Summary: In my position as Design Lead within a multidisciplinary team at PwC, I played a key role in shaping the Frictionless Futures experience – an innovation space designed to bring emerging retail technologies to life.
@@ -65,4 +65,4 @@ I partnered with technical teams to design demo assets that:
 
 ## Reflection
 
-This was one of those rare projects where design, strategy and storytelling truly converged. As Design Lead, I helped shape a vision that made abstract innovation feel both immediate and inspiring. The pace was fast, the collaboration cross-functional, and the outcome a great example of how thoughtful design can unlock commercial conversations and future-facing narratives.
+This was one of those projects where design, strategy and storytelling converge. As Design Lead, I helped shape a vision that made abstract innovation feel both immediate and inspiring. The pace was fast, the collaboration cross-functional, and the outcome a great example of how thoughtful design can unlock commercial conversations and future-facing narratives.
