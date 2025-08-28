@@ -59,14 +59,16 @@ export default function HomeClient() {
         </div>
         </div>
 
-        {/* About */}
-        <Section className="section-loose">
-          <About />
-        </Section>
+
 
         {/* Selected Work */}
         <Section className="section-loose" id="selected-work">
           <SelectedWork />
+        </Section>
+
+                {/* About */}
+        <Section className="section-loose">
+          <About />
         </Section>
         
         {/* Testimonials */}
