@@ -17,7 +17,7 @@ const About: React.FC = () => {
                 <p className="p" style={{ fontWeight: 300 }}>
                     Before starting my career in Product Design, I earned a Master's degree in <HoverImage imageSrc="/about/architecture.png" imageAlt="Image from graduation"> Architecture</HoverImage> and a Bachelor's in <HoverImage imageSrc="/about/twiceful.png" imageAlt="Music performance"> Music Performance</HoverImage>.
                     <br />I'm constantly driven by a need to create, learn, and connect with other like-minded creative individuals.
-                    Outside of work, I spend time singing in some of the most vibrant <HoverImage imageSrc="/about/ale-singer.png" imageAlt="Venues in Soho"> venues in Soho and the West End</HoverImage>, writing music, or training my cats, <HoverImage imageSrc="/about/teo-luna.png" imageAlt="Traveling with cats">Luna</HoverImage> and <HoverImage imageSrc="/about/ares.png" imageAlt="Traveling with cats"> Ares,</HoverImage> to travel and <HoverImage imageSrc="/about/ale-luna.png" imageAlt="Alps with family"> explore together</HoverImage>.
+                    Outside of work, I spend time singing in some of the most vibrant <HoverImage imageSrc="/about/ale-singer.png" imageAlt="Venues in Soho"> venues in Soho and the West End</HoverImage>, writing music, or training my cats, <HoverImage imageSrc="/about/teo-luna.png" imageAlt="Traveling with cats">Luna</HoverImage> and <HoverImage imageSrc="/about/ares.png" imageAlt="Traveling with cats"> Ares,</HoverImage> to travel and <HoverImage imageSrc="/about/ale-luna.png" imageAlt="Alps with family"> explore the outdoors together</HoverImage>.
                 </p>
             </div>
         </div>
