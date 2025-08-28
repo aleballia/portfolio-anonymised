@@ -23,10 +23,15 @@ const ScrollingTicker: React.FC<ScrollingTickerProps> = ({
         }}
       >
         <span className={styles.tickerText}>{text}</span>
+        <span className={styles.separator}>•</span>
         <span className={styles.tickerText}>{text}</span>
+        <span className={styles.separator}>•</span>
         <span className={styles.tickerText}>{text}</span>
+        <span className={styles.separator}>•</span>
         <span className={styles.tickerText}>{text}</span>
+        <span className={styles.separator}>•</span>
         <span className={styles.tickerText}>{text}</span>
+        <span className={styles.separator}>•</span>
         <span className={styles.tickerText}>{text}</span>
       </div>
     </div>
