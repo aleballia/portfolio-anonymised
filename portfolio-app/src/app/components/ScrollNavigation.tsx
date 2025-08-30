@@ -180,8 +180,8 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
 
     // Create a mapping of subsection headings to their parent level 2 heading
     const allHeadings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    const headingToParentMap = new Map();
-    let currentLevel2Parent = null;
+    const headingToParentMap = new Map<string, string>();
+    let currentLevel2Parent: string | null = null;
 
     Array.from(allHeadings).forEach((heading) => {
       const element = heading as HTMLElement;
