@@ -157,8 +157,8 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
     const checkScrollPosition = () => {
       if (typeof window !== 'undefined') {
         // Calculate dynamic height based on actual main content position
-        const mainContent = document.querySelector('[class*="mainContent"]');
-        const dynamicHeight = mainContent ? mainContent.offsetTop - 100 : 800;
+        const mainContent = document.querySelector('[class*="mainContent"]') as HTMLElement;
+        const dynamicHeight = mainContent?.offsetTop ? mainContent.offsetTop - 100 : 800;
         const heroHeight = Math.max(dynamicHeight, 600); // Ensure minimum 600px before showing
         setIsVisible(window.scrollY > heroHeight);
       }
@@ -267,8 +267,8 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
       
       if (id === 'summary') {
         // For summary, scroll to the main content section
-        const mainContentSection = document.querySelector('[class*="mainContent"]');
-        offsetTop = mainContentSection ? mainContentSection.offsetTop + 50 : element.offsetTop - 100;
+        const mainContentSection = document.querySelector('[class*="mainContent"]') as HTMLElement;
+        offsetTop = mainContentSection?.offsetTop ? mainContentSection.offsetTop + 50 : element.offsetTop - 100;
       } else {
         // Calculate position relative to viewport, accounting for the new layout
         const rect = element.getBoundingClientRect();
