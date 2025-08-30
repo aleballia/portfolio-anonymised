@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import styles from "./ScrollNavigation.module.css";
 
 interface NavigationItem {
@@ -12,12 +11,10 @@ interface NavigationItem {
 
 interface ScrollNavigationProps {
   containerSelector?: string;
-  className?: string;
 }
 
 const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
-  containerSelector = ".markdown-content",
-  className = ""
+  containerSelector = ".markdown-content"
 }) => {
 
   const [navigationItems, setNavigationItems] = useState<NavigationItem[]>([]);
@@ -60,7 +57,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
       // If no headings in container, let's use all headings except the first one (page title)
       if (headings.length === 0 && allHeadings.length > 1) {
         const fallbackHeadings = Array.from(allHeadings).slice(1); // Skip first heading (page title)
-        fallbackHeadings.forEach((heading, index) => {
+        fallbackHeadings.forEach((heading) => {
           const element = heading as HTMLElement;
           const level = parseInt(element.tagName.charAt(1)) - 1;
           const title = element.textContent || '';
@@ -89,7 +86,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
         return;
       }
 
-      headings.forEach((heading, index) => {
+      headings.forEach((heading) => {
         const element = heading as HTMLElement;
         const level = parseInt(element.tagName.charAt(1)) - 1; // Adjust level since h2=1, h3=2, etc.
         const title = element.textContent || '';
@@ -303,7 +300,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
       <nav className={styles.navigation}>
 
         <ul className={styles.navList}>
-          {navigationItems.map((item, index) => (
+          {navigationItems.map((item) => (
             <li
               key={item.id}
               className={`${styles.navItem} ${styles[`level-${item.level}`]} ${

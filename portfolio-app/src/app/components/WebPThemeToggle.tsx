@@ -1,15 +1,13 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useTheme } from './ThemeProvider'; 
 import styles from './WebPThemeToggle.module.css';
 
 // Declare the lottie-player custom element
-declare global {
-    namespace JSX {
-        interface IntrinsicElements {
-            'lottie-player': any;
-        }
+declare module 'react' {
+    interface IntrinsicElements {
+        'lottie-player': any;
     }
 }
 
@@ -17,15 +15,10 @@ const WebPThemeToggle: React.FC = () => {
     const themeContext = useTheme();
     const lottieRef = useRef<any>(null);
 
-    if (!themeContext) {
-        console.warn('WebPThemeToggle: useTheme must be used within a ThemeProvider');
-        return null;
-    }
-
-    const { theme, toggleTheme, isAnimating, setIsAnimating } = themeContext;
-
     // Load lottie-player script and set correct frame when theme changes
     useEffect(() => {
+        if (!themeContext) return;
+
         // Load lottie-player script if not already loaded
         if (!document.querySelector('script[src*="lottie-player"]')) {
             const script = document.createElement('script');
@@ -35,11 +28,11 @@ const WebPThemeToggle: React.FC = () => {
 
         // Wait for both script and component to be ready
         const setInitialFrame = () => {
-            if (lottieRef.current && !isAnimating && typeof lottieRef.current.seek === 'function') {
+            if (lottieRef.current && !themeContext.isAnimating && typeof lottieRef.current.seek === 'function') {
                 const lottie = lottieRef.current;
                 try {
                     // Set to appropriate frame based on theme
-                    if (theme === 'dark') {
+                    if (themeContext.theme === 'dark') {
                         lottie.seek('0%'); // Start frame (dark state)
                     } else {
                         lottie.seek('50%'); // Middle frame (light state)
@@ -55,10 +48,12 @@ const WebPThemeToggle: React.FC = () => {
         const timeout = setTimeout(setInitialFrame, 100);
 
         return () => clearTimeout(timeout);
-    }, [theme, isAnimating]);
+    }, [themeContext]);
 
     const handleToggle = () => {
-        if (isAnimating || !lottieRef.current || typeof lottieRef.current.seek !== 'function') return;
+        if (!themeContext || themeContext.isAnimating || !lottieRef.current || typeof lottieRef.current.seek !== 'function') return;
+
+        const { theme, toggleTheme, setIsAnimating } = themeContext;
 
         // Start animation state and theme change immediately
         setIsAnimating(true);
@@ -110,13 +105,20 @@ const WebPThemeToggle: React.FC = () => {
         }
     };
 
-         return (
-                  <button
+    if (!themeContext) {
+        console.warn('WebPThemeToggle: useTheme must be used within a ThemeProvider');
+        return null;
+    }
+
+    const { theme, isAnimating } = themeContext;
+
+    return (
+        <button
             className={styles.themeToggleButton}
             onClick={handleToggle}
             disabled={isAnimating}
             aria-label="Toggle theme"
-         >
+        >
             <div className={styles.animationContainer}>
                 <lottie-player
                     ref={lottieRef}
