@@ -27,7 +27,7 @@
 .heroImage {
   width: 100%;
   position: relative;
-  aspect-ratio: 4/1.5;
+  aspect-ratio: 16/9;
   overflow: hidden;
   background-color: var(--muted);
   transform: translateY(60px);
@@ -52,11 +52,15 @@
 }
 
 .mainContent {
+  max-width:1920px;
   padding-top: 4rem;
   padding-bottom: 3rem;
+  padding-left: 24vw;
+  padding-right: 8rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin: 0 auto;
 }
 
 .contentAnimated {
@@ -65,17 +69,13 @@
 }
 
 .contentContainer {
-  max-width: 52rem;
-  margin-bottom: 2rem;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-bottom: 8rem;
 }
 
 .summary {
   color: var(--foreground);
   font-weight: 400;
-  padding-bottom: 6rem;
+  padding-bottom: 2rem;
 }
 
 .detailsGrid {
@@ -112,21 +112,13 @@
 }
 
 .tag {
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  background: var(--primary);
-  color: var(--primary-foreground);
+  padding: 0.12rem 0.50rem;
+  color: var(--foreground);
+  border: 1px solid var(--muted-foreground);
 }
 
 .contentSection {
   padding-bottom: 6rem;
-}
-
-.contentWrapper {
-  max-width: 52rem;
-  margin: 0 auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .proseContent {
@@ -169,18 +161,19 @@
   letter-spacing: -0.03rem;
 }
 
-@media (min-width: 768px) {
-  .summary {
-  }
-  
-  .detailText {
-  }
-  
-  .tag {
-  }
-  
-  .tagsContainer {
-    margin-top: 3rem;
-  }
 
-} 
+@media (min-width: 781px) and (max-width: 1024px) {
+  .contentContainer,
+  .contentWrapper {
+    padding-right: 4rem;
+    padding-left: 24vw;
+  }
+}
+
+@media (max-width: 780px) {
+  .contentContainer,
+  .contentWrapper {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}

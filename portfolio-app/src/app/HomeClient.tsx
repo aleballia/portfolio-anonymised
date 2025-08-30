@@ -29,6 +29,33 @@ export default function HomeClient() {
     };
   }, []);
 
+  // Restore scroll position when returning from case study
+  useEffect(() => {
+    const restoreScrollPosition = () => {
+      const returningFromCaseStudy = sessionStorage.getItem('returningFromCaseStudy');
+      const savedScrollPosition = sessionStorage.getItem('scrollPosition');
+      
+      if (returningFromCaseStudy === 'true' && savedScrollPosition) {
+        const scrollPos = parseInt(savedScrollPosition, 10);
+        
+        // Use requestAnimationFrame to ensure DOM is ready
+        requestAnimationFrame(() => {
+          window.scrollTo({
+            top: scrollPos,
+            behavior: 'auto' // Use 'auto' for instant positioning, 'smooth' for animated
+          });
+        });
+        
+        // Clean up session storage
+        sessionStorage.removeItem('returningFromCaseStudy');
+        sessionStorage.removeItem('scrollPosition');
+      }
+    };
+
+    // Restore scroll position after component mounts
+    restoreScrollPosition();
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 1}}

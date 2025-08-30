@@ -93,13 +93,22 @@
   padding: 0.75rem 1rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  border-radius: 99999px;
   transition: all 0.2s ease;
   pointer-events: auto;
 }
 
 .themeToggle:hover {
-  background-color: var(--background);
+  background: transparent;
+}
+
+
+.themeToggleButton {
+  border-radius: 12px;
+}
+
+.themeToggleButton:hover {
+background: transparent;
 }
 
 .themeIcon {

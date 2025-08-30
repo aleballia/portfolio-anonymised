@@ -3,9 +3,11 @@
 import React, { useState, useMemo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import Image from 'next/image';
 import styles from './MarkdownContent.module.css';
 import ImageGallery from './ImageGallery';
+import Video from './Video';
 
 interface MarkdownContentProps {
   content: string;
@@ -25,6 +27,29 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
     }));
   }, [content]);
 
+  // Process content to handle video embeds
+  const processedContent = useMemo(() => {
+    let processed = content;
+    
+    // Replace video syntax: {{video:src|poster|caption|options}}
+    processed = processed.replace(
+      /\{\{video:([^}]+)\}\}/g,
+      (match, content) => {
+        const parts = content.split('|');
+        const src = parts[0] || '';
+        const poster = parts[1] || '';
+        const caption = parts[2] || '';
+        // Everything after caption is options, join with commas for parsing
+        const options = parts.slice(3).join(',');
+        
+        const videoId = `video-${Math.random().toString(36).substr(2, 9)}`;
+        return `VIDEO_EMBED_${videoId}_${src}_${poster}_${caption}_${options}_VIDEO_EMBED`;
+      }
+    );
+    
+    return processed;
+  }, [content]);
+
   const openGallery = (imageIndex: number) => {
     setSelectedImageIndex(imageIndex);
     setGalleryOpen(true);
@@ -34,18 +59,68 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
     <div className={`markdown-content prose prose-lg max-w-none ${styles.markdownContent}`}>
       <ReactMarkdown 
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={{
+
           h1: ({ children }) => <h2 className="h2 mb-8 mt-12">{children}</h2>,
           h2: ({ children }) => <h3 className="h3 mb-4 mt-12">{children}</h3>,
           h3: ({ children }) => <h4 className="h4 font-semibold mb-4 mt-12">{children}</h4>,
-          p: ({ children }) => <p className="mb-6 leading-relaxed">{children}</p>,
+          p: ({ children }) => {
+            // Check if this paragraph contains only an image (to avoid p > div nesting)
+            const childArray = React.Children.toArray(children);
+            if (childArray.length === 1 && React.isValidElement(childArray[0]) && childArray[0].type === 'img') {
+              // If paragraph contains only an image, return the image without p wrapper
+              return childArray[0];
+            }
+            
+            // Check if this paragraph contains our embed placeholders
+            const childrenString = childArray.join('');
+            
+            // Handle video embeds
+            const videoMatch = childrenString.match(/VIDEO_EMBED_([^_]+)_([^_]+)_([^_]*)_([^_]*)_([^_]*)_VIDEO_EMBED/);
+            if (videoMatch) {
+              const [, videoId, src, poster, caption, options] = videoMatch;
+              
+              // Parse options
+              const opts = options ? options.split(',').reduce((acc, opt) => {
+                const [key, value] = opt.split(':');
+                const trimmedKey = key.trim();
+                const trimmedValue = value ? value.trim() : 'true';
+                
+                // Convert string boolean values
+                if (trimmedValue === 'true') acc[trimmedKey] = true;
+                else if (trimmedValue === 'false') acc[trimmedKey] = false;
+                else acc[trimmedKey] = trimmedValue;
+                
+                return acc;
+              }, {} as Record<string, any>) : {};
+              
+              const autoPlay = opts.autoPlay || opts.autoplay || false;
+              const muted = autoPlay ? true : (opts.muted || false);
+              
+              return (
+                <Video
+                  src={src}
+                  poster={poster || undefined}
+                  caption={caption || undefined}
+                  autoPlay={autoPlay}
+                  muted={muted}
+                  loop={opts.loop || false}
+                  controls={opts.controls !== false}
+                  className={opts.fullWidth ? 'fullWidth' : ''}
+                />
+              );
+            }
+            
+            return <p className="mb-6 leading-relaxed">{children}</p>;
+          },
           ul: ({ children }) => <ul className="mb-6 space-y-2 list-disc list-outside pl-6">{children}</ul>,
           ol: ({ children }) => <ol className="mb-6 space-y-2 list-decimal list-outside pl-6">{children}</ol>,
           li: ({ children }) => <li className="leading-relaxed">{children}</li>,
           hr: () => <hr className="mt-12 mb-4 border-t border-border" />,
           strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
           em: ({ children }) => <em className="italic">{children}</em>,
-          code: ({ children }) => <code className="bg-muted px-1 py-0.5 rounded text-sm font-mono">{children}</code>,
+          code: ({ children }) => <code className="bg-muted px-1 py-0.5 text-sm font-mono">{children}</code>,
           blockquote: ({ children }) => (
             <blockquote className="border-l-4 border-primary pl-4 italic text-muted-foreground my-6">
               {children}
@@ -62,37 +137,20 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
             // Find the index of this image in our images array
             const imageIndex = images.findIndex(img => img.src === imageSrc);
 
-            // Use a div wrapper instead of figure to avoid nesting issues
+            // Return a simple img element to avoid p > div nesting issues
             return (
-              <div className="" key={`img-${imageSrc}`}>
-                <div 
-                  className="relative w-full overflow-hidden cursor-pointer hover:opacity-90 transition-opacity"
-                  onClick={() => openGallery(imageIndex)}
-                >
-                  <Image
-                    src={imageSrc}
-                    alt={alt || 'Markdown image'}
-                    width={800}
-                    height={500}
-                    className="w-full h-auto object-contain"
-                    style={{
-                      borderRadius: '0',
-                      backgroundColor: 'var(--muted)',
-                    }}
-                  />
-                  {/* Zoom indicator */}
-                  <div className="absolute inset-0 bg-opacity-0 hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white opacity-0 hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+              <img
+                src={imageSrc}
+                alt={alt || 'Case study image'}
+                className="w-full h-auto object-cover cursor-pointer hover:opacity-90 transition-opacity"
+                onClick={() => imageIndex !== -1 && openGallery(imageIndex)}
+                style={{ display: 'block', margin: '1rem 0' }}
+              />
             );
           },
         }}
       >
-        {content}
+        {processedContent}
       </ReactMarkdown>
       
       {/* Image Gallery Modal */}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./CaseStudy.module.css";
 import MarkdownContent from "./MarkdownContent";
+import ScrollNavigation from "./ScrollNavigation";
 import { useEffect, useState } from "react";
 
 interface CaseStudyProps {
@@ -62,6 +63,9 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
 
   return (
     <div>
+      {/* Scroll Navigation - rendered outside main layout to avoid transform issues */}
+      <ScrollNavigation containerSelector=".markdown-content.prose" />
+      
       <article className={styles.caseStudy}>
 
         {/* Hero Section: Title & Subtitle */}
@@ -88,13 +92,14 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
 
         {/* Main content, pushed down by image height */}
         <section className={`${styles.mainContent} ${isContentLoaded ? styles.contentAnimated : ''}`}>
+          
           <div className={styles.contentContainer}>
-              
+  
             {/* Summary and Details Grid - stack on mobile, side-by-side on desktop, with background and padding */}
             <div>
               {/* Project Summary */}
               {summary && (
-                <div>
+                <div id="summary">
                   <div className={`h3 ${styles.summary}`}>
                     <MarkdownContent content={summary} />
                   </div>
@@ -159,34 +164,34 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
               </div>
             </div>
           </div>
-        </section>
 
-        <section className={styles.contentSection}>
           <div className={styles.contentWrapper}>
               
-            {/* Rich Text Content with interleaved images */}
-            <div className={`prose prose-invert ${styles.proseContent}`}>
-              {children}
-            </div>
-
-            {/* Additional images interleaved after content */}
-            {images && images.length > 0 && (
-              <div className={styles.additionalImages}>
-                {images.map((img, idx) => (
-                  <div key={idx} className={styles.additionalImage}>
-                    <Image
-                      src={img}
-                      alt={`Case study image ${idx + 1}`}
-                      fill
-                      className="object-cover w-full"
-                    />
-                  </div>
-                ))}
+              {/* Rich Text Content with interleaved images */}
+              <div className={`prose prose-invert ${styles.proseContent}`}>
+                {children}
               </div>
-            )}
-          </div>
+  
+              {/* Additional images interleaved after content */}
+              {images && images.length > 0 && (
+                <div className={styles.additionalImages}>
+                  {images.map((img, idx) => (
+                    <div key={idx} className={styles.additionalImage}>
+                      <Image
+                        src={img}
+                        alt={`Case study image ${idx + 1}`}
+                        fill
+                        className="object-cover w-full"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
         </section>
+
       </article>
+      
     </div>
   );
 };

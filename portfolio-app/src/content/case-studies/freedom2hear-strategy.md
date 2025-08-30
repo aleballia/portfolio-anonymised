@@ -17,7 +17,7 @@ When I joined, design was not yet recognised as a strategic driver. My role evol
 
 ---
 
-## Key Contributions
+## Contributions
 
 - Facilitated **cross-functional workshops** to align leadership on priorities and product direction.
 - Led a **team of AI engineers** to develop proof-of-concepts that **unlocked new product opportunities and initial strategic R&D partnerships**.
@@ -27,7 +27,7 @@ When I joined, design was not yet recognised as a strategic driver. My role evol
 
 ---
 
-## Innovation
+### Innovation
 
 As part of the senior leadership team, I drove the **adoption of design thinking as a strategic framework**, bridging business priorities with user needs and product-market fit. I facilitated workshops across Tech, Ops, Marketing, and Client Success to align on **goals, identify opportunity spaces, and reduce silos**.
 
@@ -37,7 +37,7 @@ I led the **Innovation Workstream**, responsible for identifying, validating, an
 
 ---
 
-## Growth
+### Growth
 
 I oversaw creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
 

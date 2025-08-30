@@ -1,0 +1,258 @@
+.scrollNavigation {
+  position: fixed;
+  top: 2rem;
+  left: 2rem; /* Start with simple left positioning */
+  z-index: 50;
+  max-height: calc(100vh - 4rem);
+  display: flex;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 781px) and (max-width: 1024px) {
+  .scrollNavigation {
+    left: calc(24vw - 280px); /* Position relative to content left margin */
+  }
+}
+
+@media (min-width: 1025px) {
+  .scrollNavigation {
+    left: calc(24vw - 320px); /* More space on larger screens */
+  }
+}
+
+@media (max-width: 780px) {
+  .scrollNavigation {
+    display: none; /* Hide on mobile */
+  }
+}
+
+.progressContainer {
+  position: relative;
+  width: 2px;
+  pointer-events: none;
+}
+
+.progressBar {
+
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 0rem;
+  pointer-events: auto;
+  padding: 1rem;
+  max-width: 240px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.navTitle {
+
+}
+
+.navList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.navItem {
+  margin: 0;
+  position: relative;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.50rem 0.75rem;
+  background: none;
+  border-left: 2px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.navLink:hover {
+  border-left: 2px solid var(--border);
+}
+
+.navLink:hover .navText {
+  color: var(--foreground);
+}
+
+.navText {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  transition: color 0.2s ease;
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-transform: uppercase;
+}
+
+
+.navLink:hover {
+  color: var(--foreground);
+
+}
+
+.activeIndicator {
+  width: 6px;
+  height: 6px;
+  margin-left: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Heading level styles */
+.level-1 .navLink {
+  font-weight: 600;
+  padding-left: 0.75rem;
+}
+
+.level-1 .navText {
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.level-2 .navLink {
+  padding-left: 1rem;
+}
+
+.level-3 .navLink, .level-4 .navLink, .level-5 .navLink, .level-6 .navLink {
+  display: none;
+}
+
+.level-3 .navLink {
+  padding-left: 1.25rem;
+}
+
+.level-4 .navLink {
+  padding-left: 1.5rem;
+}
+
+.level-5 .navLink {
+  padding-left: 1.75rem;
+}
+
+.level-6 .navLink {
+  padding-left: 2rem;
+}
+
+/* Active state */
+.navItem.active .navLink {
+  color: var(--foreground);
+  border-left: 2px solid var(--border);
+}
+
+.navItem.active .navText {
+  color: var(--foreground);
+  font-weight: 600;
+}
+
+/* Scroll to top button */
+.scrollToTop {
+  position: absolute;
+  bottom: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.scrollToTop:hover {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom scrollbar for navigation */
+.navigation::-webkit-scrollbar {
+  width: 4px;
+}
+
+.navigation::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+
+.navigation::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+
+.navigation::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .scrollNavigation {
+    left: 1rem;
+  }
+  
+  .navigation {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .scrollNavigation {
+    display: none;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .navigation {
+  }
+  
+  .scrollToTop {
+
+  }
+  
+  .scrollToTop:hover {
+  }
+}
+
+/* Animation for nav items */
+.navLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  transition: left 0.5s ease;
+}
+
+.navLink:hover::before {
+  left: 100%;
+}
+
+/* Focus styles for accessibility */
+.navLink:focus {
+
+}
+
+.scrollToTop:focus {
+
+}

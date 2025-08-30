@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
+import WebPThemeToggle from './WebPThemeToggle';
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
@@ -10,25 +11,28 @@ const Header: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  // SSR fallback for theme
-  let theme = 'light';
-  let toggleTheme = () => {};
-  try {
-    const themeContext = useTheme();
-    theme = themeContext.theme;
-    toggleTheme = themeContext.toggleTheme;
-  } catch {}
+  // Get theme context with graceful fallback
+  const themeContext = useTheme();
+  const theme = themeContext?.theme || 'light';
+  const toggleTheme = themeContext?.toggleTheme || (() => {});
 
   const isHome = pathname === "/";
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     if (!isHome) {
+      // Save current scroll position before navigating
+      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       sessionStorage.setItem('returningFromCaseStudy', 'true');
+      sessionStorage.setItem('scrollPosition', scrollPosition.toString());
       router.push("/");
     }
   };
 
   const handleHiClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     // Chat functionality removed from homepage
     if (!isHome) {
       sessionStorage.setItem('returningFromCaseStudy', 'true');
@@ -41,8 +45,8 @@ const Header: React.FC = () => {
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
         <div
           onMouseEnter={() => {
-            // Only trigger hover on non-touch devices
-            if (!('ontouchstart' in window)) {
+            // Only trigger hover on non-touch devices and not during navigation
+            if (!('ontouchstart' in window) && !document.hidden) {
               setHovered(true);
             }
           }}
@@ -52,6 +56,11 @@ const Header: React.FC = () => {
               setHovered(false);
             }
           }}
+          onTouchStart={() => {
+            // On touch devices, show hover state briefly for feedback
+            setHovered(true);
+            setTimeout(() => setHovered(false), 100);
+          }}
           style={{
             display: "flex",
             alignItems: "center",
@@ -60,6 +69,7 @@ const Header: React.FC = () => {
             height: "40px",
             zIndex: 1001,
             cursor: "pointer",
+            userSelect: "none",
           }}
           onClick={handleClick}
         >
@@ -79,11 +89,12 @@ const Header: React.FC = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
                     className={styles.logoSpan}
+                    style={{ pointerEvents: 'none' }}
                   >
                     {isHome ? (
-                      <span className={styles.logoGreeting} onClick={handleHiClick}>Hello 👋</span>
+                      <span className={styles.logoGreeting}>Hello 👋</span>
                     ) : (
                       <span className={styles.logoHoverContent}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,8 +110,8 @@ const Header: React.FC = () => {
                     initial={{ opacity: 0, y: -5 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 1, y:10 }}
-                    transition={{ duration: 0.2, ease: 'easeOut' }}
-                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0 }}
+                    transition={{ duration: 0.15, ease: 'easeOut' }}
+                    style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0, pointerEvents: 'none' }}
                   >
                     <span className={styles.logoText}>
                       Alessandra Balliana
@@ -114,45 +125,10 @@ const Header: React.FC = () => {
             </span>
           </span>
         </div>
-        {/* Theme Toggle Button */}
-        <button
-          onClick={toggleTheme}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: 'var(--foreground)',
-            cursor: 'pointer',
-            fontSize: '1rem',
-            fontWeight: 'medium',
-            marginLeft: 'auto',
-            padding: '0.75rem 1rem',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '0.5rem',
-            transition: 'all 0.2s ease',
-            pointerEvents: 'auto',
-          }}
-          onMouseEnter={(e) => {
-            if (!('ontouchstart' in window)) {
-              e.currentTarget.style.backgroundColor = 'var(--background)';
-            }
-          }}
-          onMouseLeave={(e) => {
-            if (!('ontouchstart' in window)) {
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }
-          }}
-          aria-label="Toggle theme"
-        >
-          <span style={{ fontSize: '1rem' }}>
-            {theme === 'dark' ? '🌙' : '☀️'}
-          </span>
-          <span className="caption" style={{ display: 'inline' }}>
-            <span className={styles.themeLabelDesktop}>
-              {theme === 'dark' ? 'Light off' : 'Light on'}
-            </span>
-          </span>
-        </button>
+        {/* WebP Theme Toggle */}
+        <div className="themeToggleButton" style={{ marginLeft: 'auto' }}>
+          <WebPThemeToggle />
+        </div>
       </div>
     </header>
   );

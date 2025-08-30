@@ -16,7 +16,7 @@ I joined at this pivotal moment as the **founding designer**, tasked with leadin
 
 ---
 
-## Key Contributions
+## Contributions
 
 - **Designed core experiences**: onboarding, moderation hub, reporting, account tiers and admin tools.
 - Led **UX research and competitive analysis** to inform solutions.
@@ -25,13 +25,13 @@ I joined at this pivotal moment as the **founding designer**, tasked with leadin
 - Built a new **product demo** experience to support Sales and reduce dev dependencies.
 - **Managed and mentored designers**, providing direction and supporting their professional growth.
 
+![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
+
 ---
 
-## Design & Research
+### Design & Research
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
-
-![Content Moderation Platform](/case-studies/freedom2hear/platform.png)
 
 With no direct access to end users, I adopted a **lean, insight-driven approach** — analysing competitor solutions, partnering with client-facing teams to synthesise customer insights, and drawing on audiences in adjacent industries. This allowed me to identify pain points, discover real-world needs and behaviours, and design workflows that balanced flexibility with **enterprise-grade structures**.
 
@@ -39,15 +39,18 @@ With no direct access to end users, I adopted a **lean, insight-driven approach*
 
 ---
 
-## Product Demo
+### Product Demo
 
 I designed and built a no-code product demo in Webflow to enable the Sales team to **personalise walkthroughs** across sectors such as media, sports, and gaming.
 
 This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
 
+{{video:/case-studies/freedom2hear/f2h-waltkthrough.mp4|/case-studies/freedom2hear/platform.png|Interactive Freedom2Hear platform walkthrough|controls:false|loop:true|autoPlay:true|muted:true}}
+
+
 ---
 
-## Design System
+### Design System
 
 To support consistency and speed across both product and marketing assets, I developed a **shared design system**. This included scalable foundations for UI components, typography, and colour — with a strong focus on accessibility and maintainability.
 

@@ -77,6 +77,11 @@ const SelectedWork: React.FC = () => {
                     tabIndex={0}
                     onFocus={() => handleFocus(idx)}
                     onBlur={handleBlur}
+                    onClick={() => {
+                      // Save current scroll position before navigating to case study
+                      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                      sessionStorage.setItem('scrollPosition', scrollPosition.toString());
+                    }}
                   >
                     <span className={'$(styles.workTitleText)'}>{work.title}</span>
                   </Link>
