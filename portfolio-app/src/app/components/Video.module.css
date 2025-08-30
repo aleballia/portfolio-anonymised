@@ -148,7 +148,6 @@
   }
   
   .videoWrapper {
-    border-radius: 6px;
     padding-bottom: 66.67%; /* 3:2 aspect ratio for mobile */
   }
   
