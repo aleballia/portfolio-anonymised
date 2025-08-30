@@ -7,8 +7,8 @@ html {
 :root {
   --background: #f8f8f8;
   --foreground: #1c1c1c;
-  --muted: #ded6e4;
-  --muted-foreground: #f4eaff;
+  --muted: #e3dee6;
+  --muted-foreground: #242424;
   --card: #fffffff1;
   --card-foreground: #1c1c1c;
   --popover: #ffffff;
