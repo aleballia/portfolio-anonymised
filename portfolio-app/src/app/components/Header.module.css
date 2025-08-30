@@ -99,12 +99,10 @@
 }
 
 .themeToggle:hover {
-  background: transparent;
 }
 
 
 .themeToggleButton {
-  border-radius: 12px;
 }
 
 .themeToggleButton:hover {

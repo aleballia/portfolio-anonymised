@@ -112,21 +112,12 @@ const WebPThemeToggle: React.FC = () => {
 
          return (
                   <button
+            className={styles.themeToggleButton}
             onClick={handleToggle}
             disabled={isAnimating}
-            style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                pointerEvents: 'auto',
-                padding: 0,
-                justifyContent: 'center',
-            }}
             aria-label="Toggle theme"
          >
-            <div style={{ width: '80px', height: '80px', position: 'relative' }}>
+            <div className={styles.animationContainer}>
                 <lottie-player
                     ref={lottieRef}
                     src="/lottie/light-dark-mode.json"

@@ -1,2 +1,70 @@
+/* Theme toggle button styles */
+.themeToggleButton {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  padding: 8px;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
+}
 
-/* Clean theme toggle with no interactive states */
+/* Hover state (if you want to add it back) */
+.themeToggleButton:hover {
+  transform: scale(1.20);
+}
+
+/* Focus state for accessibility */
+.themeToggleButton:focus {
+}
+
+/* Disabled state during animation */
+.themeToggleButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Animation container */
+.animationContainer {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Responsive sizing */
+@media (max-width: 768px) {
+  .animationContainer {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Theme-aware styling */
+.themeToggleButton[data-theme="dark"] {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.themeToggleButton[data-theme="light"] {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Animation state styling */
+.themeToggleButton[data-animating="true"] {
+  pointer-events: none;
+}
+
+.themeToggleButton.small .animationContainer {
+  width: 40px;
+  height: 40px;
+}
+
+.themeToggleButton.large .animationContainer {
+  width: 100px;
+  height: 100px;
+}
