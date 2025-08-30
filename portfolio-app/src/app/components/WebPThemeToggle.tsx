@@ -4,13 +4,6 @@ import React, { useRef, useEffect } from 'react';
 import { useTheme } from './ThemeProvider'; 
 import styles from './WebPThemeToggle.module.css';
 
-// Declare the lottie-player custom element
-declare module 'react' {
-    interface IntrinsicElements {
-        'lottie-player': any;
-    }
-}
-
 const WebPThemeToggle: React.FC = () => {
     const themeContext = useTheme();
     const lottieRef = useRef<any>(null);
@@ -120,6 +113,7 @@ const WebPThemeToggle: React.FC = () => {
             aria-label="Toggle theme"
         >
             <div className={styles.animationContainer}>
+                {/* @ts-expect-error - lottie-player is a web component */}
                 <lottie-player
                     ref={lottieRef}
                     src="/lottie/light-dark-mode.json"
