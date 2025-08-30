@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import HoverImage from "./HoverImage";
-import styles from "../about/About.module.css";
+import styles from "./About.module.css";
 
 const About: React.FC = () => {
     return (
