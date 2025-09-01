@@ -40,7 +40,7 @@ This involved:
 
 - **Three thematic zones** — *Frictionless Retail*, *Convenience* and *Venue* — each representing a distinct application of the technology.
 - **Creating engaging digital assets** to support the experience, including live product demos.
-– **Brochure website** designed to invite clients to take part in the experience and build anticipation.
+- **Brochure website** designed to invite clients to take part in the experience and build anticipation.
 
 Our goal was to make each moment feel self-contained yet part of a coherent, future-facing narrative — one that clients could physically move through, engage with and remember.
 
@@ -65,4 +65,8 @@ I partnered with technical teams to design **demo assets** that:
 
 ## Reflection
 
-This was one of those projects where design, strategy and storytelling converge. As Design Lead, I helped shape a vision that made abstract innovation feel both immediate and inspiring. The pace was fast, the collaboration cross-functional, and the outcome a great example of how thoughtful design can unlock commercial conversations and future-facing narratives.
+This was one of those projects where **design and storytelling converge**. As Design Lead, I helped shape a vision that made abstract innovation feel immediate and inspiring.
+
+Working cross-functionally with different departments was a valuable learning experience. It came with challenges particularly in translating technical concepts into clear, inspiring experiences that unlocked commercial value for clients.
+
+The outcome demonstrated how design can open up new conversations and shape future-facing narratives in a clear compelling way.
