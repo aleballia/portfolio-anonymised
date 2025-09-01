@@ -29,7 +29,7 @@ My work also included leading the **relaunch of the marketing website** to refle
 
 ---
 
-## Product Design
+### Product Design
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
 
@@ -50,9 +50,11 @@ Key features shaped by **research insights** included:
 
 ![Content Moderation Platform – Infinite scroll](/case-studies/freedom2hear/infinite-scroll.png)
 
+![Content Moderation Platform – Onboarding](/case-studies/freedom2hear/onboarding.png)
+
 ---
 
-## Marketing
+### Marketing
 
 I led creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
 

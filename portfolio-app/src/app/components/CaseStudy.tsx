@@ -49,6 +49,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   const [isTitleLoaded, setIsTitleLoaded] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isContentLoaded, setIsContentLoaded] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     // Trigger title animation first
@@ -73,8 +74,28 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(Math.min(scrollPercent, 100));
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div>
+      {/* Progress Bar */}
+      <div className={styles.progressBarContainer}>
+        <div 
+          className={styles.progressBar} 
+          style={{ width: `${scrollProgress}%` }}
+        />
+      </div>
+
       {/* Scroll Navigation - rendered outside main layout to avoid transform issues */}
       <ScrollNavigation containerSelector=".markdown-content.prose" />
       
