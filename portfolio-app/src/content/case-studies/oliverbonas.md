@@ -68,8 +68,8 @@ This was the first project where I had the opportunity to integrate the new CMS 
 
 ## Impact
 
-- UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
-- **Improved development handover** through new design system and CMS.
+Oliver Bonas's new website was the winner of 
+### UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
 
 {{stats:OB Website Performance|grid}}
 
@@ -77,4 +77,4 @@ This was the first project where I had the opportunity to integrate the new CMS 
 
 ## Reflection
 
-This was a project that balanced brand storytelling with user needs. I’m especially proud of how the checkout and gifting UX helped convert returning customers, and the close collaboration with the clients’ digital team. Most importantly, the site now genuinely reflects what makes Oliver Bonas so beloved: considered design with a spark of joy.
+This was a project that balanced **brand storytelling with user needs**. I’m especially proud of how the checkout and gifting UX helped convert returning customers, and the close collaboration with the clients’ digital team. Most importantly, the site now genuinely reflects what makes Oliver Bonas so beloved: considered design with a spark of joy.

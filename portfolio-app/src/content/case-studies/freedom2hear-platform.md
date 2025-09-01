@@ -37,7 +37,7 @@ Working closely with Client Success and Engineering, I led the design of the pla
 
 With no direct access to end users, I adopted a **lean, insight-driven approach** — partnering with client-facing teams to synthesise customer insights, analysing competitor solutions, and running user interviews with adjacent industry audiences.
 
-Key features shaped by **research insights** included:
+### Key features shaped by **research insights** included:
 
 - Designed **infinite scroll** in the **moderator dashboard** to speed up manual moderation and enable real-time monitoring of AI results during peak traffic on client social channels.
 - Introduced a **Super Admin ‘View as Client’ mode**, giving the Client Success team better visibility and control to manage enterprise accounts more effectively.
@@ -61,9 +61,9 @@ I led creative direction for new marketing and sales initiatives, including sect
 ![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
 
-Partnered with a creative agency to relaunch the marketing website with a refreshed brand. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
+### Partnered with a creative agency to relaunch the **marketing website** with a refreshed brand. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
 
-The new case study pages and testimonials throughout build trust with prospects, while the product page serves to spotlight the human-touch, a distinctive USP versus competitors.
+The new case study pages and testimonials build trust with prospects, while the product page serves to spotlight the human-touch, a distinctive USP versus competitors.
 
 {{stats:Marketing Website Performance|grid}}
 
@@ -73,9 +73,7 @@ The new case study pages and testimonials throughout build trust with prospects,
 
 ---
 
-### Product Demo
-
-I designed and built a no-code product demo in Webflow to enable the Sales team to **personalise walkthroughs** across sectors such as media, sports, and gaming.
+### I designed and built a no-code **product demo** in Webflow to enable the Sales team to personalise walkthroughs across sectors such as media, sports, and gaming.
 
 This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
 

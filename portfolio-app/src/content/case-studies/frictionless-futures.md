@@ -30,9 +30,7 @@ Working closely with a Creative Strategist and a Senior Visual Designer, I co-cr
 
 ![Social Media Asset](/case-studies/frictionless-futures/image.png)
 
-### Exhibition Experience Design
-
-Through spatial design, we turned a complex technical concept into a compelling immersive experience, crafting a clear narrative that guided visitors through the everyday possibilities of frictionless technology, supported by tailored digital assets.
+### Through spatial design, we turned a complex technical concept into a compelling **immersive experience**, crafting a clear narrative that guided visitors through the everyday possibilities of frictionless technology, supported by tailored digital assets.
 
 ![The Exhibition Space](/case-studies/frictionless-futures/image-1.png)
 
@@ -44,9 +42,7 @@ This involved:
 
 Our goal was to make each moment feel self-contained yet part of a coherent, future-facing narrative — one that clients could physically move through, engage with and remember.
 
-### Demo Development with Cybersecurity and AI Teams
-
-I partnered with technical teams to design **demo assets** that:
+### I partnered with Cybersecurity and AI Teams teams to design **demo assets** that:
 
 - Visualised how AI and computer vision enable seamless customer experiences.
 - Illustrated secure data architecture in action.

@@ -36,7 +36,7 @@ Before I joined, the organisation operated with a tech-led mindset — decisions
 
 {{lottievenn:Innovation approach}}
 
-I enabled a shift to a more collaborative and holistic approach to innovation, where technology, design, brand, and business viability worked together from the outset. This ensured we asked the right questions, aligned around purpose, and delivered ideas that were not only feasible and innovative but also desirable, strategic, and sustainable.
+### I enabled a shift to a **more collaborative and holistic approach to innovation**, where technology, design, brand, and business viability worked together from the outset. This ensured we asked the right questions, aligned around purpose, and delivered ideas that were not only feasible and innovative but also desirable, strategic, and sustainable.
 
 ---
 

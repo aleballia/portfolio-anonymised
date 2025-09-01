@@ -4,6 +4,14 @@
   /* Base markdown content styles */
 }
 
+/* Strong text styling within h3 headings */
+.markdownContent h4 strong {
+  font-weight: 400;
+  color: var(--accent-secondary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: var(--accent-secondary);
+}
+
 .markdownContent img {
 }
 
