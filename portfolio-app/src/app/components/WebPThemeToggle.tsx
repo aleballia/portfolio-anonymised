@@ -1,12 +1,31 @@
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useTheme } from './ThemeProvider'; 
 import styles from './WebPThemeToggle.module.css';
 
 const WebPThemeToggle: React.FC = () => {
     const themeContext = useTheme();
     const lottieRef = useRef<any>(null);
+    const [isLottieReady, setIsLottieReady] = useState(false);
+
+    // Set the correct initial frame based on theme
+    const setCorrectFrame = () => {
+        if (!lottieRef.current || !themeContext || !isLottieReady) return;
+        
+        const lottie = lottieRef.current;
+        if (typeof lottie.seek !== 'function') return;
+
+        try {
+            if (themeContext.theme === 'dark') {
+                lottie.seek('0%'); // Dark state
+            } else {
+                lottie.seek('50%'); // Light state
+            }
+        } catch (error) {
+            console.warn('Lottie seek failed:', error);
+        }
+    };
 
     // Load lottie-player script and set correct frame when theme changes
     useEffect(() => {
@@ -19,29 +38,23 @@ const WebPThemeToggle: React.FC = () => {
             document.head.appendChild(script);
         }
 
-        // Wait for both script and component to be ready
-        const setInitialFrame = () => {
-            if (lottieRef.current && !themeContext.isAnimating && typeof lottieRef.current.seek === 'function') {
-                const lottie = lottieRef.current;
-                try {
-                    // Set to appropriate frame based on theme
-                    if (themeContext.theme === 'dark') {
-                        lottie.seek('0%'); // Start frame (dark state)
-                    } else {
-                        lottie.seek('50%'); // Middle frame (light state)
-                    }
-                } catch (error) {
-                    console.warn('Lottie seek failed:', error);
-                }
-            }
-        };
+        // Set frame when theme changes (but not during animation)
+        if (isLottieReady && !themeContext.isAnimating) {
+            setCorrectFrame();
+        }
+    }, [themeContext?.theme, isLottieReady, themeContext?.isAnimating]);
 
-        // Try immediately, then with a small delay if needed
-        setInitialFrame();
-        const timeout = setTimeout(setInitialFrame, 100);
-
-        return () => clearTimeout(timeout);
-    }, [themeContext]);
+    // Set initial frame when Lottie becomes ready
+    useEffect(() => {
+        if (isLottieReady && themeContext) {
+            // Small delay to ensure Lottie is fully initialized
+            const timeout = setTimeout(() => {
+                setCorrectFrame();
+            }, 50);
+            
+            return () => clearTimeout(timeout);
+        }
+    }, [isLottieReady, themeContext]);
 
     const handleToggle = () => {
         if (!themeContext || themeContext.isAnimating || !lottieRef.current || typeof lottieRef.current.seek !== 'function') return;
@@ -123,19 +136,7 @@ const WebPThemeToggle: React.FC = () => {
                     }}
                     onEvent={(event: any) => {
                         if (event.type === 'ready') {
-                            // Set initial frame based on theme
-                            const lottie = lottieRef.current;
-                            if (lottie && typeof lottie.seek === 'function') {
-                                try {
-                                    if (theme === 'dark') {
-                                        lottie.seek('0%'); // Start frame (dark state)
-                                    } else {
-                                        lottie.seek('50%'); // Middle frame (light state)
-                                    }
-                                } catch (error) {
-                                    console.warn('Lottie initial seek failed:', error);
-                                }
-                            }
+                            setIsLottieReady(true);
                         }
                     }}
                 />
