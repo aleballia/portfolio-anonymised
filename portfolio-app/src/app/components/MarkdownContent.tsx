@@ -77,9 +77,9 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
   const getStatsData = (title: string) => {
     const statsMap: Record<string, any[]> = {
       'Marketing Website Performance': [
-        { label: 'New Users From Organic Search', value: '740%', change: 'growth', changeType: 'positive' as const },
+        { label: 'New Users from Organic Search', value: '740%', change: 'growth', changeType: 'positive' as const },
         { label: 'Returning Users', value: '400%', change: 'increase', changeType: 'positive' as const },
-        { label: 'Views per session', value: '+6%', change: 'improvement', changeType: 'positive' as const }
+        { label: 'Views per Session', value: '+6%', change: 'improvement', changeType: 'positive' as const }
       ],
 
       'OB Website Performance': [
