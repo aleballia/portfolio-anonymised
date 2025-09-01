@@ -10,10 +10,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const caseStudy = getCaseStudyById('freedom2hear-platform');
   const localContent = caseStudy?.contentFile
     ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
-        title: caseStudy.title,
-        subtitle: caseStudy.subtitle,
-        liveLink: caseStudy.liveLink,
-      })
+      title: caseStudy.title,
+      subtitle: caseStudy.subtitle,
+      liveLink: caseStudy.liveLink,
+    })
     : null;
 
   const title = (localContent?.title || caseStudy?.title || '').trim();
@@ -28,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function Freedom2hearCaseStudy() {
   const caseStudy = getCaseStudyById('freedom2hear-platform');
   const allCaseStudies = getAllCaseStudies();
-  
+
   if (!caseStudy) {
     throw new Error('Case study not found');
   }
@@ -38,7 +38,7 @@ export default async function Freedom2hearCaseStudy() {
     subtitle: caseStudy.subtitle,
     liveLink: caseStudy.liveLink
   }) : null;
-  
+
   return (
     <>
       <CaseStudy
@@ -60,12 +60,12 @@ export default async function Freedom2hearCaseStudy() {
           </div>
         )}
       </CaseStudy>
-      
-      <ProjectNavigation 
-        currentProject={caseStudy} 
-        allProjects={allCaseStudies} 
+
+      <ProjectNavigation
+        currentProject={caseStudy}
+        allProjects={allCaseStudies}
       />
-      
+
       <FloatingLiveButton liveLink={localContent?.liveLink || caseStudy.liveLink || ''} />
     </>
   );

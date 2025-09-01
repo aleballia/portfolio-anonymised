@@ -78,6 +78,18 @@
   padding-bottom: 2rem;
 }
 
+.statsSection {
+  margin-bottom: 4rem;
+}
+
+.statGroup {
+  margin-bottom: 3rem;
+}
+
+.statGroup:last-child {
+  margin-bottom: 0;
+}
+
 .detailsGrid {
   display: flex;
   flex-wrap: wrap;

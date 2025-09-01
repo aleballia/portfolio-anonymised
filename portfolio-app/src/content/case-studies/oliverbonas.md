@@ -17,9 +17,9 @@ With mobile users dominating traffic (68%) but underperforming in conversion (2.
 
 ---
 
-## Design Process
+## Contributions
 
-### **Customer Insight & Behaviour Analysis**
+### Customer Insight & Behaviour Analysis
 
 I analysed two years of Google Analytics data to understand shifting device usage, age-based conversion trends, and returning customer habits. This highlighted the need for:
 
@@ -29,29 +29,19 @@ I analysed two years of Google Analytics data to understand shifting device usag
 - Improved Gifting experience with gift box builder and new e-gift card flow.
 
 
-### **Creative Direction & UI Design**
+### Creative Direction & UI Design
 
 Working closely with a Visual Designer, we overhauled the UI design — refining typography, interactions, and page transitions. We introduced animations, product videos in listing page and a cleaner layouts to evoke Oliver Bonas’ personality digitally, allowing their vibrant and bold product photography to stand out. 
 
 ![Navigation, Listing Page, Blog](/case-studies/oliverbonas/various-screens.png)
 
-### **Client Workshops & Collaboration**
+### Client Workshops & Collaboration
 
 Despite the pandemic constraints, I ran interactive remote workshops with the Oliver Bonas in-house design team and senior stakeholders. Using Figma and Mural, I presented competitive research, UX insights, and prototypes that ensured alignment and a collaborative approach with the client's in-house digital team.
 
 ![Online Workshops](/case-studies/oliverbonas/workshops.png)
 
 ---
-
-## Key Features
-
-### **Design System**
-
-I created and documented their new design system in Sketch and Abstract, enabling four designers to work concurrently with consistency. This also helped the client’s internal team manage updates post-launch.
-
-This was the first project where I had the opportunity to integrate the new CMS proprietary platform that Tom&Co developed entirely in house with the newly introduced atomic design approach.
-
-![Design System](/case-studies/oliverbonas/ds.png)
 
 ### Checkout & Gifting Experience
 
@@ -66,6 +56,14 @@ The result? A seamless gifting experience that directly contributed to a **+70% 
 
 ![Gift Box Builder](/case-studies/oliverbonas/gifting.png)
 
+### Design System
+
+I created and documented their new design system in Sketch and Abstract, enabling four designers to work concurrently with consistency. This also helped the client’s internal team manage updates post-launch.
+
+This was the first project where I had the opportunity to integrate the new CMS proprietary platform that Tom&Co developed entirely in house with the newly introduced atomic design approach.
+
+![Design System](/case-studies/oliverbonas/ds.png)
+
 ---
 
 ## Impact
@@ -73,9 +71,7 @@ The result? A seamless gifting experience that directly contributed to a **+70% 
 - UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
 - **Improved development handover** through new design system and CMS.
 
-## In Numbers
-- **58% increase in mobile traffic** within a year of launch.
-- **+70% product revenue** from gifting experience.
+{{stats:OB Website Performance|grid}}
 
 ---
 

@@ -14,6 +14,8 @@ Summary: Freedom2hear is a B2B SaaS platform using emotion-based, context-aware 
 
 I joined at this pivotal moment as the **founding designer**, tasked with leading **0–1 product design** to serve moderators, client success teams, social media and community managers across industries like sports, gaming, and entertainment.
 
+My work also included leading the **relaunch of the marketing website** to reflect the maturity of the technology and drive organic growth.
+
 ---
 
 ## Contributions
@@ -25,31 +27,49 @@ I joined at this pivotal moment as the **founding designer**, tasked with leadin
 - Built a new **product demo** experience to support Sales and reduce dev dependencies.
 - **Managed and mentored designers**, providing direction and supporting their professional growth.
 
-
-![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
-
 ---
 
-### Design & Research
+## Product Design
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
 
-With no direct access to end users, I adopted a **lean, insight-driven approach** — analysing competitor solutions, partnering with client-facing teams to synthesise customer insights, and drawing on audiences in adjacent industries. This allowed me to identify pain points, discover real-world needs and behaviours, and design workflows that balanced flexibility with **enterprise-grade structures**.
+![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
 
-![Research Affinity Mapping](/case-studies/freedom2hear/research-notes.png)
+With no direct access to end users, I adopted a **lean, insight-driven approach** — partnering with client-facing teams to synthesise customer insights, analysing competitor solutions, and running user interviews with adjacent industry audiences.
+
+Key features shaped by **research insights** included:
+
+- Designed **infinite scroll** in the **moderator dashboard** to speed up manual moderation and enable real-time monitoring of AI results during peak traffic on client social channels.
+- Introduced a **Super Admin ‘View as Client’ mode**, giving the Client Success team better visibility and control to manage enterprise accounts more effectively.
+- Created an **intuitive Post View**, allowing **social media managers** to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.
+- Developed the client **onboarding experience** (in-app flows and email comms) to support self-serve platform **social media integrations** and **secure account management**.
+
+![Content Moderation Platform - Posts View](/case-studies/freedom2hear/grouped-views.png)
+
+![Content Moderation Platform - View as client](/case-studies/freedom2hear/post-view-details.png)
+
+![Content Moderation Platform – Infinite scroll](/case-studies/freedom2hear/infinite-scroll.png)
 
 ---
 
-### Growth
+## Marketing
 
-I oversaw creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
+I led creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
 
-![Marketing Website](/case-studies/freedom2hear/website-2.png)
+![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
-![Marketing Website](/case-studies/freedom2hear/website.png)
+
+Partnered with a creative agency to relaunch the marketing website with a refreshed brand. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
+
+The new case study pages and testimonials throughout build trust with prospects, while the product page serves to spotlight the human-touch, a distinctive USP versus competitors.
+
+{{stats:Marketing Website Performance|grid}}
+
+![Marketing Website](/case-studies/freedom2hear/homepage.png)
+![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
+![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
 
 ---
-
 
 ### Product Demo
 
@@ -57,7 +77,7 @@ I designed and built a no-code product demo in Webflow to enable the Sales team 
 
 This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
 
-{{video:/case-studies/freedom2hear/f2h-waltkthrough.mp4|/case-studies/freedom2hear/platform.png|Interactive Freedom2Hear platform walkthrough|controls:false|loop:true|autoPlay:true|muted:true}}
+![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png)
 
 
 ---

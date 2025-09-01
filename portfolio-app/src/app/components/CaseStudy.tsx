@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./CaseStudy.module.css";
 import MarkdownContent from "./MarkdownContent";
 import ScrollNavigation from "./ScrollNavigation";
+import Stats from "./Stats";
 import { useEffect, useState } from "react";
 
 interface CaseStudyProps {
@@ -19,6 +20,16 @@ interface CaseStudyProps {
   summary?: string; // Project summary text
   date?: string;    // Project date
   liveLink?: string; // Live project URL
+  stats?: Array<{
+    title: string;
+    layout: 'grid' | 'list';
+    data: Array<{
+      label: string;
+      value: string;
+      change: string;
+      changeType: 'positive' | 'negative' | 'neutral';
+    }>;
+  }>; // Stats to display
 }
 
 const CaseStudy: React.FC<CaseStudyProps> = ({ 
@@ -33,6 +44,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   summary,
   date,
   liveLink,
+  stats,
 }) => {
   const [isTitleLoaded, setIsTitleLoaded] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState(false);
@@ -105,6 +117,22 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                   </div>
                 </div>
               )}
+
+              {/* Stats Section */}
+              {stats && stats.length > 0 && (
+                <div className={styles.statsSection}>
+                  {stats.map((statGroup, index) => (
+                    <div key={index} className={styles.statGroup}>
+                      <Stats
+                        title={statGroup.title}
+                        stats={statGroup.data}
+                        layout={statGroup.layout}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
               {/* Details: Role, Company, Tools, Date */}
               <div className={styles.detailsGrid}>
                 {role && (
