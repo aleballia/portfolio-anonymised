@@ -8,107 +8,123 @@ const WebPThemeToggle: React.FC = () => {
     const themeContext = useTheme();
     const lottieRef = useRef<any>(null);
     const [isLottieReady, setIsLottieReady] = useState(false);
+    const hasInitializedRef = useRef(false);
+    const lastThemeRef = useRef<'light' | 'dark' | null>(null);
+    const pendingToggleRef = useRef<'toLight' | 'toDark' | null>(null);
 
-    // Set the correct initial frame based on theme
-    const setCorrectFrame = () => {
-        if (!lottieRef.current || !themeContext || !isLottieReady) return;
-        
-        const lottie = lottieRef.current;
-        if (typeof lottie.seek !== 'function') return;
-
-        try {
-            if (themeContext.theme === 'dark') {
-                lottie.seek('0%'); // Dark state
-            } else {
-                lottie.seek('50%'); // Light state
-            }
-        } catch (error) {
-            console.warn('Lottie seek failed:', error);
-        }
-    };
-
-    // Load lottie-player script and set correct frame when theme changes
+    // Ensure lottie-player script is present
     useEffect(() => {
-        if (!themeContext) return;
-
-        // Load lottie-player script if not already loaded
         if (!document.querySelector('script[src*="lottie-player"]')) {
             const script = document.createElement('script');
             script.src = 'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js';
             document.head.appendChild(script);
         }
+    }, []);
 
-        // Set frame when theme changes (but not during animation)
-        if (isLottieReady && !themeContext.isAnimating) {
-            setCorrectFrame();
+    const pauseAndSeek = (percent: '0%' | '50%') => {
+        const lottie = lottieRef.current as any;
+        if (!lottie) return;
+        try {
+            if (typeof lottie.pause === 'function') lottie.pause();
+            if (typeof lottie.seek === 'function') lottie.seek(percent);
+        } catch {}
+    };
+
+    const playRangeToLight = () => {
+        const lottie = lottieRef.current as any;
+        if (!lottie) return;
+        try {
+            if (typeof lottie.seek === 'function') lottie.seek('0%');
+            if (typeof lottie.setDirection === 'function') lottie.setDirection(1);
+            if (typeof lottie.play === 'function') lottie.play();
+            setTimeout(() => {
+                pauseAndSeek('50%');
+                themeContext?.setIsAnimating(false);
+            }, 2000);
+        } catch {
+            themeContext?.setIsAnimating(false);
         }
+    };
+
+    const playRangeToDark = () => {
+        const lottie = lottieRef.current as any;
+        if (!lottie) return;
+        try {
+            if (typeof lottie.seek === 'function') lottie.seek('50%');
+            if (typeof lottie.setDirection === 'function') lottie.setDirection(1);
+            if (typeof lottie.play === 'function') lottie.play();
+            setTimeout(() => {
+                pauseAndSeek('0%');
+                themeContext?.setIsAnimating(false);
+            }, 2000);
+        } catch {
+            themeContext?.setIsAnimating(false);
+        }
+    };
+
+    // Attach robust 'ready' listener
+    useEffect(() => {
+        const el = lottieRef.current as any;
+        if (!el) return;
+
+        const onReady = () => {
+            setIsLottieReady(true);
+            // If a toggle was queued before ready, play it now
+            const queued = pendingToggleRef.current;
+            pendingToggleRef.current = null;
+            if (queued === 'toLight') {
+                playRangeToLight();
+                return;
+            }
+            if (queued === 'toDark') {
+                playRangeToDark();
+                return;
+            }
+            // Otherwise, initialize to current theme frame
+            const target = themeContext?.theme === 'dark' ? '0%' : '50%';
+            pauseAndSeek(target as '0%' | '50%');
+            hasInitializedRef.current = true;
+            lastThemeRef.current = themeContext?.theme ?? null;
+        };
+
+        el.addEventListener('ready', onReady as EventListener);
+        return () => {
+            el.removeEventListener('ready', onReady as EventListener);
+        };
+    }, [themeContext]);
+
+    // Animate on system/manual theme changes after init
+    useEffect(() => {
+        if (!themeContext || !isLottieReady) return;
+        const newTheme = themeContext.theme;
+        const prev = lastThemeRef.current;
+        if (!hasInitializedRef.current) return;
+        if (!prev || prev === newTheme || themeContext.isAnimating) {
+            lastThemeRef.current = newTheme;
+            return;
+        }
+        lastThemeRef.current = newTheme;
+        themeContext.setIsAnimating(true);
+        if (newTheme === 'light') playRangeToLight(); else playRangeToDark();
     }, [themeContext?.theme, isLottieReady, themeContext?.isAnimating]);
 
-    // Set initial frame when Lottie becomes ready
-    useEffect(() => {
-        if (isLottieReady && themeContext) {
-            // Small delay to ensure Lottie is fully initialized
-            const timeout = setTimeout(() => {
-                setCorrectFrame();
-            }, 50);
-            
-            return () => clearTimeout(timeout);
-        }
-    }, [isLottieReady, themeContext]);
-
     const handleToggle = () => {
-        if (!themeContext || themeContext.isAnimating || !lottieRef.current || typeof lottieRef.current.seek !== 'function') return;
-
+        if (!themeContext || themeContext.isAnimating) return;
         const { theme, toggleTheme, setIsAnimating } = themeContext;
+        const target = theme === 'dark' ? 'toLight' : 'toDark';
 
-        // Start animation state and theme change immediately
-        setIsAnimating(true);
-        toggleTheme();
-
-        const lottie = lottieRef.current;
-
-        try {
-            if (theme === 'dark') {
-                // Dark to light: play from 0% to 50%
-                lottie.seek('0%');
-                if (typeof lottie.setDirection === 'function') {
-                    lottie.setDirection(1); // Forward
-                }
-                lottie.play();
-
-                // Stop at 50% (2 seconds in a 4s animation)
-                setTimeout(() => {
-                    try {
-                        lottie.pause();
-                        lottie.seek('50%');
-                    } catch (error) {
-                        console.warn('Lottie control failed:', error);
-                    }
-                    setIsAnimating(false);
-                }, 2000);
-            } else {
-                // Light to dark: play from 50% to 100%
-                lottie.seek('50%');
-                if (typeof lottie.setDirection === 'function') {
-                    lottie.setDirection(1); // Forward
-                }
-                lottie.play();
-
-                // Stop at 100%, then reset to 0%
-                setTimeout(() => {
-                    try {
-                        lottie.pause();
-                        lottie.seek('0%');
-                    } catch (error) {
-                        console.warn('Lottie control failed:', error);
-                    }
-                    setIsAnimating(false);
-                }, 2000);
-            }
-        } catch (error) {
-            console.warn('Lottie animation failed:', error);
-            setIsAnimating(false);
+        // If player not ready yet, queue and flip theme now
+        if (!isLottieReady) {
+            pendingToggleRef.current = target;
+            setIsAnimating(true);
+            toggleTheme();
+            return;
         }
+
+        // Player ready: animate and flip theme
+        setIsAnimating(true);
+        if (target === 'toLight') playRangeToLight(); else playRangeToDark();
+        toggleTheme();
     };
 
     if (!themeContext) {
@@ -116,7 +132,7 @@ const WebPThemeToggle: React.FC = () => {
         return null;
     }
 
-    const { theme, isAnimating } = themeContext;
+    const { isAnimating } = themeContext;
 
     return (
         <button
@@ -130,15 +146,10 @@ const WebPThemeToggle: React.FC = () => {
                 <lottie-player
                     ref={lottieRef}
                     src="/lottie/light-dark-mode.json"
-                    style={{
-                        width: '100%',
-                        height: '100%'
-                    }}
-                    onEvent={(event: any) => {
-                        if (event.type === 'ready') {
-                            setIsLottieReady(true);
-                        }
-                    }}
+                    renderer="svg"
+                    autoplay={false}
+                    loop={false}
+                    style={{ width: '100%', height: '100%' }}
                 />
             </div>
         </button>

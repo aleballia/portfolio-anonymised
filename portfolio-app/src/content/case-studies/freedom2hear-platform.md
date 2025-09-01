@@ -44,8 +44,6 @@ With no direct access to end users, I adopted a **lean, insight-driven approach*
 
 I oversaw creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
 
-To ensure consistency, I extended the design system into marketing and sales materials, creating shared foundations for typography, colour, and components across platforms.
-
 ![Marketing Website](/case-studies/freedom2hear/website-2.png)
 
 ![Marketing Website](/case-studies/freedom2hear/website.png)
