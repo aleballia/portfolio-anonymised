@@ -9,10 +9,8 @@ import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import Section from "./components/Section";
 import About from "./components/About";
-import Experience from "./components/Experience";
 import LetsConnect from "./components/LetsConnect";
 import ClientLogos from "./components/ClientLogos";
-import VennDiagram from "./components/VennDiagram";
 import styles from "./HomeClient.module.css";
 
 export default function HomeClient() {
