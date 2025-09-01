@@ -34,7 +34,7 @@ export default function Hero() {
           className={`${styles.heroParagraph} p`}
           style={{ 
           color: "var(--foreground)",
-          fontWeight: 300,
+          fontWeight: 400,
           }}
         >
         I’m the person in the room who asks inquisitive questions. Not to be difficult, but to get to what matters, rethink assumptions, and 

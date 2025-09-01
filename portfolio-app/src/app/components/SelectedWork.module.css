@@ -67,7 +67,7 @@
 
 .workSubtitle {
   color: var(--foreground);
-  font-weight: 300;
+  font-weight: 500;
   line-height: 1.3;
   opacity: 0;
   transform: translateY(10px);
@@ -243,7 +243,7 @@ a.workTitle :hover {
     transform: none !important;
     max-height: none !important;
     font-size: var(--font-size-h5);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: -0.06em;
     line-height: 1.2;
     margin-top: 0rem;

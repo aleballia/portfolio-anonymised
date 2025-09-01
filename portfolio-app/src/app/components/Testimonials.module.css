@@ -18,17 +18,17 @@
 
 .quote {
   color: var(--foreground);
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .author {
-  font-weight: 500;
+  font-weight: 600;
   color: var(--foreground);
 }
 
 .role {
   color: var(--muted-foreground);
-  font-weight: 300;
+  font-weight: 400;
 } 
 
 .avatarRow {

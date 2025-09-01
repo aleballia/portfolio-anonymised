@@ -8,6 +8,7 @@ import Image from 'next/image';
 import styles from './MarkdownContent.module.css';
 import ImageGallery from './ImageGallery';
 import Video from './Video';
+import VennInnovation from './VennInnovation';
 
 interface MarkdownContentProps {
   content: string;
@@ -27,7 +28,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
     }));
   }, [content]);
 
-  // Process content to handle video embeds
+  // Process content to handle video embeds and lottievenn components
   const processedContent = useMemo(() => {
     let processed = content;
     
@@ -44,6 +45,15 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
         
         const videoId = `video-${Math.random().toString(36).substr(2, 9)}`;
         return `VIDEO_EMBED_${videoId}_${src}_${poster}_${caption}_${options}_VIDEO_EMBED`;
+      }
+    );
+
+    // Replace lottievenn syntax: {{lottievenn:title}}
+    processed = processed.replace(
+      /\{\{lottievenn:([^}]+)\}\}/g,
+      (match, title) => {
+        const vennId = `venn-${Math.random().toString(36).substr(2, 9)}`;
+        return `LOTTIEVENN_EMBED_${vennId}_${title}_LOTTIEVENN_EMBED`;
       }
     );
     
@@ -108,6 +118,18 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                   loop={opts.loop || false}
                   controls={opts.controls !== false}
                   className={opts.fullWidth ? 'fullWidth' : ''}
+                />
+              );
+            }
+
+            // Handle lottievenn embeds
+            const vennMatch = childrenString.match(/LOTTIEVENN_EMBED_([^_]+)_([^_]+)_LOTTIEVENN_EMBED/);
+            if (vennMatch) {
+              const [, vennId, title] = vennMatch;
+              return (
+                <VennInnovation
+                  key={vennId}
+                  title={title}
                 />
               );
             }

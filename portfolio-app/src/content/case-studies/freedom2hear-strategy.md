@@ -23,7 +23,6 @@ When I joined, design was not yet recognised as a strategic driver. My role evol
 - Led a **team of AI engineers** to develop proof-of-concepts that **unlocked new product opportunities and initial strategic R&D partnerships**.
 - Established an **innovation framework** that balanced experimentation with commercial viability.
 - Co-authored **board and investor materials** that supported two **successful funding rounds** around a shared product vision and producing compelling board and investor materials.
-- Directed creative execution for **brand, marketing, demo, and sales enablement materials**.
 
 ---
 
@@ -33,17 +32,11 @@ As part of the senior leadership team, I drove the **adoption of design thinking
 
 I led the **Innovation Workstream**, responsible for identifying, validating, and prioritising new product opportunities.
 
-![Innovation Process](/case-studies/freedom2hear/process.png)
+Before I joined, the organisation operated with a tech-led mindset — decisions were driven by the question **“what can we build?”** rather than **“why should we?”**. This often meant innovation was technically impressive but disconnected from user needs, brand strategy, or commercial outcomes.
 
----
+{{lottievenn:Innovation approach}}
 
-### Growth
-
-I oversaw creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
-
-To ensure consistency, I extended the design system into marketing and sales materials, creating shared foundations for typography, colour, and components across platforms.
-
-![Marketing Website](/case-studies/freedom2hear/website.png)
+I enabled a shift to a more collaborative and holistic approach to innovation, where technology, design, brand, and business viability worked together from the outset. This ensured we asked the right questions, aligned around purpose, and delivered ideas that were not only groundbreaking but also desirable, strategic sustainable.
 
 ---
 
@@ -52,7 +45,6 @@ To ensure consistency, I extended the design system into marketing and sales mat
 - **Helped secure two successful funding rounds,** by co-authoring compelling investor materials and facilitating strategic alignment across leadership.
 - **Elevated design** from an operational function to a **core strategic capability** within the company.
 - **Established an initial strategic partnership** with a major music label for R&D, delivering proof-of-concepts that demonstrated product potential and opened the door to future collaboration.
-- Contributed to **winning the company’s largest international client to date** through growth initiatives spanning product design, marketing, and client success — delivering work that directly supported the sales process.
 
 ---
 

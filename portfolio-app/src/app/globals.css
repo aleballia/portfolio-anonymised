@@ -8,7 +8,7 @@ html {
   --background: #f8f8f8;
   --foreground: #1c1c1c;
   --muted: #e3dee6;
-  --muted-foreground: #242424;
+  --muted-foreground: #2f2f2f;
   --card: #fffffff1;
   --card-foreground: #1c1c1c;
   --popover: #ffffff;
@@ -64,10 +64,10 @@ html {
 
 .dark {
   --background: #0c0115;
-  --foreground: #efe8f6;
+  --foreground: #e2dee6;
   --primary-shade-o-75: rgba(40, 9, 76, 0.25);
   --muted: #0e041a;
-  --muted-foreground: #dacfe5;
+  --muted-foreground: #d0d0d0;
   --card: #0f021b70;
   --card-foreground: #ffffff;
   --popover: #ffffff;

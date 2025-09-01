@@ -94,7 +94,7 @@
 
 .detailText {
   color: var(--foreground);
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 0;
 }
 
@@ -126,6 +126,11 @@
   font-weight: inherit;
 }
 
+.vennDiagramSection {
+  margin: 6rem 0;
+  padding: 0;
+}
+
 .additionalImages {
   display: flex;
   flex-direction: column;
@@ -142,15 +147,15 @@
 }
 
 .proseContent :global(p) {
-  font-weight: 300; /* light for main markdown */
+  font-weight: 400; /* light for main markdown */
   line-height: 1.8;
-  letter-spacing: -0.03rem;
+  letter-spacing: -0.02rem;
 }
 
 /* Add this */
 .proseContent :global(ul li),
 .proseContent :global(ol li) {
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   letter-spacing: -0.03rem;
 }
@@ -161,12 +166,16 @@
   letter-spacing: -0.03rem;
 }
 
-
 @media (min-width: 781px) and (max-width: 1024px) {
   .contentContainer,
   .contentWrapper {
     padding-right: 4rem;
     padding-left: 24vw;
+  }
+
+  .mainContent {
+    padding-right: 24px;
+    padding-left: 24px;
   }
 }
 

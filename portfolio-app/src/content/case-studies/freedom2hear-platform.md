@@ -21,9 +21,10 @@ I joined at this pivotal moment as the **founding designer**, tasked with leadin
 - **Designed core experiences**: onboarding, moderation hub, reporting, account tiers and admin tools.
 - Led **UX research and competitive analysis** to inform solutions.
 - Defined **key user types and workflows** using insights from Sales and Client Success teams.
-- Created a unified **design system for product and marketing**, with accessibility baked in.
+- Directed creative execution for **brand, marketing, demo, and sales enablement materials**.
 - Built a new **product demo** experience to support Sales and reduce dev dependencies.
 - **Managed and mentored designers**, providing direction and supporting their professional growth.
+
 
 ![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
 
@@ -38,6 +39,19 @@ With no direct access to end users, I adopted a **lean, insight-driven approach*
 ![Research Affinity Mapping](/case-studies/freedom2hear/research-notes.png)
 
 ---
+
+### Growth
+
+I oversaw creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
+
+To ensure consistency, I extended the design system into marketing and sales materials, creating shared foundations for typography, colour, and components across platforms.
+
+![Marketing Website](/case-studies/freedom2hear/website-2.png)
+
+![Marketing Website](/case-studies/freedom2hear/website.png)
+
+---
+
 
 ### Product Demo
 
@@ -64,6 +78,7 @@ To support consistency and speed across both product and marketing assets, I dev
 - Improved **moderator productivity and client onboarding experience** through better UX and workflows.
 - Increased **automation and efficiency within admin tools**.
 - Reduced demo production time by **75% using no-code build** enabling better personalisation for clients.
+- Contributed to **winning the company’s largest international client to date** through growth initiatives spanning product design, marketing, and client success — delivering work that directly supported the sales process.
 
 ---
 

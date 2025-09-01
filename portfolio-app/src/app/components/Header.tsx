@@ -116,7 +116,7 @@ const Header: React.FC = () => {
                     <span className={styles.logoText}>
                       Alessandra Balliana
                       {isHome && (
-                        <div style={{fontWeight: 300, fontSize: '0.92rem', color: 'var(--foreground)', marginTop: '0.5rem'}}><b>Product Design Leader</b> – London, UK</div>
+                        <div style={{fontWeight: 400, fontSize: '0.92rem', color: 'var(--muted-foreground)', marginTop: '0.5rem'}}><b style={{fontWeight: 500}}>Product Design Leader</b> – London, UK</div>
                       )}
                     </span>
                   </motion.span>
