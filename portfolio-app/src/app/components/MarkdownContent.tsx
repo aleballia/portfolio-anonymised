@@ -220,15 +220,27 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
             // Find the index of this image in our images array
             const imageIndex = images.findIndex(img => img.src === imageSrc);
 
-            // Return a simple img element to avoid p > div nesting issues
+            // Check if alt text contains a caption (separated by |)
+            const hasCaption = alt && alt.includes('|');
+            const imageAlt = hasCaption ? alt.split('|')[0].trim() : alt;
+            const caption = hasCaption ? alt.split('|')[1].trim() : null;
+
+            // Return image with optional caption
             return (
-              <img
-                src={imageSrc}
-                alt={alt || 'Case study image'}
-                className="w-full h-auto object-cover transition-opacity"
-                /* onClick={() => imageIndex !== -1 && openGallery(imageIndex)} */
-                style={{ display: 'block', margin: '1rem 0' }}
-              />
+              <div className={styles.imageContainer}>
+                <img
+                  src={imageSrc}
+                  alt={imageAlt || 'Case study image'}
+                  className="w-full h-auto object-cover transition-opacity"
+                  /* onClick={() => imageIndex !== -1 && openGallery(imageIndex)} */
+                  style={{ display: 'block', margin: '1rem 0' }}
+                />
+                {caption && (
+                  <figcaption className={`h5 ${styles.imageCaption}`}>
+                    {caption}
+                  </figcaption>
+                )}
+              </div>
             );
           },
         }}

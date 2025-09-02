@@ -35,22 +35,17 @@ Working closely with Client Success and Engineering, I led the design of the pla
 
 ![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
 
-With no direct access to end users, I adopted a **lean, insight-driven approach** — partnering with client-facing teams to synthesise customer insights, analysing competitor solutions, and running user interviews with adjacent industry audiences.
+### With no direct access to end users, I adopted a **lean insight-driven approach** –  partnering with client-facing teams to synthesise customer insights, analysing competitor solutions, and running user interviews with adjacent industry audiences.
 
-### Key features shaped by **research insights** included:
+### Key features, shaped by user research, included:
 
-- Designed **infinite scroll** in the **moderator dashboard** to speed up manual moderation and enable real-time monitoring of AI results during peak traffic on client social channels.
-- Introduced a **Super Admin ‘View as Client’ mode**, giving the Client Success team better visibility and control to manage enterprise accounts more effectively.
-- Created an **intuitive Post View**, allowing **social media managers** to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.
-- Developed the client **onboarding experience** (in-app flows and email comms) to support self-serve platform **social media integrations** and **secure account management**.
+![Content Moderation Platform - Posts View|An intuitive grouped view by posts that allows social media managers to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.](/case-studies/freedom2hear/grouped-views.png)
 
-![Content Moderation Platform - Posts View](/case-studies/freedom2hear/grouped-views.png)
+![Content Moderation Platform - View as client|A "View as a client" mode that gives the Client Success team better visibility and control to manage enterprise accounts more effectively.](/case-studies/freedom2hear/post-view-details.png)
 
-![Content Moderation Platform - View as client](/case-studies/freedom2hear/post-view-details.png)
+![Content Moderation Platform – Infinite scroll|Infinite scroll in the moderator dashboard to speed up manual moderation and enable real-time monitoring of AI results during peak traffic on client social channels.](/case-studies/freedom2hear/infinite-scroll.png)
 
-![Content Moderation Platform – Infinite scroll](/case-studies/freedom2hear/infinite-scroll.png)
-
-![Content Moderation Platform – Onboarding](/case-studies/freedom2hear/onboarding.png)
+![Content Moderation Platform – Onboarding|Client onboarding experience (in-app flows and email comms) to support self-serve platform social media integrations and secure account management.](/case-studies/freedom2hear/onboarding.png)
 
 ---
 

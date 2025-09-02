@@ -12,6 +12,27 @@
   -webkit-text-fill-color: var(--accent-secondary);
 }
 
+/* Image container and caption styling */
+.markdownContent .imageContainer {
+  margin: 2rem 0;
+}
+
+.markdownContent .imageCaption {
+  color: var(--foreground);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  max-width: 100%;
+  margin-bottom: 6rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+.markdownContent .imageCaption {
+  text-align: left;
+}
+
+}
+
 .markdownContent img {
 }
 
