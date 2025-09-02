@@ -69,7 +69,7 @@ This was the first project where I had the opportunity to integrate the new CMS 
 ## Impact
 
 Oliver Bonas's new website was the winner of 
-### UK Ecommerce Award Winner **’Fashion & Apparel eCommerce Website of the Year 2021’**.
+### **UK Ecommerce Award** ’Fashion & Apparel eCommerce Website of the Year 2021’.
 
 {{stats:OB Website Performance|grid}}
 
