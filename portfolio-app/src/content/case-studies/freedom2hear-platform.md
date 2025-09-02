@@ -35,7 +35,7 @@ Working closely with Client Success and Engineering, I led the design of the pla
 
 ![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
 
-### With no direct access to end users, I adopted a lean insight-driven approach combining different research methodologies.
+### With no direct access to end users, I adopted a lean insight-driven approach combining different **research methodologies**.
 
 I partnered with client-facing teams, analysed competitor solutions, and ran user interviews with adjacent industry audiences to uncover insights. I translated these into solutions tailored to the three core user types: admins, social media/digital managers, and content moderators. Key features, shaped by user research, included:
 
