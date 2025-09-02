@@ -39,7 +39,7 @@ Working closely with Client Success and Engineering, I led the design of the pla
 
 I partnered with client-facing teams, analysed competitor solutions, and ran user interviews with adjacent industry audiences to uncover insights. I translated these into solutions tailored to the three core user types: admins, social media/digital managers, and content moderators. Key features, shaped by user research, included:
 
-![Content Moderation Platform - Posts View|An intuitive grouped view by posts that allows social media managers to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.](/case-studies/freedom2hear/grouped-views.png)
+![Content Moderation Platform - Posts View|An intuitive grouped view by posts that allows social media managers to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.](/case-studies/freedom2hear/posts-view.png)
 
 ![Content Moderation Platform - View as client|A "View as a client" mode that gives the Client Success team better visibility and control to manage enterprise accounts more effectively.](/case-studies/freedom2hear/post-view-details.png)
 
@@ -72,16 +72,11 @@ The new case study pages and testimonials build trust with prospects, while the 
 
 This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
 
-![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png)
 
-
----
-
-### Design System
-
-To support consistency and speed across both product and marketing assets, I developed a **shared design system**. This included scalable foundations for UI components, typography, and colour — with a strong focus on accessibility and maintainability.
-
-![Figma & Webflow Sync](/case-studies/freedom2hear/variables.png)
+| | |
+|:---|:---|
+|![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/gaming.png)|
+| ![Product Demo Dashboard](/case-studies/freedom2hear/gaming-detail.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/grouped-views.png) |
 
 ---
 
