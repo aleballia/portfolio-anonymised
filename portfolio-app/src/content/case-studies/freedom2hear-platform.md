@@ -56,7 +56,7 @@ I led creative direction for new marketing and sales initiatives, including sect
 ![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
 
-### Partnered with a creative agency to relaunch the **marketing website** with a refreshed brand. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
+### Partnered with a creative agency to relaunch the **marketing website** with a refreshed brand in under 3 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
 
 The new case study pages and testimonials build trust with prospects, while the product page serves to spotlight the human-touch, a distinctive USP versus competitors.
 
