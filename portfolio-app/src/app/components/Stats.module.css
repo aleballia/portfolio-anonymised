@@ -89,13 +89,6 @@
   }
 }
 
-@media (max-width: 480px) {
-  .statsContainer {
-    padding: 1rem;
-  }
+@media (max-width: 780px) {
 
-  
-  .statItem {
-    padding: 0.75rem;
-  }
 }
