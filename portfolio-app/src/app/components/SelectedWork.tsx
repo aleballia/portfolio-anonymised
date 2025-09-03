@@ -25,7 +25,7 @@ const SelectedWork: React.FC = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>, idx: number) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>, idx: number) => {
     // Only trigger hover on non-touch devices
     if (!('ontouchstart' in window)) {
       setCursor({ x: e.clientX + OFFSET_X, y: e.clientY + OFFSET_Y });
@@ -61,47 +61,42 @@ const SelectedWork: React.FC = () => {
         
         <div className={styles.workList}>
           {visibleCaseStudies.map((work, idx) => (
-            <div
-              className={styles.workTitle}
+            <Link
+              href={work.href}
               key={work.id}
+              className={styles.workTitle}
               onMouseMove={e => handleMouseMove(e, idx)}
-                onMouseEnter={() => handleMouseEnter(idx)}
-                onMouseLeave={() => handleMouseLeave()}
-              >
-                
-                {/* Work content */}
-                <div className={styles.workContent}>
-                  <Link
-                    href={work.href}
-                    className={styles.workButton}
-                    tabIndex={0}
-                    onFocus={() => handleFocus(idx)}
-                    onBlur={handleBlur}
-                    onClick={() => {
-                      // Save current scroll position before navigating to case study
-                      const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
-                      sessionStorage.setItem('scrollPosition', scrollPosition.toString());
-                    }}
-                  >
-                    <span className={'$(styles.workTitleText)'}>{work.title}</span>
-                  </Link>
-                  <div className={styles.workSubtitle}>
-                    {work.subtitle}
-                  </div>
-                </div>
-                                {/* Work image with hover animation */}
-                                <div className={styles.imageContainer}>
-                  <Image
-                    src={work.mainImage}
-                    alt={work.title}
-                    width={400}
-                    height={300}
-                    className={styles.workImage}
-                    aria-hidden="true"
-                  />
+              onMouseEnter={() => handleMouseEnter(idx)}
+              onMouseLeave={() => handleMouseLeave()}
+              onFocus={() => handleFocus(idx)}
+              onBlur={handleBlur}
+              onClick={() => {
+                // Save current scroll position before navigating to case study
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                sessionStorage.setItem('scrollPosition', scrollPosition.toString());
+              }}
+            >
+              {/* Work content */}
+              <div className={styles.workContent}>
+                <span className={styles.workTitleText}>{work.title}</span>
+                <div className={styles.workSubtitle}>
+                  {work.subtitle}
                 </div>
               </div>
-            ))}
+              
+              {/* Work image with hover animation */}
+              <div className={styles.imageContainer}>
+                <Image
+                  src={work.mainImage}
+                  alt={work.title}
+                  width={400}
+                  height={300}
+                  className={styles.workImage}
+                  aria-hidden="true"
+                />
+              </div>
+            </Link>
+          ))}
           {/* Floating preview image for desktop hover */}
           {hoveredIdx !== null && !('ontouchstart' in window) && (
             <Image
