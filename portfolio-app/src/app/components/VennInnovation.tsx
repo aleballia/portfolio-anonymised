@@ -163,7 +163,7 @@ const VennInnovation: React.FC<VennInnovationProps> = ({
                 }}
               >
                 <p className={'p'}>
-                Turning emerging technologies into bold, buildable solutions.
+                Turning bold ideas into cutting edge, patented technology.
                 </p>
               </motion.div>
 
