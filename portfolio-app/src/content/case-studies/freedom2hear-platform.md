@@ -56,9 +56,9 @@ I led creative direction for new marketing and sales initiatives, including sect
 ![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
 
-### Partnered with a creative agency to relaunch the **marketing website** with a refreshed brand in under 2 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
+### Partnered with a creative agency to relaunch and consolidate GoBubble into Freedom2hear under a refreshed brand and into a single marketing website in under 2 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service. 
 
-The new case study pages and testimonials build trust with prospects, while the product page serves to spotlight the human-touch, a distinctive USP versus competitors.
+The redesign and consolidation drove stronger organic performance and higher returning traffic.
 
 {{stats:Marketing Website Performance|grid}}
 
