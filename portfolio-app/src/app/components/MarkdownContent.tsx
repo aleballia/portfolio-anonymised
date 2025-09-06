@@ -57,16 +57,17 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
       }
     );
 
-    // Replace stats syntax: {{stats:title|layout}}
+    // Replace stats syntax: {{stats:title|layout|caption}}
     processed = processed.replace(
       /\{\{stats:([^}]+)\}\}/g,
       (match, content) => {
         const parts = content.split('|');
         const title = parts[0] || '';
         const layout = parts[1] || 'grid';
+        const caption = parts[2] || '';
         
         const statsId = `stats-${Math.random().toString(36).substr(2, 9)}`;
-        return `STATS_EMBED_${statsId}_${title}_${layout}_STATS_EMBED`;
+        return `STATS_EMBED_${statsId}_${title}_${layout}_${caption}_STATS_EMBED`;
       }
     );
     
@@ -77,9 +78,9 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
   const getStatsData = (title: string) => {
     const statsMap: Record<string, any[]> = {
       'Marketing Website Performance': [
-        { label: 'New Users from Organic Search', value: '740%', change: 'growth', changeType: 'positive' as const },
-        { label: 'Returning Users', value: '400%', change: 'increase', changeType: 'positive' as const },
-        { label: 'Views per Session', value: '+6%', change: 'improvement', changeType: 'positive' as const }
+        { label: 'New Users from Organic Search', value: '7', change: 'growth', changeType: 'positive' as const },
+        { label: 'Returning Users', value: '4', change: 'increase', changeType: 'positive' as const },
+        { label: 'Views per Session', value: '6%', change: 'improvement', changeType: 'positive' as const }
       ],
 
       'OB Website Performance': [
@@ -166,12 +167,12 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
             }
 
             // Handle stats embeds
-            const statsMatch = childrenString.match(/STATS_EMBED_([^_]+)_([^_]+)_([^_]*)_STATS_EMBED/);
+            const statsMatch = childrenString.match(/STATS_EMBED_([^_]+)_([^_]+)_([^_]*)_([^_]*)_STATS_EMBED/);
             if (statsMatch) {
-              const [, statsId, title, layout] = statsMatch;
+              const [, statsId, title, layout, caption] = statsMatch;
               
               try {
-                console.log('Stats embed found:', { statsId, title, layout });
+                console.log('Stats embed found:', { statsId, title, layout, caption });
                 
                 const statsData = getStatsData(title);
                 console.log('Stats data retrieved:', statsData);
@@ -187,6 +188,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                     title={title}
                     stats={statsData}
                     layout={layout as 'grid' | 'list'}
+                    caption={caption || undefined}
                   />
                 );
               } catch (error) {

@@ -69,6 +69,22 @@ I facilitated workshops across Tech, Ops, Marketing, and Client Success to align
 
 I was tasked with leading the Innovation Workstream, focused on identifying and validating new product opportunities. I developed a long-term innovation roadmap that balanced ambition and experimentation with commercial viability.
 
+---
+
+### Marketing
+
+I led design for new marketing and sales initiatives. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
+
+![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
+
+
+### Partnered with a creative agency to relaunch and consolidate GoBubble into Freedom2hear under a refreshed brand and into a single marketing website in under 2 months.
+
+{{stats|Marketing Website Performance}}
+
+![Marketing Website](/case-studies/freedom2hear/homepage.png)
+![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
+![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
 
 
 ---

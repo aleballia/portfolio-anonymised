@@ -15,9 +15,10 @@ interface StatsProps {
   title?: string;
   stats: StatItem[];
   layout?: 'grid' | 'list';
+  caption?: string;
 }
 
-const Stats: React.FC<StatsProps> = ({ title, stats, layout = 'grid' }) => {
+const Stats: React.FC<StatsProps> = ({ title, stats, layout = 'grid', caption }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true });
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -79,52 +80,59 @@ const Stats: React.FC<StatsProps> = ({ title, stats, layout = 'grid' }) => {
   };
 
   return (
-    <div ref={ref} className={styles.statsContainer}>
-      <div className={`${styles.statsGrid} ${layout === 'list' ? styles.statsList : ''}`}>
-        {stats.map((stat, index) => {
-          const { number, suffix, isNegative } = parseValue(stat.value);
-          
-          return (
-            <motion.div
-              key={index}
-              className={styles.statItem}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-              transition={{ 
-                duration: 0.6, 
-                ease: "easeOut",
-                delay: index * 0.1 
-              }}
-            >
-              <div className={styles.statValue}>
-                <motion.span
-                  className={styles.statNumber}
-                  initial={{ scale: 0.8 }}
-                  animate={isInView ? { } : { }}
-                  transition={{ 
-                    duration: 0.8, 
-                    ease: "easeOut",
-                    delay: index * 0.1 + 0.3
-                  }}
-                >
-                  <AnimatedCounter 
-                    value={number} 
-                    suffix={suffix}
-                    isVisible={isInView}
-                    delay={index * 0.1 + 0.5}
-                    isNegative={isNegative}
-                  />
-                </motion.span>
-              </div>
-              
-              <div className={styles.statDetails}>
-                <div className={styles.statLabel}>{stat.label}</div>
+    <div ref={ref} className={styles.statsWrapper}>
+      <div className={styles.statsContainer}>
+        <div className={`${styles.statsGrid} ${layout === 'list' ? styles.statsList : ''}`}>
+          {stats.map((stat, index) => {
+            const { number, suffix, isNegative } = parseValue(stat.value);
+            
+            return (
+              <motion.div
+                key={index}
+                className={styles.statItem}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                transition={{ 
+                  duration: 0.6, 
+                  ease: "easeOut",
+                  delay: index * 0.1 
+                }}
+              >
+                <div className={styles.statValue}>
+                  <motion.span
+                    className={styles.statNumber}
+                    initial={{ scale: 0.8 }}
+                    animate={isInView ? { } : { }}
+                    transition={{ 
+                      duration: 0.8, 
+                      ease: "easeOut",
+                      delay: index * 0.1 + 0.3
+                    }}
+                  >
+                    <AnimatedCounter 
+                      value={number} 
+                      suffix={suffix}
+                      isVisible={isInView}
+                      delay={index * 0.1 + 0.5}
+                      isNegative={isNegative}
+                    />
+                  </motion.span>
+                </div>
+                
+                <div className={styles.statDetails}>
+                  <div className={styles.statLabel}>{stat.label}</div>
 
-              </div>
-            </motion.div>
-          );
-        })}
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
+      {caption && (
+        <div className={`caption ${styles.statsCaption}`}>
+          {caption}
+        </div>
+      )}
     </div>
   );
 };
@@ -182,8 +190,9 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, suffix, isVisi
 
   return (
     <span>
-      {isNegative ? '-' : '+'}
+      {suffix === '%' ? (isNegative ? '-' : '+') : ''}
       {formatNumber(count)}{suffix}
+      {suffix === '' && value > 1 ? 'x' : ''}
     </span>
   );
 };

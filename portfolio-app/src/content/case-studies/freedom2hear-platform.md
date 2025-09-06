@@ -23,13 +23,12 @@ My work also included leading the **relaunch of the marketing website** to refle
 - **Designed core experiences**: onboarding, moderation hub, reporting, account tiers and admin tools.
 - Led **UX research and competitive analysis** to inform solutions.
 - Defined **key user types and workflows** using insights from Sales and Client Success teams.
-- Directed creative execution for **brand, marketing, demo, and sales enablement materials**.
 - Built a new **product demo** experience to support Sales and reduce dev dependencies.
 - **Managed and mentored designers**, providing direction and supporting their professional growth.
 
 ---
 
-### Product Design
+### Content moderation platform
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
 
@@ -49,21 +48,6 @@ I partnered with client-facing teams, analysed competitor solutions, and ran use
 
 ---
 
-### Marketing
-
-I led creative direction for new marketing and sales initiatives, including sector-specific demos and content strategies. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
-
-![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
-
-
-### Partnered with a creative agency to relaunch and consolidate GoBubble into Freedom2hear under a refreshed brand and into a single marketing website in under 2 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
-
-![Marketing Website](/case-studies/freedom2hear/homepage.png)
-![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
-![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
-
----
-
 ### I designed and built a no-code **product demo** in Webflow to enable the Sales team to personalise walkthroughs across sectors such as media, sports, and gaming.
 
 This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
@@ -73,6 +57,24 @@ This new approach significantly **reduced production time**, made the demo easie
 |:---|:---|
 |![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/gaming.png)|
 | ![Product Demo Dashboard](/case-studies/freedom2hear/gaming-detail.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/grouped-views.png) |
+
+---
+
+### Website Redesign
+
+I led design for marketing and sales initiatives. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
+
+![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
+
+### Partnered with a creative agency to consolidate GoBubble into Freedom2hear through the relaunch of a single marketing website, designed and built in under 2 months.
+
+The consolidation successfully captured the combined audience of both brands from organic search and achieved significantly higher visibility for Freedom2hear from a small baseline, while the redesign improved content discoverability.
+
+{{stats:Marketing Website Performance|grid|GA4: Apr-Aug '25 vs Previous Period}}
+
+![Marketing Website](/case-studies/freedom2hear/homepage.png)
+![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
+![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
 
 ---
 
