@@ -14,7 +14,7 @@ Summary: Freedom2hear is a B2B SaaS platform using emotion-based, context-aware 
 
 I joined at this pivotal moment as the **founding designer**, tasked with leading **0–1 product design** to serve moderators, client success teams, social media and community managers across industries like sports, gaming, and entertainment.
 
-My work also included leading the **relaunch of the marketing website** to reflect the maturity of the technology and drive organic growth.
+My work also included leading the **relaunch of the marketing website** to reflect the maturity of the technology and drive growth.
 
 ---
 
@@ -56,11 +56,7 @@ I led creative direction for new marketing and sales initiatives, including sect
 ![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
 
-### Partnered with a creative agency to relaunch and consolidate GoBubble into Freedom2hear under a refreshed brand and into a single marketing website in under 2 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service. 
-
-The redesign and consolidation drove stronger organic performance and higher returning traffic.
-
-{{stats:Marketing Website Performance|grid}}
+### Partnered with a creative agency to relaunch and consolidate GoBubble into Freedom2hear under a refreshed brand and into a single marketing website in under 2 months. I redesigned the information architecture, adding richer, deeper content to reflect the maturity of the technology and service.
 
 ![Marketing Website](/case-studies/freedom2hear/homepage.png)
 ![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
