@@ -70,8 +70,6 @@ I led design for marketing and sales initiatives. As part of this work, I delive
 
 The consolidation successfully captured the combined audience of both brands from organic search and achieved significantly higher visibility for Freedom2hear from a small baseline, while the redesign improved content discoverability.
 
-{{stats:Marketing Website Performance|grid|GA4: Apr-Aug '25 vs Previous Period}}
-
 ![Marketing Website](/case-studies/freedom2hear/homepage.png)
 ![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
 ![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
