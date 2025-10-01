@@ -1,9 +1,12 @@
 .heroParagraph {
   max-width: 40%;
+  min-width: 500px;
 }
 
 @media (max-width: 768px) {
   .heroParagraph {
     max-width: 100%;
+    min-width: 100%;
+
   }
 }

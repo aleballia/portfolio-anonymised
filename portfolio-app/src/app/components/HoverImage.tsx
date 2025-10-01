@@ -73,12 +73,12 @@ const HoverImage: React.FC<HoverImageProps> = ({
       
       <AnimatePresence>
         {showImage && (
-          <motion.div
+          <motion.span
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-                        style={{
+            style={{
               position: 'fixed',
               left: isMobile ? '50%' : mousePosition.x + 20,
               top: isMobile ? '50%' : mousePosition.y - 100,
@@ -90,6 +90,7 @@ const HoverImage: React.FC<HoverImageProps> = ({
               boxShadow: '0 10px 25px rgba(0, 0, 0, 0.15)',
               maxWidth: isMobile ? '90vw' : 'none',
               maxHeight: isMobile ? '60vh' : 'none',
+              display: 'block'
             }}
           >
             <Image
@@ -107,7 +108,7 @@ const HoverImage: React.FC<HoverImageProps> = ({
                 minWidth: '200px'
               }}
             />
-          </motion.div>
+          </motion.span>
         )}
       </AnimatePresence>
     </span>

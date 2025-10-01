@@ -26,7 +26,7 @@ When I joined, design was not recognised as a strategic driver, but treated as a
 
 ---
 
-### Innovation
+### Leading the Innovation Workstream
 
 As part of the senior leadership team, I drove the **adoption of design thinking as a strategic framework**, bridging business priorities with user needs and product-market fit. I facilitated workshops across Tech, Ops, Marketing, and Client Success to align on **goals, identify opportunity spaces, and reduce silos**.
 
