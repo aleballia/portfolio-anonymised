@@ -28,11 +28,14 @@ My work also included leading the **relaunch of the marketing website** to refle
 
 ---
 
-### Content moderation platform
+### 0-1 Product Design
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
 
 ![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
+
+
+![Content Moderation Platform – Design System](/case-studies/freedom2hear/design-system.png)
 
 ### With no direct access to end users, I adopted a lean insight-driven approach combining different **research methodologies**.
 

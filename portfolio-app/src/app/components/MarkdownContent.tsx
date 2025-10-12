@@ -238,8 +238,8 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                   style={{ display: 'block', margin: '1rem 0' }}
                 />
                 {caption && (
-                  <figcaption className={`h5 ${styles.imageCaption}`}>
-                    {caption}
+                  <figcaption className={`caption ${styles.imageCaption}`}>
+                    <b>Feature:</b> {caption}
                   </figcaption>
                 )}
               </div>

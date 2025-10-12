@@ -21,9 +21,10 @@
   color: var(--foreground);
   font-weight: 400;
   letter-spacing: -0.04em;
-  max-width: 100%;
+  max-width: 520px;
   margin-bottom: 6rem;
-  text-align: center;
+  text-align: left;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
