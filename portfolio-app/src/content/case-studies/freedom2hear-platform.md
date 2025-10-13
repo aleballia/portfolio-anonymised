@@ -16,62 +16,69 @@ I joined at this pivotal moment as the **founding designer**, tasked with leadin
 
 My work also included leading the **relaunch of the marketing website** to reflect the maturity of the technology and drive growth.
 
+![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
+
 ---
 
 ## Contributions
-
-- **Designed core experiences**: onboarding, moderation hub, reporting, account tiers and admin tools.
-- Led **UX research and competitive analysis** to inform solutions.
-- Defined **key user types and workflows** using insights from Sales and Client Success teams.
-- Built a new **product demo** experience to support Sales and reduce dev dependencies.
-- **Managed and mentored designers**, providing direction and supporting their professional growth.
-
----
 
 ### 0-1 Product Design
 
 Working closely with Client Success and Engineering, I led the design of the platform’s foundational workflows — including **onboarding, moderation tools, reporting dashboards, and admin tools**.
 
-![Content Moderation Platform](/case-studies/freedom2hear/dashboard.png)
+![Before](/case-studies/freedom2hear/before.png)
 
+### Research
 
-![Content Moderation Platform – Design System](/case-studies/freedom2hear/design-system.png)
+I led UX research and competitive analysis to inform solutions.
 
-### With no direct access to end users, I adopted a lean insight-driven approach combining different **research methodologies**.
+Without direct access to end users or research budget, I relied on a lean mix of research, intuition, and experience. In a startup, you can’t research everything, so I focused on making informed, pragmatic decisions that balanced speed, resources, and scalability.
 
-I partnered with client-facing teams, analysed competitor solutions, and ran user interviews with adjacent industry audiences to uncover insights. I translated these into solutions tailored to the three core user types: admins, social media/digital managers, and content moderators. Key features, shaped by user research, included:
+I partnered with client-facing teams, analysed competitor solutions, and ran user interviews with adjacent industry audiences to uncover insights and define key pillars that would guide our decision making and prioritisation of tasks.
+
+{{keyinfo:Pillars|grid|}}
+
+### Key Features
+
+![Content Moderation Platform – Design System|New design system with enhanced colours accessibility guidelines, semantic styles structure and refreshed branding.](/case-studies/freedom2hear/design-system.png)
 
 ![Content Moderation Platform - Posts View|An intuitive grouped view by posts that allows social media managers to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.](/case-studies/freedom2hear/posts-view.png)
 
-![Content Moderation Platform - View as client|A "View as a client" mode that gives the Client Success team better visibility and control to manage enterprise accounts more effectively.](/case-studies/freedom2hear/post-view-details.png)
+![Content Moderation Platform - View as Client|A "View as a client" mode that gives the Client Success team better visibility and control to manage accounts more effectively and securely.](/case-studies/freedom2hear/post-view-details.png)
 
-![Content Moderation Platform – Infinite scroll|Infinite scroll in the moderator dashboard to speed up manual moderation and enable real-time monitoring of AI results during peak traffic on client social channels.](/case-studies/freedom2hear/infinite-scroll.png)
+![Content Moderation Platform - Media Moderation|Creating a healthier and safer online environment for clients is as important as ensuring manual moderators operate in total safety. Media content, often mentioned as having the most impact on their mental health, is hidden by default. The moderator can choose not to see the content.](/case-studies/freedom2hear/media.png)
 
-![Content Moderation Platform – Onboarding|Client onboarding experience (in-app flows and email comms) to support self-serve platform social media integrations and secure account management.](/case-studies/freedom2hear/onboarding.png)
+![Content Moderation Platform – Infinite Scroll|Infinite scroll in the moderator dashboard to speed up manual moderation and enable manual moderation at speed during peak engagement.](/case-studies/freedom2hear/infinite-scroll.png)
+
+![Content Moderation Platform – Onboarding Flow|Client onboarding experience to support self-serve platform social media integrations and secure account management.](/case-studies/freedom2hear/onboarding-flow.png)
+
+![Content Moderation Platform – Social Media Integrations|Social media platforms integration. The previous onboarding process required manual setup by the Client Success team. The new solution empowered clients to connect social media accounts independently, increasing usage of the platform and reducing operational overhead.](/case-studies/freedom2hear/onboarding.png)
 
 ---
 
-### I designed and built a no-code **product demo** in Webflow to enable the Sales team to personalise walkthroughs across sectors such as media, sports, and gaming.
+### Product Demo
 
-This new approach significantly **reduced production time**, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
+I designed and built a no-code product demo in Webflow to enable the Sales team to personalise walkthroughs across sectors such as media, sports, and gaming.
+
+This new approach significantly reduced production time, made the demo easier to update, and allowed the team to test sector-specific messaging with less friction.
 
 
 | | |
 |:---|:---|
-|![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/gaming.png)|
-| ![Product Demo Dashboard](/case-studies/freedom2hear/gaming-detail.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/grouped-views.png) |
+|![Product Demo Dashboard](/case-studies/freedom2hear/demo-dashboard.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/gaming-detail.png)|
+| ![Product Demo Dashboard](/case-studies/freedom2hear/gaming.png) | ![Product Demo Dashboard](/case-studies/freedom2hear/grouped-views.png) |
 
 ---
 
-### Website Redesign
+### Marketing Website
 
 I led design for marketing and sales initiatives. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
 
 ![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
 
-### Partnered with a creative agency to consolidate GoBubble into Freedom2hear through the relaunch of a single marketing website, designed and built in under 2 months.
+Partnered with a creative agency to consolidate GoBubble into Freedom2hear through the relaunch of a single marketing website, designed and built in under 2 months.
 
-The consolidation successfully captured the combined audience of both brands from organic search and achieved significantly higher visibility for Freedom2hear from a small baseline, while the redesign improved content discoverability.
+The consolidation successfully captured the combined audience of both brands from organic search and achieved significantly higher visibility for Freedom2hear from a small baseline, while early results, as monitored on GA4 and Hotjar, show improved scroll on the homepage, increased engagement rate and "Book a demo" click-through.
 
 ![Marketing Website](/case-studies/freedom2hear/homepage.png)
 ![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
@@ -93,4 +100,4 @@ The consolidation successfully captured the combined audience of both brands fro
 
 This was a hands-on, high-impact product design challenge. I learned how to ship quickly using a lean, iterative approach, bring clarity to ambiguity, and **foster alignment across a fully remote, globally distributed team**.
 
-Creating a user-centred experience without direct access to primary users was a key challenge. I had to rely on indirect signals — including insights from Client Success and Sales teams — and shape the product designed through the lens of secondary audiences such as marketing managers in adjacent industries. This approach ensured we built a product grounded in **real-world user needs**, even in the absence of formal research processes.
+Creating a user-centred experience without direct access to primary users was a key challenge. With no research budget or dedicated resources, I relied on indirect signals and insights from secondary audiences to shape the product. I established a lean decision-making process that kept choices grounded in real user needs while balancing commercial expectations and business impact.

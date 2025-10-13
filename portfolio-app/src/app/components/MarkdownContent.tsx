@@ -9,6 +9,7 @@ import styles from './MarkdownContent.module.css';
 import Video from './Video';
 import VennInnovation from './VennInnovation';
 import Stats from './Stats';
+import KeyInfo from './KeyInfo';
 
 interface MarkdownContentProps {
   content: string;
@@ -70,6 +71,20 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
         return `STATS_EMBED_${statsId}_${title}_${layout}_${caption}_STATS_EMBED`;
       }
     );
+
+    // Replace keyinfo syntax: {{keyinfo:title|layout|caption}}
+    processed = processed.replace(
+      /\{\{keyinfo:([^}]+)\}\}/g,
+      (match, content) => {
+        const parts = content.split('|');
+        const title = parts[0] || '';
+        const layout = parts[1] || 'grid';
+        const caption = parts[2] || '';
+        
+        const keyInfoId = `keyinfo-${Math.random().toString(36).substr(2, 9)}`;
+        return `KEYINFO_EMBED_${keyInfoId}_${title}_${layout}_${caption}_KEYINFO_EMBED`;
+      }
+    );
     
     return processed;
   }, [content]);
@@ -90,6 +105,20 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
       };
     
     return statsMap[title] || statsMap['Performance Metrics'];
+  };
+
+  // Dynamic key info data based on title
+  const getKeyInfoData = (title: string) => {
+    const keyInfoMap: Record<string, any[]> = {
+      'Pillars': [
+        { heading: 'Operational Overhead', description: 'One of the key pillars of the redesign was the ability to reduce operational overhead for the Client Success team.' },
+        { heading: 'Moderation Speed', description: 'Manual moderators should moderate at speed during peak engagement, reducing the time to review content and ensure increased accuracy.' },
+        { heading: 'Client Control', description: 'Clients to have full control over their accounts and moderation settings, manage their social channels with transparency and autonomy.' },
+        { heading: 'User Needs Focus', description: 'Segmenting user types by their needs (e.g. client success team, social media/digital managers, manual moderators), and providing tailored experiences.' },
+      ],
+    };
+    
+    return keyInfoMap[title] || [];
   };
 
   const openGallery = (imageIndex: number) => {
@@ -196,6 +225,37 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                 return <div>Error: Failed to load stats for {title}</div>;
               }
             }
+
+            // Handle keyinfo embeds
+            const keyInfoMatch = childrenString.match(/KEYINFO_EMBED_([^_]+)_([^_]+)_([^_]*)_([^_]*)_KEYINFO_EMBED/);
+            if (keyInfoMatch) {
+              const [, keyInfoId, title, layout, caption] = keyInfoMatch;
+              
+              try {
+                console.log('KeyInfo embed found:', { keyInfoId, title, layout, caption });
+                
+                const keyInfoData = getKeyInfoData(title);
+                console.log('KeyInfo data retrieved:', keyInfoData);
+                
+                if (!keyInfoData || !Array.isArray(keyInfoData)) {
+                  console.error('Invalid keyinfo data for title:', title, keyInfoData);
+                  return <div>Error: Invalid keyinfo data for {title}</div>;
+                }
+                
+                return (
+                  <KeyInfo
+                    key={keyInfoId}
+                    title={title}
+                    items={keyInfoData}
+                    layout={layout as 'grid' | 'list'}
+                    caption={caption || undefined}
+                  />
+                );
+              } catch (error) {
+                console.error('Error processing keyinfo embed:', error);
+                return <div>Error: Failed to load keyinfo for {title}</div>;
+              }
+            }
             
             return <p className="mb-6 leading-relaxed">{children}</p>;
           },
@@ -239,7 +299,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
                 />
                 {caption && (
                   <figcaption className={`caption ${styles.imageCaption}`}>
-                    <b>Feature:</b> {caption}
+                    <div className="font-bold">Feature</div><div>{caption}</div>
                   </figcaption>
                 )}
               </div>

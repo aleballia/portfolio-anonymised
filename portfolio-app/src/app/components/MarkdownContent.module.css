@@ -21,10 +21,11 @@
   color: var(--foreground);
   font-weight: 400;
   letter-spacing: -0.04em;
-  max-width: 520px;
   margin-bottom: 6rem;
   text-align: left;
-  align-items: center;
+  align-items: right;
+  padding: 1.5rem 2rem ;
+  border: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
@@ -35,6 +36,8 @@
 }
 
 .markdownContent img {
+  border: 1px solid var(--border-light);
+  background-color: #ffffff;
 }
 
 .markdownContent table {

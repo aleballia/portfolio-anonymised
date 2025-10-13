@@ -24,6 +24,10 @@ When I joined, design was not recognised as a strategic driver, but treated as a
 - Established an **innovation framework** that balanced experimentation with commercial viability.
 - Co-authored **board and investor materials** that supported two **successful funding rounds** around a shared product vision and producing compelling board and investor materials.
 
+![Strategy](/case-studies/freedom2hear/strategy-workshop.png)
+![Strategy](/case-studies/freedom2hear/strategy-workshop-2.png)
+
+
 ---
 
 ### Leading the Innovation Workstream
