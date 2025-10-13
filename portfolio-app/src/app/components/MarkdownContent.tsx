@@ -111,7 +111,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
   const getKeyInfoData = (title: string) => {
     const keyInfoMap: Record<string, any[]> = {
       'Pillars': [
-        { heading: 'Operational Overhead', description: 'One of the key pillars of the redesign was the ability to reduce operational overhead for the Client Success team.' },
+        { heading: 'Operational Overhead', description: 'One of the key pillars of the redesign was the ability to reduce operational overhead for the Client Success team by automating manual tasks and increasing efficiency.' },
         { heading: 'Moderation Speed', description: 'Manual moderators should moderate at speed during peak engagement, reducing the time to review content and ensure increased accuracy.' },
         { heading: 'Client Control', description: 'Clients to have full control over their accounts and moderation settings, manage their social channels with transparency and autonomy.' },
         { heading: 'User Needs Focus', description: 'Segmenting user types by their needs (e.g. client success team, social media/digital managers, manual moderators), and providing tailored experiences.' },

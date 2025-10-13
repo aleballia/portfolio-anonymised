@@ -4,7 +4,7 @@ Selected work: Yes
 Role: Innovation & Design Lead
 Company: Freedom2hear
 Tags: Innovation, AI, Growth, Leadership, Startup 
-Date: 2025
+Date: 2024-2025
 Tools: Figma, Webflow, Cursor
 
 Summary: Freedom2hear is a privately owned startup developing emotion-based, context-aware AI to understand human interaction across digital environments. I embedded design at the leadership level, driving strategy and innovation to position the company for growth.
