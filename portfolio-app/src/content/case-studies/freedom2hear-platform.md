@@ -40,16 +40,22 @@ I partnered with client-facing teams, analysed competitor solutions, and ran use
 
 ### Key Features
 
+#### 01 – Design System
 ![Content Moderation Platform – Design System|New design system with enhanced colours accessibility guidelines, semantic styles structure and refreshed branding.](/case-studies/freedom2hear/design-system.png)
 
+#### 02 – Posts List Page
 ![Content Moderation Platform - Posts View|An intuitive grouped view by posts that allows social media managers to review moderation outcomes and toxicity scores at the individual post level, giving faster access to insights and greater control.](/case-studies/freedom2hear/posts-view.png)
 
+#### 03 – View as client
 ![Content Moderation Platform - View as Client|A "View as a client" mode that gives the Client Success team better visibility and control to manage accounts more effectively and securely.](/case-studies/freedom2hear/post-view-details.png)
 
+#### 04 – Media Moderation
 ![Content Moderation Platform - Media Moderation|Creating a healthier and safer online environment for clients is as important as ensuring manual moderators operate in total safety. Media content, often mentioned as having the most impact on their mental health, is hidden by default. The moderator can choose not to see the content.](/case-studies/freedom2hear/media.png)
 
+#### 05 – Infinite Scroll
 ![Content Moderation Platform – Infinite Scroll|Infinite scroll in the moderator dashboard to speed up manual moderation and enable manual moderation at speed during peak engagement.](/case-studies/freedom2hear/infinite-scroll.png)
 
+#### 06 – Onboarding Flow
 ![Content Moderation Platform – Onboarding Flow|Client onboarding experience to support self-serve platform social media integrations and secure account management.](/case-studies/freedom2hear/onboarding-flow.png)
 
 ![Content Moderation Platform – Social Media Integrations|Social media platforms integration. The previous onboarding process required manual setup by the Client Success team. The new solution empowered clients to connect social media accounts independently, increasing usage of the platform and reducing operational overhead.](/case-studies/freedom2hear/onboarding.png)

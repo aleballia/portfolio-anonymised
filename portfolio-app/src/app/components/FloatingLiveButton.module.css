@@ -112,7 +112,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100dvw;
     display: flex;
     justify-content: center;
     padding: 0;
@@ -121,7 +121,7 @@
 
   /* At top: full width, centered */
   .atTop .floatingLiveBtn {
-    width: 100vw !important;
+    width: 100dvw !important;
     border-radius: 0 !important;
     padding-left: 0 !important;
     padding-right: 0 !important;

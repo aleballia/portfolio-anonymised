@@ -282,6 +282,7 @@ body {
   /* Debug: Check if font variable is working */
   font-feature-settings: "liga" 1, "kern" 1;
   font-weight: 400;
+  overflow-x: hidden; /* Prevent stray horizontal scroll */
 }
 
 /* Test font loading */

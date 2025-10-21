@@ -136,6 +136,7 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
           h1: ({ children }) => <h2 className="h2 mb-8 mt-12">{children}</h2>,
           h2: ({ children }) => <h3 className="h2 font-normal mb-4 mt-12">{children}</h3>,
           h3: ({ children }) => <h4 className="h3 font-normal mb-4 mt-12">{children}</h4>,
+          h4: ({ children }) => <h5 className="h4 font-normal mb-4 mt-12">{children}</h5>,
           p: ({ children }) => {
             // Check if this paragraph contains only an image (to avoid p > div nesting)
             const childArray = React.Children.toArray(children);

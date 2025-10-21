@@ -12,16 +12,21 @@
   -webkit-text-fill-color: var(--accent-secondary);
 }
 
+.markdownContent h5 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
 /* Image container and caption styling */
 .markdownContent .imageContainer {
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 .markdownContent .imageCaption {
   color: var(--foreground);
   font-weight: 400;
   letter-spacing: -0.04em;
-  margin-bottom: 6rem;
+  margin-bottom: 5rem;
   text-align: left;
   align-items: right;
   padding: 1.5rem 2rem ;

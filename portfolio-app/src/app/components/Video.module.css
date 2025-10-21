@@ -195,8 +195,8 @@
 
 /* Full width variant */
 .videoContainer.fullWidth {
-  margin-left: calc(-50vw + 50%);
-  width: 100vw;
+  margin-left: calc(-50dvw + 50%);
+  width: 100dvw;
   padding: 0 1rem;
 }
 

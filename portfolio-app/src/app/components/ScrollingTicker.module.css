@@ -1,6 +1,6 @@
 .tickerContainer {
-  width: calc(100vw - 1px);
-  margin-left: calc(-50vw + 50% + 0.5px);
+  width: calc(100dvw - 1px);
+  margin-left: calc(-50dvw + 50% + 0.5px);
   position: relative;
   white-space: nowrap;
   background: transparent;
