@@ -25,7 +25,7 @@ The project was conceived as a vehicle for cross-disciplinary collaboration and 
 
 ## Live Event
 
-I co-directed Inertia: Prelude to Twiceful Mind, an immersive audio-sensory experience combining digital art projections, installation art, and live music at Camden People's Theatre. Working alongside Black Lune, we transformed the space into an environment where the audience could experience the music spatially.
+I co-directed Inertia: Prelude to Twiceful Mind, an immersive audio-sensory experience combining digital art projections, installation art, and live music at Camden People's Theatre. Working alongside Black Lune, we transformed the space into an interactive environment where the audience could trigger sounds through physical objects embedded in the installation.
 
 I managed production end-to-end — venue sourcing, artist coordination, and event promotion.
 
@@ -69,7 +69,7 @@ The animated music video was created in collaboration with motion  designers [Mo
 
 ### Print
 
-To extend the project into the physical world, Twiceful Mind co-founder, Matteo, worked with traditional printmaking techniques at the Stamperia d'Arte Roberto Giudici. Using etching (acquaforte) and aquatint methods, we produced two original prints inspired by the Inertia artwork.
+To extend the project into the physical world, Twiceful Mind's co-founder, Matteo Galesi, worked with traditional printmaking techniques at the Stamperia d'Arte Roberto Giudici. Using etching (acquaforte) and aquatint methods, we produced two original prints inspired by song.
 
 The 'Inertia' aquatint was later exhibited as part of the 'Tomorrow's World' exhibition at Atom Gallery, London.
 
