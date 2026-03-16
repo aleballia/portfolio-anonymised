@@ -6,13 +6,22 @@ Company: Twiceful Mind
 Tags: Music, Digital Art, Installation, Performance
 Date: 2018
 Tools: Various Tools
-Summary: Twiceful Mind is a multidisciplinary music project built around the intersection of electronic music, visual art, and live performance. The aim was to develop a cohesive creative work that operated across multiple formats — music release, animated video, live event, and physical print.
+Summary: Twiceful Mind is a multidisciplinary music project built around the intersection of music, visual art, and live performance. The aim was to develop a cohesive creative work that operated across multiple formats — music release, animated video, live event, and physical print.
 
 ## Backstory
 
-The project was conceived as a vehicle for cross-disciplinary collaboration. I worked with motion graphic designers Monica Presti and Andrea Stragapede on the animated music video, and with installation artist Jelka (Black Lune) on the live event.
+The project was conceived as a vehicle for cross-disciplinary collaboration and to accompany the release of Twiceful Mind's first single, "Inertia". The track, which combines orchestral and electronic arrangements, was distributed across Spotify, Apple Music, iTunes, and YouTube, supported by a press campaign that earned positive coverage.
 
-I defined the visual identity from the ground up — logo, custom pixel-style typeface, colour palette, photography — positioning the project at the intersection of electronic music and contemporary art. I also designed and built the project website, social assets, and all print collateral, maintaining a consistent visual language across every touchpoint.
+<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/349915867&color=%23343434&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" style="margin-bottom:2rem"></iframe>
+
+
+<div class="text-4xl leading-tight quote-block">
+
+  <p class="leading-tight">
+    “With electronica providing subtle currents of emotion, the brass and strings imbue the track with a sense of grandeur, whilst the vocals provide layers of sublime humanity to the overall lush and sweeping sound.”  — Mark Buckley, Analogue Trash
+  </p>
+</div>
+
 
 ## Live Event
 
@@ -38,21 +47,6 @@ I managed production end-to-end — venue sourcing, artist coordination, and eve
     <img src="/case-studies/twicefulmind/event-4.jpg" alt="Inertia at Camden People's Theatre">
   </div>
 </div>
-
----
-
-## Music
-
-I co-produced and released Inertia, combining orchestral and electronic arrangements. The track was distributed across Spotify, Apple Music, iTunes, and YouTube, supported by a press campaign that earned positive coverage.
-
-<div class="text-4xl leading-tight quote-block">
-
-  <p class="leading-tight">
-    “With electronica providing subtle currents of emotion, the brass and strings imbue the track with a sense of grandeur, whilst the vocals provide layers of sublime humanity to the overall lush and sweeping sound.”  — Mark Buckley, Analogue Trash
-  </p>
-</div>
-
-<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/349915867&color=%23343434&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true" style="margin-bottom:2rem"></iframe>
 
 ---
 
