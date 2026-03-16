@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Rock_Salt } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
@@ -42,7 +44,7 @@ export default function RootLayout({
         <Script src="https://scripts.simpleanalyticscdn.com/latest.js" strategy="afterInteractive" />
       </head>
       <body
-        className={`${inter.variable} ${rockSalt.variable} antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${rockSalt.variable} antialiased`}
       >
         <ThemeProvider>
           {children}

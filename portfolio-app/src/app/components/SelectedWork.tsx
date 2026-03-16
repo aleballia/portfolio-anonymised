@@ -9,13 +9,25 @@ import { getAllCaseStudies } from "../../lib/caseStudies";
 const OFFSET_X = 32;
 const OFFSET_Y = 0;
 
-const SelectedWork: React.FC = () => {
+interface SelectedWorkProps {
+  compact?: boolean;
+  heading?: string;
+  excludeProjectId?: string;
+}
+
+const SelectedWork: React.FC<SelectedWorkProps> = ({
+  compact = false,
+  heading = "Selected projects",
+  excludeProjectId,
+}) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [isDesktop, setIsDesktop] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth >= 920 : true);
 
-  // Get filtered case studies (excluding hidden ones)
-  const visibleCaseStudies = getAllCaseStudies();
+  // Get filtered case studies (excluding hidden ones and optionally the current project)
+  const visibleCaseStudies = getAllCaseStudies().filter(
+    (work) => !excludeProjectId || work.id !== excludeProjectId
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -57,9 +69,9 @@ const SelectedWork: React.FC = () => {
 
   return (
     <>
-      <h2 className="heading-section h4">Selected projects</h2>
+      <h2 className="heading-section h4">{heading}</h2>
         
-        <div className={styles.workList}>
+        <div className={`${styles.workList} ${compact ? styles.compact : ""}`}>
           {visibleCaseStudies.map((work, idx) => (
             <Link
               href={work.href}

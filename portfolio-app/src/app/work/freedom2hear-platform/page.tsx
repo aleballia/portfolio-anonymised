@@ -64,6 +64,7 @@ export default async function Freedom2hearCaseStudy() {
       <ProjectNavigation
         currentProject={caseStudy}
         allProjects={allCaseStudies}
+        hideAdjacent
       />
 
       <FloatingLiveButton liveLink={localContent?.liveLink || caseStudy.liveLink || ''} />

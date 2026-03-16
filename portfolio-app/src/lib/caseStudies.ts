@@ -62,6 +62,16 @@ export const caseStudies: CaseStudy[] = [
     hoverMessage: 'Ecommerce',
   },
   {
+    id: 'twicefulmind-inertia',
+    title: 'Twiceful Mind — Inertia',
+    subtitle: 'A Multi-Disciplinary Project Combining Music, Digital Art & Installation Art',
+    href: '/work/twicefulmind-inertia',
+    contentFile: 'twicefulmind-inertia.md',
+    mainImage: '/work/twicefulmind-inertia.jpg',
+    liveLink: 'https://www.twicefulmind.com/inertia',
+    hoverMessage: 'Music, Art & Installation'
+  },
+  {
     id: 'myfujifilm',
     title: 'MyFujifilm',
     subtitle: 'Ecommerce Product Design & Development for a Global Brand – Tom&Co',

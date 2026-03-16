@@ -1,0 +1,89 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  z-index: 50;
+  transition: opacity 0.35s ease;
+}
+
+.backdropClosing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sheet {
+  width: 100%;
+  height: 100vh;
+  background: var(--background);
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  animation: grow-height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  bottom: 0;
+  z-index: 1000;
+  position: absolute;
+}
+
+.sheetClosing {
+  animation: shrink-height 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.inner {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.closeButton {
+  border: none;
+  background: none;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  padding: 0.25rem;
+}
+
+.list {
+  padding: 1.5rem 0 0;
+  flex: 1;
+}
+
+@keyframes grow-height {
+  from {
+    height: 20px;
+  }
+  to {
+    height: 100vh;
+  }
+}
+
+@keyframes shrink-height {
+  from {
+    height: 100vh;
+  }
+  to {
+    height: 20px;
+  }
+}
+

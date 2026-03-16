@@ -2,6 +2,15 @@
   min-height: 100vh;
 }
 
+.heroPinned {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Progress Bar Styles */
 .progressBarContainer {
   position: fixed;
@@ -46,12 +55,12 @@
 .heroImage {
   width: 100%;
   position: relative;
-  aspect-ratio: 16/9;
+  flex: 1;
+  aspect-ratio: auto;
   overflow: hidden;
   background-color: var(--muted);
   opacity: 0;
-  transform: translateY(60px);
-  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .imageAnimated {
@@ -71,15 +80,23 @@
 }
 
 .mainContent {
-  max-width:1920px;
+  width: 100%;
   padding-top: 4rem;
   padding-bottom: 3rem;
-  padding-left: 24vw;
-  padding-right: 8rem;
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-top: -15vh; /* pull content up so it scrolls over the hero */
+  position: relative;
+  z-index: 10;
+  background-color: var(--background); /* full-bleed white background */
+}
+
+.mainContentInner {
+  max-width: 1920px;
   margin: 0 auto;
+  padding-left: 24vw;
+  padding-right: 8rem;
 }
 
 .contentAnimated {
@@ -157,6 +174,12 @@
   font-weight: inherit;
 }
 
+.proseContent :global(img) {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 .vennDiagramSection {
   margin: 6rem 0;
   padding: 0;
@@ -205,13 +228,17 @@
   }
 
   .mainContent {
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
 @media (max-width: 780px) {
   .mainContent {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .mainContentInner {
     padding-right: 1rem;
     padding-left: 1rem;
   }

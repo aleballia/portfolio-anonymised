@@ -25,7 +25,7 @@ export default function Hero() {
         }}>
           <ScrollingTicker 
             text="Leading with curiosity & purpose" 
-            speed={40}
+            speed={80}
             className="display"
           />
         </div>

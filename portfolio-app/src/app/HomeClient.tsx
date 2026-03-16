@@ -75,43 +75,33 @@ export default function HomeClient() {
           opacity={0.2}
         />
 
-       <div className={styles.heroBackground}>
-        <div className={styles.contentWrapper}>
-          {/* Header */}
-          <Header />
-          
-          {/* Hero Section - no spacing needed as it's full height */}
-          <Hero />
-        </div>
-        </div>
+        <div className={styles.mainContent}>
+          <div className={styles.heroBackground}>
+            <div className={styles.contentWrapper}>
+              <Header />
+              <Hero />
+            </div>
+          </div>
 
+          <Section className="section-loose" id="selected-work">
+            <SelectedWork />
+          </Section>
 
+          <Section className="section-loose">
+            <About />
+          </Section>
 
-        {/* Selected Work */}
-        <Section className="section-loose" id="selected-work">
-          <SelectedWork />
-        </Section>
+          <Section className="section-loose">
+            <Testimonials />
+          </Section>
 
-                {/* About */}
-        <Section className="section-loose">
-          <About />
-        </Section>
-        
-        {/* Testimonials */}
-        <Section className="section-loose">
-          <Testimonials />
-        </Section>
+          <Section className="section-loose" id="client-logos">
+            <ClientLogos />
+          </Section>
 
-        
-      {/* Selected Work */}
-         <Section className="section-loose" id="client-logos">
-          <ClientLogos />
-        </Section>
-        
-        {/* Let's Connect */}
           <LetsConnect />
+        </div>
 
-        {/* Footer */}
         <Footer />
       </div>
     </motion.div>

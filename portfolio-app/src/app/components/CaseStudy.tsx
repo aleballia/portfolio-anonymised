@@ -50,6 +50,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const [isContentLoaded, setIsContentLoaded] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [heroScale, setHeroScale] = useState(1.2);
 
   useEffect(() => {
     // Trigger title animation first
@@ -80,6 +81,13 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       setScrollProgress(Math.min(scrollPercent, 100));
+
+      // Scale hero image from 1.2 down to 1.0 over the first viewport of scroll
+      const maxDistance = window.innerHeight || 400;
+      const clamped = Math.min(Math.max(scrollTop, 0), maxDistance);
+      const progress = clamped / maxDistance; // 0 → 1
+      const scale = 1.2 - progress * 0.2; // 1.2 → 1.0
+      setHeroScale(scale);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -101,32 +109,35 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
       
       <article className={styles.caseStudy}>
 
-        {/* Hero Section: Title & Subtitle */}
+        {/* Title scrolls normally */}
         <div className={`px-section ${styles.heroSectionTitle} ${isTitleLoaded ? styles.titleAnimated : ''}`}>
           <h1 className={`h1 ${styles.title}`}>
             {title}
           </h1>
         </div>
 
-        {/* Full-width Image */}
-        <div className={`${styles.heroImage} ${isImageLoaded ? styles.imageAnimated : ''}`}>
-          <Image
-            src={image}
-            alt={`${title} Project`}
-            fill
-            className="object-cover"
-            priority
-            style={{
-            objectFit: "cover",
-            objectPosition: "top",
-            }}
-          />
+        {/* Pinned hero image only */}
+        <div className={styles.heroPinned}>
+          <div className={`${styles.heroImage} ${isImageLoaded ? styles.imageAnimated : ''}`}>
+            <Image
+              src={image}
+              alt={`${title} Project`}
+              fill
+              className="object-cover"
+              priority
+              style={{
+                objectFit: "cover",
+                objectPosition: "top",
+                transform: `scale(${heroScale})`,
+              }}
+            />
+          </div>
         </div>
 
-        {/* Main content, pushed down by image height */}
+        {/* Main content, overlapping and scrolling over hero image */}
         <section className={`${styles.mainContent} ${isContentLoaded ? styles.contentAnimated : ''}`}>
-          
-          <div className={styles.contentContainer}>
+          <div className={styles.mainContentInner}>
+            <div className={styles.contentContainer}>
   
             {/* Summary and Details Grid - stack on mobile, side-by-side on desktop, with background and padding */}
             <div>
@@ -212,9 +223,9 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                 ))}
               </div>
             </div>
-          </div>
+            </div>
 
-          <div className={styles.contentWrapper}>
+            <div className={styles.contentWrapper}>
               
               {/* Rich Text Content with interleaved images */}
               <div className={`prose prose-invert ${styles.proseContent}`}>
@@ -237,6 +248,7 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
                 </div>
               )}
             </div>
+          </div>
         </section>
 
       </article>

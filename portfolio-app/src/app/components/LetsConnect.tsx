@@ -38,7 +38,7 @@ const LetsConnect: React.FC = () => {
       <div className={styles.container}>
       <ScrollingTicker 
             text="Let's connect" 
-            speed={40}
+            speed={80}
             className="display"
           />
        <div className={styles.buttonContainer}> <button 

@@ -8,11 +8,20 @@ interface ScrollingTickerProps {
   className?: string;
 }
 
+const REPEAT_COUNT = 8;
+
 const ScrollingTicker: React.FC<ScrollingTickerProps> = ({ 
   text, 
   speed = 5, 
   className = "" 
 }) => {
+  const items = Array.from({ length: REPEAT_COUNT }, (_, i) => (
+    <React.Fragment key={i}>
+      <span className={styles.tickerText}>{text}</span>
+      <span className={styles.separator}>•</span>
+    </React.Fragment>
+  ));
+
   return (
     <div className={`${styles.tickerContainer} ${className}`}>
       <div 
@@ -22,17 +31,8 @@ const ScrollingTicker: React.FC<ScrollingTickerProps> = ({
           animationDelay: '0s'
         }}
       >
-        <span className={styles.tickerText}>{text}</span>
-        <span className={styles.separator}>•</span>
-        <span className={styles.tickerText}>{text}</span>
-        <span className={styles.separator}>•</span>
-        <span className={styles.tickerText}>{text}</span>
-        <span className={styles.separator}>•</span>
-        <span className={styles.tickerText}>{text}</span>
-        <span className={styles.separator}>•</span>
-        <span className={styles.tickerText}>{text}</span>
-        <span className={styles.separator}>•</span>
-        <span className={styles.tickerText}>{text}</span>
+        {items}
+        {items}
       </div>
     </div>
   );

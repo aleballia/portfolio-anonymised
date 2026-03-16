@@ -4,6 +4,19 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
+  position: sticky;
+  bottom: 0;
+  z-index: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .footerContainer {

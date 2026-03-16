@@ -64,7 +64,8 @@ export default async function TomAndCoCaseStudy() {
       
       <ProjectNavigation 
         currentProject={caseStudy} 
-        allProjects={allCaseStudies} 
+        allProjects={allCaseStudies}
+        hideAdjacent 
       />
       
       <FloatingLiveButton liveLink={localContent?.liveLink || caseStudy.liveLink || ''} />

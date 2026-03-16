@@ -6,14 +6,15 @@ import { getCaseStudyContent } from "../../../lib/content";
 import { getCaseStudyById, getAllCaseStudies } from "../../../lib/caseStudies";
 import type { Metadata } from "next";
 
+
 export async function generateMetadata(): Promise<Metadata> {
-  const caseStudy = getCaseStudyById('myfujifilm');
+  const caseStudy = getCaseStudyById('twicefulmind-inertia');
   const localContent = caseStudy?.contentFile
     ? getCaseStudyContent(caseStudy.id, caseStudy.contentFile, {
-        title: caseStudy.title,
-        subtitle: caseStudy.subtitle,
-        liveLink: caseStudy.liveLink,
-      })
+      title: caseStudy.title,
+      subtitle: caseStudy.subtitle,
+      liveLink: caseStudy.liveLink,
+    })
     : null;
 
   const title = (localContent?.title || caseStudy?.title || '').trim();
@@ -25,10 +26,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default async function MyFujifilmCaseStudy() {
-  const caseStudy = getCaseStudyById('myfujifilm');
+export default async function TwicefulMindInertiaCaseStudy() {
+  const caseStudy = getCaseStudyById('twicefulmind-inertia');
   const allCaseStudies = getAllCaseStudies();
-  
+
   if (!caseStudy) {
     throw new Error('Case study not found');
   }
@@ -38,7 +39,7 @@ export default async function MyFujifilmCaseStudy() {
     subtitle: caseStudy.subtitle,
     liveLink: caseStudy.liveLink
   }) : null;
-  
+
   return (
     <>
       <CaseStudy
@@ -60,13 +61,11 @@ export default async function MyFujifilmCaseStudy() {
           </div>
         )}
       </CaseStudy>
-      
-      <ProjectNavigation 
-        currentProject={caseStudy} 
+      <ProjectNavigation
+        currentProject={caseStudy}
         allProjects={allCaseStudies}
-        hideAdjacent 
+        hideAdjacent
       />
-      
       <FloatingLiveButton liveLink={localContent?.liveLink || caseStudy.liveLink || ''} />
     </>
   );

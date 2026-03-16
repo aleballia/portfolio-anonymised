@@ -80,6 +80,15 @@
   letter-spacing: -0.05em;
 }
 
+.compact .workTitle {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  padding: 1.5rem 0;
+}
+
+.compact .workSubtitle {
+  font-size: 0.9rem;
+}
+
 .workTitle:hover .workSubtitle {
   opacity: 1;
   transform: translateY(0);
