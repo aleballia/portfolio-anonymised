@@ -7,60 +7,21 @@
   border-top: 1px solid var(--border);
 }
 
-.workListHidden {
-  border-top-color: transparent;
-}
-
-.workListReveal {
-  border-top-color: transparent;
-  animation: borderReveal 0s steps(1) forwards;
-}
-
 .staggerHidden {
-  border-color: transparent;
-}
-
-.staggerHidden .workContent {
   opacity: 0;
-  transform: translateX(-24px);
-}
-
-.staggerHidden .imageContainer {
-  opacity: 0;
+  transform: translateX(-20px);
 }
 
 .staggerIn {
-  border-color: transparent;
-  animation: borderReveal 1.2s steps(1) var(--stagger-delay, 1.2s) forwards;
-}
-
-.staggerIn .workContent {
   opacity: 0;
-  transform: translateX(-24px);
-  animation: slideInFromLeft 1s ease-out var(--stagger-delay, 0s) forwards;
-}
-
-.staggerIn .imageContainer {
-  opacity: 0;
-  animation: fadeIn 1s ease-out var(--stagger-delay, 0s) forwards;
+  transform: translateX(-20px);
+  animation: slideInFromLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger-delay, 0s) forwards;
 }
 
 @keyframes slideInFromLeft {
   to {
     opacity: 1;
     transform: translateX(0);
-  }
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes borderReveal {
-  to {
-    border-color: var(--border);
   }
 }
 
@@ -326,25 +287,9 @@ a.workTitle :hover {
   }
 
   .staggerHidden,
-  .staggerHidden .workContent,
-  .staggerHidden .imageContainer {
+  .staggerIn {
     opacity: 1;
     transform: none;
-    border-color: var(--border);
-  }
-
-  .staggerIn,
-  .staggerIn .workContent,
-  .staggerIn .imageContainer {
-    opacity: 1;
-    transform: none;
-    animation: none;
-    border-color: var(--border);
-  }
-
-  .workListHidden,
-  .workListReveal {
-    border-top-color: var(--border);
     animation: none;
   }
 }

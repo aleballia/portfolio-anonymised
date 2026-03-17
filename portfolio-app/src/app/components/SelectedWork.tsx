@@ -93,10 +93,10 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({
     <>
       <h2 className="heading-section h4">{heading}</h2>
         
-        <div ref={listRef} className={`${styles.workList} ${compact ? styles.compact : ""} ${(animate || scrollVisible) ? styles.workListReveal : styles.workListHidden}`}>
+        <div ref={listRef} className={`${styles.workList} ${compact ? styles.compact : ""}`}>
           {visibleCaseStudies.map((work, idx) => {
             const shouldAnimate = animate || scrollVisible;
-            const delay = animate ? 0.35 + idx * 0.07 : idx * 0.07;
+            const delay = idx * 0.07;
             return (
             <Link
               href={work.href}
