@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
     <footer className={`${styles.footer} ${visible ? styles.visible : ""} caption`}>
       <div className="px-section">
         <div className={styles.footerContainer}>
-          <span>© 2025 Alessandra Balliana – Portfolio – Built with Cursor</span>
+          <span>© 2026 Alessandra Balliana – Product Design Lead</span>
         </div>
       </div>
     </footer>
