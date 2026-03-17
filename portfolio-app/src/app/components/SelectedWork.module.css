@@ -7,6 +7,39 @@
   border-top: 1px solid var(--border);
 }
 
+.skeleton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.skeletonText {
+  flex: 1;
+  height: 2.5rem;
+  border-radius: var(--radius);
+  background: var(--muted);
+  animation: shimmer 1.5s ease-in-out infinite;
+  max-width: 60%;
+}
+
+.skeletonImage {
+  width: 300px;
+  height: 150px;
+  border-radius: var(--radius);
+  background: var(--muted);
+  animation: shimmer 1.5s ease-in-out infinite;
+  animation-delay: 0.15s;
+  flex-shrink: 0;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.15; }
+}
+
 .staggerHidden {
   opacity: 0;
   transform: translateX(-20px);
@@ -291,6 +324,26 @@ a.workTitle :hover {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+
+  .skeleton {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0;
+    margin-top: 1rem;
+    border-bottom: none;
+  }
+
+  .skeletonText {
+    height: 1.8rem;
+    max-width: 70%;
+  }
+
+  .skeletonImage {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
   }
 }
 

@@ -20,9 +20,18 @@ const PlaygroundOverlay = dynamic(
   { ssr: false }
 );
 
+function PlaygroundWrapper() {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <PlaygroundOverlay visible={open} onClose={() => setOpen(false)} />
+      <PlaygroundFAB active={open} onClick={() => setOpen(true)} />
+    </>
+  );
+}
+
 export default function HomeClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [playgroundOpen, setPlaygroundOpen] = useState(false);
 
   // Listen for modal state changes
   useEffect(() => {
@@ -73,8 +82,7 @@ export default function HomeClient() {
       }}
     >
       <div style={{ position: 'relative' }}>
-        <PlaygroundOverlay visible={playgroundOpen} onClose={() => setPlaygroundOpen(false)} />
-        <PlaygroundFAB active={playgroundOpen} onClick={() => setPlaygroundOpen(true)} />
+        <PlaygroundWrapper />
 
         {/* Aurora only behind header and hero */}
         <AuroraBackground

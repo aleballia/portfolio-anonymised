@@ -53,20 +53,17 @@ const CaseStudy: React.FC<CaseStudyProps> = ({
   const [heroScale, setHeroScale] = useState(1.2);
 
   useEffect(() => {
-    // Trigger title animation first
     const titleTimer = setTimeout(() => {
       setIsTitleLoaded(true);
-    }, 200);
+    }, 50);
 
-    // Trigger image animation after title
     const imageTimer = setTimeout(() => {
       setIsImageLoaded(true);
-    }, 600);
+    }, 200);
 
-    // Trigger content animation last
     const contentTimer = setTimeout(() => {
       setIsContentLoaded(true);
-    }, 1000);
+    }, 350);
 
     return () => {
       clearTimeout(titleTimer);

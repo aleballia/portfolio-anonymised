@@ -94,6 +94,12 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({
       <h2 className="heading-section h4">{heading}</h2>
         
         <div ref={listRef} className={`${styles.workList} ${compact ? styles.compact : ""}`}>
+          {!animate && !scrollVisible && visibleCaseStudies.map((_, idx) => (
+            <div key={`skel-${idx}`} className={styles.skeleton}>
+              <div className={styles.skeletonText} />
+              <div className={styles.skeletonImage} />
+            </div>
+          ))}
           {visibleCaseStudies.map((work, idx) => {
             const shouldAnimate = animate || scrollVisible;
             const delay = idx * 0.07;
