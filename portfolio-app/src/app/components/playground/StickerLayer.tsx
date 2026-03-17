@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useCallback, useState } from "react";
+import React, { useRef, useCallback } from "react";
 import styles from "./StickerLayer.module.css";
 
 export interface Sticker {
@@ -18,6 +18,7 @@ interface StickerLayerProps {
   stickerMode: boolean;
   selectedSticker: string | null;
   onPlaceSticker: (x: number, y: number) => void;
+  onDragChange?: (dragging: boolean, overTrash: boolean) => void;
 }
 
 function hitTestTrash(clientX: number, clientY: number) {
@@ -40,11 +41,10 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
   stickerMode,
   selectedSticker,
   onPlaceSticker,
+  onDragChange,
 }) => {
   const dragging = useRef<{ id: string; offsetX: number; offsetY: number } | null>(null);
   const justDragged = useRef(false);
-  const [isDragging, setIsDragging] = useState(false);
-  const [overTrash, setOverTrash] = useState(false);
 
   const handleLayerClick = (e: React.MouseEvent) => {
     if (justDragged.current) {
@@ -63,8 +63,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
         offsetX: e.clientX - sticker.x,
         offsetY: e.clientY - sticker.y,
       };
-      setIsDragging(true);
-      setOverTrash(false);
+      onDragChange?.(true, false);
 
       const onMove = (ev: MouseEvent) => {
         if (!dragging.current) return;
@@ -73,7 +72,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
           ev.clientX - dragging.current.offsetX,
           ev.clientY - dragging.current.offsetY
         );
-        setOverTrash(hitTestTrash(ev.clientX, ev.clientY));
+        onDragChange?.(true, hitTestTrash(ev.clientX, ev.clientY));
       };
 
       const onUp = (ev: MouseEvent) => {
@@ -82,8 +81,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
         }
         dragging.current = null;
         justDragged.current = true;
-        setIsDragging(false);
-        setOverTrash(false);
+        onDragChange?.(false, false);
         window.removeEventListener("mousemove", onMove);
         window.removeEventListener("mouseup", onUp);
       };
@@ -91,7 +89,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
       window.addEventListener("mousemove", onMove);
       window.addEventListener("mouseup", onUp);
     },
-    [onUpdateSticker, onDeleteSticker]
+    [onUpdateSticker, onDeleteSticker, onDragChange]
   );
 
   const handleStickerTouchStart = useCallback(
@@ -103,8 +101,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
         offsetX: touch.clientX - sticker.x,
         offsetY: touch.clientY - sticker.y,
       };
-      setIsDragging(true);
-      setOverTrash(false);
+      onDragChange?.(true, false);
 
       const onMove = (ev: TouchEvent) => {
         if (!dragging.current) return;
@@ -115,7 +112,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
           t.clientX - dragging.current.offsetX,
           t.clientY - dragging.current.offsetY
         );
-        setOverTrash(hitTestTrash(t.clientX, t.clientY));
+        onDragChange?.(true, hitTestTrash(t.clientX, t.clientY));
       };
 
       const onEnd = (ev: TouchEvent) => {
@@ -125,8 +122,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
         }
         dragging.current = null;
         justDragged.current = true;
-        setIsDragging(false);
-        setOverTrash(false);
+        onDragChange?.(false, false);
         window.removeEventListener("touchmove", onMove);
         window.removeEventListener("touchend", onEnd);
       };
@@ -134,51 +130,36 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
       window.addEventListener("touchmove", onMove, { passive: false });
       window.addEventListener("touchend", onEnd);
     },
-    [onUpdateSticker, onDeleteSticker]
+    [onUpdateSticker, onDeleteSticker, onDragChange]
   );
 
   return (
-    <>
-      <div
-        data-playground-stickers
-        className={styles.layer}
-        style={{ pointerEvents: stickerMode ? "auto" : "none", cursor: stickerMode && selectedSticker ? "copy" : "default" }}
-        onClick={handleLayerClick}
-      >
-        {stickers.map((s) => (
-          <div
-            key={s.id}
-            className={styles.sticker}
-            style={{
-              left: s.x,
-              top: s.y,
-              pointerEvents: "auto",
-            }}
-            onMouseDown={(e) => handleStickerMouseDown(e, s)}
-            onTouchStart={(e) => handleStickerTouchStart(e, s)}
-          >
-            {s.type === "emoji" ? (
-              <span className={styles.emoji}>{s.content}</span>
-            ) : (
-              <img src={s.content} alt="sticker" className={styles.customImg} draggable={false} />
-            )}
-          </div>
-        ))}
-      </div>
-
-      {isDragging && (
+    <div
+      data-playground-stickers
+      className={styles.layer}
+      style={{ pointerEvents: stickerMode ? "auto" : "none", cursor: stickerMode && selectedSticker ? "copy" : "default" }}
+      onClick={handleLayerClick}
+    >
+      {stickers.map((s) => (
         <div
-          data-playground-trash
-          className={`${styles.trashZone} ${overTrash ? styles.trashZoneActive : ""}`}
+          key={s.id}
+          className={styles.sticker}
+          style={{
+            left: s.x,
+            top: s.y,
+            pointerEvents: "auto",
+          }}
+          onMouseDown={(e) => handleStickerMouseDown(e, s)}
+          onTouchStart={(e) => handleStickerTouchStart(e, s)}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M3 6h18"/>
-            <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
-            <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
-          </svg>
+          {s.type === "emoji" ? (
+            <span className={styles.emoji}>{s.content}</span>
+          ) : (
+            <img src={s.content} alt="sticker" className={styles.customImg} draggable={false} />
+          )}
         </div>
-      )}
-    </>
+      ))}
+    </div>
   );
 };
 

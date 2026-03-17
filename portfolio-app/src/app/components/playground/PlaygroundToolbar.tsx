@@ -4,7 +4,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import StickerPicker from "./StickerPicker";
 import styles from "./PlaygroundToolbar.module.css";
 
-export type Tool = "pen" | "eraser" | "sticker";
+export type Tool = "pen" | "eraser" | "sticker" | "fill";
 
 const COLORS_LIGHT = ["#1c1c1c", "#FF4B6E", "#FFB800", "#1efb7d", "#7e27e0", "#3B82F6", "#ffffff"];
 const COLORS_DARK = ["#ffffff", "#FF4B6E", "#FFB800", "#1efb7d", "#7e27e0", "#3B82F6", "#1c1c1c"];
@@ -23,6 +23,9 @@ interface PlaygroundToolbarProps {
   selectedSticker: string | null;
   onStickerSelect: (content: string, type: "emoji" | "custom") => void;
   isDark?: boolean;
+  showMandala: boolean;
+  onToggleMandala: () => void;
+  onShuffle: () => void;
 }
 
 const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
@@ -38,20 +41,27 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
   selectedSticker,
   onStickerSelect,
   isDark,
+  showMandala,
+  onToggleMandala,
+  onShuffle,
 }) => {
   const COLORS = isDark ? COLORS_DARK : COLORS_LIGHT;
   const [showStickerPicker, setShowStickerPicker] = useState(false);
   const [showColors, setShowColors] = useState(false);
   const [showSizes, setShowSizes] = useState(false);
+  const [showMandalaMenu, setShowMandalaMenu] = useState(false);
+  const [showPenMenu, setShowPenMenu] = useState(false);
 
   const closeAllPopovers = useCallback(() => {
     setShowStickerPicker(false);
     setShowColors(false);
     setShowSizes(false);
+    setShowMandalaMenu(false);
+    setShowPenMenu(false);
   }, []);
 
   useEffect(() => {
-    const anyOpen = showStickerPicker || showColors || showSizes;
+    const anyOpen = showStickerPicker || showColors || showSizes || showMandalaMenu || showPenMenu;
     if (!anyOpen) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -61,58 +71,115 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [showStickerPicker, showColors, showSizes, closeAllPopovers]);
+  }, [showStickerPicker, showColors, showSizes, showMandalaMenu, showPenMenu, closeAllPopovers]);
 
   const handleToolClick = (tool: Tool) => {
     if (tool === "sticker") {
       setShowStickerPicker((v) => !v);
       setShowColors(false);
       setShowSizes(false);
-      onToolChange(tool);
+      setShowMandalaMenu(false);
+      setShowPenMenu(false);
     } else {
       setShowStickerPicker(false);
-      onToolChange(tool);
+      setShowPenMenu(false);
     }
+    onToolChange(tool);
   };
 
   return (
     <div className={styles.toolbar} data-playground-toolbar>
+      {/* Drawing tools */}
       <div className={styles.group}>
-        <button
-          className={`${styles.btn} ${activeTool === "pen" ? styles.btnActive : ""}`}
-          onClick={() => handleToolClick("pen")}
-          title="Pen"
-        >
-          <span className={styles.btnIcon}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-            </svg>
-          </span>
-          <span className={styles.label}>Pen</span>
-        </button>
-
-        <button
-          className={`${styles.btn} ${activeTool === "eraser" ? styles.btnActive : ""}`}
-          onClick={() => handleToolClick("eraser")}
-          title="Eraser"
-        >
-          <span className={styles.btnIcon}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/>
-              <path d="M22 21H7"/>
-              <path d="m5 11 9 9"/>
-            </svg>
-          </span>
-          <span className={styles.label}>Eraser</span>
-        </button>
+        <div className={styles.popoverAnchor}>
+          <button
+            className={`${styles.btn} ${(activeTool === "pen" || activeTool === "fill" || activeTool === "eraser") ? styles.btnActive : ""}`}
+            onClick={() => {
+              setShowPenMenu((v) => !v);
+              setShowStickerPicker(false);
+              setShowColors(false);
+              setShowSizes(false);
+              setShowMandalaMenu(false);
+            }}
+            title="Pen"
+          >
+            <span className={styles.btnIcon}>
+              {activeTool === "fill" ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"/>
+                  <path d="m5 2 5 5"/>
+                  <path d="M2 13h15"/>
+                  <path d="M22 20a2 2 0 1 1-4 0c0-1.6 2-3 2-3s2 1.4 2 3"/>
+                </svg>
+              ) : activeTool === "eraser" ? (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/>
+                  <path d="M22 21H7"/>
+                  <path d="m5 11 9 9"/>
+                </svg>
+              ) : (
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                </svg>
+              )}
+            </span>
+            <span className={styles.label}>Tools</span>
+          </button>
+          {showPenMenu && (
+            <div className={styles.popover}>
+              <div className={styles.mandalaMenu}>
+                <button
+                  className={`${styles.mandalaMenuBtn} ${activeTool === "pen" ? styles.mandalaMenuBtnActive : ""}`}
+                  onClick={() => { handleToolClick("pen"); setShowPenMenu(false); }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                  </svg>
+                  Draw
+                </button>
+                <button
+                  className={`${styles.mandalaMenuBtn} ${activeTool === "eraser" ? styles.mandalaMenuBtnActive : ""}`}
+                  onClick={() => { handleToolClick("eraser"); setShowPenMenu(false); }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="m7 21-4.3-4.3c-1-1-1-2.5 0-3.4l9.6-9.6c1-1 2.5-1 3.4 0l5.6 5.6c1 1 1 2.5 0 3.4L13 21"/>
+                    <path d="M22 21H7"/>
+                    <path d="m5 11 9 9"/>
+                  </svg>
+                  Erase
+                </button>
+                {showMandala && (
+                  <button
+                    className={`${styles.mandalaMenuBtn} ${activeTool === "fill" ? styles.mandalaMenuBtnActive : ""}`}
+                    onClick={() => { handleToolClick("fill"); setShowPenMenu(false); }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m19 11-8-8-8.6 8.6a2 2 0 0 0 0 2.8l5.2 5.2c.8.8 2 .8 2.8 0L19 11Z"/>
+                      <path d="m5 2 5 5"/>
+                      <path d="M2 13h15"/>
+                      <path d="M22 20a2 2 0 1 1-4 0c0-1.6 2-3 2-3s2 1.4 2 3"/>
+                    </svg>
+                    Fill
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
 
         <div className={styles.popoverAnchor}>
           <button
-            className={`${styles.btn} ${activeTool === "sticker" ? styles.btnActive : ""}`}
+            className={`${styles.btn} ${activeTool === "sticker" && selectedSticker ? styles.btnActive : ""}`}
             onClick={() => handleToolClick("sticker")}
             title="Stickers"
           >
-            <span className={styles.btnIcon}>✨</span>
+            <span className={styles.btnIcon}>
+              {selectedSticker ? (
+                selectedSticker.startsWith("/") ? (
+                  <img src={selectedSticker} alt="" width="20" height="20" />
+                ) : selectedSticker
+              ) : "✨"}
+            </span>
             <span className={styles.label}>Stickers</span>
           </button>
           {showStickerPicker && (
@@ -124,15 +191,75 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
             />
           )}
         </div>
+
+        <div className={styles.popoverAnchor}>
+          <button
+            className={`${styles.btn} ${showMandalaMenu ? styles.btnActive : ""}`}
+            onClick={() => {
+              setShowMandalaMenu((v) => !v);
+              setShowStickerPicker(false);
+              setShowColors(false);
+              setShowSizes(false);
+              setShowPenMenu(false);
+            }}
+            title="Mandala"
+          >
+            <span className={styles.btnIcon}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="6"/>
+                <circle cx="12" cy="12" r="2"/>
+              </svg>
+            </span>
+            <span className={styles.label}>Mandala</span>
+          </button>
+          {showMandalaMenu && (
+            <div className={styles.popover}>
+              <div className={styles.mandalaMenu}>
+                {!showMandala && (
+                  <button className={styles.mandalaMenuBtn} onClick={() => { onToggleMandala(); setShowMandalaMenu(false); }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10"/>
+                      <circle cx="12" cy="12" r="6"/>
+                      <circle cx="12" cy="12" r="2"/>
+                    </svg>
+                    Add mandala
+                  </button>
+                )}
+                {showMandala && (
+                  <>
+                    <button className={styles.mandalaMenuBtn} onClick={() => { onShuffle(); setShowMandalaMenu(false); }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                        <path d="M3 3v5h5"/>
+                        <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                        <path d="M16 16h5v5"/>
+                      </svg>
+                      New mandala
+                    </button>
+                    <button className={styles.mandalaMenuBtn} onClick={() => { onToggleMandala(); setShowMandalaMenu(false); }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M18 6 6 18"/>
+                        <path d="m6 6 12 12"/>
+                      </svg>
+                      Remove mandala
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className={styles.divider} />
 
+      {/* Color and size */}
       <div className={styles.group}>
         <div className={styles.popoverAnchor}>
           <button
             className={styles.btn}
-            onClick={() => { setShowColors((v) => !v); setShowSizes(false); setShowStickerPicker(false); }}
+            onClick={() => { setShowColors((v) => !v); setShowSizes(false); setShowStickerPicker(false); setShowMandalaMenu(false); setShowPenMenu(false); }}
             title="Color"
           >
             <span className={styles.btnIcon}><span className={styles.colorDot} style={{ background: color }} /></span>
@@ -157,7 +284,7 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
         <div className={styles.popoverAnchor}>
           <button
             className={styles.btn}
-            onClick={() => { setShowSizes((v) => !v); setShowColors(false); setShowStickerPicker(false); }}
+            onClick={() => { setShowSizes((v) => !v); setShowColors(false); setShowStickerPicker(false); setShowMandalaMenu(false); setShowPenMenu(false); }}
             title="Size"
           >
             <span className={styles.btnIcon}>
@@ -187,6 +314,7 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
 
       <div className={styles.divider} />
 
+      {/* Actions */}
       <div className={styles.group}>
         <button className={styles.btn} onClick={onClear} title="Clear all">
           <span className={styles.btnIcon}>
@@ -209,7 +337,6 @@ const PlaygroundToolbar: React.FC<PlaygroundToolbarProps> = ({
           <span className={styles.label}>Screenshot</span>
         </button>
       </div>
-
     </div>
   );
 };

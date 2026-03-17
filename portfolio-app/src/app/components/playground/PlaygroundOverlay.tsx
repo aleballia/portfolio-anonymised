@@ -3,6 +3,7 @@
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import DrawingCanvas from "./DrawingCanvas";
 import StickerLayer, { Sticker } from "./StickerLayer";
+import MandalaCanvas from "./MandalaCanvas";
 import PlaygroundToolbar, { Tool } from "./PlaygroundToolbar";
 import { useTheme } from "../ThemeProvider";
 import styles from "./PlaygroundOverlay.module.css";
@@ -25,8 +26,14 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
   const [isCapturing, setIsCapturing] = useState(false);
   const [screenshotMode, setScreenshotMode] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
+  const [stickerDrag, setStickerDrag] = useState({ dragging: false, overTrash: false });
   const overlayRef = useRef<HTMLDivElement>(null);
   const prevToolRef = useRef<Tool>("pen");
+
+  // Mandala state
+  const [showMandala, setShowMandala] = useState(false);
+  const [mandalaSeed, setMandalaSeed] = useState(() => Math.floor(Math.random() * 2147483646) + 1);
+  const [mandalaFills, setMandalaFills] = useState<Record<string, string>>({});
 
   useEffect(() => {
     setColor((prev) => {
@@ -78,7 +85,12 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
     setStickers((prev) => prev.filter((s) => s.id !== id));
   }, []);
 
+  const handleStickerDragChange = useCallback((dragging: boolean, overTrash: boolean) => {
+    setStickerDrag({ dragging, overTrash });
+  }, []);
+
   const handleClear = useCallback(() => {
+    setMandalaFills({});
     setStickers([]);
     const canvas = document.querySelector<HTMLCanvasElement>("[data-playground-canvas]");
     if (canvas) {
@@ -86,6 +98,70 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
       ctx?.clearRect(0, 0, canvas.width, canvas.height);
     }
   }, []);
+
+  const handleToggleMandala = useCallback(() => {
+    setShowMandala((prev) => {
+      if (!prev) {
+        setActiveTool("fill");
+      } else if (activeTool === "fill") {
+        setActiveTool("pen");
+      }
+      return !prev;
+    });
+    setHasInteracted(true);
+  }, [activeTool]);
+
+  const handleShuffle = useCallback(() => {
+    setMandalaSeed(Math.floor(Math.random() * 2147483646) + 1);
+    setMandalaFills({});
+  }, []);
+
+  const handleFillRegion = useCallback(
+    (regionId: string) => {
+      setHasInteracted(true);
+      setMandalaFills((prev) => ({ ...prev, [regionId]: color }));
+    },
+    [color]
+  );
+
+  const handleEraseRegion = useCallback((regionId: string) => {
+    setHasInteracted(true);
+    setMandalaFills((prev) => {
+      if (!prev[regionId]) return prev;
+      const next = { ...prev };
+      delete next[regionId];
+      return next;
+    });
+  }, []);
+
+  const mandalaFillsRef = useRef(mandalaFills);
+  mandalaFillsRef.current = mandalaFills;
+
+  const stickersRef = useRef(stickers);
+  stickersRef.current = stickers;
+
+  const handleEraseAt = useCallback((x: number, y: number) => {
+    const EMOJI_HIT = 24;
+    const CUSTOM_HIT = 36;
+    for (const s of stickersRef.current) {
+      const r = s.type === "custom" ? CUSTOM_HIT : EMOJI_HIT;
+      if (Math.abs(x - s.x) <= r && Math.abs(y - s.y) <= r) {
+        handleDeleteSticker(s.id);
+      }
+    }
+
+    const svg = document.querySelector<SVGSVGElement>("[data-mandala-svg]");
+    if (!svg) return;
+    const ctm = svg.getScreenCTM();
+    if (!ctm) return;
+    const pt = new DOMPoint(x, y).matrixTransform(ctm.inverse());
+    svg.querySelectorAll<SVGPathElement>("[data-region-id]").forEach((path) => {
+      const regionId = path.getAttribute("data-region-id");
+      if (regionId && mandalaFillsRef.current[regionId] && path.isPointInFill(pt)) {
+        handleEraseRegion(regionId);
+      }
+    });
+  }, [handleEraseRegion, handleDeleteSticker]);
 
   const handleEnterScreenshotMode = useCallback(() => {
     prevToolRef.current = activeTool;
@@ -134,21 +210,33 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
       className={styles.overlay}
       style={{ display: visible ? undefined : "none" }}
     >
+      {showMandala && (
+        <MandalaCanvas
+          seed={mandalaSeed}
+          regionFills={mandalaFills}
+          onFillRegion={handleFillRegion}
+          fillActive={visible && !screenshotMode && activeTool === "fill"}
+        />
+      )}
+
       <DrawingCanvas
         active={visible && !screenshotMode && (activeTool === "pen" || activeTool === "eraser")}
         color={color}
         lineWidth={lineWidth}
         eraser={activeTool === "eraser"}
+        isDark={isDark}
         onDrawStart={() => setHasInteracted(true)}
+        onEraseAt={handleEraseAt}
       />
 
       <StickerLayer
         stickers={stickers}
         onUpdateSticker={handleUpdateSticker}
         onDeleteSticker={handleDeleteSticker}
-        stickerMode={visible && !screenshotMode && activeTool === "sticker"}
+        stickerMode={visible && !screenshotMode && activeTool === "sticker" && !!selectedSticker}
         selectedSticker={selectedSticker?.content ?? null}
         onPlaceSticker={handlePlaceSticker}
+        onDragChange={handleStickerDragChange}
       />
 
       {screenshotMode && (
@@ -168,7 +256,9 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
 
       {visible && !isCapturing && !screenshotMode && (
         <>
-          <div className={`${styles.title} ${hasInteracted ? styles.titleHidden : ""}`}>Sometimes all you need is a break and a whiteboard. Start drawing and add stickers!</div>
+          <div className={`${styles.title} ${hasInteracted ? styles.titleHidden : ""}`}>
+            Sometimes all you need is a break and a whiteboard!
+          </div>
           <button
             className={styles.closeBtn}
             onClick={onClose}
@@ -179,20 +269,37 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
               <path d="m6 6 12 12"/>
             </svg>
           </button>
-          <PlaygroundToolbar
-            activeTool={activeTool}
-            onToolChange={setActiveTool}
-            color={color}
-            onColorChange={setColor}
-            lineWidth={lineWidth}
-            onLineWidthChange={setLineWidth}
-            onClear={handleClear}
-            onScreenshot={handleEnterScreenshotMode}
-            onClose={onClose}
-            selectedSticker={selectedSticker?.content ?? null}
-            onStickerSelect={handleStickerSelect}
-            isDark={isDark}
-          />
+          {stickerDrag.dragging ? (
+            <div
+              data-playground-trash
+              className={`${styles.trashZone} ${stickerDrag.overTrash ? styles.trashZoneActive : ""}`}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 6h18"/>
+                <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+                <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+              </svg>
+              <span>Drop to delete</span>
+            </div>
+          ) : (
+            <PlaygroundToolbar
+              activeTool={activeTool}
+              onToolChange={setActiveTool}
+              color={color}
+              onColorChange={setColor}
+              lineWidth={lineWidth}
+              onLineWidthChange={setLineWidth}
+              onClear={handleClear}
+              onScreenshot={handleEnterScreenshotMode}
+              onClose={onClose}
+              selectedSticker={selectedSticker?.content ?? null}
+              onStickerSelect={handleStickerSelect}
+              isDark={isDark}
+              showMandala={showMandala}
+              onToggleMandala={handleToggleMandala}
+              onShuffle={handleShuffle}
+            />
+          )}
         </>
       )}
     </div>

@@ -48,8 +48,7 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 4px;
-  max-height: 180px;
-  overflow-y: auto;
+  overflow: visible;
 }
 
 .item {

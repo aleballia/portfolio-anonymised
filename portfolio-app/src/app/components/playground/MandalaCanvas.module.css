@@ -1,0 +1,38 @@
+.wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.svg {
+  width: min(70vw, 70vh);
+  height: min(70vw, 70vh);
+}
+
+.region {
+  fill: transparent;
+  stroke: var(--muted-foreground);
+  stroke-width: 1;
+  transition: fill 0.15s ease;
+}
+
+.region:hover {
+  stroke: var(--foreground);
+  stroke-width: 1.5;
+}
+
+.regionFilled {
+  stroke: var(--muted-foreground);
+  stroke-width: 0.8;
+}
+
+@media (max-width: 768px) {
+  .svg {
+    width: 85vw;
+    height: 85vw;
+  }
+}

@@ -81,6 +81,41 @@
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
+.trashZone {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco;
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  z-index: 10002;
+  pointer-events: none;
+  border: 2px dashed var(--border);
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  animation: trashFadeIn 0.15s ease;
+}
+
+.trashZoneActive {
+  background: rgba(220, 50, 50, 0.12);
+  border-color: #dc3232;
+  color: #dc3232;
+  transform: translateX(-50%) scale(1.05);
+}
+
+@keyframes trashFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
 @media (max-width: 768px) {
   .overlay {
     margin: 0;
@@ -93,5 +128,22 @@
   .closeBtn {
     top: 16px;
     right: 12px;
+  }
+
+  .trashZone {
+    bottom: 20px;
+    left: 8px;
+    right: 8px;
+    transform: none;
+    justify-content: center;
+  }
+
+  .trashZoneActive {
+    transform: scale(1.02);
+  }
+
+  @keyframes trashFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
