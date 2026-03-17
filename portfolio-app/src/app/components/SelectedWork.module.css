@@ -323,9 +323,29 @@ a.workTitle :hover {
 
   .tags {
     display: none;
-  } 
+  }
 
+  .staggerHidden,
+  .staggerHidden .workContent,
+  .staggerHidden .imageContainer {
+    opacity: 1;
+    transform: none;
+    border-color: var(--border);
+  }
 
-  
-} 
+  .staggerIn,
+  .staggerIn .workContent,
+  .staggerIn .imageContainer {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    border-color: var(--border);
+  }
+
+  .workListHidden,
+  .workListReveal {
+    border-top-color: var(--border);
+    animation: none;
+  }
+}
 

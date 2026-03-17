@@ -6,7 +6,7 @@ Company: Twiceful Mind
 Tags: Music, Digital Art, Installation, Performance
 Date: 2018
 Tools: Various Tools
-Summary: Twiceful Mind is a multidisciplinary music project built around the intersection of music, visual art, and live performance. The aim was to develop a cohesive creative work that operated across multiple formats — music release, animated video, live event, and physical print.
+Summary: Twiceful Mind is a multidisciplinary music project at the intersection of music, visual art, and live performance. The aim was to develop a cohesive creative work that operated across multiple formats — music release, animated video, live event, and physical print.
 
 ## Backstory
 
