@@ -7,6 +7,7 @@ export interface DrawingCanvasProps {
   color: string;
   lineWidth: number;
   eraser: boolean;
+  onDrawStart?: () => void;
 }
 
 const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
@@ -14,6 +15,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
   color,
   lineWidth,
   eraser,
+  onDrawStart,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isDrawing = useRef(false);
@@ -57,6 +59,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({
     if (!active) return;
     isDrawing.current = true;
     lastPos.current = getPos(e);
+    onDrawStart?.();
   };
 
   const draw = (e: React.MouseEvent | React.TouchEvent) => {

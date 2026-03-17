@@ -4,6 +4,7 @@ import React, { useState, useCallback, useRef, useEffect } from "react";
 import DrawingCanvas from "./DrawingCanvas";
 import StickerLayer, { Sticker } from "./StickerLayer";
 import PlaygroundToolbar, { Tool } from "./PlaygroundToolbar";
+import { useTheme } from "../ThemeProvider";
 import styles from "./PlaygroundOverlay.module.css";
 
 interface PlaygroundOverlayProps {
@@ -14,6 +15,8 @@ interface PlaygroundOverlayProps {
 let stickerIdCounter = 0;
 
 const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose }) => {
+  const themeCtx = useTheme();
+  const isDark = themeCtx?.theme === "dark";
   const [activeTool, setActiveTool] = useState<Tool>("pen");
   const [color, setColor] = useState("#1c1c1c");
   const [lineWidth, setLineWidth] = useState(6);
@@ -21,8 +24,17 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
   const [selectedSticker, setSelectedSticker] = useState<{ content: string; type: "emoji" | "custom" } | null>(null);
   const [isCapturing, setIsCapturing] = useState(false);
   const [screenshotMode, setScreenshotMode] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
   const prevToolRef = useRef<Tool>("pen");
+
+  useEffect(() => {
+    setColor((prev) => {
+      if (isDark && prev === "#1c1c1c") return "#ffffff";
+      if (!isDark && prev === "#ffffff") return "#1c1c1c";
+      return prev;
+    });
+  }, [isDark]);
 
   useEffect(() => {
     if (!screenshotMode) return;
@@ -51,6 +63,7 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
         ...prev,
         { id, content: selectedSticker.content, x, y, type: selectedSticker.type },
       ]);
+      setHasInteracted(true);
     },
     [selectedSticker]
   );
@@ -126,6 +139,7 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
         color={color}
         lineWidth={lineWidth}
         eraser={activeTool === "eraser"}
+        onDrawStart={() => setHasInteracted(true)}
       />
 
       <StickerLayer
@@ -154,7 +168,7 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
 
       {visible && !isCapturing && !screenshotMode && (
         <>
-          <div className={styles.title}>Sometimes all you need is a break and a whiteboard</div>
+          <div className={`${styles.title} ${hasInteracted ? styles.titleHidden : ""}`}>Sometimes all you need is a break and a whiteboard. Start drawing and add stickers!</div>
           <button
             className={styles.closeBtn}
             onClick={onClose}
@@ -177,6 +191,7 @@ const PlaygroundOverlay: React.FC<PlaygroundOverlayProps> = ({ visible, onClose 
             onClose={onClose}
             selectedSticker={selectedSticker?.content ?? null}
             onStickerSelect={handleStickerSelect}
+            isDark={isDark}
           />
         </>
       )}

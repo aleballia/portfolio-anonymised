@@ -4,28 +4,36 @@
   z-index: 10000;
   pointer-events: none;
   background: var(--background);
-  margin: 0.5%;
+  margin: 16px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco;
 }
 
 .title {
   position: fixed;
-  top: 1.5%;
-  left: 1%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 10002;
   pointer-events: none;
-  color: var(--muted-foreground);
-  font-size: 0.8rem;
-  font-weight: 500;
+  color: #484848;
+  font-size: var(--font-size-large);
+  font-weight: 600;
   letter-spacing: -0.02em;
-  line-height: 40px;
+  line-height: 1.2;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.titleHidden {
+  opacity: 0;
 }
 
 .closeBtn {
   position: fixed;
-  top: 1.5%;
-  right: 1%;
+  top: 20px;
+  right: 32px;
   z-index: 10002;
   pointer-events: auto;
   display: flex;
@@ -72,4 +80,19 @@
 @keyframes hintFadeIn {
   from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    margin: 0;
+  }
+
+  .title {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .closeBtn {
+    top: 16px;
+    right: 12px;
+  }
 }
