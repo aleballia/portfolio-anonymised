@@ -43,7 +43,7 @@ const PlaygroundFAB: React.FC<PlaygroundFABProps> = ({ active, onClick }) => {
                 <path d="m15 5 4 4" />
               </svg>
             </span>
-            <span className={styles.label}>Creative break</span>
+            <span className={styles.label}>Take a break</span>
           </button>
         </motion.div>
       )}

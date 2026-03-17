@@ -42,10 +42,15 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
   onPlaceSticker,
 }) => {
   const dragging = useRef<{ id: string; offsetX: number; offsetY: number } | null>(null);
+  const justDragged = useRef(false);
   const [isDragging, setIsDragging] = useState(false);
   const [overTrash, setOverTrash] = useState(false);
 
   const handleLayerClick = (e: React.MouseEvent) => {
+    if (justDragged.current) {
+      justDragged.current = false;
+      return;
+    }
     if (!stickerMode || !selectedSticker || dragging.current) return;
     onPlaceSticker(e.clientX, e.clientY);
   };
@@ -76,6 +81,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
           onDeleteSticker(dragging.current.id);
         }
         dragging.current = null;
+        justDragged.current = true;
         setIsDragging(false);
         setOverTrash(false);
         window.removeEventListener("mousemove", onMove);
@@ -118,6 +124,7 @@ const StickerLayer: React.FC<StickerLayerProps> = ({
           onDeleteSticker(dragging.current.id);
         }
         dragging.current = null;
+        justDragged.current = true;
         setIsDragging(false);
         setOverTrash(false);
         window.removeEventListener("touchmove", onMove);

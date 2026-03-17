@@ -22,6 +22,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
   const [isVisible, setIsVisible] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const observerRef = useRef<IntersectionObserver | null>(null);
+  const isClickScrolling = useRef(false);
 
   // Generate navigation items from headings
   useEffect(() => {
@@ -174,7 +175,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
     if (navigationItems.length === 0) return;
 
     const observerOptions = {
-      rootMargin: '-20% 0px -60% 0px',
+      rootMargin: '-10% 0px -70% 0px',
       threshold: 0
     };
 
@@ -195,10 +196,10 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
     });
 
     observerRef.current = new IntersectionObserver((entries) => {
+      if (isClickScrolling.current) return;
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const targetId = entry.target.id;
-          // If this is a subsection, map it to its parent level 2 heading
           const parentId = headingToParentMap.get(targetId);
           setActiveId(parentId || targetId);
         }
@@ -252,7 +253,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
 
       const nearBottom =
         window.innerHeight + window.scrollY >= document.body.scrollHeight - 150;
-      if (nearBottom && navigationItems.length > 0) {
+      if (nearBottom && navigationItems.length > 0 && !isClickScrolling.current) {
         setActiveId(navigationItems[navigationItems.length - 1].id);
       }
     };
@@ -264,25 +265,30 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
   }, [containerSelector, navigationItems]);
 
   const scrollToSection = (id: string) => {
+    setActiveId(id);
+    isClickScrolling.current = true;
+
     const element = document.getElementById(id);
     if (element) {
       let offsetTop;
       
       if (id === 'summary') {
-        // For summary, scroll to the main content section
         const mainContentSection = document.querySelector('[class*="mainContent"]') as HTMLElement;
         offsetTop = mainContentSection?.offsetTop ? mainContentSection.offsetTop + 50 : element.offsetTop - 100;
       } else {
-        // Calculate position relative to viewport, accounting for the new layout
         const rect = element.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        offsetTop = rect.top + scrollTop - 80; // 80px offset from top
+        offsetTop = rect.top + scrollTop - 80;
       }
       
       window.scrollTo({
-        top: Math.max(0, offsetTop), // Ensure we don't scroll to negative values
+        top: Math.max(0, offsetTop),
         behavior: 'smooth'
       });
+
+      setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 800);
     }
   };
 

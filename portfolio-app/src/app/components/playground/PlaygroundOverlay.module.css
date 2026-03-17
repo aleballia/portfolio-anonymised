@@ -4,7 +4,6 @@
   z-index: 10000;
   pointer-events: none;
   background: var(--background);
-  margin: 16px;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
   font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco;
 }
@@ -16,7 +15,7 @@
   transform: translate(-50%, -50%);
   z-index: 10002;
   pointer-events: none;
-  color: #484848;
+  color: var(--muted-foreground);
   font-size: var(--font-size-large);
   font-weight: 600;
   letter-spacing: -0.02em;
