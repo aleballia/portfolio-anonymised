@@ -4,6 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "./ThemeProvider";
 import WebPThemeToggle from './WebPThemeToggle';
+import LocalTime from './LocalTime';
 import styles from "./Header.module.css";
 
 const Header: React.FC = () => {
@@ -125,8 +126,8 @@ const Header: React.FC = () => {
             </span>
           </span>
         </div>
-        {/* WebP Theme Toggle */}
-        <div className="themeToggleButton" style={{ marginLeft: 'auto' }}>
+        <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <LocalTime />
           <WebPThemeToggle />
         </div>
       </div>
