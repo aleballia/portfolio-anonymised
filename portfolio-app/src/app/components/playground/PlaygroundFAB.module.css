@@ -1,0 +1,103 @@
+.wrapper {
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  z-index: 9999;
+}
+
+.fab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: var(--font-size-p);
+  cursor: pointer;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  width: 3.5rem;
+  height: 3.5rem;
+  padding: 1rem;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.3s, padding 0.3s, background 0.2s, color 0.2s;
+}
+
+.fab:hover,
+.fab:focus {
+  background: color-mix(in srgb, var(--primary) 90%, transparent);
+  color: var(--primary-foreground);
+  width: auto;
+  padding: 1rem 2rem;
+}
+
+.icon {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.fab:hover .icon {
+  transform: rotate(0deg);
+}
+
+.label {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  transition: opacity 0.3s, max-width 0.3s, margin-left 0.3s;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.atTop .fab {
+  width: auto;
+  padding: 1rem 2rem;
+}
+
+.atTop .label {
+  opacity: 1;
+  max-width: 200px;
+  margin-left: 0.5rem;
+  pointer-events: auto;
+}
+
+.fab:hover .label,
+.fab:focus .label {
+  opacity: 1;
+  max-width: 200px;
+  margin-left: 0.5rem;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    left: auto;
+    right: 1.5rem;
+    bottom: 0;
+  }
+
+  .atTop .fab {
+    width: 3.5rem;
+    padding: 1rem;
+  }
+
+  .atTop .label {
+    opacity: 0;
+    max-width: 0;
+    margin-left: 0;
+  }
+
+  .fab:hover .label,
+  .fab:focus .label {
+    opacity: 0;
+    max-width: 0;
+    margin-left: 0;
+  }
+}

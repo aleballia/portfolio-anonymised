@@ -1,0 +1,75 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  background: var(--background);
+  margin: 0.5%;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco;
+}
+
+.title {
+  position: fixed;
+  top: 1.5%;
+  left: 1%;
+  z-index: 10002;
+  pointer-events: none;
+  color: var(--muted-foreground);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 40px;
+}
+
+.closeBtn {
+  position: fixed;
+  top: 1.5%;
+  right: 1%;
+  z-index: 10002;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--foreground);
+  transition: all 0.15s ease;
+}
+
+.closeBtn:hover {
+  background: var(--muted);
+}
+
+.screenshotTarget {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  pointer-events: auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='%237e27e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z'/%3E%3Ccircle cx='12' cy='13' r='3'/%3E%3C/svg%3E") 16 16, crosshair;
+}
+
+.screenshotHint {
+  position: fixed;
+  bottom: 124px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  color: var(--foreground);
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: hintFadeIn 0.2s ease;
+}
+
+@keyframes hintFadeIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}

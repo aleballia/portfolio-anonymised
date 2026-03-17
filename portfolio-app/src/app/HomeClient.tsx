@@ -11,10 +11,18 @@ import Section from "./components/Section";
 import About from "./components/About";
 import LetsConnect from "./components/LetsConnect";
 import ClientLogos from "./components/ClientLogos";
+import dynamic from "next/dynamic";
+import PlaygroundFAB from "./components/playground/PlaygroundFAB";
 import styles from "./HomeClient.module.css";
+
+const PlaygroundOverlay = dynamic(
+  () => import("./components/playground/PlaygroundOverlay"),
+  { ssr: false }
+);
 
 export default function HomeClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [playgroundOpen, setPlaygroundOpen] = useState(false);
 
   // Listen for modal state changes
   useEffect(() => {
@@ -64,7 +72,10 @@ export default function HomeClient() {
         ease: "easeInOut"
       }}
     >
-      <div>
+      <div style={{ position: 'relative' }}>
+        <PlaygroundOverlay visible={playgroundOpen} onClose={() => setPlaygroundOpen(false)} />
+        <PlaygroundFAB active={playgroundOpen} onClick={() => setPlaygroundOpen(true)} />
+
         {/* Aurora only behind header and hero */}
         <AuroraBackground
           colorStops={["#AD00A2", "#7E27E0", "#1efb7d",]}
