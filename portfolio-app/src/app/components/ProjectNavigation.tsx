@@ -17,7 +17,7 @@ interface ProjectNavigationProps {
 const ProjectNavigation: React.FC<ProjectNavigationProps> = ({
   currentProject,
   allProjects,
-  hideAdjacent = false,
+  hideAdjacent = true,
 }) => {
   const [showAll, setShowAll] = useState(false);
   const [visible, setVisible] = useState(false);

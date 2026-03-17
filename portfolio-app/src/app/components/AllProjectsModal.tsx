@@ -55,7 +55,7 @@ export const AllProjectsModal: React.FC<AllProjectsModalProps> = ({
           </div>
 
           <div className={styles.list}>
-            <SelectedWork heading="More Projects" excludeProjectId={currentProjectId} />
+            <SelectedWork heading="More Projects" excludeProjectId={currentProjectId} animate />
           </div>
         </div>
       </div>

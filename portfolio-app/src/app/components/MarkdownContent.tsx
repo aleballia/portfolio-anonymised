@@ -102,6 +102,11 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({ content }) => {
         { label: 'Mobile Traffic', value: '58%', change: 'growth', changeType: 'positive' as const },
         { label: 'Product Revenue from Gifting Experience.', value: '70%', change: 'increase', changeType: 'positive' as const },
       ],
+
+      'F2H Website Performance': [
+        { label: 'Views per Active User', value: '27.4%', change: 'growth', changeType: 'positive' as const },
+        { label: 'Bounce Rate Reduction', value: '-5.5%', change: 'improvement', changeType: 'positive' as const },
+        { label: 'Event Count per Active User', value: '18.2%', change: 'growth', changeType: 'positive' as const },      ],
       };
     
     return statsMap[title] || statsMap['Performance Metrics'];

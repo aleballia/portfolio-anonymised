@@ -22,6 +22,16 @@ export const caseStudies: CaseStudy[] = [
     hoverMessage: '0-1 Product Design'
   },
   {
+    id: 'freedom2hear-website',
+    title: 'Freedom2hear Website',
+    subtitle: 'Website Design & Optimisation for an AI Startup',
+    href: '/work/freedom2hear-website',
+    contentFile: 'freedom2hear-website.md',
+    mainImage: '/work/freedom2hear-3.png',
+    liveLink: 'https://freedom2hear.com',
+    hoverMessage: 'Website & CRO'
+  },
+  {
     id: 'freedom2hear-strategy',
     title: 'Freedom2hear Strategy',
     subtitle: 'Innovation Strategy for an Emotion AI Startup',
@@ -30,16 +40,6 @@ export const caseStudies: CaseStudy[] = [
     mainImage: '/work/freedom2hear-2.png',
     liveLink: 'https://freedom2hear.com',
     hoverMessage: 'Innovation & Growth'
-  },
-  {
-    id: 'frictionless-futures',
-    title: 'Frictionless Futures',
-    subtitle: 'Design for the Future of Retail & Hospitality at PwC',
-    href: '/work/frictionless-futures',
-    contentFile: 'frictionless-futures.md',
-    mainImage: '/work/frictionless-futures.png',
-    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
-    hoverMessage: 'Design for Innovation'
   },
     {
     id: 'tomandco',
@@ -62,13 +62,22 @@ export const caseStudies: CaseStudy[] = [
     hoverMessage: 'Ecommerce',
   },
   {
+    id: 'frictionless-futures',
+    title: 'Frictionless Futures',
+    subtitle: 'Design for the Future of Retail & Hospitality at PwC',
+    href: '/work/frictionless-futures',
+    contentFile: 'frictionless-futures.md',
+    mainImage: '/work/frictionless-futures.png',
+    liveLink: 'https://www.pwc.co.uk/services/frictionless-futures.html',
+    hoverMessage: 'Design for Innovation'
+  },
+  {
     id: 'twicefulmind-inertia',
     title: 'Twiceful Mind — Inertia',
     subtitle: 'A Multi-Disciplinary Project Combining Music, Digital Art & Installation Art',
     href: '/work/twicefulmind-inertia',
     contentFile: 'twicefulmind-inertia.md',
     mainImage: '/work/twicefulmind-inertia.jpg',
-    liveLink: 'https://www.twicefulmind.com/inertia',
     hoverMessage: 'Music, Art & Installation'
   },
   {

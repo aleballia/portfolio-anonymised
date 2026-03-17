@@ -21,14 +21,14 @@
   box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.35);
   display: flex;
   flex-direction: column;
-  animation: grow-height 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: slideUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
   bottom: 0;
   z-index: 1000;
   position: absolute;
 }
 
 .sheetClosing {
-  animation: shrink-height 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  animation: slideDown 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 .inner {
@@ -69,21 +69,27 @@
   flex: 1;
 }
 
-@keyframes grow-height {
+@keyframes slideUp {
   from {
-    height: 20px;
+    transform: translateY(100%);
   }
   to {
-    height: 100vh;
+    transform: translateY(0);
   }
 }
 
-@keyframes shrink-height {
+@keyframes slideDown {
   from {
-    height: 100vh;
+    transform: translateY(0);
   }
   to {
-    height: 20px;
+    transform: translateY(100%);
   }
 }
 
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 0 1rem;
+  }
+}

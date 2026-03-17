@@ -76,22 +76,6 @@ This new approach significantly reduced production time, made the demo easier to
 
 ---
 
-### Marketing Website
-
-I led design for marketing and sales initiatives. As part of this work, I delivered the brand transition from GoBubble to Freedom2hear, ensuring the new identity was consistently applied across marketing assets, sales materials, and digital touchpoints.
-
-![Marketing Website – Homepage Desktop & Mobile](/case-studies/freedom2hear/website-2.png)
-
-Partnered with a creative agency to consolidate GoBubble into Freedom2hear through the relaunch of a single marketing website, designed and built in under 2 months.
-
-The consolidation successfully captured the combined audience of both brands from organic search and achieved significantly higher visibility for Freedom2hear from a small baseline, while early results, as monitored on GA4 and Hotjar, show improved scroll on the homepage, increased engagement rate and "Book a demo" click-through.
-
-![Marketing Website](/case-studies/freedom2hear/homepage.png)
-![Marketing Website – Case Study Page](/case-studies/freedom2hear/case-studies.png)
-![Marketing Website – Information Architecture & Content Mapping](/case-studies/freedom2hear/IA.png)
-
----
-
 ## Impact
 
 - Launched a **new enterprise self-serve moderation platform in under 6 months**.

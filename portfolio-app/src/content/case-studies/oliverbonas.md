@@ -29,7 +29,7 @@ I analysed two years of Google Analytics data to understand shifting device usag
 - Improved Gifting experience with gift box builder and new e-gift card flow.
 
 
-### Creative Direction & UI Design
+### Visual Design
 
 Working closely with a Visual Designer, we overhauled the UI design — refining typography, interactions, and page transitions. We introduced animations, product videos in listing page and a cleaner layouts to evoke Oliver Bonas’ personality digitally, allowing their vibrant and bold product photography to stand out. 
 

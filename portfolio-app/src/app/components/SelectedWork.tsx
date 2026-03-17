@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./SelectedWork.module.css";
 import Link from "next/link";
 import Image from "next/image";
@@ -13,16 +13,38 @@ interface SelectedWorkProps {
   compact?: boolean;
   heading?: string;
   excludeProjectId?: string;
+  animate?: boolean;
 }
 
 const SelectedWork: React.FC<SelectedWorkProps> = ({
   compact = false,
   heading = "Selected projects",
   excludeProjectId,
+  animate = false,
 }) => {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
   const [isDesktop, setIsDesktop] = useState<boolean>(typeof window !== 'undefined' ? window.innerWidth >= 920 : true);
+  const [scrollVisible, setScrollVisible] = useState(false);
+  const listRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (animate) return;
+    const el = listRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setScrollVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [animate]);
 
   // Get filtered case studies (excluding hidden ones and optionally the current project)
   const visibleCaseStudies = getAllCaseStudies().filter(
@@ -71,12 +93,16 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({
     <>
       <h2 className="heading-section h4">{heading}</h2>
         
-        <div className={`${styles.workList} ${compact ? styles.compact : ""}`}>
-          {visibleCaseStudies.map((work, idx) => (
+        <div ref={listRef} className={`${styles.workList} ${compact ? styles.compact : ""} ${(animate || scrollVisible) ? styles.workListReveal : styles.workListHidden}`}>
+          {visibleCaseStudies.map((work, idx) => {
+            const shouldAnimate = animate || scrollVisible;
+            const delay = animate ? 0.35 + idx * 0.07 : idx * 0.07;
+            return (
             <Link
               href={work.href}
               key={work.id}
-              className={styles.workTitle}
+              className={`${styles.workTitle} ${shouldAnimate ? styles.staggerIn : styles.staggerHidden}`}
+              style={shouldAnimate ? { '--stagger-delay': `${delay}s` } as React.CSSProperties : undefined}
               onMouseMove={e => handleMouseMove(e, idx)}
               onMouseEnter={() => handleMouseEnter(idx)}
               onMouseLeave={() => handleMouseLeave()}
@@ -108,7 +134,8 @@ const SelectedWork: React.FC<SelectedWorkProps> = ({
                 />
               </div>
             </Link>
-          ))}
+            );
+          })}
           {/* Floating preview image for desktop hover */}
           {hoveredIdx !== null && !('ontouchstart' in window) && (
             <Image

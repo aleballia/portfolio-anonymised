@@ -44,10 +44,10 @@ const clientLogos: ClientLogo[] = [
     link: "https://oliverbonas.com"
   },
   {
-    name: "Agent Provocateur",
-    logo: "/logos/ap-logo.svg",
-    alt: "Agent Provocateur logo",
-    link: "https://www.agentprovocateur.com/"
+    name: "Chemist4U",
+    logo: "/logos/c4u-logo.svg",
+    alt: "Chemist4U logo",
+    link: "https://www.chemist4u.com/"
   },
   {
     name: "Resi",

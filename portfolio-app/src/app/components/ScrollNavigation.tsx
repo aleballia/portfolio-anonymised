@@ -237,7 +237,7 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
     };
   }, [navigationItems]);
 
-  // Track scroll progress
+  // Track scroll progress and activate last section near page bottom
   useEffect(() => {
     const handleScroll = () => {
       const container = document.querySelector(containerSelector);
@@ -249,13 +249,19 @@ const ScrollNavigation: React.FC<ScrollNavigationProps> = ({
       const progress = Math.min(100, (scrolled / containerHeight) * 100);
       
       setScrollProgress(progress);
+
+      const nearBottom =
+        window.innerHeight + window.scrollY >= document.body.scrollHeight - 150;
+      if (nearBottom && navigationItems.length > 0) {
+        setActiveId(navigationItems[navigationItems.length - 1].id);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial calculation
+    handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [containerSelector]);
+  }, [containerSelector, navigationItems]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);

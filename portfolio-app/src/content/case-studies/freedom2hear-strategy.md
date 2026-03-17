@@ -11,7 +11,7 @@ Summary: Freedom2hear is a privately owned startup developing emotion-based, con
 
 ## Backstory
 
-**Freedom2hear** (previously GoBubble) was repositioning itself in a competitive AI landscape. The company needed to clarify its market position, align internal teams, and secure funding.
+**Freedom2hear** (previously GoBubble) is repositioning itself in a competitive AI landscape. The company needed to clarify its market position, align internal teams, and secure funding.
 
 When I joined, design was not recognised as a strategic driver, but treated as an operational function. My role evolved from delivering product outputs to shaping company direction — embedding design thinking into leadership discussions and ensuring design had influence in critical business decisions.
 
