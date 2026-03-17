@@ -59,13 +59,13 @@
 
 .screenshotHint {
   position: fixed;
-  bottom: 124px;
+  bottom: 2%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 12px 24px;
+  padding: 16px 32px;
   background: var(--card);
   border: 1px solid var(--border-light);
   color: var(--foreground);
@@ -73,11 +73,12 @@
   font-weight: 500;
   white-space: nowrap;
   pointer-events: none;
+  z-index: 10002;
   animation: hintFadeIn 0.2s ease;
 }
 
 @keyframes hintFadeIn {
-  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  from { opacity: 0; transform: translateX(-50%) translateY(8px); }
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
@@ -130,6 +131,14 @@
     right: 12px;
   }
 
+  .screenshotHint {
+    bottom: 20px;
+    left: 8px;
+    right: 8px;
+    transform: none;
+    justify-content: center;
+  }
+
   .trashZone {
     bottom: 20px;
     left: 8px;
@@ -140,6 +149,11 @@
 
   .trashZoneActive {
     transform: scale(1.02);
+  }
+
+  @keyframes hintFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes trashFadeIn {
