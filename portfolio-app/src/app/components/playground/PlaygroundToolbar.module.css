@@ -171,6 +171,10 @@
     gap: 0;
   }
 
+  .btnScreenshot {
+    display: none;
+  }
+
   .divider {
     margin: 0 2px;
   }
