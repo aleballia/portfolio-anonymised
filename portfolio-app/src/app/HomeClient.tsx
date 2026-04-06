@@ -8,8 +8,6 @@ import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import Section from "./components/Section";
-import About from "./components/About";
-import LetsConnect from "./components/LetsConnect";
 import ClientLogos from "./components/ClientLogos";
 import dynamic from "next/dynamic";
 import PlaygroundFAB from "./components/playground/PlaygroundFAB";
@@ -107,18 +105,12 @@ export default function HomeClient() {
           </Section>
 
           <Section className="section-loose">
-            <About />
-          </Section>
-
-          <Section className="section-loose">
             <Testimonials />
           </Section>
 
           <Section className="section-loose" id="client-logos">
             <ClientLogos />
           </Section>
-
-          <LetsConnect />
         </div>
 
         <Footer />

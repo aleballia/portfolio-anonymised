@@ -1,21 +1,16 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "./ThemeProvider";
 import WebPThemeToggle from './WebPThemeToggle';
 import LocalTime from './LocalTime';
 import styles from "./Header.module.css";
+import { siteRole } from "../../config/site";
 
 const Header: React.FC = () => {
   const [hovered, setHovered] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
-
-  // Get theme context with graceful fallback
-  const themeContext = useTheme();
-  const theme = themeContext?.theme || 'light';
-  const toggleTheme = themeContext?.toggleTheme || (() => {});
 
   const isHome = pathname === "/";
 
@@ -27,16 +22,6 @@ const Header: React.FC = () => {
       const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
       sessionStorage.setItem('returningFromCaseStudy', 'true');
       sessionStorage.setItem('scrollPosition', scrollPosition.toString());
-      router.push("/");
-    }
-  };
-
-  const handleHiClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    // Chat functionality removed from homepage
-    if (!isHome) {
-      sessionStorage.setItem('returningFromCaseStudy', 'true');
       router.push("/");
     }
   };
@@ -115,10 +100,7 @@ const Header: React.FC = () => {
                     style={{ display: 'inline-block', position: 'absolute', left: 0, right: 0, pointerEvents: 'none' }}
                   >
                     <span className={styles.logoText}>
-                      Alessandra Balliana
-                      {isHome && (
-                        <div style={{fontWeight: 400, fontSize: '0.92rem', color: 'var(--muted-foreground)', marginTop: '0.5rem'}}><b style={{fontWeight: 500}}>Product Design Leader</b> – London, UK</div>
-                      )}
+                      {siteRole}
                     </span>
                   </motion.span>
                 )}

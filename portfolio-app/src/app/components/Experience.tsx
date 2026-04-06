@@ -252,26 +252,6 @@ export default function Experience() {
                                         minWidth: 0
                                     }}
                                 >
-                                    {exp.title === "button" ? (
-                                        <motion.div
-                                            className={styles.downloadButton}
-                                            initial={{ opacity: 0 }}
-                                            whileInView={{ opacity: 1 }}
-                                            viewport={{ once: true, amount: 0.3 }}
-                                            transition={{ duration: ANIMATION_DURATION, delay: idx * BASE_DELAY + 0.2 }}
-                                            style={{ marginLeft: 10 }}
-                                        >
-                                            <a
-                                                href="/ab-resume.pdf"
-                                                className="btn"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                Download CV
-                                            </a>
-                                        </motion.div>
-                                    ) : (
-                                        <>
                                             <motion.h3
                                                 className={`${idx === 0 ? "h2" : "h3"} ${styles.jobTitle}`}
                                                 initial={{ opacity: 0 }}
@@ -301,8 +281,6 @@ export default function Experience() {
                                             >
                                                <span style={{ fontWeight: 400 }}>{exp.company}</span> <span style={{ fontWeight: 200 }}> – {exp.period}</span>
                                             </motion.div>
-                                        </>
-                                    )}
                                 </motion.div>
                             </motion.div>
                         );

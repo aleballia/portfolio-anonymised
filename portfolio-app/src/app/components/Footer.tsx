@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "./Footer.module.css";
+import { siteRole } from "../../config/site";
 
 const SCROLL_THRESHOLD = 120;
 
@@ -19,7 +20,7 @@ const Footer: React.FC = () => {
     <footer className={`${styles.footer} ${visible ? styles.visible : ""} caption`}>
       <div className="px-section">
         <div className={styles.footerContainer}>
-          <span>© 2026 Alessandra Balliana – Product Design Lead</span>
+          <span>© 2026 {siteRole}</span>
         </div>
       </div>
     </footer>

@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono";
 import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "./components/ThemeProvider";
+import { rootMetadata } from "../config/metadata";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,18 +20,7 @@ const rockSalt = Rock_Salt({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: {
-    default: "Alessandra Balliana | Product Design Lead",
-    template: "%s | Alessandra Balliana",
-  },
-  description:
-    "Portfolio of Alessandra Balliana, Product Design Lead focused on strategy, execution, and AI-driven products.",
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+export const metadata: Metadata = rootMetadata;
 
 export default function RootLayout({
   children,
