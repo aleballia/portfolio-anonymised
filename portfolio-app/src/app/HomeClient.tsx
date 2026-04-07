@@ -8,6 +8,7 @@ import Header from "./components/Header";
 import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import Section from "./components/Section";
+import About from "./components/About";
 import ClientLogos from "./components/ClientLogos";
 import dynamic from "next/dynamic";
 import PlaygroundFAB from "./components/playground/PlaygroundFAB";
@@ -102,6 +103,10 @@ export default function HomeClient() {
 
           <Section className="section-loose" id="selected-work">
             <SelectedWork />
+          </Section>
+
+          <Section className="section-loose" id="about">
+            <About />
           </Section>
 
           <Section className="section-loose">
